@@ -1,0 +1,22 @@
+# Visual Studio / .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+# BarTender Binary Targets (Proprietary Files)
+target/
+*.exe
+*.dll
+*.pdb
+*.chm
+
+# Temporary / Scratch
+*.tmp
+*.log
+*.bak
+.DS_Store
+Thumbs.db

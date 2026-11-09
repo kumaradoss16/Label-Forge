@@ -1,0 +1,102 @@
+{
+  "hashes": {
+    "md5": "7af37ab384391fcc03935a569d705aa0",
+    "sha1": "7a57fefa26e99ddec6a46625a8cc17c5a87593aa",
+    "sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594",
+    "sha512": "501ccc356dc177d1c7337f2489c9e87abf3843a63cd88769d130d989413c3d60ee10935d189638e2e0c44483a9357bc221e17c1430a301a87b615bda8838cc27",
+    "size_bytes": 20774984
+  },
+  "machine": "0x8664",
+  "characteristics": "0x22",
+  "subsystem": 2,
+  "entry_point": "0x97d0fb",
+  "image_base": "0x140000000",
+  "linker_version": "14.29",
+  "os_version": "6.0",
+  "subsystem_version": "6.0",
+  "dll_characteristics": {
+    "DYNAMIC_BASE (ASLR)": false,
+    "FORCE_INTEGRITY": false,
+    "NX_COMPAT (DEP)": true,
+    "NO_ISOLATION": false,
+    "NO_SEH": false,
+    "NO_BIND": false,
+    "APPCONTAINER": false,
+    "WDM_DRIVER": false,
+    "GUARD_CF (Control Flow Guard)": false,
+    "TERMINAL_SERVER_AWARE": true,
+    "HIGH_ENTROPY_VA": true
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "virtual_address": "0x1000",
+      "virtual_size": 10924174,
+      "raw_size": 10924544,
+      "entropy": 6.3922,
+      "characteristics": "0x60000020"
+    },
+    {
+      "name": ".nep",
+      "virtual_address": "0xa6d000",
+      "virtual_size": 86272,
+      "raw_size": 86528,
+      "entropy": 5.0435,
+      "characteristics": "0x60000020"
+    },
+    {
+      "name": ".rdata",
+      "virtual_address": "0xa83000",
+      "virtual_size": 6758812,
+      "raw_size": 6758912,
+      "entropy": 5.9269,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".data",
+      "virtual_address": "0x10f6000",
+      "virtual_size": 1076568,
+      "raw_size": 822272,
+      "entropy": 4.3546,
+      "characteristics": "0xc0000040"
+    },
+    {
+      "name": ".pdata",
+      "virtual_address": "0x11fd000",
+      "virtual_size": 462588,
+      "raw_size": 462848,
+      "entropy": 6.5111,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".rsrc",
+      "virtual_address": "0x126e000",
+      "virtual_size": 1264272,
+      "raw_size": 1264640,
+      "entropy": 5.678,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".reloc",
+      "virtual_address": "0x13a3000",
+      "virtual_size": 433500,
+      "raw_size": 433664,
+      "entropy": 5.4458,
+      "characteristics": "0x42000040"
+    }
+  ],
+  "resources": {
+    "None": 1,
+    "RT_ICON": 8,
+    "RT_STRING": 1,
+    "RT_RCDATA": 12,
+    "RT_GROUP_ICON": 2,
+    "RT_VERSION": 1,
+    "RT_MANIFEST": 1
+  },
+  "clr_directory": {
+    "present": true,
+    "rva": "0xae9b90",
+    "size": 72
+  }
+}
