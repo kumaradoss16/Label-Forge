@@ -1,0 +1,91 @@
+<Window x:Class="LabelForge.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LabelForge — Professional Label Designer"
+        Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource AppBackground}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Menu Bar -->
+        <Menu Grid.Row="0" Background="{StaticResource SurfaceBackground}" Padding="4,2">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New Label" InputGestureText="Ctrl+N" Click="OnNewDocumentClicked"/>
+                <MenuItem Header="_Open..." InputGestureText="Ctrl+O" Click="OnOpenDocumentClicked"/>
+                <Separator/>
+                <MenuItem Header="_Save" InputGestureText="Ctrl+S" Click="OnSaveDocumentClicked"/>
+                <MenuItem Header="Save _As..." Click="OnSaveAsDocumentClicked"/>
+                <Separator/>
+                <MenuItem Header="E_xit" Click="OnExitClicked"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Undo" InputGestureText="Ctrl+Z"/>
+                <MenuItem Header="_Redo" InputGestureText="Ctrl+Y"/>
+                <Separator/>
+                <MenuItem Header="Cu_t" InputGestureText="Ctrl+X"/>
+                <MenuItem Header="_Copy" InputGestureText="Ctrl+C"/>
+                <MenuItem Header="_Paste" InputGestureText="Ctrl+V"/>
+                <MenuItem Header="_Delete" InputGestureText="Del"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Rulers" IsCheckable="True" IsChecked="True"/>
+                <MenuItem Header="_Grid" IsCheckable="True" IsChecked="True"/>
+                <MenuItem Header="_Snap to Grid" IsCheckable="True" IsChecked="True"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About LabelForge" Click="OnAboutClicked"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Main Toolbar -->
+        <ToolBarTray Grid.Row="1" Background="{StaticResource SurfaceBackground}">
+            <ToolBar Band="0" BandIndex="0">
+                <Button Content="New" Click="OnNewDocumentClicked" Margin="2,0"/>
+                <Button Content="Open" Click="OnOpenDocumentClicked" Margin="2,0"/>
+                <Button Content="Save" Click="OnSaveDocumentClicked" Margin="2,0"/>
+                <Separator/>
+                <Button Content="+ Text" Margin="2,0"/>
+                <Button Content="+ Barcode" Margin="2,0"/>
+                <Button Content="+ Shape" Margin="2,0"/>
+                <Button Content="+ Picture" Margin="2,0"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <!-- Canvas Area / Workspace -->
+        <Border Grid.Row="2" Background="{StaticResource AppBackground}" Padding="16">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Border Background="{StaticResource SurfaceBackground}" 
+                        BorderBrush="{StaticResource BorderColor}" 
+                        BorderThickness="1" 
+                        Width="400" Height="600"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center">
+                    <Grid>
+                        <TextBlock Text="LabelForge Canvas Ready (M0/M1 Baseline)" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center" 
+                                   Foreground="{StaticResource SecondaryText}"
+                                   FontSize="14"/>
+                    </Grid>
+                </Border>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Status Bar -->
+        <StatusBar Grid.Row="3" Background="{StaticResource SurfaceBackground}" BorderBrush="{StaticResource BorderColor}" BorderThickness="0,1,0,0">
+            <StatusBarItem>
+                <TextBlock x:Name="StatusText" Text="Ready" Foreground="{StaticResource SecondaryText}"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="LabelForge v1.0.0 (M1 Core Engine)" Foreground="{StaticResource SecondaryText}"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

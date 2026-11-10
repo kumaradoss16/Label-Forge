@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>LabelForge.Printing</RootNamespace>
+    <AssemblyName>LabelForge.Printing</AssemblyName>
+    <Description>Windows Spooler and Direct Thermal Printing Pipeline for Label-Forge</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LabelForge.Core\LabelForge.Core.csproj" />
+  </ItemGroup>
+</Project>

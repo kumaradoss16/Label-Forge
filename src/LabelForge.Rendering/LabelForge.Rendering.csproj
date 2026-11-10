@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>LabelForge.Rendering</RootNamespace>
+    <AssemblyName>LabelForge.Rendering</AssemblyName>
+    <Description>Rendering Abstractions and WPF/Canvas Visualizers for Label-Forge</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LabelForge.Core\LabelForge.Core.csproj" />
+  </ItemGroup>
+</Project>

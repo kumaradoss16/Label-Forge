@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>LabelForge.DataSources</RootNamespace>
+    <AssemblyName>LabelForge.DataSources</AssemblyName>
+    <Description>Data Source and Database Binding Abstractions for Label-Forge</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LabelForge.Core\LabelForge.Core.csproj" />
+  </ItemGroup>
+</Project>

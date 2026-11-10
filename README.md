@@ -37,6 +37,60 @@ All technical specifications, reverse engineering reports, behavior models, and 
 | [**08. Workflow Catalog**](reports/08_WORKFLOW_CATALOG.md) | 10 end-to-end operator reproduction workflows (page setup, barcodes, QR codes, serialization, CSV binding, printing). |
 | [**09. Build Readiness Report**](reports/09_BUILD_READINESS_REPORT.md) | Engineering prerequisites, project hierarchy, NuGet package manifest, legal safeguards, and 5-milestone roadmap. |
 | [**09. Runtime Evidence Report**](reports/09_RUNTIME_EVIDENCE.md) | Empirical runtime tests, service inspections, exception traces, visual screenshot evidence catalog, and file validations. |
+| [**10. M0 & M1 Execution Report**](reports/10_M0_M1_EXECUTION_REPORT.md) | Completion report for M0 (Engineering Foundation) and M1 (Core Document Engine), domain model, geometry, and test validation. |
+
+---
+
+## Architecture Decision Records (ADRs)
+
+Key architectural choices are documented under [`docs/adr/`](docs/adr/):
+
+* [**ADR-001: Canonical Physical Coordinate System**](docs/adr/ADR-001-canonical-physical-coordinate-system.md) — Double-precision millimeter (`mm`) physical coordinate system decoupled from screen and printer DPI.
+* [**ADR-002: Versioned JSON Open Label (.olb) Document Format**](docs/adr/ADR-002-versioned-json-olb-document-format.md) — Open, human-readable, schema-versioned file format with atomic save and corruption protection.
+* [**ADR-003: Domain Model Decoupling from UI and Output Runtimes**](docs/adr/ADR-003-domain-model-decoupling.md) — Pure .NET 8 core domain isolated from WPF, GDI, and printer spooler dependencies.
+
+---
+
+## Solution & Project Structure
+
+```
+LabelForge/
+├── LabelForge.sln                    # Root solution file
+├── Directory.Build.props              # Shared build settings (C# 12, Nullable, WarningsAsErrors)
+├── nuget.config                      # Package source configuration
+├── docs/adr/                         # Architecture Decision Records (ADR-001, ADR-002, ADR-003)
+├── src/
+│   ├── LabelForge.Core/              # Domain entities, geometry, validation, and JSON serialization (net8.0)
+│   ├── LabelForge.Rendering/         # Canvas rendering abstractions and contracts (net8.0-windows)
+│   ├── LabelForge.DataSources/       # External data connectors (CSV, database) contracts (net8.0)
+│   ├── LabelForge.Printing/          # Windows spooler & direct printing contracts (net8.0-windows)
+│   └── LabelForge.App/               # WPF Desktop Application Host & MVVM presentation (net8.0-windows)
+└── tests/
+    └── LabelForge.Core.Tests/        # Automated test suite (xUnit, FluentAssertions) (net8.0)
+```
+
+---
+
+## Build and Test Instructions
+
+### Prerequisites
+* Windows 10/11 (x64)
+* [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) (v8.0.404 or newer)
+
+### Build Solution
+```powershell
+dotnet build LabelForge.sln -c Release
+```
+
+### Run Automated Tests
+```powershell
+dotnet test tests/LabelForge.Core.Tests/LabelForge.Core.Tests.csproj -c Release
+```
+
+### Launch Application
+```powershell
+dotnet run --project src/LabelForge.App/LabelForge.App.csproj -c Release
+```
 
 ---
 
