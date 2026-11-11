@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.1.0",
+  "status": "RECONCILED_AUTHORITATIVE",
+  "target_binary": "BarTend.exe",
+  "direct_pe_imports": {
+    "count": 48,
+    "libraries": [
+      "ADVAPI32.dll",
+      "BarCode_Code93i.dll",
+      "BarCode_DotCode.dll",
+      "BarCode_GridMatrix.dll",
+      "BarCode_HanXin.dll",
+      "BarCode_iQRCode.dll",
+      "BarCode_rMQRCode.dll",
+      "COMCTL32.dll",
+      "COMDLG32.dll",
+      "CRYPT32.dll",
+      "GDI32.dll",
+      "IMM32.dll",
+      "IPHLPAPI.DLL",
+      "KERNEL32.dll",
+      "MFCM140U.dll",
+      "MSVCP140.dll",
+      "NETAPI32.dll",
+      "OLEAUT32.dll",
+      "RPCRT4.dll",
+      "SETUPAPI.dll",
+      "SLImage.dll",
+      "Secur32.dll",
+      "ToolkitPro1531vc142x64U.dll",
+      "USER32.dll",
+      "USERENV.dll",
+      "USP10.dll",
+      "VCRUNTIME140.dll",
+      "VCRUNTIME140_1.dll",
+      "VERSION.dll",
+      "WINMM.dll",
+      "WINSPOOL.DRV",
+      "WINTRUST.dll",
+      "api-ms-win-crt-convert-l1-1-0.dll",
+      "api-ms-win-crt-environment-l1-1-0.dll",
+      "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "api-ms-win-crt-heap-l1-1-0.dll",
+      "api-ms-win-crt-locale-l1-1-0.dll",
+      "api-ms-win-crt-math-l1-1-0.dll",
+      "api-ms-win-crt-runtime-l1-1-0.dll",
+      "api-ms-win-crt-stdio-l1-1-0.dll",
+      "api-ms-win-crt-string-l1-1-0.dll",
+      "api-ms-win-crt-time-l1-1-0.dll",
+      "api-ms-win-crt-utility-l1-1-0.dll",
+      "dlsdk_shared.dll",
+      "imagehlp.dll",
+      "mfc140u.dll",
+      "mscoree.dll",
+      "ole32.dll"
+    ]
+  },
+  "delay_load_imports": {
+    "count": 17,
+    "libraries": [
+      "BarCode_Aztec.dll",
+      "BarCode_Composite.dll",
+      "BarCode_DataMatrix.dll",
+      "BarCode_MaxiCode.dll",
+      "BarCode_QRCode.dll",
+      "BarCode_RoyalMail_FourStateMailmark_TypeC.dll",
+      "BarCode_RoyalMail_FourStateMailmark_TypeL.dll",
+      "DriverUtilityLibrary.dll",
+      "MSIMG32.dll",
+      "ODBC32.dll",
+      "SHELL32.dll",
+      "SHLWAPI.dll",
+      "WININET.dll",
+      "WTSAPI32.dll",
+      "dwmapi.dll",
+      "gdiplus.dll",
+      "wfapi64.dll"
+    ]
+  },
+  "total_static_native_links": 65,
+  "phantom_dll_reconciliation": [
+    {
+      "phantom_name": "BtEngine.dll",
+      "prior_claim": "Core label geometry, affine transform matrices, object hit-testing, twip-to-pixel math",
+      "actual_reality": "Does not exist as a standalone DLL. The core object model, geometry transforms, and CArchive serialization are compiled natively inside BarTend.exe itself.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtEngine.dll) == False; CArchive/CObList imports reside in BarTend.exe."
+    },
+    {
+      "phantom_name": "BtBarcode.dll",
+      "prior_claim": "1D & 2D symbology rasterization, Reed-Solomon error correction",
+      "actual_reality": "Does not exist as a single monolithic DLL. Modular 2D symbologies are implemented in dedicated native x64 C++ plugins (BarCode_QRCode.dll, BarCode_DataMatrix.dll, BarCode_Aztec.dll, BarCode_DotCode.dll, BarCode_iQRCode.dll, etc.), while linear 1D barcodes are rasterized within BarTend.exe.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtBarcode.dll) == False; BarCode_*.dll plugin series confirmed present and exported."
+    },
+    {
+      "phantom_name": "BtPrint.dll",
+      "prior_claim": "Windows spooler interfacing, raw printer command construction",
+      "actual_reality": "Does not exist. Printing spooler and printer communication are handled across BarTend.exe, Seagull.BarTender.Print.dll, and Seagull.PrinterSetup.dll via winspool.drv.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtPrint.dll) == False; winspool.drv imported directly by BarTend.exe and Seagull.BarTender.Print.dll."
+    },
+    {
+      "phantom_name": "BtSystem.dll",
+      "prior_claim": "Memory pooling, OS version checks, IPC pipe communication",
+      "actual_reality": "Does not exist. System services and database interop are provided by BtSystem.Client.dll, BtSystem.DataAccess.dll, BtSystem.Interfaces.dll, and Seagull.Framework.dll.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtSystem.dll) == False; BtSystem.* managed assembly family verified on disk."
+    },
+    {
+      "phantom_name": "BtLic.dll",
+      "prior_claim": "Seagull License Server communication and license checks",
+      "actual_reality": "Does not exist. Licensing and security verification are managed by Seagull.License.dll and Seagull.Services.Licensing.dll over WCF/HTTP.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtLic.dll) == False; Seagull.License.dll and Seagull.Services.Licensing.* verified."
+    },
+    {
+      "phantom_name": "BtData.dll",
+      "prior_claim": "Delimited text parser, database queries, serialization counters",
+      "actual_reality": "Does not exist. Data processing is handled by Seagull.Data.dll, Seagull.Data.Core.dll, Seagull.Data.TextFileClient.dll, and Seagull.Data.DataBuilder.dll.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtData.dll) == False; Seagull.Data.* assembly suite verified."
+    },
+    {
+      "phantom_name": "XtremeToolkitPro.dll",
+      "prior_claim": "Codejock Software professional GUI components",
+      "actual_reality": "The actual file on disk is ToolkitPro1531vc142x64U.dll (size: 10,844,184 bytes), representing Codejock Xtreme Toolkit Pro v15.3.1 compiled for Visual C++ 14.2 x64 Unicode.",
+      "evidence": "os.path.exists(D:\\BarTender\\ToolkitPro1531vc142x64U.dll) == True (10,844,184 bytes); imported by BarTend.exe."
+    }
+  ],
+  "third_party_libraries": [
+    {
+      "name": "ToolkitPro1531vc142x64U.dll",
+      "vendor": "Codejock Software",
+      "version": "15.3.1",
+      "role": "MFC UI Ribbon, Docking Panes, Command Bars, Property Grid",
+      "size_bytes": 10844184
+    },
+    {
+      "name": "SciLexer64.dll",
+      "vendor": "Scintilla / Neil Hodgson",
+      "version": "3.x/4.x",
+      "role": "VBScript and JavaScript syntax highlighting editor",
+      "size_bytes": 1539096
+    },
+    {
+      "name": "ClearScriptV8.win-x64.dll",
+      "vendor": "Microsoft ClearScript / Google V8",
+      "version": "V8 JavaScript Engine",
+      "role": "Scripting engine execution runtime",
+      "size_bytes": 12750640
+    },
+    {
+      "name": "WebView2Loader.dll",
+      "vendor": "Microsoft Corporation",
+      "version": "Edge WebView2",
+      "role": "Embedded browser rendering for cloud storage / modern UI dialogs",
+      "size_bytes": 165336
+    }
+  ]
+}

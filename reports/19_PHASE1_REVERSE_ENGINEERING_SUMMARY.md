@@ -28,7 +28,8 @@ All findings are documented under strict clean-room boundaries to provide an ind
 - **Architecture:** `x86_64` (PE32+, Machine `0x8664`, Subsystem: GUI)
 - **File Size:** `20,774,984` bytes (19.81 MB)
 - **SHA-256 Hash:** `d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594`
-- **MD5 Hash:** `7d73010b91dcfaec676bb062bf6a20bc`
+- **SHA-1 Hash:** `7a57fefa26e99ddec6a46625a8cc17c5a87593aa`
+- **MD5 Hash:** `7af37ab384391fcc03935a569d705aa0`
 
 ---
 
@@ -64,10 +65,12 @@ The official REA MCP server (`morluto/rea`, version `6.7.0`) was registered and 
 
 ## 6. Dependency Findings
 
-Total components discovered in `D:\BarTender\`: **589 files** (24 EXEs, 433 DLLs):
-- **Managed Assemblies (331 DLLs):** Core business logic (`Seagull.BarTender.Print.dll`, `Seagull.Data.dll`, `Seagull.Database.dll`, `Seagull.Services.dll`).
-- **Native DLLs (102 DLLs):** MFC runtime (`mfc140u.dll`), GUI shell (`XtremeToolkitPro.dll`), proprietary native engines (`BtEngine.dll`, `BtBarcode.dll`, `BtPrint.dll`, `BtSystem.dll`).
-- **Operating System Libraries:** Links to 48 native Windows libraries, including `winspool.drv` (printing), `gdi32.dll` (fonts/drawing), `ole32.dll` (compound files), and `user32.dll`.
+Total components discovered in `D:\BarTender\`: **589 filesystem items** (555 files, 34 subdirectories, containing 461 PE binaries):
+- **Managed Assemblies (332 PE Binaries):** 19 EXEs + 313 DLLs in pure MSIL (`Seagull.BarTender.Print.dll`, `Seagull.Data.dll`, `Seagull.Database.dll`, `Seagull.Services.*`).
+- **Mixed-Mode C++/CLI (20 PE Binaries):** 2 EXEs (`BarTend.exe`, `ActivationWizard.exe`) + 18 DLLs (`Leadtools.*`, `Seagull.Framework.Interop.dll`, `DriverInteropLibrary.dll`).
+- **Native x64 (27 PE Binaries):** 1 EXE (`SysInfo.exe`) + 22 DLLs (modular `BarCode_*.dll` plugins, `ToolkitPro1531vc142x64U.dll`, `SciLexer64.dll`) + 4 OCXs (Codejock controls).
+- **Native x86 (82 PE Binaries):** 2 legacy EXEs (`BtwConv.exe`, `PrintStation.exe`) + 80 satellite Win32 resource DLLs (`Bt*.dll`, `AW*.dll`, `ToolkitPro.Resource*.dll`).
+- **Operating System Libraries:** Links to 48 direct static native Windows libraries and 17 delay-loaded libraries, including `winspool.drv` (printing), `gdi32.dll`, `ole32.dll`, and `user32.dll`.
 
 ---
 
@@ -80,9 +83,9 @@ Total components discovered in `D:\BarTender\`: **589 files** (24 EXEs, 433 DLLs
 
 ## 8. Native Binary Findings
 
-- **`BtEngine.dll`:** Manages affine transformation matrices, 2D geometry, and twip coordinate conversion (`1 twip = 1/1440 inch`).
-- **`BtBarcode.dll`:** Native rasterizer for 1D barcodes (Code 128, Code 39, EAN, UPC) and 2D matrix codes (QR Code, Data Matrix, PDF417).
-- **Ghidra Limitation:** Ghidra binary distribution was not installed on host. Native investigation was successfully achieved via PE export analysis and REA boundary mapping.
+- **`BarTend.exe` (Native Core):** Contains the core label layout engine, 2D geometry, hit-testing, and twip coordinate conversion (`1 twip = 1/1440 inch`).
+- **`BarCode_*.dll` Plugins:** Dedicated native x64 rasterizers for 2D matrix symbologies (`BarCode_QRCode.dll`, `BarCode_DataMatrix.dll`, `BarCode_Aztec.dll`, `BarCode_DotCode.dll`).
+- **Tooling Status (Ghidra):** Deep native function decompilation via Ghidra was `[NOT_PERFORMED]` due to the absence of a local Ghidra installation (`GHIDRA_INSTALL_DIR` unset). Investigation was rigorously conducted via static PE optional header parsing, export symbol tables, and REA boundary auditing.
 
 ---
 
@@ -116,9 +119,9 @@ Every BarTender feature has been mapped to an independent LabelForge clean-room 
 
 | Previous Claim / Report | Evidence-Driven Correction |
 | :--- | :--- |
-| *Claim: BarTender is a pure native MFC app.* | **Corrected:** It is a mixed-mode C++/CLI application hosting .NET CLR `v4.0.30319` with 331 managed assemblies. |
+| *Claim: BarTender is a pure native MFC app.* | **Corrected:** It is a mixed-mode C++/CLI application hosting .NET CLR `v4.0.30319` with 332 managed/mixed PE assemblies. |
 | *Claim: .btw files are pure XML.* | **Corrected:** `.btw` files are binary OLE Structured Storage compound documents containing binary MFC `CArchive` streams. |
-| *Claim: All barcodes are generated in C#.* | **Corrected:** BarTender delegates barcode rasterization to native `BtBarcode.dll`. LabelForge will use `ZXing.Net` in C#. |
+| *Claim: Core engine resides in BtEngine.dll and BtBarcode.dll.* | **Corrected:** `BtEngine.dll` and `BtBarcode.dll` do not exist. The core engine is native inside `BarTend.exe`, and 2D barcodes use modular `BarCode_*.dll` plugins. |
 
 ---
 

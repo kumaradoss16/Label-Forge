@@ -47,6 +47,8 @@ All technical specifications, reverse engineering reports, behavior models, and 
 | [**17. Phase 1: Runtime & Windows Integration**](reports/17_PHASE1_RUNTIME_AND_WINDOWS_INTEGRATION.md) | Empirical runtime tests, license enforcement exceptions, Windows Spooler GDI vs. raw thermal pass-through. |
 | [**18. Phase 1: Feature Traceability**](reports/18_PHASE1_FEATURE_TRACEABILITY.md) | Comprehensive feature traceability matrix connecting BarTender evidence to LabelForge clean-room components. |
 | [**19. Phase 1: Reverse Engineering Summary**](reports/19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md) | Master Phase 1 summary, Gates A-G evaluation, confirmed facts, inferences, unknowns, and roadmap. |
+| [**20. Phase 1.1: Evidence Reconciliation Report**](reports/20_PHASE1_1_EVIDENCE_RECONCILIATION.md) | Comprehensive 20-section authoritative baseline reconciliation, PE verification, and component census. |
+| [**21. Phase 1.1: Correction Log & Register**](reports/21_PHASE1_1_CORRECTION_LOG.md) | Itemized audit log of historical claim corrections, discrepancy root causes, and justifications. |
 
 ---
 
@@ -95,6 +97,14 @@ dotnet build LabelForge.sln -c Release
 ```powershell
 dotnet test tests/LabelForge.Core.Tests/LabelForge.Core.Tests.csproj -c Release
 ```
+
+### Run Phase 1.1 Automated Evidence Validation
+```powershell
+python scripts/validate-phase1-evidence.py
+# Or via PowerShell wrapper:
+.\scripts\validate-phase1-evidence.ps1
+```
+*Deterministic exit codes:* `0` (PASS), `1` (FAIL), `2` (PREREQUISITE_ERROR).
 
 ### Launch Application
 ```powershell

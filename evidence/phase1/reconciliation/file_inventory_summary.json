@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.1.0",
+  "status": "RECONCILED_AUTHORITATIVE",
+  "target_directory": "D:\\BarTender",
+  "total_filesystem_items": 589,
+  "total_directories": 34,
+  "total_files": 555,
+  "mutually_exclusive_categories": {
+    "executables_exe": 24,
+    "libraries_dll": 433,
+    "activex_ocx": 4,
+    "config_files": 29,
+    "xml_files": 40,
+    "xsd_schemas": 10,
+    "pdf_documentation": 7,
+    "ini_files": 3,
+    "manifest_files": 2,
+    "other_files": 3
+  },
+  "categories_sum": 555,
+  "inventory_reconciliation_proof": {
+    "equation": "total_files == sum(categories.values())",
+    "is_reconciled": true,
+    "filesystem_equation": "total_filesystem_items == total_directories + total_files",
+    "is_filesystem_reconciled": true
+  },
+  "pe_binary_classification": {
+    "total_pe_binaries": 461,
+    "classifications": {
+      "managed_il_only": 332,
+      "mixed_mode_cli": 20,
+      "native_x64": 27,
+      "native_x86": 82
+    },
+    "classifications_sum": 461,
+    "is_pe_sum_reconciled": true
+  }
+}

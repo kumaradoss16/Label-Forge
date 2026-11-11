@@ -1,0 +1,5003 @@
+{
+  "schema_version": "1.1.0",
+  "status": "RECONCILED_AUTHORITATIVE",
+  "target_directory": "D:\\BarTender",
+  "pe_modules_count": 461,
+  "modules": [
+    {
+      "filename": "AWChs.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 777240,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWCht.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 776728,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWCsy.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 831512,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWDan.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 830488,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWEnu.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 827928,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWFin.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 831000,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWFre.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 844824,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWGer.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 843288,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWIta.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 839192,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWJpn.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 793624,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWKor.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 791576,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWNld.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 837144,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWNor.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 827928,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWPol.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 836632,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWPtb.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 836632,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWPtg.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 837656,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWSSDK.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1144320,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "AWSSDK.S3.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 666112,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "AWSSDK.Translate.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 63488,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "AWSpa.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 841240,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWSve.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 829976,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWTai.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 823320,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWTrk.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 829976,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "AWrus.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 838168,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "Accord.Video.DirectShow.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 73728,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Accord.Video.DirectShow.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 198331,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Accord.Video.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 40960,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Accord.Video.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 65588,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Accord.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 131072,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Accord.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 417885,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "ActivationWizard.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 1569864,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "ActivationWizard.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 146,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "AdminConsole.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 383512,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "AdminConsole.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 10751,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "AxInterop.XtremeDockingPane.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 25600,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "AxInterop.XtremePropertyGrid.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 27648,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "AxInterop.XtremeReportControl.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 150016,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "AxInterop.XtremeSuiteControls.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 260608,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "BTLM.ini",
+      "extension": ".ini",
+      "category": "ini_config",
+      "size_bytes": 674,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "BarCode_Aztec.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 43544,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_Code93i.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 70168,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_Composite.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 110104,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_DataMatrix.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 71192,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_DotCode.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 35352,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_GridMatrix.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 52760,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_HanXin.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 75800,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_MaxiCode.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 34328,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_QRCode.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 57368,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_RoyalMail_FourStateMailmark_TypeC.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 49176,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_RoyalMail_FourStateMailmark_TypeL.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 50200,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_iQRCode.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 70680,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarCode_rMQRCode.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 40472,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarTend.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 20774984,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "BarTend.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 146,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "BarTender.Services.Integrations.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 294936,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BouncyCastle.Crypto.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2903600,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "BtChs.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2926104,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtCht.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2929176,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtCsy.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3258392,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtDan.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3253784,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtEnu.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3230744,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtFin.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3252760,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtFre.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3357720,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtGer.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3320344,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtIta.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3316248,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtJpn.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3021336,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtKor.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3013656,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtNld.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3303448,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtNor.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3240984,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtPol.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3285528,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtPtb.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3324440,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtPtg.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3324440,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtSpa.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3343384,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtSve.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3247640,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtSystem.Client.Reader.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 108056,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtSystem.Client.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 58392,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtSystem.DataAccess.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 215576,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtSystem.DatabaseWizard.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 508440,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtSystem.Interfaces.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 105496,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtSystem.Interfaces.dll.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 5408,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "BtSystem.Reprint.Support.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 292376,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtSystem.Service.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 476184,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtSystem.Service.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 15601,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "BtSystem.Support.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 291864,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtSystem.UI.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 447512,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "BtTai.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3201560,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtTrk.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3257880,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "Btrus.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3296792,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtwConv.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 176128,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "BtwConv.exe.manifest",
+      "extension": ".manifest",
+      "category": "manifest",
+      "size_bytes": 900,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Caliburn.Micro.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 116224,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Castle.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 434176,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "ClearScript.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 405384,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "ClearScript.V8.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 300936,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "ClearScript.Windows.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 102792,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "ClearScriptV8.win-x64.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 12750640,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "CnEng.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 53248,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "Codejock.Controls.x64.v15.3.1.ocx",
+      "extension": ".ocx",
+      "category": "activex_control",
+      "size_bytes": 3128352,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "Codejock.DockingPane.x64.v15.3.1.ocx",
+      "extension": ".ocx",
+      "category": "activex_control",
+      "size_bytes": 1683488,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "Codejock.PropertyGrid.x64.v15.3.1.ocx",
+      "extension": ".ocx",
+      "category": "activex_control",
+      "size_bytes": 2082848,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "Codejock.ReportControl.x64.v15.3.1.ocx",
+      "extension": ".ocx",
+      "category": "activex_control",
+      "size_bytes": 2610208,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "DataBuilder.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 325656,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "DataBuilder.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 6348,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "DevExpress.CodeParser.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1747192,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Data.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 7135480,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.DataAccess.v19.1.UI.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 952568,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.DataAccess.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2047736,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Diagram.v19.1.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2951928,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Diagram.v19.1.Core.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 203894,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "DevExpress.Docs.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 254712,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Docs.v19.1.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 375012,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "DevExpress.Images.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 8460536,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Mvvm.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 682744,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Office.v19.1.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2499832,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Pdf.v19.1.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2834168,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Pdf.v19.1.Core.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 329924,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "DevExpress.Printing.v19.1.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 4345592,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.RichEdit.v19.1.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 8679160,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Utils.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 15227640,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Controls.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1406712,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Core.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 10408696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Diagram.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1174264,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Diagram.v19.1.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 396694,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "DevExpress.Xpf.Docking.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1600248,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.DocumentViewer.v19.1.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 507640,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.DocumentViewer.v19.1.Core.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 70118,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "DevExpress.Xpf.Gauges.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1573112,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Grid.v19.1.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2305784,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Grid.v19.1.Extensions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 269560,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Grid.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2472184,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Layout.v19.1.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 110840,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.LayoutControl.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 488696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.NavBar.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 570104,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Printing.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1475832,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.PropertyGrid.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 602360,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Ribbon.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1750776,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.RichEdit.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2132728,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Scheduler.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2069752,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Themes.Office2010Blue.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 8187128,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Themes.Office2010Silver.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 8201464,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpf.Themes.Office2016White.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 7863544,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.Xpo.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2086648,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraBars.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 6584568,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraEditors.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 6787320,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraGauges.v19.1.Win.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 273656,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraGrid.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3417848,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraLayout.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2088184,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraNavBar.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 445688,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraPrinting.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1222904,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraRichEdit.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2050808,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraTreeList.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1533688,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraVerticalGrid.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1047800,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DevExpress.XtraWizard.v19.1.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 87800,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "DriverInteropLibrary.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 665872,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "DriverUtilityLibrary.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1289008,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "Email.ini",
+      "extension": ".ini",
+      "category": "ini_config",
+      "size_bytes": 3280,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "EntityFramework.SqlServer.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 591752,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "EntityFramework.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 4991352,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "EventSystem.Channels.EventLog.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 15896,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "EventSystem.Channels.SMTP.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 18456,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "EventSystem.Channels.SystemDatabase.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 22040,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "EventSystem.Configuration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 521752,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "EventSystem.Router.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 44568,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Explorer.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 603672,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Explorer.Plugin.BarTender.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 404504,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Explorer.Plugin.BarTender.dll.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 1519,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Explorer.Plugin.Maestro.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 340504,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Explorer.Plugin.Messages.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 105496,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Explorer.Plugin.Security.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 97304,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "FirebirdSql.Data.FirebirdClient.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1235968,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "FontAliasing.dat",
+      "extension": ".dat",
+      "category": "other",
+      "size_bytes": 2281,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "GACManagerApi.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 20992,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "GSMChs.pdf",
+      "extension": ".pdf",
+      "category": "pdf_document",
+      "size_bytes": 463968,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "GSMCht.pdf",
+      "extension": ".pdf",
+      "category": "pdf_document",
+      "size_bytes": 505900,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "GSMDeu.pdf",
+      "extension": ".pdf",
+      "category": "pdf_document",
+      "size_bytes": 372696,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "GSMEnu.pdf",
+      "extension": ".pdf",
+      "category": "pdf_document",
+      "size_bytes": 361837,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "GSMEsp.pdf",
+      "extension": ".pdf",
+      "category": "pdf_document",
+      "size_bytes": 370861,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "GSMFra.pdf",
+      "extension": ".pdf",
+      "category": "pdf_document",
+      "size_bytes": 372312,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "GSMJpn.pdf",
+      "extension": ".pdf",
+      "category": "pdf_document",
+      "size_bytes": 492580,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "GraphQL.Client.Abstractions.Websocket.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 9728,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "GraphQL.Client.Abstractions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 16384,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "GraphQL.Client.Serializer.Newtonsoft.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 12800,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "GraphQL.Client.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 45568,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "GraphQL.Primitives.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 11776,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "HistoryExplorer.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 130584,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "HistoryExplorer.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 235,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "IBM.Data.DB2.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1503560,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Integration.Service.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 44568,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Integration.Service.exe.Instance.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 23924,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Integration.Service.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 9959,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "IntegrationBuilder.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 618520,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "IntegrationBuilder.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 12692,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "InternalMagneticStripe.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 7800,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Interop.BarTender.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 183320,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Interop.DriverAutomationLibrary.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 84480,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Interop.MSClusterLib.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 67584,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Interop.Redemption.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1175040,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Interop.XtremeDockingPane.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 82432,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Interop.XtremePropertyGrid.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 100352,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Interop.XtremeReportControl.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 297984,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Interop.XtremeSuiteControls.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 383488,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Ionic.Zip.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 465920,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Leadtools.Codecs.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 703872,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.ColorConversion.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2514816,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.Drawing.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 297344,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.ImageProcessing.Color.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 569216,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.ImageProcessing.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1403264,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.ImageProcessing.Effects.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 542080,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.ImageProcessing.Utilities.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 515456,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.Multimedia.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2952152,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Leadtools.Twain.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 549760,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.Wia.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 481664,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Leadtools.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1592192,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Librarian.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 669208,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Librarian.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 1070,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Licensing.Service.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 29720,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Licensing.Service.exe.Instance.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 3734,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Licensing.Service.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 6177,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "LogicNP.FileView.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 444416,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "LogicNP.FolderView.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 338432,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "LogicNP.ShComboBox.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 137216,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Maestro.Clustering.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 31256,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Maestro.Interface.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 33816,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Maestro.Library.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 259608,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Maestro.Messages.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 30744,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Maestro.Service.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 233496,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Maestro.Service.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 1433,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Maestro.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 3240472,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Maestro.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 997,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "MailKit.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 827904,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "MailKit.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3474979,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Microsoft.Bcl.AsyncInterfaces.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 26904,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Bcl.HashCode.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 23424,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Expression.Interactions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 91648,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.Abstractions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 20360,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 19848,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.FileExtensions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 25480,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.Json.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 24968,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 30600,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 64264,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.DependencyInjection.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 76168,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.FileProviders.Abstractions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 16776,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.FileProviders.Physical.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 35720,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Logging.Abstractions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 67856,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Logging.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 42888,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Options.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 55176,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Extensions.Primitives.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 42376,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.IdentityModel.JsonWebTokens.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 62824,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.IdentityModel.Logging.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 29560,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.IdentityModel.Tokens.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 895856,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.OData.Client.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 782720,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.OData.Client.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 1769633,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Microsoft.OData.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1543040,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.OData.Core.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3616468,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Microsoft.OData.Edm.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 899456,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.OData.Edm.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 918957,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Microsoft.Spatial.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 141184,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.SqlServer.Types.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 394432,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Web.WebView2.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 567896,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Web.WebView2.WinForms.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 38360,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Microsoft.Web.WebView2.Wpf.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 50648,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "MimeKit.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1013760,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "MimeKit.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 2271206,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "ModalContentPresenter.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 12288,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "NLog.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 439808,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "NamedPipeWrapper.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 20992,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Newtonsoft.Json.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 700336,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Ninject.Extensions.Conventions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 31744,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Ninject.Extensions.Factory.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 37376,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Ninject.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 136704,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Npgsql.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1384448,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "Oracle.ManagedDataAccess.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 4712072,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "PrintScheduler.Service.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 28696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "PrintScheduler.Service.exe.Instance.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 13814,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "PrintScheduler.Service.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 5358,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "PrintStation.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 62938024,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "PrinterDefaultSettings.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4836,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "PrinterTemplate.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 162743,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "ProcessBuilder.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 383000,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "ProcessBuilder.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 13526,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Redemption.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 7971464,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "Register.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 38936,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "ReprintConsole.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 124952,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "ReprintConsole.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 235,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "SLImage.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 475136,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 16
+    },
+    {
+      "filename": "SciLexer64.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1539096,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "Seagull.Administration.Common.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51224,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Interfaces.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 24600,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.CloudStorage.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 28696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.Databases.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 264728,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.Email.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 46616,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "Seagull.Administration.Module.FileLocations.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 104472,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.IntegrationSaaS.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 46104,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.IntegrationService.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 54808,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.Librarian.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 139288,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "Seagull.Administration.Module.LicensingService.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1269784,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.PrinterSetup.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 137752,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.Security.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 215576,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.Servers.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 28696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.SystemDb.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 200216,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.VerifierSetup.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 70680,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.Module.WindowsServices.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 61464,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Administration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 39448,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.BarTender.Print.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 433176,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.CloudStorage.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 70680,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.ColorPicker.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 106008,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.ColorUtility.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 36888,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.ClientBase.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 49176,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.CommonDialogs.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 62488,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.Configuration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1902616,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 165400,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.DataBuilder.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 228376,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.Formatting.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 70680,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.JsonDatabaseClient.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 67608,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.SAPIDocConfiguration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51736,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.SAPIDocFileClient.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 67608,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.TextFileClient.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 71704,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.XMLFileClient.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 94232,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Data.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 568856,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.DigimarcAuthentication.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 37912,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Drawing.ClipArt.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 185368,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Drawing.Imaging.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 28696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Drawing.Scanning.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 173592,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Editors.Database.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 924696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Editors.Database.dll.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 1964,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Seagull.Editors.Metadata.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 52248,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Editors.RichText.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 656920,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Editors.Script.Config.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 2602,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Seagull.Editors.Script.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1235992,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Email.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 81944,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.EmailUI.Servers.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 69656,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Forms.Controls.ImageCapture.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 370200,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Forms.Controls.ScaleInput.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 170520,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Forms.Controls.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 291864,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Forms.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 132120,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Framework.Interop.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 350232,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Seagull.Framework.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 4667928,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IO.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 28184,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IntegrationUI.ActionsDialog.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 129560,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IntegrationUI.CloudStorage.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 131096,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Common.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 21016,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Deployment.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 239640,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Main.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2379288,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Management.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 330264,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Messaging.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 310296,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Servers.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 220696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Integrations.Forms.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 28184,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Integrations.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1583128,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Interop.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1756184,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Seagull.Librarian.Core.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 442904,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Librarian.Core.dll.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 1196,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Seagull.Librarian.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2127384,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Librarian.dll.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 1664,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Seagull.License.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 310800,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Notification.SystemTray.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 131880,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.NotificationSupport.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 47912,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.PANTONE.ColorSpace.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1189400,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.PANTONE.ColorStructures.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 16408,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.PANTONE.ColorUtility.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 19992,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Performance.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 34840,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.PrintTicket.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 2266624,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Seagull.PrinterSetup.Interop.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 38912,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Seagull.PrinterSetup.PrinterSettingsConfiguration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 40472,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.PrinterSetup.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 24088,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Printing.PrintRouter.Client.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 33304,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Printing.Wasatch.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 27672,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Repository.Cms.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 70168,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Repository.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 274968,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Scales.Configuration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 639512,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Scales.IO.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 142872,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Scales.IO.dll.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 1054,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Seagull.Security.Configuration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 75288,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Security.Encryptor.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 59416,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Security.Interop.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 768536,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 24
+    },
+    {
+      "filename": "Seagull.Services.Deployment.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 29720,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Deployment.Server.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 83992,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Deployment.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 39448,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Hosts.Integration.Messaging.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 60440,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Hosts.Integration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 114200,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Hosts.Licensing.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 39960,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Hosts.PrintScheduler.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 30232,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Hosts.SecuritySettings.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 21016,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Hosts.StorageSite.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 21016,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Hosts.TargetServerDB.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 21016,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Hosts.Verifier.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 21016,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Integration.Adapters.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51736,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Integration.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 57880,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Integration.Management.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 89624,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Licensing.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 163864,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Licensing.Server.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1030168,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Licensing.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 52248,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Performance.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 18968,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Performance.Server.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 19992,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Performance.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 22040,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.PrintScheduler.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 57880,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.PrintScheduler.Server.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 132632,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.PrintScheduler.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 74264,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.SecuritySettings.Client.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 61464,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.SecuritySettings.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 67608,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.SecuritySettings.Server.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 76824,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.StorageSite.Accounts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 26648,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.StorageSite.Client.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 27160,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.StorageSite.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 19480,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.StorageSite.Server.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 30744,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.TargetServerDB.Common.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 26136,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.TargetServerDB.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 17944,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.TargetServerDB.Server.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 35352,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.TargetServerDB.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 28184,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Verifier.Client.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 27160,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Verifier.Contracts.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 42008,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Services.Verifier.Server.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 55320,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.StateMachine.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 34840,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.TemplateBrowser.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 29208,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.ThirdParty.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 25624,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Transforms.Configuration.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 191512,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Verifier.Driver.V275.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 184344,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Verifier.Drivers.Common.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 55832,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.VerifierSetup.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 38424,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.WindowsServices.Client.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 20504,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.WindowsServices.Common.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 16920,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.WindowsServices.Server.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 23576,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "Seagull.WindowsServices.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 25624,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.WizardFramework.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 29208,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Wpf.Controls.FormsInterop.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 27672,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Wpf.Controls.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 175128,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Wpf.DevExpress.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 27672,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Wpf.Mvvm.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 56856,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.Wpf.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 145944,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "Seagull.XpoDataAccess.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 28696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "SupportCollector.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 704024,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "SupportCollector.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 235,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "SupportLib.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 90112,
+      "pe_classification": "mixed_mode_cli",
+      "architecture": "x64",
+      "flags": 16
+    },
+    {
+      "filename": "SysInfo.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 376832,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "System.Buffers.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 21376,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Collections.Immutable.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 252696,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.CData.Access.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 11717576,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.CData.Excel.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 8777720,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.CData.ExcelOnline.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 6988848,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.CData.GoogleSheets.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 6349920,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.CData.MySQL.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 7009264,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.CData.QuickBooksOnline.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 11844792,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.CData.SAPHANA.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 6321136,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.SqlServerCe.4.0.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 470240,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Data.SqlServerCe.Entity.4.0.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 240352,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Diagnostics.DiagnosticSource.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 189088,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Diagnostics.PerformanceCounter.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 39304,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.IO.Pipelines.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 71552,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.IO.Ports.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 32640,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.IdentityModel.Tokens.Jwt.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 81784,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Memory.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 142752,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Net.WebSockets.Client.Managed.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 72192,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Numerics.Vectors.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 115856,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Reactive.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1268176,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Runtime.CompilerServices.Unsafe.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 18024,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Runtime.InteropServices.RuntimeInformation.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 28624,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Text.Encodings.Web.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 79120,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Text.Json.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 642832,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Threading.Channels.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 74000,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Threading.Tasks.Extensions.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 25984,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.ValueTuple.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 25232,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "System.Windows.Interactivity.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 55904,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "SystemDatabaseWizard.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 154648,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 1
+    },
+    {
+      "filename": "SystemDatabaseWizard.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 690,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TaskListToIntegrationFileConverter.exe",
+      "extension": ".exe",
+      "category": "executable",
+      "size_bytes": 17944,
+      "pe_classification": "managed_il_only",
+      "architecture": "x64",
+      "flags": 9
+    },
+    {
+      "filename": "TaskListToIntegrationFileConverter.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 2557,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "ThermalPrinters.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 2748,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "ToolkitPro.ResourceArSa.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 46080,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceBg.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 47616,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceCs.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48640,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceDa.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 47616,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceDe.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51712,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceEl.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51200,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceEn.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 47616,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceEs.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51200,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceEt.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 47616,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceFi.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 49152,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceFr.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51200,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceHe.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 44544,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceHr.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48640,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceHu.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48128,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceIt.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51200,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceJa.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 38912,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceKo.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 38400,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceLt.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 50176,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceLv.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 47616,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceNl.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 50176,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceNo.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 47616,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourcePl.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48640,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourcePt.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 51200,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourcePtBr.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 50688,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceRo.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 49152,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceRu.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48640,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceSk.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48640,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceSl.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48128,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceSr.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48640,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceSv.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48128,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceTh.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 47616,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceTr.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48128,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceUk.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 48128,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceZhCn.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 35840,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro.ResourceZhTw.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 36864,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "ToolkitPro1531vc142x64U.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 10844184,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "TranslationsChs.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3789,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsCht.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3761,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsCsy.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4082,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsDan.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3874,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsDeu.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3973,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsEsp.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4105,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsFin.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3922,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsFra.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4049,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsIta.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3954,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsJpn.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4214,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsKor.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3984,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsNld.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3936,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsNor.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3927,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsPlk.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4049,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsPtb.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4072,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsPtg.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4071,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsRus.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4941,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsSve.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 3890,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsTha.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 5216,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "TranslationsTrk.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 4004,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Ude.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 163840,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "WebView2Loader.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 165336,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "XMLCommonTypes_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 4186,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "XMLExternalInfo_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 1190,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "XMLFormatChecksum_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 1256,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "XMLLabel_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 5221,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "XMLPages_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 3127,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "XMLResponse_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 15482,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "Xceed.Wpf.Toolkit.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1005568,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "YamlDotNet.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 222208,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "YamlDotNet.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 262465,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "bartend.ico",
+      "extension": ".ico",
+      "category": "other",
+      "size_bytes": 1604,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "btpvdt6.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 775192,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "btwprn.ini",
+      "extension": ".ini",
+      "category": "ini_config",
+      "size_bytes": 12684,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "btxmlscript_1.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 10976,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "btxmlscript_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 2412,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "btxmlscript_base_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 32347,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "btxmlscript_internal_2.0.xsd",
+      "extension": ".xsd",
+      "category": "xml_schema",
+      "size_bytes": 8803,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "dlsdk_shared.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 647168,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "epc-dotnet.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 220672,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "epc-dotnet.xml",
+      "extension": ".xml",
+      "category": "xml_data",
+      "size_bytes": 212219,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "epc-translator-lib.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 678424,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    },
+    {
+      "filename": "ltmm.manifest",
+      "extension": ".manifest",
+      "category": "manifest",
+      "size_bytes": 39961,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "mfg.stk",
+      "extension": ".stk",
+      "category": "other",
+      "size_bytes": 881837,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "nsoftware.CloudStorage.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3449024,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "nsoftware.IPWorks.System.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 203136,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "nsoftware.IPWorks.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 3646848,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "nsoftware.SecureBlackbox.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 19162272,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "sipXtapi.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 1165336,
+      "pe_classification": "native_x86",
+      "architecture": "x86",
+      "flags": 0
+    },
+    {
+      "filename": "sls.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 146,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "slssrv.exe.config",
+      "extension": ".config",
+      "category": "configuration",
+      "size_bytes": 146,
+      "pe_classification": "non_pe",
+      "architecture": null,
+      "flags": null
+    },
+    {
+      "filename": "stdole.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 22344,
+      "pe_classification": "managed_il_only",
+      "architecture": "x86",
+      "flags": 9
+    },
+    {
+      "filename": "usps4cb.dll",
+      "extension": ".dll",
+      "category": "dynamic_library",
+      "size_bytes": 76352,
+      "pe_classification": "native_x64",
+      "architecture": "x64",
+      "flags": 0
+    }
+  ]
+}

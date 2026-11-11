@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.1.0",
+  "status": "RECONCILED_AUTHORITATIVE",
+  "generated_at": "2026-11-11T06:13:54.941853+00:00",
+  "target_application_sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594",
+  "tracked_evidence_files_count": 15,
+  "files": [
+    {
+      "relative_path": "evidence/phase1/target_identity.json",
+      "size_bytes": 3673,
+      "sha256": "a66fbc48a31628159b443e64f945aab92ea7d65f51c3893e48120b47ecdb93a1"
+    },
+    {
+      "relative_path": "evidence/phase1/application_components.json",
+      "size_bytes": 81313,
+      "sha256": "78aafe99ec60f26fa2c4d71a678c0c6a26ea978607cdf4a88f37cab81e4cb347"
+    },
+    {
+      "relative_path": "evidence/phase1/dependency_graph.json",
+      "size_bytes": 2180,
+      "sha256": "ce47a9e91ee8b0bde4e8777665baeac966d4d0b80bb5145877c0847eaf2f12ad"
+    },
+    {
+      "relative_path": "evidence/phase1/dotnet_interop_map.json",
+      "size_bytes": 1372,
+      "sha256": "77f7ffdbe02d2adf68763b40772934546146b5888b731a6f9d51f1d7afa7f169"
+    },
+    {
+      "relative_path": "evidence/phase1/feature_traceability.json",
+      "size_bytes": 2252,
+      "sha256": "066e199ca9a35bc1f16df26ccf5acb65fc25c78492fc9f8d5fcdda182fdb7504"
+    },
+    {
+      "relative_path": "evidence/phase1/managed_assemblies.json",
+      "size_bytes": 89890,
+      "sha256": "8e0b5eeef9449ac641ac5af959710bc0074dbb7326e030fb2e1c3e682e47d0f2"
+    },
+    {
+      "relative_path": "evidence/phase1/native_dependencies.json",
+      "size_bytes": 156826,
+      "sha256": "f9f198f58cfe743b3301fd967a91a56f656eb1d55da8ca763285be4c469474d3"
+    },
+    {
+      "relative_path": "evidence/phase1/native_module_inventory.json",
+      "size_bytes": 39087,
+      "sha256": "6220e36c3ef1543ac0c555a91f250ce92db368ee7432702312a9d41a9bdc41f8"
+    },
+    {
+      "relative_path": "evidence/phase1/resource_inventory.json",
+      "size_bytes": 451,
+      "sha256": "6d8a671dde762246ab4d54d7aed0f4e27c1213f04a0b0885e757100b8f06834b"
+    },
+    {
+      "relative_path": "evidence/phase1/runtime_observations.json",
+      "size_bytes": 1706,
+      "sha256": "63364f14d7616d43a2e5498b591d2604d6ad71c53455f7dbf240d56794d1d30b"
+    },
+    {
+      "relative_path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+      "size_bytes": 4468,
+      "sha256": "93d345b9011696f9627bd97c0a2030d7b352e1154754a819313675611f7344fa"
+    },
+    {
+      "relative_path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+      "size_bytes": 1056,
+      "sha256": "fab5bd87ade74d9fe04c1de0aa173a0e481175398d6de80a4e123b3efb440b05"
+    },
+    {
+      "relative_path": "evidence/phase1/reconciliation/module_architecture_summary.json",
+      "size_bytes": 139298,
+      "sha256": "bd7056b38e5b0da97cbe67a4718b9f6ead00c3d3b767c1a8f96efef52d05d76f"
+    },
+    {
+      "relative_path": "evidence/phase1/reconciliation/dependency_reconciliation.json",
+      "size_bytes": 6531,
+      "sha256": "d1a8b62588d700e1e6715ec33ec11545b7d53b16d24f62a1fac99f34962266a4"
+    },
+    {
+      "relative_path": "evidence/phase1/reconciliation/claim_register.json",
+      "size_bytes": 10249,
+      "sha256": "41757ac69b9ae0d1ff26d3ce4898410ac9a421534a505f0fd455dee0813cf74a"
+    }
+  ]
+}

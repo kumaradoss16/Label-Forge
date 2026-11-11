@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.1.0",
+  "status": "RECONCILED_AUTHORITATIVE",
+  "target_filename": "BarTend.exe",
+  "absolute_path": "D:\\BarTender\\BarTend.exe",
+  "file_size_bytes": 20774984,
+  "hashes": {
+    "md5": "7af37ab384391fcc03935a569d705aa0",
+    "sha1": "7a57fefa26e99ddec6a46625a8cc17c5a87593aa",
+    "sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594"
+  },
+  "pe_header": {
+    "machine": "0x8664",
+    "machine_name": "IMAGE_FILE_MACHINE_AMD64",
+    "architecture": "x86_64",
+    "magic": "0x020b",
+    "format": "PE32+",
+    "subsystem": 2,
+    "subsystem_name": "IMAGE_SUBSYSTEM_WINDOWS_GUI",
+    "image_base": "0x140000000",
+    "entry_point": "0x97d0fb",
+    "section_alignment": 4096,
+    "file_alignment": 512,
+    "timestamp": 1738053553,
+    "timestamp_iso": "2025-01-28T08:39:13+00:00",
+    "number_of_sections": 7
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "virtual_address": "0x1000",
+      "virtual_size": 10924174,
+      "raw_data_offset": "0x400",
+      "raw_data_size": 10924544,
+      "characteristics": "0x60000020"
+    },
+    {
+      "name": ".nep",
+      "virtual_address": "0xa6d000",
+      "virtual_size": 86272,
+      "raw_data_offset": "0xa6b600",
+      "raw_data_size": 86528,
+      "characteristics": "0x60000020"
+    },
+    {
+      "name": ".rdata",
+      "virtual_address": "0xa83000",
+      "virtual_size": 6758812,
+      "raw_data_offset": "0xa80800",
+      "raw_data_size": 6758912,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".data",
+      "virtual_address": "0x10f6000",
+      "virtual_size": 1076568,
+      "raw_data_offset": "0x10f2a00",
+      "raw_data_size": 822272,
+      "characteristics": "0xc0000040"
+    },
+    {
+      "name": ".pdata",
+      "virtual_address": "0x11fd000",
+      "virtual_size": 462588,
+      "raw_data_offset": "0x11bb600",
+      "raw_data_size": 462848,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".rsrc",
+      "virtual_address": "0x126e000",
+      "virtual_size": 1264272,
+      "raw_data_offset": "0x122c600",
+      "raw_data_size": 1264640,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".reloc",
+      "virtual_address": "0x13a3000",
+      "virtual_size": 433500,
+      "raw_data_offset": "0x1361200",
+      "raw_data_size": 433664,
+      "characteristics": "0x42000040"
+    }
+  ],
+  "authenticode_signature": {
+    "present": true,
+    "file_offset": "0x13cb000",
+    "size": 20552,
+    "signature_end_offset": 20774984,
+    "equals_file_size": true,
+    "publisher": "Seagull Scientific, LLC"
+  },
+  "clr_runtime": {
+    "present": true,
+    "virtual_address": "0xae9b90",
+    "size": 72,
+    "clr_version": "v4.0.30319",
+    "classification": "cpp-cli-mixed",
+    "comimage_flags": 0,
+    "comimage_flags_ilonly": false,
+    "metadata_rva": "0xc3ca00",
+    "metadata_size": 3111676,
+    "entry_point_token": "0x06002c63"
+  },
+  "version_info": {
+    "original_filename": "BarTend.exe",
+    "product_name": "BarTender 11.4",
+    "file_version": "11.4.238.365",
+    "product_version": "11.4.0.1",
+    "company_name": "Seagull Scientific, LLC",
+    "legal_copyright": "\u00a9 1997-2025 Seagull Scientific, LLC"
+  },
+  "discrepancy_reconciliation": {
+    "report_11_md5_erroneous": "7d73010b91dcfaec676bb062bf6a20bc",
+    "report_11_sha1_erroneous": "4633e9ec2d8150eafe0ee994c6ca9c2bf41e39eb",
+    "report_11_entry_point_erroneous": "0x6f3e1c",
+    "report_11_signature_size_erroneous": 9472,
+    "report_11_sections_erroneous": [
+      ".text",
+      ".rdata",
+      ".data",
+      ".pdata",
+      ".tls",
+      ".rsrc",
+      ".reloc"
+    ],
+    "reconciled_ground_truth": {
+      "md5": "7af37ab384391fcc03935a569d705aa0",
+      "sha1": "7a57fefa26e99ddec6a46625a8cc17c5a87593aa",
+      "sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594",
+      "entry_point": "0x97d0fb",
+      "signature_size": 20552,
+      "signature_offset": "0x13cb000",
+      "sections": [
+        ".text",
+        ".nep",
+        ".rdata",
+        ".data",
+        ".pdata",
+        ".rsrc",
+        ".reloc"
+      ]
+    },
+    "root_cause": "Report 11 recorded draft metrics from a preliminary template, while target_identity.json captured ground-truth PE bytes. The authoritative baseline is verified against D:\\BarTender\\BarTend.exe."
+  }
+}

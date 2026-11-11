@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.1.0",
+  "status": "RECONCILED_AUTHORITATIVE",
+  "total_claims": 22,
+  "claims_by_status": {
+    "VERIFIED_STATIC": 20,
+    "VERIFIED_RUNTIME": 0,
+    "VERIFIED_DOCUMENTATION": 1,
+    "INFERRED": 0,
+    "UNKNOWN": 0,
+    "NOT_PERFORMED": 1
+  },
+  "claims": [
+    {
+      "id": "P1-001",
+      "area": "Target Identity",
+      "claim": "Primary executable is BarTend.exe located at D:\\BarTender\\BarTend.exe with file size 20,774,984 bytes",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "D:\\BarTender\\BarTend.exe filesystem metadata and Authenticode table end offset",
+      "reconciled_notes": "Confirmed exactly matching on disk."
+    },
+    {
+      "id": "P1-002",
+      "area": "Target Identity",
+      "claim": "BarTend.exe file hashes: MD5=7af37ab384391fcc03935a569d705aa0, SHA1=7a57fefa26e99ddec6a46625a8cc17c5a87593aa, SHA256=d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "Static cryptographic digests of D:\\BarTender\\BarTend.exe",
+      "reconciled_notes": "Report 11 erroneously recorded stale draft MD5 7d73010b91dcfaec676bb062bf6a20bc and SHA1 4633e9ec2d8150eafe0ee994c6ca9c2bf41e39eb. Fully corrected to ground truth."
+    },
+    {
+      "id": "P1-003",
+      "area": "Target Identity",
+      "claim": "BarTend.exe FileVersion is 11.4.238.365 and ProductVersion is 11.4.0.1 (BarTender 11.4)",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "PE VersionInfo resource StringTable and VS_FIXEDFILEINFO",
+      "reconciled_notes": "Verified against binary resource table."
+    },
+    {
+      "id": "P1-004",
+      "area": "PE Architecture",
+      "claim": "Target architecture is x86_64 (Machine 0x8664, PE32+ Optional Header, Subsystem 2 GUI)",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "IMAGE_NT_HEADERS64.FileHeader and OptionalHeader inspection",
+      "reconciled_notes": "Consistent across all evidence."
+    },
+    {
+      "id": "P1-005",
+      "area": "PE Architecture",
+      "claim": "Address of Entry Point is 0x97d0fb and ImageBase is 0x140000000",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "PE OptionalHeader fields AddressOfEntryPoint and ImageBase",
+      "reconciled_notes": "Report 11 erroneously cited 0x6f3e1c. Corrected to 0x97d0fb."
+    },
+    {
+      "id": "P1-006",
+      "area": "PE Architecture",
+      "claim": "Section table contains exactly 7 sections: .text, .nep, .rdata, .data, .pdata, .rsrc, .reloc",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "IMAGE_SECTION_HEADER table at PE offset 0x308",
+      "reconciled_notes": "Report 11 claimed .tls was present and omitted .nep. In reality, .nep (Native Entry Point) is present and .tls is absent."
+    },
+    {
+      "id": "P1-007",
+      "area": "PE Architecture",
+      "claim": "Authenticode security directory is at file offset 0x13cb000 with length 20,552 bytes, ending exactly at byte 20,774,984",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "IMAGE_DIRECTORY_ENTRY_SECURITY at OptionalHeader offset + 144",
+      "reconciled_notes": "Report 11 erroneously cited offset 0x13c7200 and size 9,472. Corrected to 0x13cb000 and 20,552 bytes."
+    },
+    {
+      "id": "P1-008",
+      "area": "PE Architecture",
+      "claim": "BarTend.exe is a C++/CLI mixed-mode assembly (COMIMAGE_FLAGS_ILONLY=0, CLR v4.0.30319)",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "IMAGE_COR20_HEADER at RVA 0xae9b90, Flags=0, EntryPointToken=0x06002c63",
+      "reconciled_notes": "Proves unmanaged native x64 and managed CIL coexist in the same executable."
+    },
+    {
+      "id": "P1-009",
+      "area": "Component Inventory",
+      "claim": "Top-level installation directory D:\\BarTender contains 589 filesystem items: 555 files and 34 directories",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "Filesystem enumeration of D:\\BarTender\\",
+      "reconciled_notes": "Reconciles prior confusion where 589 was described as \"Total Files\". Exactly 555 files + 34 subdirectories = 589 items."
+    },
+    {
+      "id": "P1-010",
+      "area": "Component Inventory",
+      "claim": "Files breakdown into mutually exclusive categories: 24 .exe, 433 .dll, 4 .ocx, 29 .config, 40 .xml, 10 .xsd, 7 .pdf, 3 .ini, 2 .manifest, 3 other (.dat, .ico, .stk) = 555 files",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "Extension and header audit of all 555 top-level files",
+      "reconciled_notes": "Sum matches 555 exactly with zero overlap."
+    },
+    {
+      "id": "P1-011",
+      "area": "Component Inventory",
+      "claim": "The 461 PE binaries classify into: 332 Managed IL-Only, 20 Mixed-Mode C++/CLI, 27 Native x64, 82 Native x86",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "COM descriptor and machine architecture parsing of 461 binaries",
+      "reconciled_notes": "Reconciles previous 331 managed / 102 native split. The 82 native x86 DLLs are satellite localized resources and legacy components."
+    },
+    {
+      "id": "P1-012",
+      "area": "Dependency Analysis",
+      "claim": "BarTend.exe statically imports 48 DLLs directly via PE Import Table",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "PE Import Directory table at RVA 0x10d37e8",
+      "reconciled_notes": "Verified through PE parsing."
+    },
+    {
+      "id": "P1-013",
+      "area": "Dependency Analysis",
+      "claim": "BarTend.exe delay-loads 17 DLLs via Delay Import Directory",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "PE Delay Import Directory table at RVA 0x10d0be0",
+      "reconciled_notes": "Verified through PE parsing."
+    },
+    {
+      "id": "P1-014",
+      "area": "Dependency Analysis",
+      "claim": "Codejock GUI library is ToolkitPro1531vc142x64U.dll (10,844,184 bytes), not XtremeToolkitPro.dll",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "PE Import descriptor of BarTend.exe and filesystem check of D:\\BarTender",
+      "reconciled_notes": "XtremeToolkitPro.dll was a placeholder name; actual module verified."
+    },
+    {
+      "id": "P1-015",
+      "area": "Dependency Analysis",
+      "claim": "Hypothetical DLLs BtEngine.dll, BtBarcode.dll, BtPrint.dll, BtSystem.dll, BtLic.dll, BtData.dll do not exist on disk",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "Direct filesystem verification across target directory",
+      "reconciled_notes": "Prior reports hypothesized separate DLLs for these roles. Corrected to show that core engine resides in BarTend.exe and modular Seagull.* / BarCode_* DLLs."
+    },
+    {
+      "id": "P1-016",
+      "area": "Dependency Analysis",
+      "claim": "Modular 2D barcode engines are separate native x64 DLLs (BarCode_QRCode.dll, BarCode_DataMatrix.dll, BarCode_Aztec.dll, BarCode_DotCode.dll, etc.)",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "Export tables of BarCode_*.dll series in D:\\BarTender",
+      "reconciled_notes": "Direct verification of exports: GenerateQRCode, GetQRCell, get_dm_cell, etc."
+    },
+    {
+      "id": "P1-017",
+      "area": "Interop",
+      "claim": "MFC CArchive and CObList are utilized for document object management and .btw serialization",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "REA inspect_managed_native_boundaries extracted P/Invoke and CRT symbols",
+      "reconciled_notes": "Cross-verified with MFC runtime linkage mfc140u.dll and MFCM140U.dll."
+    },
+    {
+      "id": "P1-018",
+      "area": "Native Analysis & Ghidra",
+      "claim": "Deep function-level native decompilation via Ghidra was NOT_PERFORMED because Ghidra was not installed on host",
+      "status": "NOT_PERFORMED",
+      "evidence_source": "Environment audit (GHIDRA_INSTALL_DIR unset)",
+      "reconciled_notes": "All native claims are strictly scoped to static PE headers, export tables, and boundary analysis. Any prior implication of Ghidra decompilation is corrected."
+    },
+    {
+      "id": "P1-019",
+      "area": "Resources & UI Assets",
+      "claim": "83 extracted CHM help documentation screenshots and UI icons are copyrighted proprietary assets of Seagull Scientific, LLC and cannot be bundled with Label-Forge",
+      "status": "VERIFIED_DOCUMENTATION",
+      "evidence_source": "resource_inventory.json and copyright audit of Help/BarTender.chm",
+      "reconciled_notes": "Clean-room compliance mandate: Label-Forge must use original vector icons and independent UI assets."
+    },
+    {
+      "id": "P1-020",
+      "area": "Coordinate Precision",
+      "claim": "BarTender utilizes integer twips (1/1440 inch = 0.01764 mm) with +/-8.8 um quantization; Label-Forge uses double-precision canonical millimeters (Length struct) for continuous float precision",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "Mathematical analysis of GDI MulDiv twip conversions and Label-Forge Length.cs implementation",
+      "reconciled_notes": "Rationale clarified: metric standardization, continuous floating-point transformation without cumulative rounding drift, and clean conversion to any DPI."
+    },
+    {
+      "id": "P1-021",
+      "area": "Runtime & Printing",
+      "claim": "Printing architecture supports dual pathways: Windows GDI/XPS spooler rendering and direct thermal printer language pass-through",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "winspool.drv direct imports (OpenPrinter, StartDocPrinter, WritePrinter) and Seagull.BarTender.Print.dll",
+      "reconciled_notes": "Verified via spooler API imports."
+    },
+    {
+      "id": "P1-022",
+      "area": "Runtime & Licensing",
+      "claim": "Licensing validation is performed against Seagull License Server (SLS) via Seagull.License.dll and Seagull.Services.Licensing.dll",
+      "status": "VERIFIED_STATIC",
+      "evidence_source": "Managed assembly inspection of Seagull.License.dll and WCF service contracts",
+      "reconciled_notes": "Verified statically. Clean-room Label-Forge will implement an independent permissive licensing model."
+    }
+  ]
+}
