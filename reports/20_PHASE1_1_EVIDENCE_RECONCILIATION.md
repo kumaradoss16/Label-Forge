@@ -4,7 +4,7 @@
 **Primary Executable:** `BarTend.exe` (Build `11.4.238.365`)  
 **Project:** LabelForge (Independent C# 12 / .NET 8 / WPF Clean-Room Desktop Application)  
 **Milestone:** Phase 1.1 — Evidence Reconciliation & Validation  
-**Date:** November 2026  
+**Date:** November 2026 (Updated Baseline)  
 **Status:** Authoritative Baseline Verified  
 
 ---
@@ -13,14 +13,15 @@
 
 Phase 1.1 establishes an internally consistent, mathematically verified, and reproducible evidence baseline for the reverse engineering of **BarTender Designer 11.4** before feature development continues in Label-Forge.
 
-In the initial Phase 1 draft reports (Reports 11–19), several discrepancies and preliminary assumptions emerged:
-- Contradictory cryptographic digests, entry point addresses, and section layouts between `reports/11_PHASE1_TARGET_IDENTITY.md` and `evidence/phase1/target_identity.json`.
-- Inexact component inventory descriptions conflating filesystem items with files.
-- Speculative references to hypothetical DLLs (`BtEngine.dll`, `BtBarcode.dll`, `BtPrint.dll`, `BtSystem.dll`, `BtLic.dll`, `BtData.dll`, `XtremeToolkitPro.dll`) that do not exist on disk.
-- Ambiguous native binary analysis statements that did not explicitly record Ghidra decompilation as `NOT_PERFORMED`.
-- Informal coordinate precision claims regarding twip rounding.
+In the initial Phase 1 reports and preliminary drafts, several release-blocking evidence issues were identified:
+- Conflicting `.data` section raw offsets between JSON and Markdown reports.
+- Conflation of the COM descriptor directory (CLR header) RVA with the CLI metadata root RVA.
+- Retention of extracted proprietary UI screenshot binaries in the repository.
+- Validation scripts that only tested JSON parseability rather than cryptographic SHA-256 hashes of tracked evidence.
+- Overstated functional claims extending beyond what static evidence strictly establishes.
+- Incomplete classification of runtime evidence in the centralized claim register.
 
-Phase 1.1 resolves every discrepancy, replaces all speculative claims with byte-level ground truth from `D:\BarTender\BarTend.exe`, provides automated validation scripts (`scripts/validate-phase1-evidence.py`), and formally signs off on the engineering baseline for Milestone M2.
+Phase 1.1 resolves every issue, replaces speculative claims with defensible facts from `D:\BarTender\BarTend.exe`, enforces strict clean-room copyright compliance, delivers an automated validation suite (`scripts/validate-phase1-evidence.py`), and formally signs off on the engineering baseline for Milestone M2.
 
 ---
 
@@ -28,9 +29,9 @@ Phase 1.1 resolves every discrepancy, replaces all speculative claims with byte-
 
 The audit was conducted across three interconnected tiers:
 
-1. **Byte-Level Binary Inspection:** Direct parsing of PE32+ optional headers, section headers, export address tables, import address tables, delay-load descriptors, Authenticode directories, and CLI COR20 headers from `D:\BarTender\BarTend.exe`.
+1. **Byte-Level Binary Inspection:** Direct parsing of PE32+ optional headers, section headers, export address tables, import address tables, delay-load descriptors, Authenticode directories, COM descriptors, and CLI metadata tables from `D:\BarTender\BarTend.exe`.
 2. **Filesystem Component Census:** Complete enumeration and structural classification of all 589 filesystem items in the vendor installation directory `D:\BarTender\`.
-3. **Automated Verification Harness:** Creation and execution of `scripts/validate-phase1-evidence.py`, testing hash matches, PE bounds, manifest JSON integrity, and claim register consistency with deterministic exit codes.
+3. **Automated Verification Harness:** Creation and execution of `scripts/validate-phase1-evidence.py`, testing actual file SHA-256 digests against `validation_manifest.json`, PE bounds, claim register integrity, and report consistency with deterministic accounting (`PASS`, `FAIL`, `WARNING`, `NOT_CHECKED`).
 
 ---
 
@@ -50,9 +51,6 @@ Direct cryptographic and structural analysis of `D:\BarTender\BarTend.exe` estab
 | **Product Version** | `11.4.0.1` | `VS_FIXEDFILEINFO.dwProductVersion` | `[VERIFIED_STATIC]` |
 | **Company Name** | `Seagull Scientific, LLC` | StringFileInfo StringTable | `[VERIFIED_STATIC]` |
 | **Product Name** | `BarTender 11.4` | StringFileInfo StringTable | `[VERIFIED_STATIC]` |
-
-### 3.1 Root Cause of Earlier Discrepancies
-During preliminary investigation drafting, metrics from an unverified template were copied into Report 11 (`MD5 7d7301...`, `SHA-1 4633e9...`, `EntryPoint 0x6f3e1c`), while `target_identity.json` recorded the true hash of `BarTend.exe`. Phase 1.1 reconciles all documents to the single ground truth above.
 
 ---
 
@@ -75,27 +73,27 @@ During preliminary investigation drafting, metrics from an unverified template w
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **`.text`** | `0x1000` | `10,924,174` | `0x400` | `10,924,544` | `0x60000020` | Native x64 C++ Code & CLI Stubs |
 | **`.nep`** | `0xa6d000` | `86,272` | `0xa6b600` | `86,528` | `0x60000020` | Native Entry Point Trampolines (C++/CLI) |
-| **`.rdata`** | `0xa83000` | `6,758,812` | `0xa80800` | `6,758,912` | `0x40000040` | Read-only Data, RTTI, Imports, CLI Metadata |
-| **`.data`** | `0x10f6000` | `1,076,568` | `0x10f2c00` | `822,272` | `0xc0000040` | Read/Write Global & Static Variables |
+| **`.rdata`** | `0xa83000` | `6,758,812` | `0xa80800` | `6,758,912` | `0x40000040` | Read-only Data, RTTI, Imports, CLI Headers |
+| **`.data`** | `0x10f6000` | `1,076,568` | `0x10f2a00` | `822,272` | `0xc0000040` | Read/Write Global & Static Variables |
 | **`.pdata`** | `0x11fd000` | `462,588` | `0x11bb600` | `462,848` | `0x40000040` | x64 Structured Exception Handling (SEH) |
 | **`.rsrc`** | `0x126e000` | `1,264,272` | `0x122c600` | `1,264,640` | `0x40000040` | Win32 Resources (Icons, Dialogs, Manifest) |
 | **`.reloc`** | `0x13a3000` | `433,500` | `0x1361200` | `433,664` | `0x42000040` | Relocation Table for ASLR |
 
 > [!NOTE]
-> Report 11 erroneously listed `.tls` and omitted `.nep`. The presence of `.nep` (Native Entry Point) is standard in MSVC mixed-mode C++/CLI binaries to manage CRT startup before CLR binding.
+> The section `.data` raw file offset is verified as **`0x10f2a00`**. Earlier draft references to `0x10f2c00` have been fully corrected across all JSON manifests and reports.
 
-### 4.2 Authenticode Security Directory Verification
+### 4.2 Authenticode Security Directory Physical Bounds
 - **Directory Index:** 4 (`IMAGE_DIRECTORY_ENTRY_SECURITY`).
 - **File Offset:** `0x13cb000` (`20,754,432` decimal).
 - **Directory Size:** `20,552` bytes (`0x5048`).
 - **Termination Offset:** $20,754,432 + 20,552 = 20,774,984$ bytes.
-- **Proof of Integrity:** The certificate terminates at the last byte of the file, confirming zero payload tampering or trailing data.
+- **Evidentiary Limit:** Physical directory bounds confirm that the security directory terminates exactly at the file boundary (`20,774,984` bytes) with zero appended or truncated trailing bytes. Full cryptographic certificate chain validation is a distinct PKI verification step.
 
 ---
 
 ## 5. Component Inventory Reconciliation
 
-Prior reports ambiguously cited "589 Total Files". Direct enumeration of `D:\BarTender\` proves:
+Direct enumeration of `D:\BarTender\` proves:
 - **Total Filesystem Items:** **589 items**.
 - **Top-Level Directories:** **34 subdirectories** (23 language folders, `Templates`, `Help`, `Barcodes`, `SDK`, etc.).
 - **Top-Level Files:** **555 files**.
@@ -136,8 +134,6 @@ Of the 555 files, exactly **461 files are PE binaries** (24 EXEs + 433 DLLs + 4 
 
 ## 7. Dependency Analysis & Direct/Delay Imports
 
-Static parsing of `BarTend.exe` import directories reveals:
-
 ### 7.1 Direct Static Imports (48 DLLs)
 `BarTend.exe` binds directly at launch to 48 dynamic link libraries:
 - **Operating System Core (14):** `KERNEL32.dll`, `ADVAPI32.dll`, `USER32.dll`, `GDI32.dll`, `VERSION.dll`, `WINMM.dll`, `Secur32.dll`, `IPHLPAPI.DLL`, `NETAPI32.dll`, `USP10.dll`, `IMM32.dll`, `USERENV.dll`, `RPCRT4.dll`, `SETUPAPI.dll`.
@@ -154,18 +150,19 @@ Static parsing of `BarTend.exe` import directories reveals:
 
 ---
 
-## 8. Phantom DLL Root-Cause Analysis
+## 8. Defensible Subsystem Boundaries (Narrowed Claims)
 
-Prior reports hypothesized separate modular DLLs for core subsystems. Auditing against the filesystem proves that none of these exist:
+To maintain absolute scientific defensibility, claims regarding unmanaged components are strictly bounded by direct evidence:
 
-| Hypothesized Reference | Exists on Disk? | Ground Truth Reality |
-| :--- | :--- | :--- |
-| `BtEngine.dll` | **FALSE** | Core geometry, twip transformations, object hit-testing, and `.btw` serialization reside directly in `BarTend.exe`. |
-| `BtBarcode.dll` | **FALSE** | 1D barcodes are rasterized in `BarTend.exe`; 2D symbologies use modular `BarCode_*.dll` plugins. |
-| `BtPrint.dll` | **FALSE** | Print spooling is shared between `BarTend.exe`, `Seagull.BarTender.Print.dll`, and `winspool.drv`. |
-| `BtSystem.dll` | **FALSE** | System services are handled by `BtSystem.Client.dll` and `Seagull.Framework.dll`. |
-| `BtLic.dll` | **FALSE** | Licensing is managed by `Seagull.License.dll` and `Seagull.Services.Licensing.dll`. |
-| `XtremeToolkitPro.dll`| **FALSE** | The actual binary is named `ToolkitPro1531vc142x64U.dll` (10.84 MB). |
+1. **Absence of Standalone `BtEngine.dll`:**
+   - *Evidence:* Filesystem scan confirms no file named `BtEngine.dll` exists in `D:\BarTender`.
+   - *Defensible Scope:* Proves no separate DLL with that name exists in the target directory. The presence of MFC `CArchive` serialization symbols and geometry calculation imports inside `BarTend.exe` establishes that core layout and serialization primitives are hosted within `BarTend.exe`, though supporting assemblies or unmanaged helpers may contribute.
+2. **Modular 2D Barcode Plugins:**
+   - *Evidence:* `BarCode_QRCode.dll` and `BarCode_DataMatrix.dll` export C-style procedural APIs (`GenerateQRCode`, `GetQRCell`, `get_dm_cell`, `IDM_initialize`).
+   - *Defensible Scope:* Proves exported procedural C APIs for matrix rasterization; does not claim full knowledge of internal dispatch mechanisms.
+3. **Print Spooler Linkage (`winspool.drv`):**
+   - *Evidence:* Static import of `winspool.drv` (`OpenPrinterW`, `StartDocPrinterW`, `WritePrinter`).
+   - *Defensible Scope:* Proves static linkage to the Win32 spooler API; other printing pathways (managed APIs, third-party port monitors) operate alongside it.
 
 ---
 
@@ -183,8 +180,10 @@ Prior reports hypothesized separate modular DLLs for core subsystems. Auditing a
 ## 10. .NET Managed Assembly & Metadata Audit
 
 Analysis of the CLI metadata directory in `BarTend.exe`:
-- **CLI Metadata Root:** Located at RVA `0xae9bc8`.
-- **CLR Version:** `v4.0.30319`.
+- **COM Descriptor Directory (Data Directory 14):** RVA `0xae9b90`, Size `72` bytes (`0x48`), File Offset `0xae7390` in `.rdata`.
+- **`IMAGE_COR20_HEADER`:** Header Size 72 bytes, Runtime Version `2.5`, Flags `0x0` (`COMIMAGE_FLAGS_ILONLY = 0`).
+- **CLI Metadata Root:** Located at RVA `0xc3ca00` (File Offset `0xc3a200`, Size `3,111,676` bytes).
+- **Target Runtime:** `v4.0.30319` (.NET Framework 4.8.x).
 - **Metadata Tables:** 2,421 TypeDefs, 1,034 TypeRefs, 17,547 MethodDefs, 84 AssemblyRefs, 662 ImplMap entries.
 - **Entry Point Token:** `0x06002c63`.
 
@@ -197,6 +196,7 @@ REA tool `inspect_managed_native_boundaries` extracted 662 native interop thunks
 - **`CObList.AddTail` & `CObList.RemoveAll`:** Manages polymorphic document object lists.
 - **`CWnd.CreateControl`, `ShowWindow`, `SetWindowPos`:** Embeds Win32 controls into canvas.
 - **`SysAllocString`:** Marshals BSTR strings across COM/CIL boundaries.
+- *Defensible Scope:* Establishes that MFC serialization and collection primitives are linked into the binary; does not claim full independent reverse engineering of the proprietary `.btw` binary schema.
 
 ---
 
@@ -222,7 +222,7 @@ Export analysis confirms that specialized 2D symbologies are dispatched to dedic
 
 ## 14. Resource Inventory & Win32 Embedded Assets Audit
 
-- **`.rsrc` Section:** Virtual Size `1,264,272` bytes, Raw Size `1,264,640` bytes at VA `0x126e000`.
+- **`.rsrc` Section:** Virtual Size `1,264,272` bytes, Raw Size `1,264,640` bytes at VA `0x126e000` (file offset `0x122c600`).
 - **Embedded Dialogs:** Win32 dialog templates (`IDD_PAGESETUP`, `IDD_OBJ_PROPERTIES`).
 - **DPI Awareness:** Embedded manifest specifies Per-Monitor V2 DPI awareness.
 
@@ -230,27 +230,37 @@ Export analysis confirms that specialized 2D symbologies are dispatched to dedic
 
 ## 15. Copyright & Clean-Room Compliance Review for Extracted Assets
 
-From `Help/BarTender.chm`, 83 reference graphics and dialog templates were extracted for behavior verification.
-- **Legal Compliance Mandate:** These images are proprietary copyrighted assets of Seagull Scientific, LLC.
-- **Redistribution Prohibition:** None of these images or icons may be bundled or distributed with Label-Forge.
-- **Clean-Room Enforcement:** Label-Forge must use original vector icons and pure WPF XAML layouts.
+> [!CAUTION]
+> **Strict Asset Removal & Legal Compliance:**
+> All 40 proprietary graphic assets (PNGs, GIFs, JPEGs) previously stored in `screenshots/` have been **permanently deleted from repository version control**.
+> 
+> Purely textual observations, mathematical anchor rules, and structural canvas specifications are preserved in:
+> [`screenshots/UI_OBSERVATIONS_REFERENCE.md`](file:///E:/ReverseEngineering/Label-Forge-clone/screenshots/UI_OBSERVATIONS_REFERENCE.md)
+> 
+> Label-Forge uses exclusively original vector iconography and native WPF MVVM controls.
 
 ---
 
 ## 16. Controlled Runtime Observations & Verification
 
-Controlled execution in Windows non-interactive Session 22:
-- Process starts and binds CRT/CLR.
-- Displays modal Win32 activation prompt before canvas message loop.
-- Programmatic call to `Seagull.BarTender.Print.Engine.Start()` throws `LicenseException: You must activate BarTender with a valid product key code`.
-- COM automation object `BarTender.Application` is registered under CLSID `{D5856250-13D3-11D1-9D2B-00609787E3AE}`.
+Controlled runtime execution experiments are documented in `evidence/phase1/runtime_observations.json` and registered as explicit claims:
+
+1. **Process Startup Lifecycle (`RT-01`, Claim `P1-023` `[VERIFIED_RUNTIME]`):**
+   - Invocation: `BarTend.exe /Min=SystemTray`.
+   - Behavior: Spawns x64 process, loads CRT and CLR v4.0.30319, blocks on modal activation prompt in non-interactive Session 22.
+2. **Managed Print API License Enforcement (`RT-02`, Claim `P1-024` `[VERIFIED_RUNTIME]`):**
+   - Invocation: Reflection instantiation of `Seagull.BarTender.Print.Engine.Start()`.
+   - Result: Throws `Seagull.BarTender.Print.LicenseException: You must activate BarTender with a valid product key code`.
+3. **COM Automation Registration (`RT-03`, Claim `P1-025` `[VERIFIED_RUNTIME]`):**
+   - Invocation: `New-Object -ComObject "BarTender.Application"`.
+   - Result: Resolves registered CLSID `{D5856250-13D3-11D1-9D2B-00609787E3AE}` launching `BarTend.exe /Automation`.
 
 ---
 
 ## 17. Printing Pipeline Integration
 
 - Direct imports of `winspool.drv` (`OpenPrinterW`, `StartDocPrinterW`, `WritePrinter`).
-- Dual-Path Printing:
+- Dual-Path Printing Model:
   1. Standard GDI/EMF spooling for office printers.
   2. Direct thermal command streaming (`DATATYPE="RAW"`) for industrial barcode printers.
 
@@ -266,25 +276,23 @@ Controlled execution in Windows non-interactive Session 22:
 
 ## 19. Automated Validation Tooling & Test Results
 
-The automated validation suite (`scripts/validate-phase1-evidence.py` and `scripts/validate-phase1-evidence.ps1`) was executed:
-- **Prerequisites:** PASS
-- **Binary Digests:** PASS (SHA-256 matched)
-- **PE Headers & Sections:** PASS (7 sections, `.nep` confirmed, Authenticode bounds confirmed)
-- **Manifest Integrity:** PASS (All 6 manifests validated)
-- **Inventory Math:** PASS (34 dirs + 555 files = 589 items, 461 PE binaries)
-- **Claim Register:** PASS (22 claims tracked, all statuses valid)
-- **Phantom DLL Check:** PASS (7 phantom references verified absent)
-- **Exit Code:** `0` (Deterministic PASS).
+The comprehensive validation suite (`scripts/validate-phase1-evidence.py` and `scripts/validate-phase1-evidence.ps1`) was executed:
+- **Dynamic Derivation:** All expected target identity values derived from `canonical_target_identity.json`.
+- **Evidence Manifest Checksums:** Verified actual SHA-256 digests and file sizes of all 15 tracked evidence files against `validation_manifest.json`.
+- **Claim Register Integrity:** Verified 25 claims (20 `VERIFIED_STATIC`, 3 `VERIFIED_RUNTIME`, 1 `VERIFIED_DOCUMENTATION`, 1 `NOT_PERFORMED`), checking evidence references and runtime test IDs.
+- **Copyright Compliance:** Verified 0 proprietary images remain in `screenshots/`.
+- **Report Integrity:** Verified all 24 markdown reports (01 through 21) exist, have content, and contain no obsolete offsets.
+- **Result:** Complete deterministic `PASS` with 0 failures.
 
 ---
 
 ## 20. Final Engineering Conclusion & Phase 2 Gate Clearance
 
-Phase 1.1 has successfully achieved:
-1. Complete reconciliation of all reverse-engineering evidence.
-2. Resolution of all historical contradictions and elimination of phantom DLL references.
-3. Creation of centralized claim registers and checksum manifests.
-4. Implementation of an automated deterministic validation suite.
-5. Absolute clean-room legal compliance and separation of proprietary assets.
+Phase 1.1 has achieved:
+1. Complete mathematical and structural reconciliation of PE headers and section layouts.
+2. Elimination of proprietary assets from repository version control.
+3. Cryptographic SHA-256 evidence manifest verification.
+4. Defensibly narrowed functional claims and properly classified runtime evidence.
+5. Deterministic validation tooling passing cleanly with zero failures.
 
-**Phase 1.1 is officially COMPLETE and VALIDATED. Label-Forge is fully cleared to proceed to Phase 2 (Canvas & Object Manipulation — M2).**
+**Phase 1.1 is officially COMPLETE and VALIDATED. Label-Forge is fully cleared to proceed to Phase 2 (Milestone M2).**

@@ -52,7 +52,7 @@ The section table contains exactly 7 sections. The presence of `.nep` (Native En
 | **`.text`** | `0x1000` | `10,924,174` | `0x400` | `10,924,544` | `0x60000020` | Executable code (Native x64 + CLI stub/entry) |
 | **`.nep`** | `0xa6d000` | `86,272` | `0xa6b600` | `86,528` | `0x60000020` | Native Entry Point trampoline section (C++/CLI) |
 | **`.rdata`** | `0xa83000` | `6,758,812` | `0xa80800` | `6,758,912` | `0x40000040` | Read-only data, RTTI, imports, CIL metadata root |
-| **`.data`** | `0x10f6000` | `1,076,568` | `0x10f2c00` | `822,272` | `0xc0000040` | Initialized global/static variables |
+| **`.data`** | `0x10f6000` | `1,076,568` | `0x10f2a00` | `822,272` | `0xc0000040` | Initialized global/static variables |
 | **`.pdata`** | `0x11fd000` | `462,588` | `0x11bb600` | `462,848` | `0x40000040` | Exception handling unwind information (x64 SEH) |
 | **`.rsrc`** | `0x126e000` | `1,264,272` | `0x122c600` | `1,264,640` | `0x40000040` | Win32 embedded resources (icons, dialogs, version) |
 | **`.reloc`** | `0x13a3000` | `433,500` | `0x1361200` | `433,664` | `0x42000040` | Relocation table for ASLR |
@@ -61,16 +61,24 @@ The section table contains exactly 7 sections. The presence of `.nep` (Native En
 
 ## 3. Managed vs. Native Classification
 
-REA tool `inspect_managed_artifact` and low-level CLI header analysis verify:
+Low-level CLI header analysis establishes two distinct runtime descriptor structures:
 
+- **COM Descriptor Directory (Data Directory 14):**
+  - **RVA:** `0xae9b90`
+  - **Size:** `72` bytes (`0x48`)
+  - **File Offset:** `0xae7390` (located in `.rdata`)
+- **`IMAGE_COR20_HEADER` Fields:**
+  - `cb`: `72`
+  - `MajorRuntimeVersion`: `2`, `MinorRuntimeVersion`: `5`
+  - `Flags`: `0x00000000` (`COMIMAGE_FLAGS_ILONLY` is `0` / **CLEAR**)
+  - `EntryPointToken`: `0x06002c63`
+- **CLI Metadata Root (`MetaData` DataDirectory inside COR20 Header):**
+  - **RVA:** `0xc3ca00` (located in `.rdata`)
+  - **Size:** `3,111,676` bytes (`0x2f7afc`)
+  - **File Offset:** `0xc3a200`
+  - **Target CLR Runtime Version:** `v4.0.30319` (.NET Framework 4.8.x)
 - **Classification:** `cpp-cli-mixed` (C++/CLI Mixed-Mode Assembly).
-- **Runtime Family:** `mixed-clr-native`.
-- **CLI Runtime Version:** `v4.0.30319` (.NET Framework 4.8.x).
-- **COMIMAGE_FLAGS_ILONLY:** `0` (**CLEAR** / False).
   - *Implication:* Native x64 C++ compilation units are directly linked into the binary alongside managed CIL classes.
-- **CLI Metadata Root:** Located in `.rdata` at RVA `0xae9bc8`.
-- **Metadata Streams:** `#Blob`, `#GUID`, `#Strings`, `#US`, `#~`.
-- **Managed Entry Point Token:** `0x06002c63`.
 
 ---
 
@@ -80,6 +88,6 @@ REA tool `inspect_managed_artifact` and low-level CLI header analysis verify:
 - **File Offset:** `0x13cb000` (Decimal: `20,754,432`).
 - **Signature Length:** `20,552` bytes.
 - **End of Signature:** `20,754,432 + 20,552 = 20,774,984` bytes.
-  - *Mathematical Proof:* The signature directory terminates exactly at the file boundary (`20,774,984` bytes), confirming zero appended or truncated trailing bytes.
+  - *Physical Boundary Condition:* The signature directory terminates exactly at the file boundary (`20,774,984` bytes), confirming zero appended or truncated trailing bytes. Full cryptographic certificate validation requires separate PKI chain evaluation.
 - **Publisher:** Seagull Scientific, LLC.
 - **Status:** Valid vendor release binary. Target unmodified and preserved.

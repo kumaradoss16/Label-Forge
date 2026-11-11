@@ -82,20 +82,20 @@
     {
       "phantom_name": "BtEngine.dll",
       "prior_claim": "Core label geometry, affine transform matrices, object hit-testing, twip-to-pixel math",
-      "actual_reality": "Does not exist as a standalone DLL. The core object model, geometry transforms, and CArchive serialization are compiled natively inside BarTend.exe itself.",
-      "evidence": "os.path.exists(D:\\BarTender\\BtEngine.dll) == False; CArchive/CObList imports reside in BarTend.exe."
+      "actual_reality": "Does not exist as a standalone DLL in the audited directory. CArchive and MFC geometry routines are linked directly within BarTend.exe, indicating core serialization and layout are hosted in BarTend.exe.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtEngine.dll) == False; CArchive/CObList symbols reside in BarTend.exe."
     },
     {
       "phantom_name": "BtBarcode.dll",
       "prior_claim": "1D & 2D symbology rasterization, Reed-Solomon error correction",
-      "actual_reality": "Does not exist as a single monolithic DLL. Modular 2D symbologies are implemented in dedicated native x64 C++ plugins (BarCode_QRCode.dll, BarCode_DataMatrix.dll, BarCode_Aztec.dll, BarCode_DotCode.dll, BarCode_iQRCode.dll, etc.), while linear 1D barcodes are rasterized within BarTend.exe.",
-      "evidence": "os.path.exists(D:\\BarTender\\BtBarcode.dll) == False; BarCode_*.dll plugin series confirmed present and exported."
+      "actual_reality": "Does not exist as a standalone DLL in the audited directory. Modular 2D symbologies export C APIs in dedicated plugins (BarCode_QRCode.dll, BarCode_DataMatrix.dll), while 1D barcodes are rasterized in BarTend.exe.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtBarcode.dll) == False; BarCode_*.dll plugin series confirmed present with exported C functions."
     },
     {
       "phantom_name": "BtPrint.dll",
       "prior_claim": "Windows spooler interfacing, raw printer command construction",
-      "actual_reality": "Does not exist. Printing spooler and printer communication are handled across BarTend.exe, Seagull.BarTender.Print.dll, and Seagull.PrinterSetup.dll via winspool.drv.",
-      "evidence": "os.path.exists(D:\\BarTender\\BtPrint.dll) == False; winspool.drv imported directly by BarTend.exe and Seagull.BarTender.Print.dll."
+      "actual_reality": "Does not exist. Printing spooler communication is handled across BarTend.exe, Seagull.BarTender.Print.dll, and Seagull.PrinterSetup.dll via winspool.drv.",
+      "evidence": "os.path.exists(D:\\BarTender\\BtPrint.dll) == False; winspool.drv imported directly by BarTend.exe."
     },
     {
       "phantom_name": "BtSystem.dll",
@@ -132,7 +132,7 @@
     },
     {
       "name": "SciLexer64.dll",
-      "vendor": "Scintilla / Neil Hodgson",
+      "vendor": "Neil Hodgson / Scintilla",
       "version": "3.x/4.x",
       "role": "VBScript and JavaScript syntax highlighting editor",
       "size_bytes": 1539096

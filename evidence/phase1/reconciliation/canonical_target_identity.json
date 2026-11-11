@@ -89,19 +89,32 @@
     "size": 20552,
     "signature_end_offset": 20774984,
     "equals_file_size": true,
-    "publisher": "Seagull Scientific, LLC"
+    "publisher": "Seagull Scientific, LLC",
+    "notes": "Physical PE Directory bounds check confirms signature terminates at exact file end. Full cryptographic trust validation requires separate WinVerifyTrust/PKI chain verification."
   },
   "clr_runtime": {
     "present": true,
-    "virtual_address": "0xae9b90",
-    "size": 72,
-    "clr_version": "v4.0.30319",
-    "classification": "cpp-cli-mixed",
-    "comimage_flags": 0,
-    "comimage_flags_ilonly": false,
-    "metadata_rva": "0xc3ca00",
-    "metadata_size": 3111676,
-    "entry_point_token": "0x06002c63"
+    "com_descriptor_directory": {
+      "directory_index": 14,
+      "virtual_address": "0xae9b90",
+      "size": 72,
+      "file_offset": "0xae7390"
+    },
+    "cor20_header": {
+      "header_size_bytes": 72,
+      "runtime_version": "2.5",
+      "flags": 0,
+      "flags_hex": "0x0",
+      "comimage_flags_ilonly": false,
+      "entry_point_token": "0x06002c63"
+    },
+    "cli_metadata_root": {
+      "virtual_address": "0xc3ca00",
+      "size_bytes": 3111676,
+      "file_offset": "0xc3a200",
+      "target_clr_runtime": "v4.0.30319"
+    },
+    "classification": "cpp-cli-mixed"
   },
   "version_info": {
     "original_filename": "BarTend.exe",
@@ -132,6 +145,9 @@
       "entry_point": "0x97d0fb",
       "signature_size": 20552,
       "signature_offset": "0x13cb000",
+      "data_section_raw_offset": "0x10f2a00",
+      "clr_header_rva": "0xae9b90",
+      "cli_metadata_rva": "0xc3ca00",
       "sections": [
         ".text",
         ".nep",
@@ -142,6 +158,6 @@
         ".reloc"
       ]
     },
-    "root_cause": "Report 11 recorded draft metrics from a preliminary template, while target_identity.json captured ground-truth PE bytes. The authoritative baseline is verified against D:\\BarTender\\BarTend.exe."
+    "root_cause": "Report 11 recorded draft metrics from an earlier template, while target_identity.json and this canonical manifest capture byte-verified PE ground truth."
   }
 }

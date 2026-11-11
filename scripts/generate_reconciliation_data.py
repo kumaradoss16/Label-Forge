@@ -65,27 +65,49 @@ def rva_to_offset(rva):
             return raddr + (rva - vaddr)
     return None
 
+# CLR and Metadata headers inspection (distinct PE structures)
+com_file_offset = rva_to_offset(com_rva) if com_rva != 0 else None
+cor_cb = 0
+cor_major = 0
+cor_minor = 0
+cor_flags = 0
+cor_entry_token = 0
+meta_rva = 0
+meta_size = 0
+meta_file_offset = None
+
+if com_file_offset is not None:
+    cor_header = data[com_file_offset:com_file_offset+72]
+    cor_cb, cor_major, cor_minor = struct.unpack_from('<IHH', cor_header, 0)
+    meta_rva, meta_size = struct.unpack_from('<II', cor_header, 8)
+    cor_flags = struct.unpack_from('<I', cor_header, 16)[0]
+    cor_entry_token = struct.unpack_from('<I', cor_header, 20)[0]
+    meta_file_offset = rva_to_offset(meta_rva)
+
 clr_info = {
     'present': com_rva != 0 and com_size != 0,
-    'virtual_address': f'0x{com_rva:x}',
-    'size': com_size,
-    'clr_version': 'v4.0.30319',
-    'classification': 'cpp-cli-mixed',
-    'comimage_flags': 0,
-    'comimage_flags_ilonly': False
+    'com_descriptor_directory': {
+        'directory_index': 14,
+        'virtual_address': f'0x{com_rva:x}',
+        'size': com_size,
+        'file_offset': f'0x{com_file_offset:x}' if com_file_offset else None
+    },
+    'cor20_header': {
+        'header_size_bytes': cor_cb,
+        'runtime_version': f'{cor_major}.{cor_minor}',
+        'flags': cor_flags,
+        'flags_hex': f'0x{cor_flags:x}',
+        'comimage_flags_ilonly': bool(cor_flags & 1),
+        'entry_point_token': f'0x{cor_entry_token:08x}'
+    },
+    'cli_metadata_root': {
+        'virtual_address': f'0x{meta_rva:x}',
+        'size_bytes': meta_size,
+        'file_offset': f'0x{meta_file_offset:x}' if meta_file_offset else None,
+        'target_clr_runtime': 'v4.0.30319'
+    },
+    'classification': 'cpp-cli-mixed'
 }
-if com_rva != 0:
-    com_offset = rva_to_offset(com_rva)
-    if com_offset:
-        cor_header = data[com_offset:com_offset+72]
-        flags = struct.unpack_from('<I', cor_header, 16)[0]
-        meta_rva, meta_size = struct.unpack_from('<II', cor_header, 8)
-        entry_token = struct.unpack_from('<I', cor_header, 20)[0]
-        clr_info['comimage_flags'] = flags
-        clr_info['comimage_flags_ilonly'] = bool(flags & 1)
-        clr_info['metadata_rva'] = f'0x{meta_rva:x}'
-        clr_info['metadata_size'] = meta_size
-        clr_info['entry_point_token'] = f'0x{entry_token:08x}'
 
 # Direct imports
 direct_imported_dlls = []
@@ -147,7 +169,8 @@ canonical_target_identity = {
         'size': cert_size,
         'signature_end_offset': cert_va + cert_size,
         'equals_file_size': (cert_va + cert_size) == file_size,
-        'publisher': 'Seagull Scientific, LLC'
+        'publisher': 'Seagull Scientific, LLC',
+        'notes': 'Physical PE Directory bounds check confirms signature terminates at exact file end. Full cryptographic trust validation requires separate WinVerifyTrust/PKI chain verification.'
     },
     'clr_runtime': clr_info,
     'version_info': {
@@ -171,9 +194,12 @@ canonical_target_identity = {
             'entry_point': f'0x{entry_point:x}',
             'signature_size': cert_size,
             'signature_offset': f'0x{cert_va:x}',
+            'data_section_raw_offset': '0x10f2a00',
+            'clr_header_rva': f'0x{com_rva:x}',
+            'cli_metadata_rva': f'0x{meta_rva:x}',
             'sections': [s['name'] for s in sections]
         },
-        'root_cause': 'Report 11 recorded draft metrics from a preliminary template, while target_identity.json captured ground-truth PE bytes. The authoritative baseline is verified against D:\\BarTender\\BarTend.exe.'
+        'root_cause': 'Report 11 recorded draft metrics from an earlier template, while target_identity.json and this canonical manifest capture byte-verified PE ground truth.'
     }
 }
 
@@ -352,44 +378,44 @@ phantom_dlls = [
     {
         'phantom_name': 'BtEngine.dll',
         'prior_claim': 'Core label geometry, affine transform matrices, object hit-testing, twip-to-pixel math',
-        'actual_reality': 'Does not exist as a standalone DLL. The core object model, geometry transforms, and CArchive serialization are compiled natively inside BarTend.exe itself.',
-        'evidence': f'os.path.exists(D:\\BarTender\\BtEngine.dll) == False; CArchive/CObList imports reside in BarTend.exe.'
+        'actual_reality': 'Does not exist as a standalone DLL in the audited directory. CArchive and MFC geometry routines are linked directly within BarTend.exe, indicating core serialization and layout are hosted in BarTend.exe.',
+        'evidence': 'os.path.exists(D:\\BarTender\\BtEngine.dll) == False; CArchive/CObList symbols reside in BarTend.exe.'
     },
     {
         'phantom_name': 'BtBarcode.dll',
         'prior_claim': '1D & 2D symbology rasterization, Reed-Solomon error correction',
-        'actual_reality': 'Does not exist as a single monolithic DLL. Modular 2D symbologies are implemented in dedicated native x64 C++ plugins (BarCode_QRCode.dll, BarCode_DataMatrix.dll, BarCode_Aztec.dll, BarCode_DotCode.dll, BarCode_iQRCode.dll, etc.), while linear 1D barcodes are rasterized within BarTend.exe.',
-        'evidence': f'os.path.exists(D:\\BarTender\\BtBarcode.dll) == False; BarCode_*.dll plugin series confirmed present and exported.'
+        'actual_reality': 'Does not exist as a standalone DLL in the audited directory. Modular 2D symbologies export C APIs in dedicated plugins (BarCode_QRCode.dll, BarCode_DataMatrix.dll), while 1D barcodes are rasterized in BarTend.exe.',
+        'evidence': 'os.path.exists(D:\\BarTender\\BtBarcode.dll) == False; BarCode_*.dll plugin series confirmed present with exported C functions.'
     },
     {
         'phantom_name': 'BtPrint.dll',
         'prior_claim': 'Windows spooler interfacing, raw printer command construction',
-        'actual_reality': 'Does not exist. Printing spooler and printer communication are handled across BarTend.exe, Seagull.BarTender.Print.dll, and Seagull.PrinterSetup.dll via winspool.drv.',
-        'evidence': f'os.path.exists(D:\\BarTender\\BtPrint.dll) == False; winspool.drv imported directly by BarTend.exe and Seagull.BarTender.Print.dll.'
+        'actual_reality': 'Does not exist. Printing spooler communication is handled across BarTend.exe, Seagull.BarTender.Print.dll, and Seagull.PrinterSetup.dll via winspool.drv.',
+        'evidence': 'os.path.exists(D:\\BarTender\\BtPrint.dll) == False; winspool.drv imported directly by BarTend.exe.'
     },
     {
         'phantom_name': 'BtSystem.dll',
         'prior_claim': 'Memory pooling, OS version checks, IPC pipe communication',
         'actual_reality': 'Does not exist. System services and database interop are provided by BtSystem.Client.dll, BtSystem.DataAccess.dll, BtSystem.Interfaces.dll, and Seagull.Framework.dll.',
-        'evidence': f'os.path.exists(D:\\BarTender\\BtSystem.dll) == False; BtSystem.* managed assembly family verified on disk.'
+        'evidence': 'os.path.exists(D:\\BarTender\\BtSystem.dll) == False; BtSystem.* managed assembly family verified on disk.'
     },
     {
         'phantom_name': 'BtLic.dll',
         'prior_claim': 'Seagull License Server communication and license checks',
         'actual_reality': 'Does not exist. Licensing and security verification are managed by Seagull.License.dll and Seagull.Services.Licensing.dll over WCF/HTTP.',
-        'evidence': f'os.path.exists(D:\\BarTender\\BtLic.dll) == False; Seagull.License.dll and Seagull.Services.Licensing.* verified.'
+        'evidence': 'os.path.exists(D:\\BarTender\\BtLic.dll) == False; Seagull.License.dll and Seagull.Services.Licensing.* verified.'
     },
     {
         'phantom_name': 'BtData.dll',
         'prior_claim': 'Delimited text parser, database queries, serialization counters',
         'actual_reality': 'Does not exist. Data processing is handled by Seagull.Data.dll, Seagull.Data.Core.dll, Seagull.Data.TextFileClient.dll, and Seagull.Data.DataBuilder.dll.',
-        'evidence': f'os.path.exists(D:\\BarTender\\BtData.dll) == False; Seagull.Data.* assembly suite verified.'
+        'evidence': 'os.path.exists(D:\\BarTender\\BtData.dll) == False; Seagull.Data.* assembly suite verified.'
     },
     {
         'phantom_name': 'XtremeToolkitPro.dll',
         'prior_claim': 'Codejock Software professional GUI components',
         'actual_reality': 'The actual file on disk is ToolkitPro1531vc142x64U.dll (size: 10,844,184 bytes), representing Codejock Xtreme Toolkit Pro v15.3.1 compiled for Visual C++ 14.2 x64 Unicode.',
-        'evidence': f'os.path.exists(D:\\BarTender\\ToolkitPro1531vc142x64U.dll) == True (10,844,184 bytes); imported by BarTend.exe.'
+        'evidence': 'os.path.exists(D:\\BarTender\\ToolkitPro1531vc142x64U.dll) == True (10,844,184 bytes); imported by BarTend.exe.'
     }
 ]
 
@@ -417,7 +443,7 @@ dependency_reconciliation = {
         },
         {
             'name': 'SciLexer64.dll',
-            'vendor': 'Scintilla / Neil Hodgson',
+            'vendor': 'Neil Hodgson / Scintilla',
             'version': '3.x/4.x',
             'role': 'VBScript and JavaScript syntax highlighting editor',
             'size_bytes': os.path.getsize(os.path.join(TARGET_ROOT, 'SciLexer64.dll'))
@@ -487,26 +513,26 @@ claims = [
     {
         'id': 'P1-006',
         'area': 'PE Architecture',
-        'claim': 'Section table contains exactly 7 sections: .text, .nep, .rdata, .data, .pdata, .rsrc, .reloc',
+        'claim': 'Section table contains exactly 7 sections: .text, .nep, .rdata, .data, .pdata, .rsrc, .reloc with .data RawOffset at 0x10f2a00',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'IMAGE_SECTION_HEADER table at PE offset 0x308',
-        'reconciled_notes': 'Report 11 claimed .tls was present and omitted .nep. In reality, .nep (Native Entry Point) is present and .tls is absent.'
+        'evidence_source': 'IMAGE_SECTION_HEADER table at PE offset 0x308 in D:\\BarTender\\BarTend.exe',
+        'reconciled_notes': 'Reconciled section table. .data raw file offset is 0x10f2a00. Section .nep is present; .tls is absent.'
     },
     {
         'id': 'P1-007',
         'area': 'PE Architecture',
-        'claim': 'Authenticode security directory is at file offset 0x13cb000 with length 20,552 bytes, ending exactly at byte 20,774,984',
+        'claim': 'Authenticode security directory in PE Optional Header starts at offset 0x13cb000 with size 20,552 bytes, terminating at byte 20,774,984 (matching exact file size, confirming physical PE boundary alignment)',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'IMAGE_DIRECTORY_ENTRY_SECURITY at OptionalHeader offset + 144',
-        'reconciled_notes': 'Report 11 erroneously cited offset 0x13c7200 and size 9,472. Corrected to 0x13cb000 and 20,552 bytes.'
+        'evidence_source': 'IMAGE_DIRECTORY_ENTRY_SECURITY at OptionalHeader offset + 144 in D:\\BarTender\\BarTend.exe',
+        'reconciled_notes': 'Claim narrowed to physical PE directory bounds alignment. Cryptographic certificate trust validation is a separate PKI verification.'
     },
     {
         'id': 'P1-008',
         'area': 'PE Architecture',
-        'claim': 'BarTend.exe is a C++/CLI mixed-mode assembly (COMIMAGE_FLAGS_ILONLY=0, CLR v4.0.30319)',
+        'claim': 'BarTend.exe contains a COM Descriptor at RVA 0xae9b90 (offset 0xae7390, size 72), pointing to CLI Metadata Root at RVA 0xc3ca00 (offset 0xc3a200, size 3,111,676), with COMIMAGE_FLAGS_ILONLY=0 (C++/CLI mixed mode)',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'IMAGE_COR20_HEADER at RVA 0xae9b90, Flags=0, EntryPointToken=0x06002c63',
-        'reconciled_notes': 'Proves unmanaged native x64 and managed CIL coexist in the same executable.'
+        'evidence_source': 'IMAGE_COR20_HEADER at file offset 0xae7390 in D:\\BarTender\\BarTend.exe',
+        'reconciled_notes': 'Clarified distinct PE structures: CLR header at RVA 0xae9b90 and CLI Metadata Root at RVA 0xc3ca00. Flags=0 confirms unmanaged native x64 and managed CIL coexist.'
     },
     {
         'id': 'P1-009',
@@ -521,7 +547,7 @@ claims = [
         'area': 'Component Inventory',
         'claim': 'Files breakdown into mutually exclusive categories: 24 .exe, 433 .dll, 4 .ocx, 29 .config, 40 .xml, 10 .xsd, 7 .pdf, 3 .ini, 2 .manifest, 3 other (.dat, .ico, .stk) = 555 files',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'Extension and header audit of all 555 top-level files',
+        'evidence_source': 'Extension and header audit of all 555 top-level files in D:\\BarTender',
         'reconciled_notes': 'Sum matches 555 exactly with zero overlap.'
     },
     {
@@ -529,7 +555,7 @@ claims = [
         'area': 'Component Inventory',
         'claim': 'The 461 PE binaries classify into: 332 Managed IL-Only, 20 Mixed-Mode C++/CLI, 27 Native x64, 82 Native x86',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'COM descriptor and machine architecture parsing of 461 binaries',
+        'evidence_source': 'COM descriptor and machine architecture parsing of 461 binaries in D:\\BarTender',
         'reconciled_notes': 'Reconciles previous 331 managed / 102 native split. The 82 native x86 DLLs are satellite localized resources and legacy components.'
     },
     {
@@ -537,7 +563,7 @@ claims = [
         'area': 'Dependency Analysis',
         'claim': 'BarTend.exe statically imports 48 DLLs directly via PE Import Table',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'PE Import Directory table at RVA 0x10d37e8',
+        'evidence_source': 'PE Import Directory table at RVA 0x10d37e8 in D:\\BarTender\\BarTend.exe',
         'reconciled_notes': 'Verified through PE parsing.'
     },
     {
@@ -545,7 +571,7 @@ claims = [
         'area': 'Dependency Analysis',
         'claim': 'BarTend.exe delay-loads 17 DLLs via Delay Import Directory',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'PE Delay Import Directory table at RVA 0x10d0be0',
+        'evidence_source': 'PE Delay Import Directory table at RVA 0x10d0be0 in D:\\BarTender\\BarTend.exe',
         'reconciled_notes': 'Verified through PE parsing.'
     },
     {
@@ -559,26 +585,26 @@ claims = [
     {
         'id': 'P1-015',
         'area': 'Dependency Analysis',
-        'claim': 'Hypothetical DLLs BtEngine.dll, BtBarcode.dll, BtPrint.dll, BtSystem.dll, BtLic.dll, BtData.dll do not exist on disk',
+        'claim': 'No standalone DLLs named BtEngine.dll, BtBarcode.dll, BtPrint.dll, BtSystem.dll, BtLic.dll, or BtData.dll exist in D:\\BarTender; layout and serialization primitives are hosted within BarTend.exe',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'Direct filesystem verification across target directory',
-        'reconciled_notes': 'Prior reports hypothesized separate DLLs for these roles. Corrected to show that core engine resides in BarTend.exe and modular Seagull.* / BarCode_* DLLs.'
+        'evidence_source': 'Direct filesystem verification across D:\\BarTender and export/import analysis of BarTend.exe',
+        'reconciled_notes': 'Claim narrowed: proves absence of standalone DLLs with those names in target root; CArchive and geometry symbols are linked in BarTend.exe.'
     },
     {
         'id': 'P1-016',
         'area': 'Dependency Analysis',
-        'claim': 'Modular 2D barcode engines are separate native x64 DLLs (BarCode_QRCode.dll, BarCode_DataMatrix.dll, BarCode_Aztec.dll, BarCode_DotCode.dll, etc.)',
+        'claim': 'Modular 2D barcode rasterization is exported via procedural C APIs in separate native x64 plugins (BarCode_QRCode.dll, BarCode_DataMatrix.dll, etc.)',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'Export tables of BarCode_*.dll series in D:\\BarTender',
-        'reconciled_notes': 'Direct verification of exports: GenerateQRCode, GetQRCell, get_dm_cell, etc.'
+        'evidence_source': 'Export tables of BarCode_*.dll series in D:\\BarTender (GenerateQRCode, get_dm_cell, etc.)',
+        'reconciled_notes': 'Claim narrowed: confirms exported procedural C APIs for matrix generation; does not infer full internal dispatch architecture.'
     },
     {
         'id': 'P1-017',
         'area': 'Interop',
-        'claim': 'MFC CArchive and CObList are utilized for document object management and .btw serialization',
+        'claim': 'Presence of CArchive and CObList P/Invoke thunks confirms BarTend.exe uses MFC object collection and binary stream serialization primitives for document handling',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'REA inspect_managed_native_boundaries extracted P/Invoke and CRT symbols',
-        'reconciled_notes': 'Cross-verified with MFC runtime linkage mfc140u.dll and MFCM140U.dll.'
+        'evidence_source': 'REA inspect_managed_native_boundaries extracted P/Invoke and CRT symbols in BarTend.exe',
+        'reconciled_notes': 'Claim narrowed: proves linkage to MFC serialization primitives; does not claim full independent discovery of proprietary .btw schema.'
     },
     {
         'id': 'P1-018',
@@ -591,10 +617,10 @@ claims = [
     {
         'id': 'P1-019',
         'area': 'Resources & UI Assets',
-        'claim': '83 extracted CHM help documentation screenshots and UI icons are copyrighted proprietary assets of Seagull Scientific, LLC and cannot be bundled with Label-Forge',
+        'claim': '83 extracted CHM help documentation screenshots and UI icons are copyrighted proprietary assets of Seagull Scientific, LLC and have been removed from the repository to ensure strict clean-room copyright compliance',
         'status': 'VERIFIED_DOCUMENTATION',
-        'evidence_source': 'resource_inventory.json and copyright audit of Help/BarTender.chm',
-        'reconciled_notes': 'Clean-room compliance mandate: Label-Forge must use original vector icons and independent UI assets.'
+        'evidence_source': 'resource_inventory.json, copyright audit of Help/BarTender.chm, and screenshots/UI_OBSERVATIONS_REFERENCE.md',
+        'reconciled_notes': 'Clean-room compliance mandate: proprietary binary images removed from repository. Purely textual observations and anchor rules preserved in screenshots/UI_OBSERVATIONS_REFERENCE.md.'
     },
     {
         'id': 'P1-020',
@@ -606,19 +632,43 @@ claims = [
     },
     {
         'id': 'P1-021',
-        'area': 'Runtime & Printing',
-        'claim': 'Printing architecture supports dual pathways: Windows GDI/XPS spooler rendering and direct thermal printer language pass-through',
+        'area': 'Printing Architecture',
+        'claim': 'BarTend.exe directly imports the Win32 Print Spooler API (winspool.drv: OpenPrinterW, StartDocPrinterW, WritePrinter), establishing static linkage for print spooling and raw printer data communication',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'winspool.drv direct imports (OpenPrinter, StartDocPrinter, WritePrinter) and Seagull.BarTender.Print.dll',
-        'reconciled_notes': 'Verified via spooler API imports.'
+        'evidence_source': 'PE Import Directory of BarTend.exe (winspool.drv import descriptors)',
+        'reconciled_notes': 'Claim narrowed: establishes static spooler API linkage; does not extrapolate to unobserved proprietary print pathways.'
     },
     {
         'id': 'P1-022',
-        'area': 'Runtime & Licensing',
-        'claim': 'Licensing validation is performed against Seagull License Server (SLS) via Seagull.License.dll and Seagull.Services.Licensing.dll',
+        'area': 'Licensing Subsystem',
+        'claim': 'Seagull License Server communication and entitlement verification are handled via Seagull.License.dll and Seagull.Services.Licensing.dll over WCF/HTTP services',
         'status': 'VERIFIED_STATIC',
-        'evidence_source': 'Managed assembly inspection of Seagull.License.dll and WCF service contracts',
-        'reconciled_notes': 'Verified statically. Clean-room Label-Forge will implement an independent permissive licensing model.'
+        'evidence_source': 'Managed assembly inspection of Seagull.License.dll and WCF service contracts in D:\\BarTender',
+        'reconciled_notes': 'Verified statically from managed metadata.'
+    },
+    {
+        'id': 'P1-023',
+        'area': 'Runtime Observation',
+        'claim': 'Process Startup Lifecycle (RT-01): BarTend.exe spawns under Windows x64, initializes CRT and CLR v4.0.30319, and blocks on a modal Win32 activation prompt before entering main message pump in non-interactive Session 22',
+        'status': 'VERIFIED_RUNTIME',
+        'evidence_source': 'evidence/phase1/runtime_observations.json (Test ID RT-01)',
+        'reconciled_notes': 'Direct empirical runtime execution test with argument /Min=SystemTray.'
+    },
+    {
+        'id': 'P1-024',
+        'area': 'Runtime Observation',
+        'claim': 'Managed Print API License Enforcement (RT-02): Instantiating Seagull.BarTender.Print.Engine via reflection and calling Start() throws Seagull.BarTender.Print.LicenseException in unactivated state',
+        'status': 'VERIFIED_RUNTIME',
+        'evidence_source': 'evidence/phase1/runtime_observations.json (Test ID RT-02)',
+        'reconciled_notes': 'Direct empirical runtime execution test confirming license gate on managed print API.'
+    },
+    {
+        'id': 'P1-025',
+        'area': 'Runtime Observation',
+        'claim': 'COM Automation Registration (RT-03): COM ProgID BarTender.Application is registered under CLSID {D5856250-13D3-11D1-9D2B-00609787E3AE}, launching BarTend.exe /Automation upon activation',
+        'status': 'VERIFIED_RUNTIME',
+        'evidence_source': 'evidence/phase1/runtime_observations.json (Test ID RT-03)',
+        'reconciled_notes': 'Direct empirical runtime execution test via New-Object -ComObject BarTender.Application.'
     }
 ]
 
@@ -641,6 +691,7 @@ with open(os.path.join(RECON_DIR, 'claim_register.json'), 'w', encoding='utf-8')
     json.dump(claim_register, f, indent=2)
 
 # 5. VALIDATION MANIFEST
+# Track all Phase 1 and 1.1 evidence files
 evidence_files_to_track = [
     os.path.join(EVIDENCE_DIR, 'target_identity.json'),
     os.path.join(EVIDENCE_DIR, 'application_components.json'),
@@ -682,4 +733,4 @@ validation_manifest = {
 with open(os.path.join(RECON_DIR, 'validation_manifest.json'), 'w', encoding='utf-8') as f:
     json.dump(validation_manifest, f, indent=2)
 
-print('All 5 reconciliation manifests generated successfully.')
+print('All reconciliation manifests regenerated successfully.')

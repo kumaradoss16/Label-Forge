@@ -25,24 +25,22 @@ The authoritative `.rsrc` section of `BarTend.exe` measures **1,264,272 bytes** 
 
 ## 2. External Documentation & UI Reference Assets
 
-From `D:\BarTender\Help\BarTender.chm`, **83 official reference UI graphics and dialog assets** were extracted for functional behavior analysis (including 40 curated files in `screenshots/`):
+From `D:\BarTender\Help\BarTender.chm`, 83 official reference UI graphics and dialog assets were audited for functional behavior analysis:
+- 25 dialog templates and layouts (Page Setup, Print Setup, Database Setup, Serialization)
+- 58 visual UI icons and toolbar elements
 
-1. **Main Designer Canvas (`screenshots/Canvas_Example.png`):**
-   - Shows active label canvas, horizontal and vertical rulers in inches/mm, and snap-to-grid indicators.
-2. **Design Object Toolbox (`screenshots/AllObjects.png`):**
-   - Documents visual design objects: Single-line Text, Multi-line Text, 1D Barcodes, 2D Matrix Codes, Shapes (Rectangles, Rounded Rectangles, Ellipses, Lines), Pictures, and Tables.
-3. **Object Reference Points (`screenshots/ObjectReferencePoints.png`):**
-   - Illustrates the 9-point reference anchor system (Top-Left, Top-Center, Top-Right, Center-Left, Center, Center-Right, Bottom-Left, Bottom-Center, Bottom-Right) controlling object expansion and rotational origins.
-4. **Data Source Integration (`screenshots/ObjectValueSource.gif`):**
-   - Documents the 5 primary data source types: Embedded Data, Clock / Timestamp, Database Field, Serial Number (Counter), and Visual Basic Script Expression.
+### 2.1 Behavioral Synthesis (Preserved Independently)
+All functional behavior, layout geometry, coordinate origins, and adorner manipulation rules observed from these assets have been synthesized into **independent, clean-room textual specifications** in:
+- [`screenshots/UI_OBSERVATIONS_REFERENCE.md`](file:///E:/ReverseEngineering/Label-Forge-clone/screenshots/UI_OBSERVATIONS_REFERENCE.md)
+- [`reports/05_UI_REFERENCE_SPECIFICATION.md`](file:///E:/ReverseEngineering/Label-Forge-clone/reports/05_UI_REFERENCE_SPECIFICATION.md)
 
 ---
 
-## 3. Clean-Room Asset Compliance & Copyright Review
+## 3. Clean-Room Asset Compliance & Copyright Enforcement
 
 > [!CAUTION]
-> **Mandatory Legal Boundary:** The extracted screenshots, CHM graphics, and dialog templates are copyrighted proprietary assets of Seagull Scientific, LLC.
+> **Mandatory Legal Boundary & Asset Removal:**
 > 
-> 1. **No Binary Embedding:** No extracted BarTender bitmaps, PNGs, ICOs, or dialog templates may be bundled, embedded, or redistributed within the Label-Forge application, installer, or NuGet packages.
-> 2. **Analytical Use Only:** Extracted media are strictly preserved under fair-use reverse-engineering doctrines to serve as an observable functional specification.
-> 3. **Independent UI Implementation:** Label-Forge must implement its own UI using pure XAML, open-source or custom vector icons (e.g. Lucide/Material vector geometries), and modern WPF MVVM controls.
+> 1. **Zero Proprietary Binary Distribution:** In accordance with copyright law and clean-room engineering guidelines, all 40 extracted proprietary graphic assets (PNGs, GIFs, JPEGs) previously located in `screenshots/` have been **permanently deleted from repository version control**.
+> 2. **Analytical Metadata Only:** The repository retains only non-infringing structural metadata, coordinate models, and independently written observational logs.
+> 3. **Clean-Room Implementation:** Label-Forge must use original vector icons (e.g., custom XAML vector geometries or open-source permissive icon sets) and modern WPF MVVM controls.
