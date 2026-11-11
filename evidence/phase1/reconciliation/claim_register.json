@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.1.2",
   "status": "RECONCILED_AUTHORITATIVE",
   "total_claims": 25,
   "claims_by_status": {
@@ -17,7 +17,24 @@
       "claim": "Primary executable is BarTend.exe located at D:\\BarTender\\BarTend.exe with file size 20,774,984 bytes",
       "status": "VERIFIED_STATIC",
       "evidence_source": "D:\\BarTender\\BarTend.exe filesystem metadata and Authenticode table end offset",
-      "reconciled_notes": "Confirmed exactly matching on disk."
+      "reconciled_notes": "Confirmed exactly matching on disk.",
+      "validation_method": "EXECUTABLE_ASSERTION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/file_size_bytes",
+          "description": "File size in bytes",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/target_filename",
+          "description": "Primary target executable name",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-002",
@@ -25,7 +42,31 @@
       "claim": "BarTend.exe file hashes: MD5=7af37ab384391fcc03935a569d705aa0, SHA1=7a57fefa26e99ddec6a46625a8cc17c5a87593aa, SHA256=d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594",
       "status": "VERIFIED_STATIC",
       "evidence_source": "Static cryptographic digests of D:\\BarTender\\BarTend.exe",
-      "reconciled_notes": "Report 11 erroneously recorded stale draft MD5 7d73010b91dcfaec676bb062bf6a20bc and SHA1 4633e9ec2d8150eafe0ee994c6ca9c2bf41e39eb. Fully corrected to ground truth."
+      "reconciled_notes": "Report 11 erroneously recorded stale draft MD5 7d73010b91dcfaec676bb062bf6a20bc and SHA1 4633e9ec2d8150eafe0ee994c6ca9c2bf41e39eb. Fully corrected to ground truth.",
+      "validation_method": "EXECUTABLE_ASSERTION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/hashes/md5",
+          "description": "MD5 hash",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/hashes/sha1",
+          "description": "SHA1 hash",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/hashes/sha256",
+          "description": "SHA256 hash",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-003",
@@ -33,7 +74,24 @@
       "claim": "BarTend.exe FileVersion is 11.4.238.365 and ProductVersion is 11.4.0.1 (BarTender 11.4)",
       "status": "VERIFIED_STATIC",
       "evidence_source": "PE VersionInfo resource StringTable and VS_FIXEDFILEINFO",
-      "reconciled_notes": "Verified against binary resource table in D:\\BarTender\\BarTend.exe."
+      "reconciled_notes": "Verified against binary resource table in D:\\BarTender\\BarTend.exe.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/version_info/file_version",
+          "description": "FileVersion string",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/version_info/product_version",
+          "description": "ProductVersion string",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-004",
@@ -41,7 +99,31 @@
       "claim": "Target architecture is x86_64 (Machine 0x8664, PE32+ Optional Header, Subsystem 2 GUI)",
       "status": "VERIFIED_STATIC",
       "evidence_source": "IMAGE_NT_HEADERS64.FileHeader and OptionalHeader in D:\\BarTender\\BarTend.exe",
-      "reconciled_notes": "Consistent across all evidence."
+      "reconciled_notes": "Consistent across all evidence.",
+      "validation_method": "EXECUTABLE_ASSERTION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/pe_header/machine",
+          "description": "PE Machine architecture",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/pe_header/magic",
+          "description": "PE Optional Header magic",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/pe_header/subsystem",
+          "description": "PE Windows Subsystem",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-005",
@@ -49,7 +131,24 @@
       "claim": "Address of Entry Point is 0x97d0fb and ImageBase is 0x140000000",
       "status": "VERIFIED_STATIC",
       "evidence_source": "PE OptionalHeader fields AddressOfEntryPoint and ImageBase in D:\\BarTender\\BarTend.exe",
-      "reconciled_notes": "Report 11 erroneously cited 0x6f3e1c. Corrected to 0x97d0fb."
+      "reconciled_notes": "Report 11 erroneously cited 0x6f3e1c. Corrected to 0x97d0fb.",
+      "validation_method": "EXECUTABLE_ASSERTION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/pe_header/entry_point",
+          "description": "AddressOfEntryPoint RVA",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/pe_header/image_base",
+          "description": "ImageBase",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-006",
@@ -57,7 +156,31 @@
       "claim": "Section table contains exactly 7 sections: .text, .nep, .rdata, .data, .pdata, .rsrc, .reloc with .data RawOffset at 0x10f2a00",
       "status": "VERIFIED_STATIC",
       "evidence_source": "IMAGE_SECTION_HEADER table at PE offset 0x308 in D:\\BarTender\\BarTend.exe",
-      "reconciled_notes": "Reconciled section table. .data raw file offset is 0x10f2a00. Section .nep is present; .tls is absent."
+      "reconciled_notes": "Reconciled section table. .data raw file offset is 0x10f2a00. Section .nep is present; .tls is absent.",
+      "validation_method": "EXECUTABLE_ASSERTION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/pe_header/number_of_sections",
+          "description": "Number of PE sections",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/sections/3/name",
+          "description": ".data section name",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/sections/3/raw_data_offset",
+          "description": ".data section raw data offset",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-007",
@@ -65,7 +188,31 @@
       "claim": "Authenticode security directory in PE Optional Header starts at offset 0x13cb000 with size 20,552 bytes, terminating at byte 20,774,984 (matching exact file size, confirming physical PE boundary alignment)",
       "status": "VERIFIED_STATIC",
       "evidence_source": "IMAGE_DIRECTORY_ENTRY_SECURITY at OptionalHeader offset + 144 in D:\\BarTender\\BarTend.exe",
-      "reconciled_notes": "Claim narrowed to physical PE directory bounds alignment. Cryptographic certificate trust validation is a separate PKI verification."
+      "reconciled_notes": "Claim narrowed to physical PE directory bounds alignment. Cryptographic certificate trust validation is a separate PKI verification.",
+      "validation_method": "EXECUTABLE_ASSERTION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/authenticode_signature/file_offset",
+          "description": "Security directory offset",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/authenticode_signature/size",
+          "description": "Security directory size",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/authenticode_signature/signature_end_offset",
+          "description": "Signature end offset",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-008",
@@ -73,7 +220,31 @@
       "claim": "BarTend.exe contains a COM Descriptor at RVA 0xae9b90 (offset 0xae7390, size 72), pointing to CLI Metadata Root at RVA 0xc3ca00 (offset 0xc3a200, size 3,111,676), with COMIMAGE_FLAGS_ILONLY=0 (C++/CLI mixed mode)",
       "status": "VERIFIED_STATIC",
       "evidence_source": "IMAGE_COR20_HEADER at file offset 0xae7390 in D:\\BarTender\\BarTend.exe",
-      "reconciled_notes": "Clarified distinct PE structures: CLR header at RVA 0xae9b90 and CLI Metadata Root at RVA 0xc3ca00. Flags=0 confirms unmanaged native x64 and managed CIL coexist."
+      "reconciled_notes": "Clarified distinct PE structures: CLR header at RVA 0xae9b90 and CLI Metadata Root at RVA 0xc3ca00. Flags=0 confirms unmanaged native x64 and managed CIL coexist.",
+      "validation_method": "EXECUTABLE_ASSERTION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/clr_runtime/com_descriptor_directory/virtual_address",
+          "description": "CLR COM descriptor virtual address",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/clr_runtime/cli_metadata_root/virtual_address",
+          "description": "CLI metadata root virtual address",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/canonical_target_identity.json",
+          "pointer": "/clr_runtime/cor20_header/flags",
+          "description": "COR20 header flags",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-009",
@@ -81,7 +252,31 @@
       "claim": "Top-level installation directory D:\\BarTender contains 589 filesystem items: 555 files and 34 directories",
       "status": "VERIFIED_STATIC",
       "evidence_source": "Filesystem enumeration of D:\\BarTender\\",
-      "reconciled_notes": "Reconciles prior confusion where 589 was described as \"Total Files\". Exactly 555 files + 34 subdirectories = 589 items."
+      "reconciled_notes": "Reconciles prior confusion where 589 was described as \"Total Files\". Exactly 555 files + 34 subdirectories = 589 items.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+          "pointer": "/total_filesystem_items",
+          "description": "Total filesystem items in installation",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+          "pointer": "/total_files",
+          "description": "Total file count",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+          "pointer": "/total_directories",
+          "description": "Total directory count",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-010",
@@ -89,7 +284,31 @@
       "claim": "Files breakdown into mutually exclusive categories: 24 .exe, 433 .dll, 4 .ocx, 29 .config, 40 .xml, 10 .xsd, 7 .pdf, 3 .ini, 2 .manifest, 3 other (.dat, .ico, .stk) = 555 files",
       "status": "VERIFIED_STATIC",
       "evidence_source": "Extension and header audit of all 555 top-level files in D:\\BarTender",
-      "reconciled_notes": "Sum matches 555 exactly with zero overlap."
+      "reconciled_notes": "Sum matches 555 exactly with zero overlap.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+          "pointer": "/categories_sum",
+          "description": "Sum of mutually exclusive file categories",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+          "pointer": "/mutually_exclusive_categories/executables_exe",
+          "description": "Executable count",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+          "pointer": "/mutually_exclusive_categories/libraries_dll",
+          "description": "DLL count",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-011",
@@ -97,7 +316,24 @@
       "claim": "The 461 PE binaries classify into: 332 Managed IL-Only, 20 Mixed-Mode C++/CLI, 27 Native x64, 82 Native x86",
       "status": "VERIFIED_STATIC",
       "evidence_source": "COM descriptor and machine architecture parsing of 461 binaries in D:\\BarTender",
-      "reconciled_notes": "Reconciles previous 331 managed / 102 native split. The 82 native x86 DLLs are satellite localized resources and legacy components."
+      "reconciled_notes": "Reconciles previous 331 managed / 102 native split. The 82 native x86 DLLs are satellite localized resources and legacy components.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+          "pointer": "/pe_binary_classification/total_pe_binaries",
+          "description": "Total PE binary count",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/file_inventory_summary.json",
+          "pointer": "/pe_binary_classification/classifications_sum",
+          "description": "Sum of classified PE binaries",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-012",
@@ -105,7 +341,24 @@
       "claim": "BarTend.exe statically imports 48 DLLs directly via PE Import Table",
       "status": "VERIFIED_STATIC",
       "evidence_source": "PE Import Directory table at RVA 0x10d37e8 in D:\\BarTender\\BarTend.exe",
-      "reconciled_notes": "Verified through PE parsing."
+      "reconciled_notes": "Verified through PE parsing.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/dependency_reconciliation.json",
+          "pointer": "/direct_pe_imports/count",
+          "description": "Direct PE static imports count",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/dependency_reconciliation.json",
+          "pointer": "/direct_pe_imports/categories_sum",
+          "description": "Direct import category breakdown sum",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-013",
@@ -113,7 +366,17 @@
       "claim": "BarTend.exe delay-loads 17 DLLs via Delay Import Directory",
       "status": "VERIFIED_STATIC",
       "evidence_source": "PE Delay Import Directory table at RVA 0x10d0be0 in D:\\BarTender\\BarTend.exe",
-      "reconciled_notes": "Verified through PE parsing."
+      "reconciled_notes": "Verified through PE parsing.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/dependency_reconciliation.json",
+          "pointer": "/delay_load_imports/count",
+          "description": "Delay-loaded PE imports count",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-014",
@@ -121,7 +384,24 @@
       "claim": "Codejock GUI library is ToolkitPro1531vc142x64U.dll (10,844,184 bytes), not XtremeToolkitPro.dll",
       "status": "VERIFIED_STATIC",
       "evidence_source": "PE Import descriptor of BarTend.exe and filesystem check of D:\\BarTender\\ToolkitPro1531vc142x64U.dll",
-      "reconciled_notes": "XtremeToolkitPro.dll was a placeholder name; actual module verified on disk."
+      "reconciled_notes": "XtremeToolkitPro.dll was a placeholder name; actual module verified on disk.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/native_module_inventory.json",
+          "pointer": "/modules/95/name",
+          "description": "Codejock toolkit module name",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/native_module_inventory.json",
+          "pointer": "/modules/95/size_bytes",
+          "description": "Codejock toolkit module size in bytes",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-015",
@@ -129,7 +409,17 @@
       "claim": "No standalone DLLs named BtEngine.dll, BtBarcode.dll, BtPrint.dll, BtSystem.dll, BtLic.dll, or BtData.dll exist in D:\\BarTender; layout and serialization primitives are hosted within BarTend.exe",
       "status": "VERIFIED_STATIC",
       "evidence_source": "Direct filesystem verification across D:\\BarTender and export/import analysis of BarTend.exe",
-      "reconciled_notes": "Claim narrowed: proves absence of standalone DLLs with those names in target root; CArchive and geometry symbols are linked in BarTend.exe."
+      "reconciled_notes": "Claim narrowed: proves absence of standalone DLLs with those names in target root; CArchive and geometry symbols are linked in BarTend.exe.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/dependency_reconciliation.json",
+          "pointer": "/phantom_dll_reconciliation",
+          "description": "Verified absent phantom DLL register",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-016",
@@ -137,7 +427,24 @@
       "claim": "Modular 2D barcode rasterization is exported via procedural C APIs in separate native x64 plugins (BarCode_QRCode.dll, BarCode_DataMatrix.dll, etc.)",
       "status": "VERIFIED_STATIC",
       "evidence_source": "Export tables of BarCode_*.dll series in D:\\BarTender (GenerateQRCode, get_dm_cell, etc.)",
-      "reconciled_notes": "Claim narrowed: confirms exported procedural C APIs for matrix generation; does not infer full internal dispatch architecture."
+      "reconciled_notes": "Claim narrowed: confirms exported procedural C APIs for matrix generation; does not infer full internal dispatch architecture.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/native_module_inventory.json",
+          "pointer": "/modules/29/name",
+          "description": "Modular 2D barcode plugin module name",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/native_module_inventory.json",
+          "pointer": "/modules/29/exports",
+          "description": "Exported procedural C APIs",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-017",
@@ -145,7 +452,17 @@
       "claim": "Presence of CArchive and CObList P/Invoke thunks confirms BarTend.exe uses MFC object collection and binary stream serialization primitives for document handling",
       "status": "VERIFIED_STATIC",
       "evidence_source": "REA inspect_managed_native_boundaries extracted P/Invoke and CRT symbols in BarTend.exe",
-      "reconciled_notes": "Claim narrowed: proves linkage to MFC serialization primitives; does not claim full independent discovery of proprietary .btw schema."
+      "reconciled_notes": "Claim narrowed: proves linkage to MFC serialization primitives; does not claim full independent discovery of proprietary .btw schema.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/dotnet_interop_map.json",
+          "pointer": "/key_mfc_boundaries",
+          "description": "MFC object collection and stream serialization boundaries",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-018",
@@ -153,7 +470,16 @@
       "claim": "Deep function-level native decompilation via Ghidra was NOT_PERFORMED because Ghidra was not installed on host",
       "status": "NOT_PERFORMED",
       "evidence_source": "Environment audit (GHIDRA_INSTALL_DIR unset)",
-      "reconciled_notes": "All native claims are strictly scoped to static PE headers, export tables, and boundary analysis. Any prior implication of Ghidra decompilation is corrected."
+      "reconciled_notes": "All native claims are strictly scoped to static PE headers, export tables, and boundary analysis. Any prior implication of Ghidra decompilation is corrected.",
+      "validation_method": "DOCUMENTATION_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "file",
+          "path": "reports/15_PHASE1_NATIVE_BINARY_ANALYSIS.md",
+          "description": "Documentation establishing Ghidra scope boundary",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-019",
@@ -161,7 +487,16 @@
       "claim": "83 extracted CHM help documentation screenshots and UI icons are copyrighted proprietary assets of Seagull Scientific, LLC and have been removed from the repository to ensure strict clean-room copyright compliance",
       "status": "VERIFIED_DOCUMENTATION",
       "evidence_source": "screenshots/UI_OBSERVATIONS_REFERENCE.md and copyright audit of Help/BarTender.chm",
-      "reconciled_notes": "Clean-room compliance mandate: proprietary binary images removed from repository. Purely textual observations and anchor rules preserved in screenshots/UI_OBSERVATIONS_REFERENCE.md."
+      "reconciled_notes": "Clean-room compliance mandate: proprietary binary images removed from repository. Purely textual observations and anchor rules preserved in screenshots/UI_OBSERVATIONS_REFERENCE.md.",
+      "validation_method": "DOCUMENTATION_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "file",
+          "path": "screenshots/UI_OBSERVATIONS_REFERENCE.md",
+          "description": "Textual reference documentation preserving UI observations and clean-room boundary",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-020",
@@ -169,7 +504,16 @@
       "claim": "BarTender utilizes integer twips (1/1440 inch = 0.01764 mm) with +/-8.8 um quantization; Label-Forge uses double-precision canonical millimeters (Length struct) for continuous float precision",
       "status": "VERIFIED_STATIC",
       "evidence_source": "src/LabelForge.Core/Geometry/Length.cs implementation and mathematical analysis of GDI MulDiv twip conversions",
-      "reconciled_notes": "Rationale clarified: metric standardization, continuous floating-point transformation without cumulative rounding drift, and clean conversion to any DPI."
+      "reconciled_notes": "Rationale clarified: metric standardization, continuous floating-point transformation without cumulative rounding drift, and clean conversion to any DPI.",
+      "validation_method": "EXECUTABLE_ASSERTION",
+      "evidence_refs": [
+        {
+          "type": "file",
+          "path": "src/LabelForge.Core/Geometry/Length.cs",
+          "description": "Length struct implementation of canonical continuous millimeter geometry",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-021",
@@ -177,7 +521,17 @@
       "claim": "BarTend.exe directly imports the Win32 Print Spooler API (winspool.drv: OpenPrinterW, StartDocPrinterW, WritePrinter), establishing static linkage for print spooling and raw printer data communication",
       "status": "VERIFIED_STATIC",
       "evidence_source": "PE Import Directory of BarTend.exe (winspool.drv import descriptors)",
-      "reconciled_notes": "Claim narrowed: establishes static spooler API linkage; does not extrapolate to unobserved proprietary print pathways."
+      "reconciled_notes": "Claim narrowed: establishes static spooler API linkage; does not extrapolate to unobserved proprietary print pathways.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/reconciliation/dependency_reconciliation.json",
+          "pointer": "/direct_pe_imports/categories/windows_print_spooler/modules/0",
+          "description": "Direct import of winspool.drv",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-022",
@@ -185,7 +539,17 @@
       "claim": "Seagull License Server communication and entitlement verification are handled via Seagull.License.dll and Seagull.Services.Licensing.dll over WCF/HTTP services",
       "status": "VERIFIED_STATIC",
       "evidence_source": "D:\\BarTender\\Seagull.License.dll and WCF service contracts in D:\\BarTender",
-      "reconciled_notes": "Verified statically from managed metadata."
+      "reconciled_notes": "Verified statically from managed metadata.",
+      "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/managed_assemblies.json",
+          "pointer": "/assemblies/220/name",
+          "description": "Seagull License Server assembly",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-023",
@@ -193,7 +557,17 @@
       "claim": "Process Startup Lifecycle (RT-01): BarTend.exe spawns under Windows x64, initializes CRT and CLR v4.0.30319, and blocks on a modal Win32 activation prompt before entering main message pump in non-interactive Session 22",
       "status": "VERIFIED_RUNTIME",
       "evidence_source": "evidence/phase1/runtime_observations.json (Test ID RT-01)",
-      "reconciled_notes": "Direct empirical runtime execution test with argument /Min=SystemTray."
+      "reconciled_notes": "Direct empirical runtime execution test with argument /Min=SystemTray.",
+      "validation_method": "RUNTIME_TEST_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "runtime_test",
+          "path": "evidence/phase1/runtime_observations.json",
+          "test_id": "RT-01",
+          "description": "Empirical test of process startup and activation dialog blocking",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-024",
@@ -201,7 +575,17 @@
       "claim": "Managed Print API License Enforcement (RT-02): Instantiating Seagull.BarTender.Print.Engine via reflection and calling Start() throws Seagull.BarTender.Print.LicenseException in unactivated state",
       "status": "VERIFIED_RUNTIME",
       "evidence_source": "evidence/phase1/runtime_observations.json (Test ID RT-02)",
-      "reconciled_notes": "Direct empirical runtime execution test confirming license gate on managed print API."
+      "reconciled_notes": "Direct empirical runtime execution test confirming license gate on managed print API.",
+      "validation_method": "RUNTIME_TEST_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "runtime_test",
+          "path": "evidence/phase1/runtime_observations.json",
+          "test_id": "RT-02",
+          "description": "Empirical test of managed print API licensing enforcement",
+          "required": true
+        }
+      ]
     },
     {
       "id": "P1-025",
@@ -209,7 +593,17 @@
       "claim": "COM Automation Registration (RT-03): COM ProgID BarTender.Application is registered under CLSID {D5856250-13D3-11D1-9D2B-00609787E3AE}, launching BarTend.exe /Automation upon activation, though unactivated execution requires interactive desktop licensing acknowledgment and does not yield unattended automated execution",
       "status": "VERIFIED_RUNTIME",
       "evidence_source": "evidence/phase1/runtime_observations.json (Test ID RT-03)",
-      "reconciled_notes": "Direct empirical runtime execution test via New-Object -ComObject BarTender.Application. Confirmed limitation: unattended execution is blocked by modal activation dialog when unactivated."
+      "reconciled_notes": "Direct empirical runtime execution test via New-Object -ComObject BarTender.Application. Confirmed limitation: unattended execution is blocked by modal activation dialog when unactivated.",
+      "validation_method": "RUNTIME_TEST_VALIDATION",
+      "evidence_refs": [
+        {
+          "type": "runtime_test",
+          "path": "evidence/phase1/runtime_observations.json",
+          "test_id": "RT-03",
+          "description": "Empirical test of COM ProgID registration and activation behavior",
+          "required": true
+        }
+      ]
     }
   ]
 }

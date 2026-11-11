@@ -1,11 +1,12 @@
 <#
 .SYNOPSIS
-    Label-Forge Phase 1.1 Automated Evidence Validation Suite (PowerShell Wrapper)
+    Label-Forge Phase 1.1.2 Automated Evidence Validation Suite (PowerShell Wrapper)
 .DESCRIPTION
     Executes scripts/validate-phase1-evidence.py and returns deterministic exit codes:
       0: PASS
       1: FAIL
       2: PREREQUISITE_ERROR
+      3: INTERNAL_ERROR
 #>
 
 [CmdletBinding()]
@@ -22,4 +23,5 @@ if (-not (Test-Path $PythonScript)) {
 & python $PythonScript
 $ExitCode = $LASTEXITCODE
 
+Write-Host "VALIDATOR_EXIT_CODE=$ExitCode"
 exit $ExitCode

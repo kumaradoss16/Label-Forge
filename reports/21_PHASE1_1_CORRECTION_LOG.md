@@ -299,3 +299,48 @@ This register documents every discrepancy, contradiction, inaccurate metric, or 
   - The repository lacked a machine-readable execution provenance record capturing the runtime environment, commit hash, target hash, and accounting output of the validation suite.
 - **Authoritative Resolution:**
   - Integrated provenance generation directly into `scripts/validate-phase1-evidence.py`, automatically creating `evidence/phase1/reconciliation/validation_provenance.json` upon execution with ISO-8601 timestamp, git commit SHA, target binary SHA-256, OS/platform specs, audit accounting totals, exit code, and complete execution logs.
+
+---
+
+### Item CORR-020: Exact Direct-Import Category Partition Validation
+
+- **Original Inconsistency:**
+  - Category count arithmetic alone did not prevent potential duplicate or omitted module assignments across direct static import categories.
+- **Authoritative Resolution:**
+  - Implemented set- and frequency-based mathematical partition validation in `scripts/validate-phase1-evidence.py` ensuring that the categorized module sets form an exact, non-overlapping partition of canonical direct imports ($\text{categorized\_modules} == \text{canonical\_direct\_imports}$). Enforces zero internal duplicates, zero cross-category overlaps, zero missing modules, and zero unexpected modules.
+
+---
+
+### Item CORR-021: Elimination of Unconditional Static-Claim Pass Fallbacks
+
+- **Original Inconsistency:**
+  - The validation suite previously contained an `else: self.record(..., 'PASS')` fallback that could allow claims without an assertion to pass.
+- **Authoritative Resolution:**
+  - Completely removed the unconditional fallback. Implemented a dedicated `CLAIM_ASSERTION_REGISTRY` in `scripts/validate-phase1-evidence.py` mapping all 25 claims to explicit proposition assertion functions. Any claim without an explicit procedure fails the release gate.
+
+---
+
+### Item CORR-022: Structured Evidence References (RFC 6901 JSON Pointers)
+
+- **Original Inconsistency:**
+  - Claims relied on free-form descriptive text strings in `evidence_source`, preventing automated mechanical evidence resolution.
+- **Authoritative Resolution:**
+  - Introduced typed, structured `evidence_refs` arrays across all 25 claims in `claim_register.json` supporting `json_pointer` (RFC 6901), `file`, and `runtime_test` references. All references are verified by the validation suite for physical file existence, pointer resolution to non-null values, runtime test ID matches, and path traversal safety.
+
+---
+
+### Item CORR-023: Exact Full-Dictionary Claim Status Accounting
+
+- **Original Inconsistency:**
+  - Status checks compared only declared keys rather than verifying full dictionary equality across all recognized status categories.
+- **Authoritative Resolution:**
+  - Upgraded Stage 6 to enforce complete dictionary equality ($\text{actual\_status\_counts} == \text{declared\_status\_counts}$) across all recognized statuses (`VERIFIED_STATIC`, `VERIFIED_RUNTIME`, `VERIFIED_DOCUMENTATION`, `NOT_PERFORMED`, `INFERRED`, `UNKNOWN`), ensuring zero unexpected statuses and zero omissions.
+
+---
+
+### Item CORR-024: Recursive Prohibited-Image Tree Audit
+
+- **Original Inconsistency:**
+  - Copyright compliance scans were non-recursive (`os.listdir`) and checked only a limited set of image extensions.
+- **Authoritative Resolution:**
+  - Implemented recursive `os.walk` traversal of the complete `screenshots/` directory tree, case-insensitively scanning for 14 image extensions (`.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`, `.ico`, `.webp`, `.tif`, `.tiff`, `.svg`, `.avif`, `.heic`, `.heif`, `.jfif`), ensuring zero proprietary image files remain at any directory depth.

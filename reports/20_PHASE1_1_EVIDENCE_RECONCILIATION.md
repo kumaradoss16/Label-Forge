@@ -282,22 +282,25 @@ Controlled runtime execution experiments are documented in `evidence/phase1/runt
 The comprehensive validation suite (`scripts/validate-phase1-evidence.py` and `scripts/validate-phase1-evidence.ps1`) was executed:
 - **Dynamic Derivation:** All expected target identity values derived from `canonical_target_identity.json` without hardcoded PE constants.
 - **Evidence Manifest Checksums:** Verified actual SHA-256 digests and file sizes of all 15 tracked evidence files against `validation_manifest.json`.
-- **Claim Register Integrity:** Verified 25 claims (20 `VERIFIED_STATIC`, 3 `VERIFIED_RUNTIME`, 1 `VERIFIED_DOCUMENTATION`, 1 `NOT_PERFORMED`), enforcing claim ID uniqueness, verifying physical existence of all referenced files, and matching runtime test IDs.
-- **Dependency Arithmetic Reconciliation:** Verified exact direct static import category sum: $13 + 1 + 8 + 16 + 1 + 3 + 6 = 48\text{ DLLs}$ across all 7 non-overlapping categories.
-- **Copyright Compliance:** Verified 0 proprietary images remain in `screenshots/`.
+- **Exact Direct-Import Partition:** Verified exact category partition where $\text{categorized\_modules} == \text{canonical\_direct\_imports}$ ($48$ DLLs) with zero internal duplicates, zero cross-category overlaps, zero missing modules, and zero unexpected modules.
+- **Structured Evidence Traceability:** Verified that every verified claim defines valid, structured `evidence_refs` (RFC 6901 JSON Pointers, repository-relative file paths, runtime tests) that resolve to concrete evidence targets.
+- **Claim-Specific Assertion Registry:** Replaced all unconditional static PASS fallbacks with dedicated assertion procedures for all 25 claims in the register.
+- **Exact Status Accounting:** Enforced complete dictionary equality between actual claim status frequencies and declared counts across all recognized categories.
+- **Recursive Prohibited-Image Audit:** Traversed the complete `screenshots/` directory tree case-insensitively across 14 image extensions, confirming zero proprietary image files remain.
 - **Report Integrity:** Verified all 24 markdown reports (01 through 21) exist, have content, and contain no obsolete offsets.
 - **Execution Provenance:** Automatically recorded audit execution metadata, environment specs, target executable SHA-256 (`d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594`), commit SHA, and accounting in `evidence/phase1/reconciliation/validation_provenance.json`.
-- **Result:** Complete deterministic `PASS` across 123 automated checks with 0 failures, 0 warnings, and exit code `0`.
+- **Result:** Complete deterministic `PASS` across 136 automated checks with 0 failures, 0 warnings, and exit code `0`.
 
 ---
 
 ## 20. Final Engineering Conclusion & Phase 2 Gate Clearance
 
-Phase 1.1 has achieved:
+Phase 1.1 and Phase 1.1.2 have achieved:
 1. Complete mathematical and structural reconciliation of PE headers and section layouts.
-2. Elimination of proprietary assets from repository version control.
+2. Elimination of proprietary assets from repository version control verified via recursive tree traversal.
 3. Cryptographic SHA-256 evidence manifest verification.
-4. Defensibly narrowed functional claims and properly classified runtime evidence.
-5. Deterministic validation tooling passing cleanly with zero failures.
+4. Defensibly narrowed functional claims, verified runtime evidence, and structured RFC 6901 traceability.
+5. Exact direct-import category partition and exact claim status accounting.
+6. Deterministic validation tooling passing cleanly with zero failures and verified execution provenance.
 
-**Phase 1.1 is officially COMPLETE and VALIDATED. Label-Forge is fully cleared to proceed to Phase 2 (Milestone M2).**
+**Phase 1.1 and Phase 1.1.2 are officially COMPLETE and VALIDATED. Label-Forge is fully cleared to proceed to Phase 2 (Milestone M2).**
