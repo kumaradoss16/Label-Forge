@@ -1,0 +1,3035 @@
+{
+  "total_count": 331,
+  "assemblies": [
+    {
+      "name": "AWSSDK.Core.dll",
+      "path": "D:\\BarTender\\AWSSDK.Core.dll",
+      "size_bytes": 1144320,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWSSDK.S3.dll",
+      "path": "D:\\BarTender\\AWSSDK.S3.dll",
+      "size_bytes": 666112,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWSSDK.Translate.dll",
+      "path": "D:\\BarTender\\AWSSDK.Translate.dll",
+      "size_bytes": 63488,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Accord.Video.DirectShow.dll",
+      "path": "D:\\BarTender\\Accord.Video.DirectShow.dll",
+      "size_bytes": 73728,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Accord.Video.dll",
+      "path": "D:\\BarTender\\Accord.Video.dll",
+      "size_bytes": 40960,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Accord.dll",
+      "path": "D:\\BarTender\\Accord.dll",
+      "size_bytes": 131072,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AxInterop.XtremeDockingPane.dll",
+      "path": "D:\\BarTender\\AxInterop.XtremeDockingPane.dll",
+      "size_bytes": 25600,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AxInterop.XtremePropertyGrid.dll",
+      "path": "D:\\BarTender\\AxInterop.XtremePropertyGrid.dll",
+      "size_bytes": 27648,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AxInterop.XtremeReportControl.dll",
+      "path": "D:\\BarTender\\AxInterop.XtremeReportControl.dll",
+      "size_bytes": 150016,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AxInterop.XtremeSuiteControls.dll",
+      "path": "D:\\BarTender\\AxInterop.XtremeSuiteControls.dll",
+      "size_bytes": 260608,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BarTender.Services.Integrations.dll",
+      "path": "D:\\BarTender\\BarTender.Services.Integrations.dll",
+      "size_bytes": 294936,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BouncyCastle.Crypto.dll",
+      "path": "D:\\BarTender\\BouncyCastle.Crypto.dll",
+      "size_bytes": 2903600,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSystem.Client.Reader.dll",
+      "path": "D:\\BarTender\\BtSystem.Client.Reader.dll",
+      "size_bytes": 108056,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSystem.Client.dll",
+      "path": "D:\\BarTender\\BtSystem.Client.dll",
+      "size_bytes": 58392,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSystem.DataAccess.dll",
+      "path": "D:\\BarTender\\BtSystem.DataAccess.dll",
+      "size_bytes": 215576,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSystem.DatabaseWizard.dll",
+      "path": "D:\\BarTender\\BtSystem.DatabaseWizard.dll",
+      "size_bytes": 508440,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSystem.Interfaces.dll",
+      "path": "D:\\BarTender\\BtSystem.Interfaces.dll",
+      "size_bytes": 105496,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSystem.Reprint.Support.dll",
+      "path": "D:\\BarTender\\BtSystem.Reprint.Support.dll",
+      "size_bytes": 292376,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSystem.Support.dll",
+      "path": "D:\\BarTender\\BtSystem.Support.dll",
+      "size_bytes": 291864,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSystem.UI.dll",
+      "path": "D:\\BarTender\\BtSystem.UI.dll",
+      "size_bytes": 447512,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Caliburn.Micro.dll",
+      "path": "D:\\BarTender\\Caliburn.Micro.dll",
+      "size_bytes": 116224,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Castle.Core.dll",
+      "path": "D:\\BarTender\\Castle.Core.dll",
+      "size_bytes": 434176,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ClearScript.Core.dll",
+      "path": "D:\\BarTender\\ClearScript.Core.dll",
+      "size_bytes": 405384,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ClearScript.V8.dll",
+      "path": "D:\\BarTender\\ClearScript.V8.dll",
+      "size_bytes": 300936,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ClearScript.Windows.dll",
+      "path": "D:\\BarTender\\ClearScript.Windows.dll",
+      "size_bytes": 102792,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.CodeParser.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.CodeParser.v19.1.dll",
+      "size_bytes": 1747192,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Data.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Data.v19.1.dll",
+      "size_bytes": 7135480,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.DataAccess.v19.1.UI.dll",
+      "path": "D:\\BarTender\\DevExpress.DataAccess.v19.1.UI.dll",
+      "size_bytes": 952568,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.DataAccess.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.DataAccess.v19.1.dll",
+      "size_bytes": 2047736,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Diagram.v19.1.Core.dll",
+      "path": "D:\\BarTender\\DevExpress.Diagram.v19.1.Core.dll",
+      "size_bytes": 2951928,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Docs.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Docs.v19.1.dll",
+      "size_bytes": 254712,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Images.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Images.v19.1.dll",
+      "size_bytes": 8460536,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Mvvm.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Mvvm.v19.1.dll",
+      "size_bytes": 682744,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Office.v19.1.Core.dll",
+      "path": "D:\\BarTender\\DevExpress.Office.v19.1.Core.dll",
+      "size_bytes": 2499832,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Pdf.v19.1.Core.dll",
+      "path": "D:\\BarTender\\DevExpress.Pdf.v19.1.Core.dll",
+      "size_bytes": 2834168,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Printing.v19.1.Core.dll",
+      "path": "D:\\BarTender\\DevExpress.Printing.v19.1.Core.dll",
+      "size_bytes": 4345592,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.RichEdit.v19.1.Core.dll",
+      "path": "D:\\BarTender\\DevExpress.RichEdit.v19.1.Core.dll",
+      "size_bytes": 8679160,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Utils.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Utils.v19.1.dll",
+      "size_bytes": 15227640,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Controls.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Controls.v19.1.dll",
+      "size_bytes": 1406712,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Core.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Core.v19.1.dll",
+      "size_bytes": 10408696,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Diagram.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Diagram.v19.1.dll",
+      "size_bytes": 1174264,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Docking.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Docking.v19.1.dll",
+      "size_bytes": 1600248,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.DocumentViewer.v19.1.Core.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.DocumentViewer.v19.1.Core.dll",
+      "size_bytes": 507640,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Gauges.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Gauges.v19.1.dll",
+      "size_bytes": 1573112,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Grid.v19.1.Core.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Grid.v19.1.Core.dll",
+      "size_bytes": 2305784,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Grid.v19.1.Extensions.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Grid.v19.1.Extensions.dll",
+      "size_bytes": 269560,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Grid.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Grid.v19.1.dll",
+      "size_bytes": 2472184,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Layout.v19.1.Core.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Layout.v19.1.Core.dll",
+      "size_bytes": 110840,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.LayoutControl.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.LayoutControl.v19.1.dll",
+      "size_bytes": 488696,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.NavBar.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.NavBar.v19.1.dll",
+      "size_bytes": 570104,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Printing.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Printing.v19.1.dll",
+      "size_bytes": 1475832,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.PropertyGrid.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.PropertyGrid.v19.1.dll",
+      "size_bytes": 602360,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Ribbon.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Ribbon.v19.1.dll",
+      "size_bytes": 1750776,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.RichEdit.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.RichEdit.v19.1.dll",
+      "size_bytes": 2132728,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Scheduler.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Scheduler.v19.1.dll",
+      "size_bytes": 2069752,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Themes.Office2010Blue.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Themes.Office2010Blue.v19.1.dll",
+      "size_bytes": 8187128,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Themes.Office2010Silver.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Themes.Office2010Silver.v19.1.dll",
+      "size_bytes": 8201464,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpf.Themes.Office2016White.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpf.Themes.Office2016White.v19.1.dll",
+      "size_bytes": 7863544,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.Xpo.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.Xpo.v19.1.dll",
+      "size_bytes": 2086648,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraBars.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraBars.v19.1.dll",
+      "size_bytes": 6584568,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraEditors.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraEditors.v19.1.dll",
+      "size_bytes": 6787320,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraGauges.v19.1.Win.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraGauges.v19.1.Win.dll",
+      "size_bytes": 273656,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraGrid.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraGrid.v19.1.dll",
+      "size_bytes": 3417848,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraLayout.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraLayout.v19.1.dll",
+      "size_bytes": 2088184,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraNavBar.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraNavBar.v19.1.dll",
+      "size_bytes": 445688,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraPrinting.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraPrinting.v19.1.dll",
+      "size_bytes": 1222904,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraRichEdit.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraRichEdit.v19.1.dll",
+      "size_bytes": 2050808,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraTreeList.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraTreeList.v19.1.dll",
+      "size_bytes": 1533688,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraVerticalGrid.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraVerticalGrid.v19.1.dll",
+      "size_bytes": 1047800,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DevExpress.XtraWizard.v19.1.dll",
+      "path": "D:\\BarTender\\DevExpress.XtraWizard.v19.1.dll",
+      "size_bytes": 87800,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DriverInteropLibrary.dll",
+      "path": "D:\\BarTender\\DriverInteropLibrary.dll",
+      "size_bytes": 665872,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "EntityFramework.SqlServer.dll",
+      "path": "D:\\BarTender\\EntityFramework.SqlServer.dll",
+      "size_bytes": 591752,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "EntityFramework.dll",
+      "path": "D:\\BarTender\\EntityFramework.dll",
+      "size_bytes": 4991352,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "EventSystem.Channels.EventLog.dll",
+      "path": "D:\\BarTender\\EventSystem.Channels.EventLog.dll",
+      "size_bytes": 15896,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "EventSystem.Channels.SMTP.dll",
+      "path": "D:\\BarTender\\EventSystem.Channels.SMTP.dll",
+      "size_bytes": 18456,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "EventSystem.Channels.SystemDatabase.dll",
+      "path": "D:\\BarTender\\EventSystem.Channels.SystemDatabase.dll",
+      "size_bytes": 22040,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "EventSystem.Configuration.dll",
+      "path": "D:\\BarTender\\EventSystem.Configuration.dll",
+      "size_bytes": 521752,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "EventSystem.Router.dll",
+      "path": "D:\\BarTender\\EventSystem.Router.dll",
+      "size_bytes": 44568,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Explorer.Core.dll",
+      "path": "D:\\BarTender\\Explorer.Core.dll",
+      "size_bytes": 603672,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Explorer.Plugin.BarTender.dll",
+      "path": "D:\\BarTender\\Explorer.Plugin.BarTender.dll",
+      "size_bytes": 404504,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Explorer.Plugin.Maestro.dll",
+      "path": "D:\\BarTender\\Explorer.Plugin.Maestro.dll",
+      "size_bytes": 340504,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Explorer.Plugin.Messages.dll",
+      "path": "D:\\BarTender\\Explorer.Plugin.Messages.dll",
+      "size_bytes": 105496,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Explorer.Plugin.Security.dll",
+      "path": "D:\\BarTender\\Explorer.Plugin.Security.dll",
+      "size_bytes": 97304,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "FirebirdSql.Data.FirebirdClient.dll",
+      "path": "D:\\BarTender\\FirebirdSql.Data.FirebirdClient.dll",
+      "size_bytes": 1235968,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "GACManagerApi.dll",
+      "path": "D:\\BarTender\\GACManagerApi.dll",
+      "size_bytes": 20992,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "GraphQL.Client.Abstractions.Websocket.dll",
+      "path": "D:\\BarTender\\GraphQL.Client.Abstractions.Websocket.dll",
+      "size_bytes": 9728,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "GraphQL.Client.Abstractions.dll",
+      "path": "D:\\BarTender\\GraphQL.Client.Abstractions.dll",
+      "size_bytes": 16384,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "GraphQL.Client.Serializer.Newtonsoft.dll",
+      "path": "D:\\BarTender\\GraphQL.Client.Serializer.Newtonsoft.dll",
+      "size_bytes": 12800,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "GraphQL.Client.dll",
+      "path": "D:\\BarTender\\GraphQL.Client.dll",
+      "size_bytes": 45568,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "GraphQL.Primitives.dll",
+      "path": "D:\\BarTender\\GraphQL.Primitives.dll",
+      "size_bytes": 11776,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "IBM.Data.DB2.dll",
+      "path": "D:\\BarTender\\IBM.Data.DB2.dll",
+      "size_bytes": 1503560,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Interop.BarTender.dll",
+      "path": "D:\\BarTender\\Interop.BarTender.dll",
+      "size_bytes": 183320,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Interop.DriverAutomationLibrary.dll",
+      "path": "D:\\BarTender\\Interop.DriverAutomationLibrary.dll",
+      "size_bytes": 84480,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Interop.MSClusterLib.dll",
+      "path": "D:\\BarTender\\Interop.MSClusterLib.dll",
+      "size_bytes": 67584,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Interop.Redemption.dll",
+      "path": "D:\\BarTender\\Interop.Redemption.dll",
+      "size_bytes": 1175040,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Interop.XtremeDockingPane.dll",
+      "path": "D:\\BarTender\\Interop.XtremeDockingPane.dll",
+      "size_bytes": 82432,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Interop.XtremePropertyGrid.dll",
+      "path": "D:\\BarTender\\Interop.XtremePropertyGrid.dll",
+      "size_bytes": 100352,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Interop.XtremeReportControl.dll",
+      "path": "D:\\BarTender\\Interop.XtremeReportControl.dll",
+      "size_bytes": 297984,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Interop.XtremeSuiteControls.dll",
+      "path": "D:\\BarTender\\Interop.XtremeSuiteControls.dll",
+      "size_bytes": 383488,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Ionic.Zip.dll",
+      "path": "D:\\BarTender\\Ionic.Zip.dll",
+      "size_bytes": 465920,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.Codecs.dll",
+      "path": "D:\\BarTender\\Leadtools.Codecs.dll",
+      "size_bytes": 703872,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.ColorConversion.dll",
+      "path": "D:\\BarTender\\Leadtools.ColorConversion.dll",
+      "size_bytes": 2514816,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.Drawing.dll",
+      "path": "D:\\BarTender\\Leadtools.Drawing.dll",
+      "size_bytes": 297344,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.ImageProcessing.Color.dll",
+      "path": "D:\\BarTender\\Leadtools.ImageProcessing.Color.dll",
+      "size_bytes": 569216,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.ImageProcessing.Core.dll",
+      "path": "D:\\BarTender\\Leadtools.ImageProcessing.Core.dll",
+      "size_bytes": 1403264,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.ImageProcessing.Effects.dll",
+      "path": "D:\\BarTender\\Leadtools.ImageProcessing.Effects.dll",
+      "size_bytes": 542080,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.ImageProcessing.Utilities.dll",
+      "path": "D:\\BarTender\\Leadtools.ImageProcessing.Utilities.dll",
+      "size_bytes": 515456,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.Multimedia.dll",
+      "path": "D:\\BarTender\\Leadtools.Multimedia.dll",
+      "size_bytes": 2952152,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.Twain.dll",
+      "path": "D:\\BarTender\\Leadtools.Twain.dll",
+      "size_bytes": 549760,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.Wia.dll",
+      "path": "D:\\BarTender\\Leadtools.Wia.dll",
+      "size_bytes": 481664,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Leadtools.dll",
+      "path": "D:\\BarTender\\Leadtools.dll",
+      "size_bytes": 1592192,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "LogicNP.FileView.dll",
+      "path": "D:\\BarTender\\LogicNP.FileView.dll",
+      "size_bytes": 444416,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "LogicNP.FolderView.dll",
+      "path": "D:\\BarTender\\LogicNP.FolderView.dll",
+      "size_bytes": 338432,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "LogicNP.ShComboBox.dll",
+      "path": "D:\\BarTender\\LogicNP.ShComboBox.dll",
+      "size_bytes": 137216,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Maestro.Clustering.dll",
+      "path": "D:\\BarTender\\Maestro.Clustering.dll",
+      "size_bytes": 31256,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Maestro.Interface.dll",
+      "path": "D:\\BarTender\\Maestro.Interface.dll",
+      "size_bytes": 33816,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Maestro.Library.dll",
+      "path": "D:\\BarTender\\Maestro.Library.dll",
+      "size_bytes": 259608,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Maestro.Messages.dll",
+      "path": "D:\\BarTender\\Maestro.Messages.dll",
+      "size_bytes": 30744,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "MailKit.dll",
+      "path": "D:\\BarTender\\MailKit.dll",
+      "size_bytes": 827904,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Bcl.AsyncInterfaces.dll",
+      "path": "D:\\BarTender\\Microsoft.Bcl.AsyncInterfaces.dll",
+      "size_bytes": 26904,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Bcl.HashCode.dll",
+      "path": "D:\\BarTender\\Microsoft.Bcl.HashCode.dll",
+      "size_bytes": 23424,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Expression.Interactions.dll",
+      "path": "D:\\BarTender\\Microsoft.Expression.Interactions.dll",
+      "size_bytes": 91648,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.Abstractions.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Configuration.Abstractions.dll",
+      "size_bytes": 20360,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+      "size_bytes": 19848,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.FileExtensions.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Configuration.FileExtensions.dll",
+      "size_bytes": 25480,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.Json.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Configuration.Json.dll",
+      "size_bytes": 24968,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Configuration.dll",
+      "size_bytes": 30600,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "size_bytes": 64264,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyInjection.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.DependencyInjection.dll",
+      "size_bytes": 76168,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.FileProviders.Abstractions.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.FileProviders.Abstractions.dll",
+      "size_bytes": 16776,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.FileProviders.Physical.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.FileProviders.Physical.dll",
+      "size_bytes": 35720,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Logging.Abstractions.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Logging.Abstractions.dll",
+      "size_bytes": 67856,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Logging.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Logging.dll",
+      "size_bytes": 42888,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Options.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Options.dll",
+      "size_bytes": 55176,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Extensions.Primitives.dll",
+      "path": "D:\\BarTender\\Microsoft.Extensions.Primitives.dll",
+      "size_bytes": 42376,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.IdentityModel.JsonWebTokens.dll",
+      "path": "D:\\BarTender\\Microsoft.IdentityModel.JsonWebTokens.dll",
+      "size_bytes": 62824,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.IdentityModel.Logging.dll",
+      "path": "D:\\BarTender\\Microsoft.IdentityModel.Logging.dll",
+      "size_bytes": 29560,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.IdentityModel.Tokens.dll",
+      "path": "D:\\BarTender\\Microsoft.IdentityModel.Tokens.dll",
+      "size_bytes": 895856,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.OData.Client.dll",
+      "path": "D:\\BarTender\\Microsoft.OData.Client.dll",
+      "size_bytes": 782720,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.OData.Core.dll",
+      "path": "D:\\BarTender\\Microsoft.OData.Core.dll",
+      "size_bytes": 1543040,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.OData.Edm.dll",
+      "path": "D:\\BarTender\\Microsoft.OData.Edm.dll",
+      "size_bytes": 899456,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Spatial.dll",
+      "path": "D:\\BarTender\\Microsoft.Spatial.dll",
+      "size_bytes": 141184,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.SqlServer.Types.dll",
+      "path": "D:\\BarTender\\Microsoft.SqlServer.Types.dll",
+      "size_bytes": 394432,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Web.WebView2.Core.dll",
+      "path": "D:\\BarTender\\Microsoft.Web.WebView2.Core.dll",
+      "size_bytes": 567896,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Web.WebView2.WinForms.dll",
+      "path": "D:\\BarTender\\Microsoft.Web.WebView2.WinForms.dll",
+      "size_bytes": 38360,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Microsoft.Web.WebView2.Wpf.dll",
+      "path": "D:\\BarTender\\Microsoft.Web.WebView2.Wpf.dll",
+      "size_bytes": 50648,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "MimeKit.dll",
+      "path": "D:\\BarTender\\MimeKit.dll",
+      "size_bytes": 1013760,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ModalContentPresenter.dll",
+      "path": "D:\\BarTender\\ModalContentPresenter.dll",
+      "size_bytes": 12288,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "NLog.dll",
+      "path": "D:\\BarTender\\NLog.dll",
+      "size_bytes": 439808,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "NamedPipeWrapper.dll",
+      "path": "D:\\BarTender\\NamedPipeWrapper.dll",
+      "size_bytes": 20992,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Newtonsoft.Json.dll",
+      "path": "D:\\BarTender\\Newtonsoft.Json.dll",
+      "size_bytes": 700336,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Ninject.Extensions.Conventions.dll",
+      "path": "D:\\BarTender\\Ninject.Extensions.Conventions.dll",
+      "size_bytes": 31744,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Ninject.Extensions.Factory.dll",
+      "path": "D:\\BarTender\\Ninject.Extensions.Factory.dll",
+      "size_bytes": 37376,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Ninject.dll",
+      "path": "D:\\BarTender\\Ninject.dll",
+      "size_bytes": 136704,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Npgsql.dll",
+      "path": "D:\\BarTender\\Npgsql.dll",
+      "size_bytes": 1384448,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Oracle.ManagedDataAccess.dll",
+      "path": "D:\\BarTender\\Oracle.ManagedDataAccess.dll",
+      "size_bytes": 4712072,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "SLImage.dll",
+      "path": "D:\\BarTender\\SLImage.dll",
+      "size_bytes": 475136,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 248,
+      "exports": [
+        "??0SImage@@QEAA@AEBV0@@Z",
+        "??0SImage@@QEAA@XZ",
+        "??0SImageCombineOptions@@QEAA@XZ",
+        "??0SImageLineSegment@@QEAA@UtagPOINT@@0@Z",
+        "??0SImageProcessingOptions@@QEAA@XZ",
+        "??0SImageRenderingOptions@@QEAA@AEBU0@@Z",
+        "??0SImageRenderingOptions@@QEAA@XZ",
+        "??0SPdfCanvas@@QEAA@XZ",
+        "??0SPdfImage@@QEAA@AEBV0@@Z",
+        "??0SPdfImage@@QEAA@XZ",
+        "??1SImage@@QEAA@XZ",
+        "??1SImageCombineOptions@@QEAA@XZ",
+        "??1SImageProcessingOptions@@QEAA@XZ",
+        "??1SPdfCanvas@@UEAA@XZ",
+        "??1SPdfImage@@QEAA@XZ",
+        "??4SImage@@QEAAAEAV0@AEBV0@@Z",
+        "??4SImageCombineOptions@@QEAAAEAV0@AEBV0@@Z",
+        "??4SImageExtensions@@QEAAAEAV0@$$QEAV0@@Z",
+        "??4SImageExtensions@@QEAAAEAV0@AEBV0@@Z",
+        "??4SImageLineSegment@@QEAAAEAV0@$$QEAV0@@Z",
+        "??4SImageLineSegment@@QEAAAEAV0@AEBV0@@Z",
+        "??4SImageProcessingOptions@@QEAAAEAV0@AEBV0@@Z",
+        "??4SImageRenderingOptions@@QEAAAEAU0@AEBU0@@Z",
+        "??4SPdfCanvas@@QEAAAEAV0@AEBV0@@Z",
+        "??4SPdfImage@@QEAAAEAV0@AEBV0@@Z",
+        "??_7SPdfCanvas@@6BSDCEventCallbackMethods@@@",
+        "??_7SPdfCanvas@@6BSPdfImage@@@",
+        "??_7SPdfImage@@6B@",
+        "?AddCachedImageInstance@SPdfCanvas@@QEAAXKAEBVCPoint@@@Z",
+        "?AddImageToCache@SPdfCanvas@@AEAA_NPEAVSImage@@AEAVCRect@@@Z",
+        "?AnalyzePixelValues@SImage@@AEAAX_N0@Z",
+        "?AppendCanvasToPage@SPdfCanvas@@QEAA_NHH@Z",
+        "?ApplyIccProfile@SImage@@QEAA?AW4ImageErrorType@SImageCodes@@PEB_W@Z",
+        "?BlendBitmapWithWhiteBackground@SImage@@QEAAXXZ",
+        "?Clear@SPdfCanvas@@UEAAXXZ",
+        "?Clear@SPdfImage@@UEAAXXZ",
+        "?ClearOutlinePath@SImage@@QEAAXXZ",
+        "?ClearTransparencyInfo@SImage@@AEAAXXZ",
+        "?CloneBitmap@SImage@@AEAAPEAVBitmap@Gdiplus@@PEAV23@@Z",
+        "?Close@SImage@@QEAAHXZ",
+        "?CombineAlpha@SImage@@QEAAXPEAV1@@Z",
+        "?CombineIntoARGB@SImage@@CAPEAVLBitmap@@PEAV2@0PEBVSImageCombineOptions@@@Z",
+        "?CombineIntoARGB@SImage@@SAPEAV1@PEBV1@0PEBVSImageCombineOptions@@@Z",
+        "?ConvertEmfToPDF@SImage@@QEAA?AW4ImageErrorType@SImageCodes@@PEB_W0@Z",
+        "?ConvertEmfToPDF@SPdfImage@@QEAA?AW4ImageErrorType@SImageCodes@@PEB_W0@Z",
+        "?ConvertGDIPlusToBitmap@SImage@@AEAA?AW4ImageErrorType@SImageCodes@@PEAVCSize@@@Z",
+        "?ConvertToBitmap@SImage@@QEAAXPEAVCSize@@@Z",
+        "?ConvertToDuotone@SImage@@QEAAXK@Z",
+        "?ConvertToDuotone@SImage@@QEAAXPEAV1@K@Z",
+        "?ConvertToGdiplusBitmap@SImage@@QEAAXPEAV1@PEAVCSize@@@Z"
+      ]
+    },
+    {
+      "name": "Seagull.Administration.Common.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Common.dll",
+      "size_bytes": 51224,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Interfaces.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Interfaces.dll",
+      "size_bytes": 24600,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.CloudStorage.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.CloudStorage.dll",
+      "size_bytes": 28696,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.Databases.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.Databases.dll",
+      "size_bytes": 264728,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.Email.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.Email.dll",
+      "size_bytes": 46616,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.FileLocations.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.FileLocations.dll",
+      "size_bytes": 104472,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.IntegrationSaaS.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.IntegrationSaaS.dll",
+      "size_bytes": 46104,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.IntegrationService.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.IntegrationService.dll",
+      "size_bytes": 54808,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.Librarian.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.Librarian.dll",
+      "size_bytes": 139288,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.LicensingService.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.LicensingService.dll",
+      "size_bytes": 1269784,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.PrinterSetup.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.PrinterSetup.dll",
+      "size_bytes": 137752,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.Security.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.Security.dll",
+      "size_bytes": 215576,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.Servers.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.Servers.dll",
+      "size_bytes": 28696,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.SystemDb.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.SystemDb.dll",
+      "size_bytes": 200216,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.VerifierSetup.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.VerifierSetup.dll",
+      "size_bytes": 70680,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.Module.WindowsServices.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.Module.WindowsServices.dll",
+      "size_bytes": 61464,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Administration.dll",
+      "path": "D:\\BarTender\\Seagull.Administration.dll",
+      "size_bytes": 39448,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.BarTender.Print.dll",
+      "path": "D:\\BarTender\\Seagull.BarTender.Print.dll",
+      "size_bytes": 433176,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.CloudStorage.dll",
+      "path": "D:\\BarTender\\Seagull.CloudStorage.dll",
+      "size_bytes": 70680,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.ColorPicker.dll",
+      "path": "D:\\BarTender\\Seagull.ColorPicker.dll",
+      "size_bytes": 106008,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.ColorUtility.dll",
+      "path": "D:\\BarTender\\Seagull.ColorUtility.dll",
+      "size_bytes": 36888,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.ClientBase.dll",
+      "path": "D:\\BarTender\\Seagull.Data.ClientBase.dll",
+      "size_bytes": 49176,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.CommonDialogs.dll",
+      "path": "D:\\BarTender\\Seagull.Data.CommonDialogs.dll",
+      "size_bytes": 62488,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.Configuration.dll",
+      "path": "D:\\BarTender\\Seagull.Data.Configuration.dll",
+      "size_bytes": 1902616,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.Core.dll",
+      "path": "D:\\BarTender\\Seagull.Data.Core.dll",
+      "size_bytes": 165400,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.DataBuilder.dll",
+      "path": "D:\\BarTender\\Seagull.Data.DataBuilder.dll",
+      "size_bytes": 228376,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.Formatting.dll",
+      "path": "D:\\BarTender\\Seagull.Data.Formatting.dll",
+      "size_bytes": 70680,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.JsonDatabaseClient.dll",
+      "path": "D:\\BarTender\\Seagull.Data.JsonDatabaseClient.dll",
+      "size_bytes": 67608,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.SAPIDocConfiguration.dll",
+      "path": "D:\\BarTender\\Seagull.Data.SAPIDocConfiguration.dll",
+      "size_bytes": 51736,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.SAPIDocFileClient.dll",
+      "path": "D:\\BarTender\\Seagull.Data.SAPIDocFileClient.dll",
+      "size_bytes": 67608,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.TextFileClient.dll",
+      "path": "D:\\BarTender\\Seagull.Data.TextFileClient.dll",
+      "size_bytes": 71704,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.XMLFileClient.dll",
+      "path": "D:\\BarTender\\Seagull.Data.XMLFileClient.dll",
+      "size_bytes": 94232,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Data.dll",
+      "path": "D:\\BarTender\\Seagull.Data.dll",
+      "size_bytes": 568856,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.DigimarcAuthentication.dll",
+      "path": "D:\\BarTender\\Seagull.DigimarcAuthentication.dll",
+      "size_bytes": 37912,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Drawing.ClipArt.dll",
+      "path": "D:\\BarTender\\Seagull.Drawing.ClipArt.dll",
+      "size_bytes": 185368,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Drawing.Imaging.dll",
+      "path": "D:\\BarTender\\Seagull.Drawing.Imaging.dll",
+      "size_bytes": 28696,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Drawing.Scanning.dll",
+      "path": "D:\\BarTender\\Seagull.Drawing.Scanning.dll",
+      "size_bytes": 173592,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Editors.Database.dll",
+      "path": "D:\\BarTender\\Seagull.Editors.Database.dll",
+      "size_bytes": 924696,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Editors.Metadata.dll",
+      "path": "D:\\BarTender\\Seagull.Editors.Metadata.dll",
+      "size_bytes": 52248,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Editors.RichText.dll",
+      "path": "D:\\BarTender\\Seagull.Editors.RichText.dll",
+      "size_bytes": 656920,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Editors.Script.dll",
+      "path": "D:\\BarTender\\Seagull.Editors.Script.dll",
+      "size_bytes": 1235992,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Email.dll",
+      "path": "D:\\BarTender\\Seagull.Email.dll",
+      "size_bytes": 81944,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.EmailUI.Servers.dll",
+      "path": "D:\\BarTender\\Seagull.EmailUI.Servers.dll",
+      "size_bytes": 69656,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Forms.Controls.ImageCapture.dll",
+      "path": "D:\\BarTender\\Seagull.Forms.Controls.ImageCapture.dll",
+      "size_bytes": 370200,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Forms.Controls.ScaleInput.dll",
+      "path": "D:\\BarTender\\Seagull.Forms.Controls.ScaleInput.dll",
+      "size_bytes": 170520,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Forms.Controls.dll",
+      "path": "D:\\BarTender\\Seagull.Forms.Controls.dll",
+      "size_bytes": 291864,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Forms.dll",
+      "path": "D:\\BarTender\\Seagull.Forms.dll",
+      "size_bytes": 132120,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Framework.Interop.dll",
+      "path": "D:\\BarTender\\Seagull.Framework.Interop.dll",
+      "size_bytes": 350232,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Framework.dll",
+      "path": "D:\\BarTender\\Seagull.Framework.dll",
+      "size_bytes": 4667928,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IO.dll",
+      "path": "D:\\BarTender\\Seagull.IO.dll",
+      "size_bytes": 28184,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IntegrationUI.ActionsDialog.dll",
+      "path": "D:\\BarTender\\Seagull.IntegrationUI.ActionsDialog.dll",
+      "size_bytes": 129560,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IntegrationUI.CloudStorage.dll",
+      "path": "D:\\BarTender\\Seagull.IntegrationUI.CloudStorage.dll",
+      "size_bytes": 131096,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IntegrationUI.Common.dll",
+      "path": "D:\\BarTender\\Seagull.IntegrationUI.Common.dll",
+      "size_bytes": 21016,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IntegrationUI.Deployment.dll",
+      "path": "D:\\BarTender\\Seagull.IntegrationUI.Deployment.dll",
+      "size_bytes": 239640,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IntegrationUI.Main.dll",
+      "path": "D:\\BarTender\\Seagull.IntegrationUI.Main.dll",
+      "size_bytes": 2379288,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IntegrationUI.Management.dll",
+      "path": "D:\\BarTender\\Seagull.IntegrationUI.Management.dll",
+      "size_bytes": 330264,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IntegrationUI.Messaging.dll",
+      "path": "D:\\BarTender\\Seagull.IntegrationUI.Messaging.dll",
+      "size_bytes": 310296,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.IntegrationUI.Servers.dll",
+      "path": "D:\\BarTender\\Seagull.IntegrationUI.Servers.dll",
+      "size_bytes": 220696,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Integrations.Forms.dll",
+      "path": "D:\\BarTender\\Seagull.Integrations.Forms.dll",
+      "size_bytes": 28184,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Integrations.dll",
+      "path": "D:\\BarTender\\Seagull.Integrations.dll",
+      "size_bytes": 1583128,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Interop.dll",
+      "path": "D:\\BarTender\\Seagull.Interop.dll",
+      "size_bytes": 1756184,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Librarian.Core.dll",
+      "path": "D:\\BarTender\\Seagull.Librarian.Core.dll",
+      "size_bytes": 442904,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Librarian.dll",
+      "path": "D:\\BarTender\\Seagull.Librarian.dll",
+      "size_bytes": 2127384,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.License.dll",
+      "path": "D:\\BarTender\\Seagull.License.dll",
+      "size_bytes": 310800,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.NotificationSupport.dll",
+      "path": "D:\\BarTender\\Seagull.NotificationSupport.dll",
+      "size_bytes": 47912,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.PANTONE.ColorSpace.dll",
+      "path": "D:\\BarTender\\Seagull.PANTONE.ColorSpace.dll",
+      "size_bytes": 1189400,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.PANTONE.ColorStructures.dll",
+      "path": "D:\\BarTender\\Seagull.PANTONE.ColorStructures.dll",
+      "size_bytes": 16408,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.PANTONE.ColorUtility.dll",
+      "path": "D:\\BarTender\\Seagull.PANTONE.ColorUtility.dll",
+      "size_bytes": 19992,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Performance.dll",
+      "path": "D:\\BarTender\\Seagull.Performance.dll",
+      "size_bytes": 34840,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.PrintTicket.dll",
+      "path": "D:\\BarTender\\Seagull.PrintTicket.dll",
+      "size_bytes": 2266624,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.PrinterSetup.Interop.dll",
+      "path": "D:\\BarTender\\Seagull.PrinterSetup.Interop.dll",
+      "size_bytes": 38912,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.PrinterSetup.PrinterSettingsConfiguration.dll",
+      "path": "D:\\BarTender\\Seagull.PrinterSetup.PrinterSettingsConfiguration.dll",
+      "size_bytes": 40472,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.PrinterSetup.dll",
+      "path": "D:\\BarTender\\Seagull.PrinterSetup.dll",
+      "size_bytes": 24088,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Printing.PrintRouter.Client.dll",
+      "path": "D:\\BarTender\\Seagull.Printing.PrintRouter.Client.dll",
+      "size_bytes": 33304,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Printing.Wasatch.dll",
+      "path": "D:\\BarTender\\Seagull.Printing.Wasatch.dll",
+      "size_bytes": 27672,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Repository.Cms.dll",
+      "path": "D:\\BarTender\\Seagull.Repository.Cms.dll",
+      "size_bytes": 70168,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Repository.dll",
+      "path": "D:\\BarTender\\Seagull.Repository.dll",
+      "size_bytes": 274968,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Scales.Configuration.dll",
+      "path": "D:\\BarTender\\Seagull.Scales.Configuration.dll",
+      "size_bytes": 639512,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Scales.IO.dll",
+      "path": "D:\\BarTender\\Seagull.Scales.IO.dll",
+      "size_bytes": 142872,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Security.Configuration.dll",
+      "path": "D:\\BarTender\\Seagull.Security.Configuration.dll",
+      "size_bytes": 75288,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Security.Encryptor.dll",
+      "path": "D:\\BarTender\\Seagull.Security.Encryptor.dll",
+      "size_bytes": 59416,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Security.Interop.dll",
+      "path": "D:\\BarTender\\Seagull.Security.Interop.dll",
+      "size_bytes": 768536,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Deployment.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Deployment.Contracts.dll",
+      "size_bytes": 29720,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Deployment.Server.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Deployment.Server.dll",
+      "size_bytes": 83992,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Deployment.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Deployment.dll",
+      "size_bytes": 39448,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Hosts.Integration.Messaging.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Hosts.Integration.Messaging.dll",
+      "size_bytes": 60440,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Hosts.Integration.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Hosts.Integration.dll",
+      "size_bytes": 114200,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Hosts.Licensing.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Hosts.Licensing.dll",
+      "size_bytes": 39960,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Hosts.PrintScheduler.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Hosts.PrintScheduler.dll",
+      "size_bytes": 30232,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Hosts.SecuritySettings.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Hosts.SecuritySettings.dll",
+      "size_bytes": 21016,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Hosts.StorageSite.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Hosts.StorageSite.dll",
+      "size_bytes": 21016,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Hosts.TargetServerDB.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Hosts.TargetServerDB.dll",
+      "size_bytes": 21016,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Hosts.Verifier.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Hosts.Verifier.dll",
+      "size_bytes": 21016,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Integration.Adapters.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Integration.Adapters.Contracts.dll",
+      "size_bytes": 51736,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Integration.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Integration.Contracts.dll",
+      "size_bytes": 57880,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Integration.Management.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Integration.Management.dll",
+      "size_bytes": 89624,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Licensing.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Licensing.Contracts.dll",
+      "size_bytes": 163864,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Licensing.Server.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Licensing.Server.dll",
+      "size_bytes": 1030168,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Licensing.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Licensing.dll",
+      "size_bytes": 52248,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Performance.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Performance.Contracts.dll",
+      "size_bytes": 18968,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Performance.Server.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Performance.Server.dll",
+      "size_bytes": 19992,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Performance.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Performance.dll",
+      "size_bytes": 22040,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.PrintScheduler.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.PrintScheduler.Contracts.dll",
+      "size_bytes": 57880,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.PrintScheduler.Server.dll",
+      "path": "D:\\BarTender\\Seagull.Services.PrintScheduler.Server.dll",
+      "size_bytes": 132632,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.PrintScheduler.dll",
+      "path": "D:\\BarTender\\Seagull.Services.PrintScheduler.dll",
+      "size_bytes": 74264,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.SecuritySettings.Client.dll",
+      "path": "D:\\BarTender\\Seagull.Services.SecuritySettings.Client.dll",
+      "size_bytes": 61464,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.SecuritySettings.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.SecuritySettings.Contracts.dll",
+      "size_bytes": 67608,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.SecuritySettings.Server.dll",
+      "path": "D:\\BarTender\\Seagull.Services.SecuritySettings.Server.dll",
+      "size_bytes": 76824,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.StorageSite.Accounts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.StorageSite.Accounts.dll",
+      "size_bytes": 26648,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.StorageSite.Client.dll",
+      "path": "D:\\BarTender\\Seagull.Services.StorageSite.Client.dll",
+      "size_bytes": 27160,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.StorageSite.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.StorageSite.Contracts.dll",
+      "size_bytes": 19480,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.StorageSite.Server.dll",
+      "path": "D:\\BarTender\\Seagull.Services.StorageSite.Server.dll",
+      "size_bytes": 30744,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.TargetServerDB.Common.dll",
+      "path": "D:\\BarTender\\Seagull.Services.TargetServerDB.Common.dll",
+      "size_bytes": 26136,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.TargetServerDB.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.TargetServerDB.Contracts.dll",
+      "size_bytes": 17944,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.TargetServerDB.Server.dll",
+      "path": "D:\\BarTender\\Seagull.Services.TargetServerDB.Server.dll",
+      "size_bytes": 35352,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.TargetServerDB.dll",
+      "path": "D:\\BarTender\\Seagull.Services.TargetServerDB.dll",
+      "size_bytes": 28184,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Verifier.Client.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Verifier.Client.dll",
+      "size_bytes": 27160,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Verifier.Contracts.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Verifier.Contracts.dll",
+      "size_bytes": 42008,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Services.Verifier.Server.dll",
+      "path": "D:\\BarTender\\Seagull.Services.Verifier.Server.dll",
+      "size_bytes": 55320,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.StateMachine.dll",
+      "path": "D:\\BarTender\\Seagull.StateMachine.dll",
+      "size_bytes": 34840,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.TemplateBrowser.dll",
+      "path": "D:\\BarTender\\Seagull.TemplateBrowser.dll",
+      "size_bytes": 29208,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.ThirdParty.dll",
+      "path": "D:\\BarTender\\Seagull.ThirdParty.dll",
+      "size_bytes": 25624,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Transforms.Configuration.dll",
+      "path": "D:\\BarTender\\Seagull.Transforms.Configuration.dll",
+      "size_bytes": 191512,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Verifier.Driver.V275.dll",
+      "path": "D:\\BarTender\\Seagull.Verifier.Driver.V275.dll",
+      "size_bytes": 184344,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Verifier.Drivers.Common.dll",
+      "path": "D:\\BarTender\\Seagull.Verifier.Drivers.Common.dll",
+      "size_bytes": 55832,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.VerifierSetup.dll",
+      "path": "D:\\BarTender\\Seagull.VerifierSetup.dll",
+      "size_bytes": 38424,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.WindowsServices.Client.dll",
+      "path": "D:\\BarTender\\Seagull.WindowsServices.Client.dll",
+      "size_bytes": 20504,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.WindowsServices.Common.dll",
+      "path": "D:\\BarTender\\Seagull.WindowsServices.Common.dll",
+      "size_bytes": 16920,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.WindowsServices.dll",
+      "path": "D:\\BarTender\\Seagull.WindowsServices.dll",
+      "size_bytes": 25624,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.WizardFramework.dll",
+      "path": "D:\\BarTender\\Seagull.WizardFramework.dll",
+      "size_bytes": 29208,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Wpf.Controls.FormsInterop.dll",
+      "path": "D:\\BarTender\\Seagull.Wpf.Controls.FormsInterop.dll",
+      "size_bytes": 27672,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Wpf.Controls.dll",
+      "path": "D:\\BarTender\\Seagull.Wpf.Controls.dll",
+      "size_bytes": 175128,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Wpf.DevExpress.dll",
+      "path": "D:\\BarTender\\Seagull.Wpf.DevExpress.dll",
+      "size_bytes": 27672,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Wpf.Mvvm.dll",
+      "path": "D:\\BarTender\\Seagull.Wpf.Mvvm.dll",
+      "size_bytes": 56856,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.Wpf.dll",
+      "path": "D:\\BarTender\\Seagull.Wpf.dll",
+      "size_bytes": 145944,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Seagull.XpoDataAccess.dll",
+      "path": "D:\\BarTender\\Seagull.XpoDataAccess.dll",
+      "size_bytes": 28696,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "SupportLib.dll",
+      "path": "D:\\BarTender\\SupportLib.dll",
+      "size_bytes": 90112,
+      "is_managed": true,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Buffers.dll",
+      "path": "D:\\BarTender\\System.Buffers.dll",
+      "size_bytes": 21376,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Collections.Immutable.dll",
+      "path": "D:\\BarTender\\System.Collections.Immutable.dll",
+      "size_bytes": 252696,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.CData.Access.dll",
+      "path": "D:\\BarTender\\System.Data.CData.Access.dll",
+      "size_bytes": 11717576,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.CData.Excel.dll",
+      "path": "D:\\BarTender\\System.Data.CData.Excel.dll",
+      "size_bytes": 8777720,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.CData.ExcelOnline.dll",
+      "path": "D:\\BarTender\\System.Data.CData.ExcelOnline.dll",
+      "size_bytes": 6988848,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.CData.GoogleSheets.dll",
+      "path": "D:\\BarTender\\System.Data.CData.GoogleSheets.dll",
+      "size_bytes": 6349920,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.CData.MySQL.dll",
+      "path": "D:\\BarTender\\System.Data.CData.MySQL.dll",
+      "size_bytes": 7009264,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.CData.QuickBooksOnline.dll",
+      "path": "D:\\BarTender\\System.Data.CData.QuickBooksOnline.dll",
+      "size_bytes": 11844792,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.CData.SAPHANA.dll",
+      "path": "D:\\BarTender\\System.Data.CData.SAPHANA.dll",
+      "size_bytes": 6321136,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.SqlServerCe.4.0.dll",
+      "path": "D:\\BarTender\\System.Data.SqlServerCe.4.0.dll",
+      "size_bytes": 470240,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Data.SqlServerCe.Entity.4.0.dll",
+      "path": "D:\\BarTender\\System.Data.SqlServerCe.Entity.4.0.dll",
+      "size_bytes": 240352,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Diagnostics.DiagnosticSource.dll",
+      "path": "D:\\BarTender\\System.Diagnostics.DiagnosticSource.dll",
+      "size_bytes": 189088,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Diagnostics.PerformanceCounter.dll",
+      "path": "D:\\BarTender\\System.Diagnostics.PerformanceCounter.dll",
+      "size_bytes": 39304,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.IO.Pipelines.dll",
+      "path": "D:\\BarTender\\System.IO.Pipelines.dll",
+      "size_bytes": 71552,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.IO.Ports.dll",
+      "path": "D:\\BarTender\\System.IO.Ports.dll",
+      "size_bytes": 32640,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.IdentityModel.Tokens.Jwt.dll",
+      "path": "D:\\BarTender\\System.IdentityModel.Tokens.Jwt.dll",
+      "size_bytes": 81784,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Memory.dll",
+      "path": "D:\\BarTender\\System.Memory.dll",
+      "size_bytes": 142752,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Net.WebSockets.Client.Managed.dll",
+      "path": "D:\\BarTender\\System.Net.WebSockets.Client.Managed.dll",
+      "size_bytes": 72192,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Numerics.Vectors.dll",
+      "path": "D:\\BarTender\\System.Numerics.Vectors.dll",
+      "size_bytes": 115856,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Reactive.dll",
+      "path": "D:\\BarTender\\System.Reactive.dll",
+      "size_bytes": 1268176,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Runtime.CompilerServices.Unsafe.dll",
+      "path": "D:\\BarTender\\System.Runtime.CompilerServices.Unsafe.dll",
+      "size_bytes": 18024,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Runtime.InteropServices.RuntimeInformation.dll",
+      "path": "D:\\BarTender\\System.Runtime.InteropServices.RuntimeInformation.dll",
+      "size_bytes": 28624,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Text.Encodings.Web.dll",
+      "path": "D:\\BarTender\\System.Text.Encodings.Web.dll",
+      "size_bytes": 79120,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Text.Json.dll",
+      "path": "D:\\BarTender\\System.Text.Json.dll",
+      "size_bytes": 642832,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Threading.Channels.dll",
+      "path": "D:\\BarTender\\System.Threading.Channels.dll",
+      "size_bytes": 74000,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Threading.Tasks.Extensions.dll",
+      "path": "D:\\BarTender\\System.Threading.Tasks.Extensions.dll",
+      "size_bytes": 25984,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.ValueTuple.dll",
+      "path": "D:\\BarTender\\System.ValueTuple.dll",
+      "size_bytes": 25232,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "System.Windows.Interactivity.dll",
+      "path": "D:\\BarTender\\System.Windows.Interactivity.dll",
+      "size_bytes": 55904,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Ude.dll",
+      "path": "D:\\BarTender\\Ude.dll",
+      "size_bytes": 163840,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Xceed.Wpf.Toolkit.dll",
+      "path": "D:\\BarTender\\Xceed.Wpf.Toolkit.dll",
+      "size_bytes": 1005568,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "YamlDotNet.dll",
+      "path": "D:\\BarTender\\YamlDotNet.dll",
+      "size_bytes": 222208,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "epc-dotnet.dll",
+      "path": "D:\\BarTender\\epc-dotnet.dll",
+      "size_bytes": 220672,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "nsoftware.CloudStorage.dll",
+      "path": "D:\\BarTender\\nsoftware.CloudStorage.dll",
+      "size_bytes": 3449024,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "nsoftware.IPWorks.System.dll",
+      "path": "D:\\BarTender\\nsoftware.IPWorks.System.dll",
+      "size_bytes": 203136,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "nsoftware.IPWorks.dll",
+      "path": "D:\\BarTender\\nsoftware.IPWorks.dll",
+      "size_bytes": 3646848,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "nsoftware.SecureBlackbox.dll",
+      "path": "D:\\BarTender\\nsoftware.SecureBlackbox.dll",
+      "size_bytes": 19162272,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "stdole.dll",
+      "path": "D:\\BarTender\\stdole.dll",
+      "size_bytes": 22344,
+      "is_managed": true,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    }
+  ]
+}

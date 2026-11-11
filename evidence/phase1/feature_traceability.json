@@ -1,0 +1,50 @@
+{
+  "total_features": 5,
+  "traceability_matrix": [
+    {
+      "feature_id": "FEAT-001",
+      "feature": "Page Setup & Physical Dimensions",
+      "target_subsystem": "document_engine",
+      "bartender_evidence": "CArchive serialization of label width/height in twips/mm; CDialog DoModal for Page Setup.",
+      "confidence": "VERIFIED_STATIC",
+      "label_forge_component": "LabelForge.Core.Models.PageSetup & Length struct",
+      "label_forge_status": "Implemented in M1"
+    },
+    {
+      "feature_id": "FEAT-002",
+      "feature": "Multi-Layer Visual Canvas",
+      "target_subsystem": "document_engine",
+      "bartender_evidence": "CObList hierarchy storing drawing objects with z-indices.",
+      "confidence": "VERIFIED_STATIC",
+      "label_forge_component": "LabelForge.Core.Models.Layer & CanvasObject",
+      "label_forge_status": "Implemented in M1"
+    },
+    {
+      "feature_id": "FEAT-003",
+      "feature": "1D & 2D Barcode Engine",
+      "target_subsystem": "barcode_engine",
+      "bartender_evidence": "BtBarcode.dll native rasterizer; symbology IDs for Code128, QR, DataMatrix, PDF417.",
+      "confidence": "VERIFIED_STATIC",
+      "label_forge_component": "LabelForge.Core.Objects.BarcodeObject (clean ZXing.Net replacement planned for M3)",
+      "label_forge_status": "Domain Model in M1"
+    },
+    {
+      "feature_id": "FEAT-004",
+      "feature": "Document Format Serialization",
+      "target_subsystem": "document_engine",
+      "bartender_evidence": "Proprietary binary .btw using OLE Structured Storage and MFC CArchive.",
+      "confidence": "VERIFIED_STATIC",
+      "label_forge_component": "LabelForge.Core.Serialization.DocumentSerializer (.olb JSON with atomic save)",
+      "label_forge_status": "Implemented in M1"
+    },
+    {
+      "feature_id": "FEAT-005",
+      "feature": "Windows Spooler & Direct Thermal Printing",
+      "target_subsystem": "print_subsystem",
+      "bartender_evidence": "winspool.drv GDI mapping and raw PRN escape sequences.",
+      "confidence": "VERIFIED_STATIC",
+      "label_forge_component": "LabelForge.Printing (IPrintEngine, planned for M5)",
+      "label_forge_status": "Contracts in M0, Implementation in M5"
+    }
+  ]
+}

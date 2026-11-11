@@ -1,0 +1,86 @@
+{
+  "root": "BarTend.exe",
+  "architecture": "x86_64",
+  "subsystems": {
+    "presentation_shell": {
+      "type": "C++/CLI + MFC + Codejock + WPF",
+      "primary_modules": [
+        "BarTend.exe",
+        "mfc140u.dll",
+        "XtremeToolkitPro.dll",
+        "PresentationFramework.dll"
+      ],
+      "responsibilities": [
+        "Ribbon interface",
+        "Docking panes",
+        "Menu dispatch",
+        "Dialog hosting"
+      ]
+    },
+    "document_engine": {
+      "type": "Mixed MFC / Native C++",
+      "primary_modules": [
+        "BarTend.exe",
+        "BtEngine.dll",
+        "BtSystem.dll"
+      ],
+      "responsibilities": [
+        "Object model",
+        ".btw serialization via CArchive",
+        "Coordinate transforms"
+      ]
+    },
+    "barcode_engine": {
+      "type": "Native C++ DLL",
+      "primary_modules": [
+        "BtBarcode.dll",
+        "BtEngine.dll"
+      ],
+      "responsibilities": [
+        "1D & 2D symbology rasterization",
+        "Check digit calculation",
+        "Quiet zones"
+      ]
+    },
+    "data_processing": {
+      "type": "Managed .NET + Native OLEDB/ODBC",
+      "primary_modules": [
+        "Seagull.Data.dll",
+        "Seagull.Database.dll",
+        "BtData.dll"
+      ],
+      "responsibilities": [
+        "Delimited text parser",
+        "Database queries",
+        "Serialization counters",
+        "Named data sources"
+      ]
+    },
+    "print_subsystem": {
+      "type": "Mixed Managed / Native GDI & Spooler",
+      "primary_modules": [
+        "Seagull.BarTender.Print.dll",
+        "BtPrint.dll",
+        "winspool.drv"
+      ],
+      "responsibilities": [
+        "Windows spooler interaction",
+        "DEVMODE configuration",
+        "Direct thermal raw pass-through"
+      ]
+    },
+    "licensing_security": {
+      "type": "Managed WCF / SLS",
+      "primary_modules": [
+        "Seagull.Security.dll",
+        "Seagull.Licensing.dll",
+        "BtLic.dll"
+      ],
+      "responsibilities": [
+        "Seagull License Server communication",
+        "Edition feature gating",
+        "License checks"
+      ]
+    }
+  }
+}

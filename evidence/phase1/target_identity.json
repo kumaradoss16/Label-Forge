@@ -1,0 +1,138 @@
+{
+  "file_name": "BarTend.exe",
+  "absolute_path": "D:\\BarTender\\BarTend.exe",
+  "file_size_bytes": 20774984,
+  "hashes": {
+    "md5": "7af37ab384391fcc03935a569d705aa0",
+    "sha1": "7a57fefa26e99ddec6a46625a8cc17c5a87593aa",
+    "sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594"
+  },
+  "pe_header": {
+    "machine": "0x8664",
+    "architecture": "x86_64",
+    "subsystem": 2,
+    "subsystem_name": "IMAGE_SUBSYSTEM_WINDOWS_GUI",
+    "image_base": "0x140000000",
+    "entry_point": "0x97d0fb",
+    "section_alignment": 4096,
+    "file_alignment": 512,
+    "timestamp": 1738053553,
+    "number_of_sections": 7
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "virtual_address": "0x1000",
+      "virtual_size": 10924174,
+      "raw_size": 10924544,
+      "characteristics": "0x60000020"
+    },
+    {
+      "name": ".nep",
+      "virtual_address": "0xa6d000",
+      "virtual_size": 86272,
+      "raw_size": 86528,
+      "characteristics": "0x60000020"
+    },
+    {
+      "name": ".rdata",
+      "virtual_address": "0xa83000",
+      "virtual_size": 6758812,
+      "raw_size": 6758912,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".data",
+      "virtual_address": "0x10f6000",
+      "virtual_size": 1076568,
+      "raw_size": 822272,
+      "characteristics": "0xc0000040"
+    },
+    {
+      "name": ".pdata",
+      "virtual_address": "0x11fd000",
+      "virtual_size": 462588,
+      "raw_size": 462848,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".rsrc",
+      "virtual_address": "0x126e000",
+      "virtual_size": 1264272,
+      "raw_size": 1264640,
+      "characteristics": "0x40000040"
+    },
+    {
+      "name": ".reloc",
+      "virtual_address": "0x13a3000",
+      "virtual_size": 433500,
+      "raw_size": 433664,
+      "characteristics": "0x42000040"
+    }
+  ],
+  "authenticode_signature": {
+    "present": true,
+    "virtual_address": "0x13cb000",
+    "size": 20552
+  },
+  "clr_runtime": {
+    "present": true,
+    "virtual_address": "0xae9b90",
+    "size": 72,
+    "clr_version": "v4.0.30319",
+    "classification": "cpp-cli-mixed"
+  },
+  "imports_summary": {
+    "imported_dll_count": 48,
+    "imported_dlls": [
+      "KERNEL32.dll",
+      "ADVAPI32.dll",
+      "USER32.dll",
+      "GDI32.dll",
+      "VERSION.dll",
+      "WINMM.dll",
+      "WINSPOOL.DRV",
+      "Secur32.dll",
+      "IPHLPAPI.DLL",
+      "NETAPI32.dll",
+      "USP10.dll",
+      "IMM32.dll",
+      "ToolkitPro1531vc142x64U.dll",
+      "CRYPT32.dll",
+      "WINTRUST.dll",
+      "imagehlp.dll",
+      "RPCRT4.dll",
+      "SLImage.dll",
+      "mfc140u.dll",
+      "COMCTL32.dll",
+      "ole32.dll",
+      "OLEAUT32.dll",
+      "MSVCP140.dll",
+      "USERENV.dll",
+      "VCRUNTIME140_1.dll",
+      "VCRUNTIME140.dll",
+      "api-ms-win-crt-heap-l1-1-0.dll",
+      "api-ms-win-crt-runtime-l1-1-0.dll",
+      "api-ms-win-crt-stdio-l1-1-0.dll",
+      "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "api-ms-win-crt-string-l1-1-0.dll",
+      "api-ms-win-crt-convert-l1-1-0.dll",
+      "api-ms-win-crt-time-l1-1-0.dll",
+      "api-ms-win-crt-utility-l1-1-0.dll",
+      "api-ms-win-crt-environment-l1-1-0.dll",
+      "api-ms-win-crt-locale-l1-1-0.dll",
+      "api-ms-win-crt-math-l1-1-0.dll",
+      "BarCode_Code93i.dll",
+      "dlsdk_shared.dll",
+      "BarCode_DotCode.dll",
+      "BarCode_GridMatrix.dll",
+      "BarCode_HanXin.dll",
+      "BarCode_rMQRCode.dll",
+      "COMDLG32.dll",
+      "SETUPAPI.dll",
+      "MFCM140U.dll",
+      "BarCode_iQRCode.dll",
+      "mscoree.dll"
+    ]
+  }
+}

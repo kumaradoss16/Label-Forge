@@ -1,0 +1,47 @@
+{
+  "source_module": "BarTend.exe",
+  "runtime_version": "v4.0.30319",
+  "pinvoke_count": 662,
+  "module_refs": [
+    "KERNEL32.dll",
+    "MFC140u.dll",
+    "OLE32.dll",
+    "OLEAUT32.dll",
+    "USER32.dll",
+    "GDI32.dll"
+  ],
+  "key_mfc_boundaries": [
+    {
+      "member": "CDialog.DoModal",
+      "role": "Modal dialog display for Page Setup, Object Properties, Data Sources"
+    },
+    {
+      "member": "CArchive.WriteCount / ReadCount",
+      "role": "MFC OLE document object stream serialization (.btw format)"
+    },
+    {
+      "member": "CArchive.Write / Read",
+      "role": "Raw byte serialization for binary records"
+    },
+    {
+      "member": "CObList.AddTail / RemoveAll",
+      "role": "MFC object hierarchy collection management"
+    },
+    {
+      "member": "CWnd.CreateControl / ShowWindow / SetWindowPos",
+      "role": "ActiveX and native window hosting within WPF/CLR shell"
+    },
+    {
+      "member": "AfxmEnsureManagedInitialization",
+      "role": "C++/CLI mixed mode runtime initialization thunk"
+    },
+    {
+      "member": "SysAllocString / SysFreeString",
+      "role": "COM BSTR string marshaling for script expressions and data binding"
+    },
+    {
+      "member": "ReleaseCapture / GetWindowRect",
+      "role": "Canvas mouse drag, selection box, and object resize tracking"
+    }
+  ]
+}

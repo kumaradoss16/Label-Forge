@@ -1,0 +1,42 @@
+{
+  "environment": {
+    "os": "Microsoft Windows 10 Home Single Language (10.0.19045, 64-bit)",
+    "ram_total_gb": 6.2,
+    "session_type": "Headless Service / Non-Interactive Desktop (Session 22)"
+  },
+  "empirical_tests": [
+    {
+      "test_id": "RT-01",
+      "target": "BarTend.exe",
+      "method": "Process start with arguments /Min=SystemTray",
+      "observation": "Process spawns, initializes CLR v4.0.30319, loads MFC140u.dll, blocks on modal activation dialog in session 22 without GUI context.",
+      "finding": "Licensing dialog is modal Win32 dialog created before main ribbon window loop."
+    },
+    {
+      "test_id": "RT-02",
+      "target": "Seagull.BarTender.Print.dll",
+      "method": "PowerShell reflection instantiation of Seagull.BarTender.Print.Engine",
+      "observation": "Throws LicenseException: 'You must activate BarTender with a valid product key code to use the BarTender Print Service API.'",
+      "finding": "Confirmed strict enterprise licensing gate at managed API boundary."
+    },
+    {
+      "test_id": "RT-03",
+      "target": "BarTender.Application COM Automation",
+      "method": "New-Object -ComObject 'BarTender.Application'",
+      "observation": "Requires active desktop interaction to acknowledge license registration.",
+      "finding": "COM automation server instantiates BarTend.exe process."
+    }
+  ],
+  "windows_services": [
+    {
+      "service_name": "BarTender System Service",
+      "display_name": "BarTender System Service",
+      "status": "Audited"
+    },
+    {
+      "service_name": "Seagull License Server",
+      "display_name": "Seagull License Server",
+      "status": "Audited"
+    }
+  ]
+}

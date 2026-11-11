@@ -1,0 +1,20 @@
+{
+  "target": "BarTend.exe",
+  "help_documentation": {
+    "file": "Help/BarTender.chm",
+    "extracted_screenshots_count": 83,
+    "dialog_templates_extracted": 25,
+    "ui_icons_extracted": 58
+  },
+  "embedded_manifest": {
+    "dpi_aware": "Per-Monitor V2",
+    "supported_os": [
+      "Windows 10",
+      "Windows 11",
+      "Windows 8.1",
+      "Windows 7"
+    ],
+    "ui_access": false,
+    "execution_level": "asInvoker"
+  }
+}

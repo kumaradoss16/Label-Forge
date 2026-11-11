@@ -38,6 +38,15 @@ All technical specifications, reverse engineering reports, behavior models, and 
 | [**09. Build Readiness Report**](reports/09_BUILD_READINESS_REPORT.md) | Engineering prerequisites, project hierarchy, NuGet package manifest, legal safeguards, and 5-milestone roadmap. |
 | [**09. Runtime Evidence Report**](reports/09_RUNTIME_EVIDENCE.md) | Empirical runtime tests, service inspections, exception traces, visual screenshot evidence catalog, and file validations. |
 | [**10. M0 & M1 Execution Report**](reports/10_M0_M1_EXECUTION_REPORT.md) | Completion report for M0 (Engineering Foundation) and M1 (Core Document Engine), domain model, geometry, and test validation. |
+| [**11. Phase 1: Target Identity**](reports/11_PHASE1_TARGET_IDENTITY.md) | Confirmed executable identity, PE architecture, hashes, CLI headers, sections, and Authenticode signature. |
+| [**12. Phase 1: Application Structure**](reports/12_PHASE1_APPLICATION_STRUCTURE.md) | Component inventory (24 EXEs, 331 managed DLLs, 102 native DLLs), subsystem boundaries, and architecture model. |
+| [**13. Phase 1: Dependency Analysis**](reports/13_PHASE1_DEPENDENCY_ANALYSIS.md) | Complete audit of native imports, 84 managed AssemblyRefs, and clean-room replacement mappings. |
+| [**14. Phase 1: .NET Assembly Analysis**](reports/14_PHASE1_DOTNET_ASSEMBLY_ANALYSIS.md) | CLI metadata tables (TypeDefs, MethodDefs), P/Invoke mappings (`CArchive`, `CObList`, `CWnd`), and managed core DLLs. |
+| [**15. Phase 1: Native Binary Analysis**](reports/15_PHASE1_NATIVE_BINARY_ANALYSIS.md) | Native DLL inventory (`BtEngine.dll`, `BtBarcode.dll`, `BtPrint.dll`), exported functions, and tooling mitigations. |
+| [**16. Phase 1: Resource Analysis**](reports/16_PHASE1_RESOURCE_ANALYSIS.md) | Win32 `.rsrc` section, dialog templates, string tables, extracted UI reference graphics, and clean-room asset boundary. |
+| [**17. Phase 1: Runtime & Windows Integration**](reports/17_PHASE1_RUNTIME_AND_WINDOWS_INTEGRATION.md) | Empirical runtime tests, license enforcement exceptions, Windows Spooler GDI vs. raw thermal pass-through. |
+| [**18. Phase 1: Feature Traceability**](reports/18_PHASE1_FEATURE_TRACEABILITY.md) | Comprehensive feature traceability matrix connecting BarTender evidence to LabelForge clean-room components. |
+| [**19. Phase 1: Reverse Engineering Summary**](reports/19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md) | Master Phase 1 summary, Gates A-G evaluation, confirmed facts, inferences, unknowns, and roadmap. |
 
 ---
 

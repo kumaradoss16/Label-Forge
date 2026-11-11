@@ -1,0 +1,1282 @@
+{
+  "total_count": 102,
+  "modules": [
+    {
+      "name": "AWChs.dll",
+      "path": "D:\\BarTender\\AWChs.dll",
+      "size_bytes": 777240,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWCht.dll",
+      "path": "D:\\BarTender\\AWCht.dll",
+      "size_bytes": 776728,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWCsy.dll",
+      "path": "D:\\BarTender\\AWCsy.dll",
+      "size_bytes": 831512,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWDan.dll",
+      "path": "D:\\BarTender\\AWDan.dll",
+      "size_bytes": 830488,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWEnu.dll",
+      "path": "D:\\BarTender\\AWEnu.dll",
+      "size_bytes": 827928,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWFin.dll",
+      "path": "D:\\BarTender\\AWFin.dll",
+      "size_bytes": 831000,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWFre.dll",
+      "path": "D:\\BarTender\\AWFre.dll",
+      "size_bytes": 844824,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWGer.dll",
+      "path": "D:\\BarTender\\AWGer.dll",
+      "size_bytes": 843288,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWIta.dll",
+      "path": "D:\\BarTender\\AWIta.dll",
+      "size_bytes": 839192,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWJpn.dll",
+      "path": "D:\\BarTender\\AWJpn.dll",
+      "size_bytes": 793624,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWKor.dll",
+      "path": "D:\\BarTender\\AWKor.dll",
+      "size_bytes": 791576,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWNld.dll",
+      "path": "D:\\BarTender\\AWNld.dll",
+      "size_bytes": 837144,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWNor.dll",
+      "path": "D:\\BarTender\\AWNor.dll",
+      "size_bytes": 827928,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWPol.dll",
+      "path": "D:\\BarTender\\AWPol.dll",
+      "size_bytes": 836632,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWPtb.dll",
+      "path": "D:\\BarTender\\AWPtb.dll",
+      "size_bytes": 836632,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWPtg.dll",
+      "path": "D:\\BarTender\\AWPtg.dll",
+      "size_bytes": 837656,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWSpa.dll",
+      "path": "D:\\BarTender\\AWSpa.dll",
+      "size_bytes": 841240,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWSve.dll",
+      "path": "D:\\BarTender\\AWSve.dll",
+      "size_bytes": 829976,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWTai.dll",
+      "path": "D:\\BarTender\\AWTai.dll",
+      "size_bytes": 823320,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWTrk.dll",
+      "path": "D:\\BarTender\\AWTrk.dll",
+      "size_bytes": 829976,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "AWrus.dll",
+      "path": "D:\\BarTender\\AWrus.dll",
+      "size_bytes": 838168,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BarCode_Aztec.dll",
+      "path": "D:\\BarTender\\BarCode_Aztec.dll",
+      "size_bytes": 43544,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 1,
+      "exports": [
+        "AztecEncode"
+      ]
+    },
+    {
+      "name": "BarCode_Code93i.dll",
+      "path": "D:\\BarTender\\BarCode_Code93i.dll",
+      "size_bytes": 70168,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 3,
+      "exports": [
+        "?C93i_Decode@@YA_NPEBDIAEAPEAD@Z",
+        "?C93i_Encode@@YA_NHPEBDIAEAPEAD@Z",
+        "?C93i_Free@@YAXPEAX@Z"
+      ]
+    },
+    {
+      "name": "BarCode_Composite.dll",
+      "path": "D:\\BarTender\\BarCode_Composite.dll",
+      "size_bytes": 110104,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 15,
+      "exports": [
+        "ClearUCCErrFlag",
+        "EAN13",
+        "EAN8",
+        "GetUCCErrFlag",
+        "RSS14",
+        "RSS14S",
+        "RSS14SO",
+        "RSSExp",
+        "RSSLim",
+        "U128A",
+        "U128C",
+        "UPCE",
+        "check2DData",
+        "init928",
+        "initLogTables"
+      ]
+    },
+    {
+      "name": "BarCode_DataMatrix.dll",
+      "path": "D:\\BarTender\\BarCode_DataMatrix.dll",
+      "size_bytes": 71192,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 20,
+      "exports": [
+        "IDM_def_priv_encrypt",
+        "IDM_define_private_fmt",
+        "IDM_enc_complete",
+        "IDM_enc_first_pass",
+        "IDM_enc_second_pass",
+        "IDM_get_dc_edge_length",
+        "IDM_initialize",
+        "IDM_inquire_encrypt",
+        "IDM_inquire_fmt",
+        "IDM_self_test",
+        "IDM_set_enc_verify",
+        "IDM_verify_enc_string",
+        "enum_ecc_to_user",
+        "get_dm_cell",
+        "reset_default_output_dm",
+        "reset_dm_cell",
+        "set_default_input_dm",
+        "set_default_output_dm",
+        "set_dm_cell",
+        "user_ecc_to_enum"
+      ]
+    },
+    {
+      "name": "BarCode_DotCode.dll",
+      "path": "D:\\BarTender\\BarCode_DotCode.dll",
+      "size_bytes": 35352,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 1,
+      "exports": [
+        "DotCodeEncode"
+      ]
+    },
+    {
+      "name": "BarCode_GridMatrix.dll",
+      "path": "D:\\BarTender\\BarCode_GridMatrix.dll",
+      "size_bytes": 52760,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 27,
+      "exports": [
+        "gm_enc",
+        "gm_enc2",
+        "gm_enc_f2buf",
+        "gm_enc_f2bufU",
+        "gm_enc_f2f",
+        "gm_enc_f2fU",
+        "gm_enc_f2m",
+        "gm_enc_f2mU",
+        "gm_enc_getbit",
+        "gm_enc_m2bits",
+        "gm_enc_m2buf",
+        "gm_enc_m2bufU",
+        "gm_enc_m2f",
+        "gm_enc_m2fU",
+        "gm_enc_m2m",
+        "gm_enc_m2mU",
+        "gm_free_mem",
+        "gm_get_module_ratio",
+        "gm_get_module_shape",
+        "gm_get_qz_size",
+        "gm_set_module_ratio",
+        "gm_set_module_shape",
+        "gm_set_qz_size",
+        "gm_setting_code_enc",
+        "macro_gm_enc",
+        "macro_gm_enc2",
+        "set_anti_print_loss_level"
+      ]
+    },
+    {
+      "name": "BarCode_HanXin.dll",
+      "path": "D:\\BarTender\\BarCode_HanXin.dll",
+      "size_bytes": 75800,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 2,
+      "exports": [
+        "hanxincode_encode",
+        "hanxincode_free"
+      ]
+    },
+    {
+      "name": "BarCode_MaxiCode.dll",
+      "path": "D:\\BarTender\\BarCode_MaxiCode.dll",
+      "size_bytes": 34328,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 7,
+      "exports": [
+        "CodeLabel",
+        "EncodeTxt",
+        "ReedSolomon",
+        "RestoreOrientHx",
+        "SetUp",
+        "gen_uc",
+        "xlate"
+      ]
+    },
+    {
+      "name": "BarCode_QRCode.dll",
+      "path": "D:\\BarTender\\BarCode_QRCode.dll",
+      "size_bytes": 57368,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 3,
+      "exports": [
+        "GenerateQRCode",
+        "GetQRCell",
+        "SavePattern"
+      ]
+    },
+    {
+      "name": "BarCode_RoyalMail_FourStateMailmark_TypeC.dll",
+      "path": "D:\\BarTender\\BarCode_RoyalMail_FourStateMailmark_TypeC.dll",
+      "size_bytes": 49176,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 1,
+      "exports": [
+        "encode_eib_c"
+      ]
+    },
+    {
+      "name": "BarCode_RoyalMail_FourStateMailmark_TypeL.dll",
+      "path": "D:\\BarTender\\BarCode_RoyalMail_FourStateMailmark_TypeL.dll",
+      "size_bytes": 50200,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 1,
+      "exports": [
+        "encode_eib_l"
+      ]
+    },
+    {
+      "name": "BarCode_iQRCode.dll",
+      "path": "D:\\BarTender\\BarCode_iQRCode.dll",
+      "size_bytes": 70680,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 5,
+      "exports": [
+        "?GetEncodedSymbolColsCount@@YAHXZ",
+        "?GetEncodedSymbolRowsCount@@YAHXZ",
+        "?GetEncodedSymbolVersion@@YAHXZ",
+        "?GetIQRCell@@YAEHH@Z",
+        "?iQRmain@@YAHPEAEHHHH@Z"
+      ]
+    },
+    {
+      "name": "BarCode_rMQRCode.dll",
+      "path": "D:\\BarTender\\BarCode_rMQRCode.dll",
+      "size_bytes": 40472,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 4,
+      "exports": [
+        "rMQR_GenerateCode",
+        "rMQR_GetCell",
+        "rMQR_GetEncodedCols",
+        "rMQR_GetEncodedRows"
+      ]
+    },
+    {
+      "name": "BtChs.dll",
+      "path": "D:\\BarTender\\BtChs.dll",
+      "size_bytes": 2926104,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtCht.dll",
+      "path": "D:\\BarTender\\BtCht.dll",
+      "size_bytes": 2929176,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtCsy.dll",
+      "path": "D:\\BarTender\\BtCsy.dll",
+      "size_bytes": 3258392,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtDan.dll",
+      "path": "D:\\BarTender\\BtDan.dll",
+      "size_bytes": 3253784,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtEnu.dll",
+      "path": "D:\\BarTender\\BtEnu.dll",
+      "size_bytes": 3230744,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtFin.dll",
+      "path": "D:\\BarTender\\BtFin.dll",
+      "size_bytes": 3252760,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtFre.dll",
+      "path": "D:\\BarTender\\BtFre.dll",
+      "size_bytes": 3357720,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtGer.dll",
+      "path": "D:\\BarTender\\BtGer.dll",
+      "size_bytes": 3320344,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtIta.dll",
+      "path": "D:\\BarTender\\BtIta.dll",
+      "size_bytes": 3316248,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtJpn.dll",
+      "path": "D:\\BarTender\\BtJpn.dll",
+      "size_bytes": 3021336,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtKor.dll",
+      "path": "D:\\BarTender\\BtKor.dll",
+      "size_bytes": 3013656,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtNld.dll",
+      "path": "D:\\BarTender\\BtNld.dll",
+      "size_bytes": 3303448,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtNor.dll",
+      "path": "D:\\BarTender\\BtNor.dll",
+      "size_bytes": 3240984,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtPol.dll",
+      "path": "D:\\BarTender\\BtPol.dll",
+      "size_bytes": 3285528,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtPtb.dll",
+      "path": "D:\\BarTender\\BtPtb.dll",
+      "size_bytes": 3324440,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtPtg.dll",
+      "path": "D:\\BarTender\\BtPtg.dll",
+      "size_bytes": 3324440,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSpa.dll",
+      "path": "D:\\BarTender\\BtSpa.dll",
+      "size_bytes": 3343384,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtSve.dll",
+      "path": "D:\\BarTender\\BtSve.dll",
+      "size_bytes": 3247640,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtTai.dll",
+      "path": "D:\\BarTender\\BtTai.dll",
+      "size_bytes": 3201560,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "BtTrk.dll",
+      "path": "D:\\BarTender\\BtTrk.dll",
+      "size_bytes": 3257880,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "Btrus.dll",
+      "path": "D:\\BarTender\\Btrus.dll",
+      "size_bytes": 3296792,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ClearScriptV8.win-x64.dll",
+      "path": "D:\\BarTender\\ClearScriptV8.win-x64.dll",
+      "size_bytes": 12750640,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 129,
+      "exports": [
+        "CrashForExceptionInNonABICompliantCodeRange",
+        "HostException_Schedule",
+        "NativeCallback_Invoke",
+        "StdByteArray_Delete",
+        "StdByteArray_GetData",
+        "StdByteArray_GetElementCount",
+        "StdByteArray_New",
+        "StdByteArray_SetElementCount",
+        "StdInt32Array_Delete",
+        "StdInt32Array_GetData",
+        "StdInt32Array_GetElementCount",
+        "StdInt32Array_New",
+        "StdInt32Array_SetElementCount",
+        "StdPtrArray_Delete",
+        "StdPtrArray_GetData",
+        "StdPtrArray_GetElementCount",
+        "StdPtrArray_New",
+        "StdPtrArray_SetElementCount",
+        "StdStringArray_Delete",
+        "StdStringArray_GetElement",
+        "StdStringArray_GetElementCount",
+        "StdStringArray_New",
+        "StdStringArray_SetElement",
+        "StdStringArray_SetElementCount",
+        "StdString_Delete",
+        "StdString_GetValue",
+        "StdString_New",
+        "StdString_SetValue",
+        "StdUInt32Array_Delete",
+        "StdUInt32Array_GetData",
+        "StdUInt32Array_GetElementCount",
+        "StdUInt32Array_New",
+        "StdUInt32Array_SetElementCount",
+        "StdUInt64Array_Delete",
+        "StdUInt64Array_GetData",
+        "StdUInt64Array_GetElementCount",
+        "StdUInt64Array_New",
+        "StdUInt64Array_SetElementCount",
+        "StdV8ValueArray_Delete",
+        "StdV8ValueArray_GetData",
+        "StdV8ValueArray_GetElementCount",
+        "StdV8ValueArray_New",
+        "StdV8ValueArray_SetElementCount",
+        "V8Context_AddGlobalItem",
+        "V8Context_AwaitDebuggerAndPause",
+        "V8Context_BeginCpuProfile",
+        "V8Context_CollectCpuProfileSample",
+        "V8Context_CollectGarbage",
+        "V8Context_Compile",
+        "V8Context_CompileConsumingCache"
+      ]
+    },
+    {
+      "name": "CnEng.dll",
+      "path": "D:\\BarTender\\CnEng.dll",
+      "size_bytes": 53248,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "DriverUtilityLibrary.dll",
+      "path": "D:\\BarTender\\DriverUtilityLibrary.dll",
+      "size_bytes": 1289008,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 13,
+      "exports": [
+        "?DI_Close@@YAXPEAUHDRIVERINTERFACE__@@@Z",
+        "?DI_Command@@YAXPEAUHDRIVERINTERFACE__@@H@Z",
+        "?DI_CommandUI@@YAXPEAUHDRIVERINTERFACE__@@PEAUHWND__@@H@Z",
+        "?DI_GetPrinterDriverDate@@YAPEA_WPEAUHDRIVERINTERFACE__@@@Z",
+        "?DI_GetPrinterDriverVersion@@YAPEA_WPEAUHDRIVERINTERFACE__@@@Z",
+        "?DI_GetPrinterExtendedStatusFlags@@YAKPEAUHDRIVERINTERFACE__@@@Z",
+        "?DI_GetPrinterStatusFlags@@YAKPEAUHDRIVERINTERFACE__@@@Z",
+        "?DI_GetPrinterStatusText@@YAPEA_WPEAUHDRIVERINTERFACE__@@@Z",
+        "?DI_IsCommandSupported@@YA_NPEAUHDRIVERINTERFACE__@@H@Z",
+        "?DI_IsCommandUI@@YA_NPEAUHDRIVERINTERFACE__@@H@Z",
+        "?DI_Open@@YAPEAUHDRIVERINTERFACE__@@PEAX@Z",
+        "?RFID_EncodeEPC@@YAPEA_WPEB_W0H@Z",
+        "?RFID_EncodeRaw@@YAPEA_WPEB_WH@Z"
+      ]
+    },
+    {
+      "name": "Redemption.dll",
+      "path": "D:\\BarTender\\Redemption.dll",
+      "size_bytes": 7971464,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 10,
+      "exports": [
+        "DllCanUnloadNow",
+        "DllGetClassObject",
+        "DllRegisterServer",
+        "DllUnregisterServer",
+        "HrIMessageToRFC822Message",
+        "HrIMessageToRFC822MessageEx",
+        "HrRFC822MessageToIMessage",
+        "HrRFC822MessageToIMessageEx",
+        "InitExtensionLibrary",
+        "TMethodImplementationIntercept"
+      ]
+    },
+    {
+      "name": "SciLexer64.dll",
+      "path": "D:\\BarTender\\SciLexer64.dll",
+      "size_bytes": 1539096,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 1,
+      "exports": [
+        "Scintilla_DirectFunction"
+      ]
+    },
+    {
+      "name": "ToolkitPro.ResourceArSa.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceArSa.dll",
+      "size_bytes": 46080,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceBg.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceBg.dll",
+      "size_bytes": 47616,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceCs.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceCs.dll",
+      "size_bytes": 48640,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceDa.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceDa.dll",
+      "size_bytes": 47616,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceDe.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceDe.dll",
+      "size_bytes": 51712,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceEl.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceEl.dll",
+      "size_bytes": 51200,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceEn.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceEn.dll",
+      "size_bytes": 47616,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceEs.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceEs.dll",
+      "size_bytes": 51200,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceEt.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceEt.dll",
+      "size_bytes": 47616,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceFi.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceFi.dll",
+      "size_bytes": 49152,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceFr.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceFr.dll",
+      "size_bytes": 51200,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceHe.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceHe.dll",
+      "size_bytes": 44544,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceHr.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceHr.dll",
+      "size_bytes": 48640,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceHu.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceHu.dll",
+      "size_bytes": 48128,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceIt.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceIt.dll",
+      "size_bytes": 51200,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceJa.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceJa.dll",
+      "size_bytes": 38912,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceKo.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceKo.dll",
+      "size_bytes": 38400,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceLt.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceLt.dll",
+      "size_bytes": 50176,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceLv.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceLv.dll",
+      "size_bytes": 47616,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceNl.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceNl.dll",
+      "size_bytes": 50176,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceNo.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceNo.dll",
+      "size_bytes": 47616,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourcePl.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourcePl.dll",
+      "size_bytes": 48640,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourcePt.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourcePt.dll",
+      "size_bytes": 51200,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourcePtBr.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourcePtBr.dll",
+      "size_bytes": 50688,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceRo.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceRo.dll",
+      "size_bytes": 49152,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceRu.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceRu.dll",
+      "size_bytes": 48640,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceSk.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceSk.dll",
+      "size_bytes": 48640,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceSl.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceSl.dll",
+      "size_bytes": 48128,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceSr.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceSr.dll",
+      "size_bytes": 48640,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceSv.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceSv.dll",
+      "size_bytes": 48128,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceTh.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceTh.dll",
+      "size_bytes": 47616,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceTr.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceTr.dll",
+      "size_bytes": 48128,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceUk.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceUk.dll",
+      "size_bytes": 48128,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceZhCn.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceZhCn.dll",
+      "size_bytes": 35840,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro.ResourceZhTw.dll",
+      "path": "D:\\BarTender\\ToolkitPro.ResourceZhTw.dll",
+      "size_bytes": 36864,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "ToolkitPro1531vc142x64U.dll",
+      "path": "D:\\BarTender\\ToolkitPro1531vc142x64U.dll",
+      "size_bytes": 10844184,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 16384,
+      "exports": [
+        "??0?$CArray@PEAUHWND__@@PEAU1@@@QEAA@XZ",
+        "??0?$CArray@PEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAV12@@@QEAA@XZ",
+        "??0?$CArray@PEAVCXTPCommandBar@@PEAV1@@@QEAA@XZ",
+        "??0?$CArray@PEAVCXTPDatePickerButton@@PEAV1@@@QEAA@XZ",
+        "??0?$CArray@PEAVCXTPDockingPaneCaptionButton@@PEAV1@@@QEAA@XZ",
+        "??0?$CArray@PEAVCXTPReportInplaceButton@@PEAV1@@@QEAA@XZ",
+        "??0?$CArray@PEAVCXTPReportRow@@PEAV1@@@QEAA@XZ",
+        "??0?$CArray@UXTP_EDIT_LEXCLASSINFO@XTPSyntaxEditLexAnalyser@@AEAU12@@@QEAA@XZ",
+        "??0?$CArray@UXTP_EDIT_LEXPROPINFO@XTPSyntaxEditLexAnalyser@@AEAU12@@@QEAA@XZ",
+        "??0?$CArray@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEBV12@@@QEAA@XZ",
+        "??0?$CList@UXTP_EDIT_SCHEMAFILEINFO@@AEAU1@@@QEAA@_J@Z",
+        "??0?$CXTPArrayT@IIJ@@QEAA@XZ",
+        "??0?$CXTPArrayT@PEAVCXTPReportHyperlink@@PEAV1@PEAUIDispatch@@@@QEAA@XZ",
+        "??0?$CXTPArrayT@PEAVCXTPReportRecordItemControl@@PEAV1@PEAUIDispatch@@@@QEAA@XZ",
+        "??0?$CXTPCalendarPtrCollectionT@VCXTPCalendarEventCategory@@@@QEAA@XZ",
+        "??0?$CXTPCalendarPtrCollectionT@VCXTPCalendarEventLabel@@@@QEAA@XZ",
+        "??0?$CXTPCalendarPtrCollectionT@VCXTPCalendarReminder@@@@QEAA@XZ",
+        "??0?$CXTPCalendarPtrCollectionT@VCXTPCalendarResource@@@@QEAA@XZ",
+        "??0?$CXTPCalendarPtrCollectionT@VCXTPCalendarSchedule@@@@QEAA@XZ",
+        "??0?$CXTPCalendarPtrCollectionT@VCXTPCalendarTimeLineViewGroup@@@@QEAA@XZ",
+        "??0?$CXTPCalendarPtrCollectionT@VCXTPCalendarViewEvent@@@@QEAA@XZ",
+        "??0?$CXTPCalendarThemeCustomizableXValueT@HH@@QEAA@AEBV0@@Z",
+        "??0?$CXTPCalendarThemeCustomizableXValueT@HH@@QEAA@XZ",
+        "??0?$CXTPCalendarThemeCustomizableXValueT@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@@QEAA@AEBV0@@Z",
+        "??0?$CXTPCalendarThemeCustomizableXValueT@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@@QEAA@XZ",
+        "??0?$CXTPCalendarThemeCustomizableXValueT@VCRect@@V1@@@QEAA@AEBV0@@Z",
+        "??0?$CXTPCalendarThemeCustomizableXValueT@VCRect@@V1@@@QEAA@XZ",
+        "??0?$CXTPCalendarViewDayT@VCXTPCalendarDayView@@VCXTPCalendarDayViewGroup@@UXTP_CALENDAR_HITTESTINFO@@VCXTPCalendarDayViewDay@@@@QEAA@PEBVCXTPCalendarDayView@@@Z",
+        "??0?$CXTPCalendarViewDayT@VCXTPCalendarMonthView@@VCXTPCalendarMonthViewGroup@@UXTP_CALENDAR_HITTESTINFO@@VCXTPCalendarMonthViewDay@@@@QEAA@PEBVCXTPCalendarMonthView@@@Z",
+        "??0?$CXTPCalendarViewDayT@VCXTPCalendarWeekView@@VCXTPCalendarWeekViewGroup@@UXTP_CALENDAR_HITTESTINFO@@VCXTPCalendarWeekViewDay@@@@QEAA@PEBVCXTPCalendarWeekView@@@Z",
+        "??0?$CXTPCalendarViewEventT@VCXTPCalendarDayViewGroup@@@@QEAA@PEAVCXTPCalendarEvent@@PEAVCXTPCalendarDayViewGroup@@@Z",
+        "??0?$CXTPCalendarViewEventT@VCXTPCalendarMonthViewGroup@@@@QEAA@PEAVCXTPCalendarEvent@@PEAVCXTPCalendarMonthViewGroup@@@Z",
+        "??0?$CXTPCalendarViewEventT@VCXTPCalendarWeekViewGroup@@@@QEAA@PEAVCXTPCalendarEvent@@PEAVCXTPCalendarWeekViewGroup@@@Z",
+        "??0?$CXTPCalendarViewGroupT@VCXTPCalendarDayViewDay@@VCXTPCalendarDayViewEvent@@VCXTPCalendarDayViewGroup@@@@QEAA@PEAVCXTPCalendarDayViewDay@@@Z",
+        "??0?$CXTPCalendarViewGroupT@VCXTPCalendarMonthViewDay@@VCXTPCalendarMonthViewEvent@@VCXTPCalendarMonthViewGroup@@@@QEAA@PEAVCXTPCalendarMonthViewDay@@@Z",
+        "??0?$CXTPCalendarViewGroupT@VCXTPCalendarWeekViewDay@@VCXTPCalendarWeekViewEvent@@VCXTPCalendarWeekViewGroup@@@@QEAA@PEAVCXTPCalendarWeekViewDay@@@Z",
+        "??0?$CXTPCalendarViewPartCustomizableValueT@VCBrush@@@@QEAA@AEBV0@@Z",
+        "??0?$CXTPCalendarViewPartCustomizableValueT@VCBrush@@@@QEAA@XZ",
+        "??0?$CXTPCalendarViewPartCustomizableValueT@VCFont@@@@QEAA@AEBV0@@Z",
+        "??0?$CXTPCalendarViewPartCustomizableValueT@VCFont@@@@QEAA@XZ",
+        "??0?$CXTPCalendarViewT@VCXTPCalendarDayViewDay@@@@QEAA@PEAVCXTPCalendarControl@@W4XTPCalendarViewType@@@Z",
+        "??0?$CXTPCalendarViewT@VCXTPCalendarMonthViewDay@@@@QEAA@PEAVCXTPCalendarControl@@W4XTPCalendarViewType@@@Z",
+        "??0?$CXTPCalendarViewT@VCXTPCalendarWeekViewDay@@@@QEAA@PEAVCXTPCalendarControl@@W4XTPCalendarViewType@@@Z",
+        "??0?$CXTPCommandBarsSiteBase@VCFrameWnd@@@@QEAA@XZ",
+        "??0?$CXTPCommandBarsSiteBase@VCMDIFrameWnd@@@@QEAA@XZ",
+        "??0?$CXTPFrameWndBase@VCFrameWnd@@@@QEAA@XZ",
+        "??0?$CXTPFrameWndBase@VCMDIFrameWnd@@@@QEAA@XZ",
+        "??0?$CXTPHeapAllocatorT@UCXTPReportAllocatorDefaultData@@@@QEAA@AEBV0@@Z",
+        "??0?$CXTPHeapAllocatorT@UCXTPReportAllocatorDefaultData@@@@QEAA@XZ",
+        "??0?$CXTPHeapAllocatorT@UCXTPReportDataAllocatorData@@@@QEAA@AEBV0@@Z"
+      ]
+    },
+    {
+      "name": "WebView2Loader.dll",
+      "path": "D:\\BarTender\\WebView2Loader.dll",
+      "size_bytes": 165336,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 5,
+      "exports": [
+        "CompareBrowserVersions",
+        "CreateCoreWebView2Environment",
+        "CreateCoreWebView2EnvironmentWithOptions",
+        "GetAvailableCoreWebView2BrowserVersionString",
+        "GetAvailableCoreWebView2BrowserVersionStringWithOptions"
+      ]
+    },
+    {
+      "name": "btpvdt6.dll",
+      "path": "D:\\BarTender\\btpvdt6.dll",
+      "size_bytes": 775192,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 0,
+      "exports": []
+    },
+    {
+      "name": "dlsdk_shared.dll",
+      "path": "D:\\BarTender\\dlsdk_shared.dll",
+      "size_bytes": 647168,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 14,
+      "exports": [
+        "?MySnprintf@StringFormatting@@SA?AW4DSM_RESULT@@PEADHPEBDZZ",
+        "?MyStringOnlyContainsDigits@StringUtils@@SA_NPEBD@Z",
+        "DSM_Close",
+        "DSM_EmbedSparseMark",
+        "DSM_GenerateSparseMark",
+        "DSM_GetExpandedFreshJson",
+        "DSM_GetExpandedFreshJson_WeightRange2",
+        "DSM_GetGtinJson",
+        "DSM_GetSerializedGtinJson",
+        "DSM_GetSimpleProductIdJson_Gtin",
+        "DSM_GetSimpleProductIdJson_Upce",
+        "DSM_GetUpceJson",
+        "DSM_InitializeEmbedderOptions",
+        "DSM_Open"
+      ]
+    },
+    {
+      "name": "epc-translator-lib.dll",
+      "path": "D:\\BarTender\\epc-translator-lib.dll",
+      "size_bytes": 678424,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 73,
+      "exports": [
+        "epc_AIToBinary",
+        "epc_AIToBinaryEnc",
+        "epc_AIToHex",
+        "epc_AIToHexEnc",
+        "epc_AIToWords",
+        "epc_AIToWordsEnc",
+        "epc_barcodeStringToAIs",
+        "epc_barcodeStringToBinary",
+        "epc_barcodeStringToBinaryEnc",
+        "epc_barcodeStringToEpcTagUri",
+        "epc_barcodeStringToHex",
+        "epc_barcodeStringToHexEnc",
+        "epc_barcodeStringToWords",
+        "epc_barcodeStringToWordsEnc",
+        "epc_binaryToAIs",
+        "epc_binaryToBarcodeString",
+        "epc_binaryToDigitalLink",
+        "epc_binaryToEpcTagUri",
+        "epc_binaryToEpcUri",
+        "epc_binaryToGs1ElementString",
+        "epc_binaryToTagSchemeName",
+        "epc_binaryValueToAI",
+        "epc_digitalLinkToAIs",
+        "epc_digitalLinkToBinary",
+        "epc_digitalLinkToBinaryEnc",
+        "epc_digitalLinkToGs1ElementString",
+        "epc_digitalLinkToHex",
+        "epc_digitalLinkToHexEnc",
+        "epc_digitalLinkToWords",
+        "epc_digitalLinkToWordsEnc",
+        "epc_epcTagUriToBarcodeString",
+        "epc_epcTagUriToBinary",
+        "epc_epcTagUriToDigitalLink",
+        "epc_epcTagUriToGs1ElementString",
+        "epc_epcTagUriToHex",
+        "epc_epcTagUriToWords",
+        "epc_epcUriToBarcodeString",
+        "epc_epcUriToBinary",
+        "epc_epcUriToGs1ElementString",
+        "epc_epcUriToHex",
+        "epc_epcUriToWords",
+        "epc_gs1ElementStringToAIs",
+        "epc_gs1ElementStringToBinary",
+        "epc_gs1ElementStringToBinaryEnc",
+        "epc_gs1ElementStringToDigitalLink",
+        "epc_gs1ElementStringToEpcTagUri",
+        "epc_gs1ElementStringToEpcUri",
+        "epc_gs1ElementStringToHex",
+        "epc_gs1ElementStringToHexEnc",
+        "epc_gs1ElementStringToWords"
+      ]
+    },
+    {
+      "name": "sipXtapi.dll",
+      "path": "D:\\BarTender\\sipXtapi.dll",
+      "size_bytes": 1165336,
+      "is_managed": false,
+      "architecture": "x86",
+      "export_count": 189,
+      "exports": [
+        "sipAudioSetAGCMode",
+        "sipxAudioEnableSpeaker",
+        "sipxAudioGetAECMode",
+        "sipxAudioGetAGCMode",
+        "sipxAudioGetEnabledSpeaker",
+        "sipxAudioGetGain",
+        "sipxAudioGetInputDevice",
+        "sipxAudioGetNoiseReductionMode",
+        "sipxAudioGetNumInputDevices",
+        "sipxAudioGetNumOutputDevices",
+        "sipxAudioGetOutputDevice",
+        "sipxAudioGetVolume",
+        "sipxAudioIsMuted",
+        "sipxAudioMute",
+        "sipxAudioSetAECMode",
+        "sipxAudioSetAGCMode",
+        "sipxAudioSetCallInputDevice",
+        "sipxAudioSetCallOutputDevice",
+        "sipxAudioSetGain",
+        "sipxAudioSetNoiseReductionMode",
+        "sipxAudioSetRingerOutputDevice",
+        "sipxAudioSetVolume",
+        "sipxCallAccept",
+        "sipxCallAnswer",
+        "sipxCallAudioPlayFileStart",
+        "sipxCallAudioPlayFileStop",
+        "sipxCallAudioRecordFileStart",
+        "sipxCallAudioRecordFileStop",
+        "sipxCallBlindTransfer",
+        "sipxCallConnect",
+        "sipxCallCreate",
+        "sipxCallDestroy",
+        "sipxCallEventToString",
+        "sipxCallGetAudioRtcpStats",
+        "sipxCallGetAudioRtpSourceIds",
+        "sipxCallGetConference",
+        "sipxCallGetConnectionId",
+        "sipxCallGetConnectionMediaInterface",
+        "sipxCallGetContactID",
+        "sipxCallGetEnergyLevels",
+        "sipxCallGetID",
+        "sipxCallGetLocalID",
+        "sipxCallGetRemoteContact",
+        "sipxCallGetRemoteID",
+        "sipxCallGetRemoteUserAgent",
+        "sipxCallGetRequestURI",
+        "sipxCallGetState",
+        "sipxCallHold",
+        "sipxCallLimitCodecPreferences",
+        "sipxCallPlayBufferStart"
+      ]
+    },
+    {
+      "name": "usps4cb.dll",
+      "path": "D:\\BarTender\\usps4cb.dll",
+      "size_bytes": 76352,
+      "is_managed": false,
+      "architecture": "x86_64",
+      "export_count": 3,
+      "exports": [
+        "Java_USPS4CB_jencode",
+        "USPS4CB",
+        "encodetr"
+      ]
+    }
+  ]
+}

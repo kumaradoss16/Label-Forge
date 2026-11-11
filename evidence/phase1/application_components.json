@@ -1,0 +1,3210 @@
+{
+  "target_directory": "D:\\BarTender",
+  "total_executables": 24,
+  "total_dlls": 433,
+  "managed_dlls_count": 331,
+  "native_dlls_count": 102,
+  "executables": [
+    {
+      "filename": "ActivationWizard.exe",
+      "size_bytes": 1569864,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "AdminConsole.exe",
+      "size_bytes": 383512,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BarTend.exe",
+      "size_bytes": 20774984,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtSystem.Service.exe",
+      "size_bytes": 476184,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtwConv.exe",
+      "size_bytes": 176128,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "DataBuilder.exe",
+      "size_bytes": 325656,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "HistoryExplorer.exe",
+      "size_bytes": 130584,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Integration.Service.exe",
+      "size_bytes": 44568,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "IntegrationBuilder.exe",
+      "size_bytes": 618520,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Librarian.exe",
+      "size_bytes": 669208,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Licensing.Service.exe",
+      "size_bytes": 29720,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Maestro.Service.exe",
+      "size_bytes": 233496,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Maestro.exe",
+      "size_bytes": 3240472,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "PrintScheduler.Service.exe",
+      "size_bytes": 28696,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "PrintStation.exe",
+      "size_bytes": 62938024,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ProcessBuilder.exe",
+      "size_bytes": 383000,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Register.exe",
+      "size_bytes": 38936,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "ReprintConsole.exe",
+      "size_bytes": 124952,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Notification.SystemTray.exe",
+      "size_bytes": 131880,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.WindowsServices.Server.exe",
+      "size_bytes": 23576,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "SupportCollector.exe",
+      "size_bytes": 704024,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "SysInfo.exe",
+      "size_bytes": 376832,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "SystemDatabaseWizard.exe",
+      "size_bytes": 154648,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "TaskListToIntegrationFileConverter.exe",
+      "size_bytes": 17944,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    }
+  ],
+  "dlls": [
+    {
+      "filename": "AWChs.dll",
+      "size_bytes": 777240,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWCht.dll",
+      "size_bytes": 776728,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWCsy.dll",
+      "size_bytes": 831512,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWDan.dll",
+      "size_bytes": 830488,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWEnu.dll",
+      "size_bytes": 827928,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWFin.dll",
+      "size_bytes": 831000,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWFre.dll",
+      "size_bytes": 844824,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWGer.dll",
+      "size_bytes": 843288,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWIta.dll",
+      "size_bytes": 839192,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWJpn.dll",
+      "size_bytes": 793624,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWKor.dll",
+      "size_bytes": 791576,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWNld.dll",
+      "size_bytes": 837144,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWNor.dll",
+      "size_bytes": 827928,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWPol.dll",
+      "size_bytes": 836632,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWPtb.dll",
+      "size_bytes": 836632,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWPtg.dll",
+      "size_bytes": 837656,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWSSDK.Core.dll",
+      "size_bytes": 1144320,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "AWSSDK.S3.dll",
+      "size_bytes": 666112,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "AWSSDK.Translate.dll",
+      "size_bytes": 63488,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "AWSpa.dll",
+      "size_bytes": 841240,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWSve.dll",
+      "size_bytes": 829976,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWTai.dll",
+      "size_bytes": 823320,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWTrk.dll",
+      "size_bytes": 829976,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "AWrus.dll",
+      "size_bytes": 838168,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "Accord.Video.DirectShow.dll",
+      "size_bytes": 73728,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Accord.Video.dll",
+      "size_bytes": 40960,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Accord.dll",
+      "size_bytes": 131072,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "AxInterop.XtremeDockingPane.dll",
+      "size_bytes": 25600,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "AxInterop.XtremePropertyGrid.dll",
+      "size_bytes": 27648,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "AxInterop.XtremeReportControl.dll",
+      "size_bytes": 150016,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "AxInterop.XtremeSuiteControls.dll",
+      "size_bytes": 260608,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BarCode_Aztec.dll",
+      "size_bytes": 43544,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_Code93i.dll",
+      "size_bytes": 70168,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_Composite.dll",
+      "size_bytes": 110104,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_DataMatrix.dll",
+      "size_bytes": 71192,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_DotCode.dll",
+      "size_bytes": 35352,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_GridMatrix.dll",
+      "size_bytes": 52760,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_HanXin.dll",
+      "size_bytes": 75800,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_MaxiCode.dll",
+      "size_bytes": 34328,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_QRCode.dll",
+      "size_bytes": 57368,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_RoyalMail_FourStateMailmark_TypeC.dll",
+      "size_bytes": 49176,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_RoyalMail_FourStateMailmark_TypeL.dll",
+      "size_bytes": 50200,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_iQRCode.dll",
+      "size_bytes": 70680,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarCode_rMQRCode.dll",
+      "size_bytes": 40472,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BarTender.Services.Integrations.dll",
+      "size_bytes": 294936,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BouncyCastle.Crypto.dll",
+      "size_bytes": 2903600,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtChs.dll",
+      "size_bytes": 2926104,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtCht.dll",
+      "size_bytes": 2929176,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtCsy.dll",
+      "size_bytes": 3258392,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtDan.dll",
+      "size_bytes": 3253784,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtEnu.dll",
+      "size_bytes": 3230744,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtFin.dll",
+      "size_bytes": 3252760,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtFre.dll",
+      "size_bytes": 3357720,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtGer.dll",
+      "size_bytes": 3320344,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtIta.dll",
+      "size_bytes": 3316248,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtJpn.dll",
+      "size_bytes": 3021336,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtKor.dll",
+      "size_bytes": 3013656,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtNld.dll",
+      "size_bytes": 3303448,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtNor.dll",
+      "size_bytes": 3240984,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtPol.dll",
+      "size_bytes": 3285528,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtPtb.dll",
+      "size_bytes": 3324440,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtPtg.dll",
+      "size_bytes": 3324440,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtSpa.dll",
+      "size_bytes": 3343384,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtSve.dll",
+      "size_bytes": 3247640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtSystem.Client.Reader.dll",
+      "size_bytes": 108056,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtSystem.Client.dll",
+      "size_bytes": 58392,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtSystem.DataAccess.dll",
+      "size_bytes": 215576,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtSystem.DatabaseWizard.dll",
+      "size_bytes": 508440,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtSystem.Interfaces.dll",
+      "size_bytes": 105496,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtSystem.Reprint.Support.dll",
+      "size_bytes": 292376,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtSystem.Support.dll",
+      "size_bytes": 291864,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtSystem.UI.dll",
+      "size_bytes": 447512,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "BtTai.dll",
+      "size_bytes": 3201560,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "BtTrk.dll",
+      "size_bytes": 3257880,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "Btrus.dll",
+      "size_bytes": 3296792,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "Caliburn.Micro.dll",
+      "size_bytes": 116224,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Castle.Core.dll",
+      "size_bytes": 434176,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "ClearScript.Core.dll",
+      "size_bytes": 405384,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "ClearScript.V8.dll",
+      "size_bytes": 300936,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "ClearScript.Windows.dll",
+      "size_bytes": 102792,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "ClearScriptV8.win-x64.dll",
+      "size_bytes": 12750640,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "CnEng.dll",
+      "size_bytes": 53248,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "DevExpress.CodeParser.v19.1.dll",
+      "size_bytes": 1747192,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Data.v19.1.dll",
+      "size_bytes": 7135480,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.DataAccess.v19.1.UI.dll",
+      "size_bytes": 952568,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.DataAccess.v19.1.dll",
+      "size_bytes": 2047736,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Diagram.v19.1.Core.dll",
+      "size_bytes": 2951928,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Docs.v19.1.dll",
+      "size_bytes": 254712,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Images.v19.1.dll",
+      "size_bytes": 8460536,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Mvvm.v19.1.dll",
+      "size_bytes": 682744,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Office.v19.1.Core.dll",
+      "size_bytes": 2499832,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Pdf.v19.1.Core.dll",
+      "size_bytes": 2834168,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Printing.v19.1.Core.dll",
+      "size_bytes": 4345592,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.RichEdit.v19.1.Core.dll",
+      "size_bytes": 8679160,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Utils.v19.1.dll",
+      "size_bytes": 15227640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Controls.v19.1.dll",
+      "size_bytes": 1406712,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Core.v19.1.dll",
+      "size_bytes": 10408696,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Diagram.v19.1.dll",
+      "size_bytes": 1174264,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Docking.v19.1.dll",
+      "size_bytes": 1600248,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.DocumentViewer.v19.1.Core.dll",
+      "size_bytes": 507640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Gauges.v19.1.dll",
+      "size_bytes": 1573112,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Grid.v19.1.Core.dll",
+      "size_bytes": 2305784,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Grid.v19.1.Extensions.dll",
+      "size_bytes": 269560,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Grid.v19.1.dll",
+      "size_bytes": 2472184,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Layout.v19.1.Core.dll",
+      "size_bytes": 110840,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.LayoutControl.v19.1.dll",
+      "size_bytes": 488696,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.NavBar.v19.1.dll",
+      "size_bytes": 570104,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Printing.v19.1.dll",
+      "size_bytes": 1475832,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.PropertyGrid.v19.1.dll",
+      "size_bytes": 602360,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Ribbon.v19.1.dll",
+      "size_bytes": 1750776,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.RichEdit.v19.1.dll",
+      "size_bytes": 2132728,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Scheduler.v19.1.dll",
+      "size_bytes": 2069752,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Themes.Office2010Blue.v19.1.dll",
+      "size_bytes": 8187128,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Themes.Office2010Silver.v19.1.dll",
+      "size_bytes": 8201464,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpf.Themes.Office2016White.v19.1.dll",
+      "size_bytes": 7863544,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.Xpo.v19.1.dll",
+      "size_bytes": 2086648,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraBars.v19.1.dll",
+      "size_bytes": 6584568,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraEditors.v19.1.dll",
+      "size_bytes": 6787320,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraGauges.v19.1.Win.dll",
+      "size_bytes": 273656,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraGrid.v19.1.dll",
+      "size_bytes": 3417848,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraLayout.v19.1.dll",
+      "size_bytes": 2088184,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraNavBar.v19.1.dll",
+      "size_bytes": 445688,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraPrinting.v19.1.dll",
+      "size_bytes": 1222904,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraRichEdit.v19.1.dll",
+      "size_bytes": 2050808,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraTreeList.v19.1.dll",
+      "size_bytes": 1533688,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraVerticalGrid.v19.1.dll",
+      "size_bytes": 1047800,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DevExpress.XtraWizard.v19.1.dll",
+      "size_bytes": 87800,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DriverInteropLibrary.dll",
+      "size_bytes": 665872,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "DriverUtilityLibrary.dll",
+      "size_bytes": 1289008,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "EntityFramework.SqlServer.dll",
+      "size_bytes": 591752,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "EntityFramework.dll",
+      "size_bytes": 4991352,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "EventSystem.Channels.EventLog.dll",
+      "size_bytes": 15896,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "EventSystem.Channels.SMTP.dll",
+      "size_bytes": 18456,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "EventSystem.Channels.SystemDatabase.dll",
+      "size_bytes": 22040,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "EventSystem.Configuration.dll",
+      "size_bytes": 521752,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "EventSystem.Router.dll",
+      "size_bytes": 44568,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Explorer.Core.dll",
+      "size_bytes": 603672,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Explorer.Plugin.BarTender.dll",
+      "size_bytes": 404504,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Explorer.Plugin.Maestro.dll",
+      "size_bytes": 340504,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Explorer.Plugin.Messages.dll",
+      "size_bytes": 105496,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Explorer.Plugin.Security.dll",
+      "size_bytes": 97304,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "FirebirdSql.Data.FirebirdClient.dll",
+      "size_bytes": 1235968,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "GACManagerApi.dll",
+      "size_bytes": 20992,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "GraphQL.Client.Abstractions.Websocket.dll",
+      "size_bytes": 9728,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "GraphQL.Client.Abstractions.dll",
+      "size_bytes": 16384,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "GraphQL.Client.Serializer.Newtonsoft.dll",
+      "size_bytes": 12800,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "GraphQL.Client.dll",
+      "size_bytes": 45568,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "GraphQL.Primitives.dll",
+      "size_bytes": 11776,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "IBM.Data.DB2.dll",
+      "size_bytes": 1503560,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Interop.BarTender.dll",
+      "size_bytes": 183320,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Interop.DriverAutomationLibrary.dll",
+      "size_bytes": 84480,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Interop.MSClusterLib.dll",
+      "size_bytes": 67584,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Interop.Redemption.dll",
+      "size_bytes": 1175040,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Interop.XtremeDockingPane.dll",
+      "size_bytes": 82432,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Interop.XtremePropertyGrid.dll",
+      "size_bytes": 100352,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Interop.XtremeReportControl.dll",
+      "size_bytes": 297984,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Interop.XtremeSuiteControls.dll",
+      "size_bytes": 383488,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Ionic.Zip.dll",
+      "size_bytes": 465920,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.Codecs.dll",
+      "size_bytes": 703872,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.ColorConversion.dll",
+      "size_bytes": 2514816,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.Drawing.dll",
+      "size_bytes": 297344,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.ImageProcessing.Color.dll",
+      "size_bytes": 569216,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.ImageProcessing.Core.dll",
+      "size_bytes": 1403264,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.ImageProcessing.Effects.dll",
+      "size_bytes": 542080,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.ImageProcessing.Utilities.dll",
+      "size_bytes": 515456,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.Multimedia.dll",
+      "size_bytes": 2952152,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.Twain.dll",
+      "size_bytes": 549760,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.Wia.dll",
+      "size_bytes": 481664,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Leadtools.dll",
+      "size_bytes": 1592192,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "LogicNP.FileView.dll",
+      "size_bytes": 444416,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "LogicNP.FolderView.dll",
+      "size_bytes": 338432,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "LogicNP.ShComboBox.dll",
+      "size_bytes": 137216,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Maestro.Clustering.dll",
+      "size_bytes": 31256,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Maestro.Interface.dll",
+      "size_bytes": 33816,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Maestro.Library.dll",
+      "size_bytes": 259608,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Maestro.Messages.dll",
+      "size_bytes": 30744,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "MailKit.dll",
+      "size_bytes": 827904,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Bcl.AsyncInterfaces.dll",
+      "size_bytes": 26904,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Bcl.HashCode.dll",
+      "size_bytes": 23424,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Expression.Interactions.dll",
+      "size_bytes": 91648,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.Abstractions.dll",
+      "size_bytes": 20360,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+      "size_bytes": 19848,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.FileExtensions.dll",
+      "size_bytes": 25480,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.Json.dll",
+      "size_bytes": 24968,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Configuration.dll",
+      "size_bytes": 30600,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "size_bytes": 64264,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.DependencyInjection.dll",
+      "size_bytes": 76168,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.FileProviders.Abstractions.dll",
+      "size_bytes": 16776,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.FileProviders.Physical.dll",
+      "size_bytes": 35720,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Logging.Abstractions.dll",
+      "size_bytes": 67856,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Logging.dll",
+      "size_bytes": 42888,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Options.dll",
+      "size_bytes": 55176,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Extensions.Primitives.dll",
+      "size_bytes": 42376,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.IdentityModel.JsonWebTokens.dll",
+      "size_bytes": 62824,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.IdentityModel.Logging.dll",
+      "size_bytes": 29560,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.IdentityModel.Tokens.dll",
+      "size_bytes": 895856,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.OData.Client.dll",
+      "size_bytes": 782720,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.OData.Core.dll",
+      "size_bytes": 1543040,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.OData.Edm.dll",
+      "size_bytes": 899456,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Spatial.dll",
+      "size_bytes": 141184,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.SqlServer.Types.dll",
+      "size_bytes": 394432,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Web.WebView2.Core.dll",
+      "size_bytes": 567896,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Web.WebView2.WinForms.dll",
+      "size_bytes": 38360,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Microsoft.Web.WebView2.Wpf.dll",
+      "size_bytes": 50648,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "MimeKit.dll",
+      "size_bytes": 1013760,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "ModalContentPresenter.dll",
+      "size_bytes": 12288,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "NLog.dll",
+      "size_bytes": 439808,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "NamedPipeWrapper.dll",
+      "size_bytes": 20992,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Newtonsoft.Json.dll",
+      "size_bytes": 700336,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Ninject.Extensions.Conventions.dll",
+      "size_bytes": 31744,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Ninject.Extensions.Factory.dll",
+      "size_bytes": 37376,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Ninject.dll",
+      "size_bytes": 136704,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Npgsql.dll",
+      "size_bytes": 1384448,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Oracle.ManagedDataAccess.dll",
+      "size_bytes": 4712072,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Redemption.dll",
+      "size_bytes": 7971464,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "SLImage.dll",
+      "size_bytes": 475136,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "SciLexer64.dll",
+      "size_bytes": 1539096,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "Seagull.Administration.Common.dll",
+      "size_bytes": 51224,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Interfaces.dll",
+      "size_bytes": 24600,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.CloudStorage.dll",
+      "size_bytes": 28696,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.Databases.dll",
+      "size_bytes": 264728,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.Email.dll",
+      "size_bytes": 46616,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.FileLocations.dll",
+      "size_bytes": 104472,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.IntegrationSaaS.dll",
+      "size_bytes": 46104,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.IntegrationService.dll",
+      "size_bytes": 54808,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.Librarian.dll",
+      "size_bytes": 139288,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.LicensingService.dll",
+      "size_bytes": 1269784,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.PrinterSetup.dll",
+      "size_bytes": 137752,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.Security.dll",
+      "size_bytes": 215576,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.Servers.dll",
+      "size_bytes": 28696,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.SystemDb.dll",
+      "size_bytes": 200216,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.VerifierSetup.dll",
+      "size_bytes": 70680,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.Module.WindowsServices.dll",
+      "size_bytes": 61464,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Administration.dll",
+      "size_bytes": 39448,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.BarTender.Print.dll",
+      "size_bytes": 433176,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.CloudStorage.dll",
+      "size_bytes": 70680,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.ColorPicker.dll",
+      "size_bytes": 106008,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.ColorUtility.dll",
+      "size_bytes": 36888,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.ClientBase.dll",
+      "size_bytes": 49176,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.CommonDialogs.dll",
+      "size_bytes": 62488,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.Configuration.dll",
+      "size_bytes": 1902616,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.Core.dll",
+      "size_bytes": 165400,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.DataBuilder.dll",
+      "size_bytes": 228376,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.Formatting.dll",
+      "size_bytes": 70680,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.JsonDatabaseClient.dll",
+      "size_bytes": 67608,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.SAPIDocConfiguration.dll",
+      "size_bytes": 51736,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.SAPIDocFileClient.dll",
+      "size_bytes": 67608,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.TextFileClient.dll",
+      "size_bytes": 71704,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.XMLFileClient.dll",
+      "size_bytes": 94232,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Data.dll",
+      "size_bytes": 568856,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.DigimarcAuthentication.dll",
+      "size_bytes": 37912,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Drawing.ClipArt.dll",
+      "size_bytes": 185368,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Drawing.Imaging.dll",
+      "size_bytes": 28696,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Drawing.Scanning.dll",
+      "size_bytes": 173592,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Editors.Database.dll",
+      "size_bytes": 924696,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Editors.Metadata.dll",
+      "size_bytes": 52248,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Editors.RichText.dll",
+      "size_bytes": 656920,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Editors.Script.dll",
+      "size_bytes": 1235992,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Email.dll",
+      "size_bytes": 81944,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.EmailUI.Servers.dll",
+      "size_bytes": 69656,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Forms.Controls.ImageCapture.dll",
+      "size_bytes": 370200,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Forms.Controls.ScaleInput.dll",
+      "size_bytes": 170520,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Forms.Controls.dll",
+      "size_bytes": 291864,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Forms.dll",
+      "size_bytes": 132120,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Framework.Interop.dll",
+      "size_bytes": 350232,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Framework.dll",
+      "size_bytes": 4667928,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IO.dll",
+      "size_bytes": 28184,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IntegrationUI.ActionsDialog.dll",
+      "size_bytes": 129560,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IntegrationUI.CloudStorage.dll",
+      "size_bytes": 131096,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Common.dll",
+      "size_bytes": 21016,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Deployment.dll",
+      "size_bytes": 239640,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Main.dll",
+      "size_bytes": 2379288,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Management.dll",
+      "size_bytes": 330264,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Messaging.dll",
+      "size_bytes": 310296,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.IntegrationUI.Servers.dll",
+      "size_bytes": 220696,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Integrations.Forms.dll",
+      "size_bytes": 28184,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Integrations.dll",
+      "size_bytes": 1583128,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Interop.dll",
+      "size_bytes": 1756184,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Librarian.Core.dll",
+      "size_bytes": 442904,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Librarian.dll",
+      "size_bytes": 2127384,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.License.dll",
+      "size_bytes": 310800,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.NotificationSupport.dll",
+      "size_bytes": 47912,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.PANTONE.ColorSpace.dll",
+      "size_bytes": 1189400,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.PANTONE.ColorStructures.dll",
+      "size_bytes": 16408,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.PANTONE.ColorUtility.dll",
+      "size_bytes": 19992,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Performance.dll",
+      "size_bytes": 34840,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.PrintTicket.dll",
+      "size_bytes": 2266624,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.PrinterSetup.Interop.dll",
+      "size_bytes": 38912,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.PrinterSetup.PrinterSettingsConfiguration.dll",
+      "size_bytes": 40472,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.PrinterSetup.dll",
+      "size_bytes": 24088,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Printing.PrintRouter.Client.dll",
+      "size_bytes": 33304,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Printing.Wasatch.dll",
+      "size_bytes": 27672,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Repository.Cms.dll",
+      "size_bytes": 70168,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Repository.dll",
+      "size_bytes": 274968,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Scales.Configuration.dll",
+      "size_bytes": 639512,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Scales.IO.dll",
+      "size_bytes": 142872,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Security.Configuration.dll",
+      "size_bytes": 75288,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Security.Encryptor.dll",
+      "size_bytes": 59416,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Security.Interop.dll",
+      "size_bytes": 768536,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Deployment.Contracts.dll",
+      "size_bytes": 29720,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Deployment.Server.dll",
+      "size_bytes": 83992,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Deployment.dll",
+      "size_bytes": 39448,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Hosts.Integration.Messaging.dll",
+      "size_bytes": 60440,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Hosts.Integration.dll",
+      "size_bytes": 114200,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Hosts.Licensing.dll",
+      "size_bytes": 39960,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Hosts.PrintScheduler.dll",
+      "size_bytes": 30232,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Hosts.SecuritySettings.dll",
+      "size_bytes": 21016,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Hosts.StorageSite.dll",
+      "size_bytes": 21016,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Hosts.TargetServerDB.dll",
+      "size_bytes": 21016,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Hosts.Verifier.dll",
+      "size_bytes": 21016,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Integration.Adapters.Contracts.dll",
+      "size_bytes": 51736,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Integration.Contracts.dll",
+      "size_bytes": 57880,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Integration.Management.dll",
+      "size_bytes": 89624,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Licensing.Contracts.dll",
+      "size_bytes": 163864,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Licensing.Server.dll",
+      "size_bytes": 1030168,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Licensing.dll",
+      "size_bytes": 52248,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Performance.Contracts.dll",
+      "size_bytes": 18968,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Performance.Server.dll",
+      "size_bytes": 19992,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Performance.dll",
+      "size_bytes": 22040,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.PrintScheduler.Contracts.dll",
+      "size_bytes": 57880,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.PrintScheduler.Server.dll",
+      "size_bytes": 132632,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.PrintScheduler.dll",
+      "size_bytes": 74264,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.SecuritySettings.Client.dll",
+      "size_bytes": 61464,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.SecuritySettings.Contracts.dll",
+      "size_bytes": 67608,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.SecuritySettings.Server.dll",
+      "size_bytes": 76824,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.StorageSite.Accounts.dll",
+      "size_bytes": 26648,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.StorageSite.Client.dll",
+      "size_bytes": 27160,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.StorageSite.Contracts.dll",
+      "size_bytes": 19480,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.StorageSite.Server.dll",
+      "size_bytes": 30744,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.TargetServerDB.Common.dll",
+      "size_bytes": 26136,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.TargetServerDB.Contracts.dll",
+      "size_bytes": 17944,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.TargetServerDB.Server.dll",
+      "size_bytes": 35352,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.TargetServerDB.dll",
+      "size_bytes": 28184,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Verifier.Client.dll",
+      "size_bytes": 27160,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Verifier.Contracts.dll",
+      "size_bytes": 42008,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Services.Verifier.Server.dll",
+      "size_bytes": 55320,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.StateMachine.dll",
+      "size_bytes": 34840,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.TemplateBrowser.dll",
+      "size_bytes": 29208,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.ThirdParty.dll",
+      "size_bytes": 25624,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Transforms.Configuration.dll",
+      "size_bytes": 191512,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Verifier.Driver.V275.dll",
+      "size_bytes": 184344,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Verifier.Drivers.Common.dll",
+      "size_bytes": 55832,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.VerifierSetup.dll",
+      "size_bytes": 38424,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.WindowsServices.Client.dll",
+      "size_bytes": 20504,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.WindowsServices.Common.dll",
+      "size_bytes": 16920,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.WindowsServices.dll",
+      "size_bytes": 25624,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.WizardFramework.dll",
+      "size_bytes": 29208,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Wpf.Controls.FormsInterop.dll",
+      "size_bytes": 27672,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Wpf.Controls.dll",
+      "size_bytes": 175128,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Wpf.DevExpress.dll",
+      "size_bytes": 27672,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Wpf.Mvvm.dll",
+      "size_bytes": 56856,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.Wpf.dll",
+      "size_bytes": 145944,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "Seagull.XpoDataAccess.dll",
+      "size_bytes": 28696,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "SupportLib.dll",
+      "size_bytes": 90112,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Buffers.dll",
+      "size_bytes": 21376,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Collections.Immutable.dll",
+      "size_bytes": 252696,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.CData.Access.dll",
+      "size_bytes": 11717576,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.CData.Excel.dll",
+      "size_bytes": 8777720,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.CData.ExcelOnline.dll",
+      "size_bytes": 6988848,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.CData.GoogleSheets.dll",
+      "size_bytes": 6349920,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.CData.MySQL.dll",
+      "size_bytes": 7009264,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.CData.QuickBooksOnline.dll",
+      "size_bytes": 11844792,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.CData.SAPHANA.dll",
+      "size_bytes": 6321136,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.SqlServerCe.4.0.dll",
+      "size_bytes": 470240,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Data.SqlServerCe.Entity.4.0.dll",
+      "size_bytes": 240352,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Diagnostics.DiagnosticSource.dll",
+      "size_bytes": 189088,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Diagnostics.PerformanceCounter.dll",
+      "size_bytes": 39304,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.IO.Pipelines.dll",
+      "size_bytes": 71552,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.IO.Ports.dll",
+      "size_bytes": 32640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.IdentityModel.Tokens.Jwt.dll",
+      "size_bytes": 81784,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Memory.dll",
+      "size_bytes": 142752,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Net.WebSockets.Client.Managed.dll",
+      "size_bytes": 72192,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Numerics.Vectors.dll",
+      "size_bytes": 115856,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Reactive.dll",
+      "size_bytes": 1268176,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Runtime.CompilerServices.Unsafe.dll",
+      "size_bytes": 18024,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Runtime.InteropServices.RuntimeInformation.dll",
+      "size_bytes": 28624,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Text.Encodings.Web.dll",
+      "size_bytes": 79120,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Text.Json.dll",
+      "size_bytes": 642832,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Threading.Channels.dll",
+      "size_bytes": 74000,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Threading.Tasks.Extensions.dll",
+      "size_bytes": 25984,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.ValueTuple.dll",
+      "size_bytes": 25232,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "System.Windows.Interactivity.dll",
+      "size_bytes": 55904,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "ToolkitPro.ResourceArSa.dll",
+      "size_bytes": 46080,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceBg.dll",
+      "size_bytes": 47616,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceCs.dll",
+      "size_bytes": 48640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceDa.dll",
+      "size_bytes": 47616,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceDe.dll",
+      "size_bytes": 51712,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceEl.dll",
+      "size_bytes": 51200,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceEn.dll",
+      "size_bytes": 47616,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceEs.dll",
+      "size_bytes": 51200,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceEt.dll",
+      "size_bytes": 47616,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceFi.dll",
+      "size_bytes": 49152,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceFr.dll",
+      "size_bytes": 51200,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceHe.dll",
+      "size_bytes": 44544,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceHr.dll",
+      "size_bytes": 48640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceHu.dll",
+      "size_bytes": 48128,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceIt.dll",
+      "size_bytes": 51200,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceJa.dll",
+      "size_bytes": 38912,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceKo.dll",
+      "size_bytes": 38400,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceLt.dll",
+      "size_bytes": 50176,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceLv.dll",
+      "size_bytes": 47616,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceNl.dll",
+      "size_bytes": 50176,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceNo.dll",
+      "size_bytes": 47616,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourcePl.dll",
+      "size_bytes": 48640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourcePt.dll",
+      "size_bytes": 51200,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourcePtBr.dll",
+      "size_bytes": 50688,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceRo.dll",
+      "size_bytes": 49152,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceRu.dll",
+      "size_bytes": 48640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceSk.dll",
+      "size_bytes": 48640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceSl.dll",
+      "size_bytes": 48128,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceSr.dll",
+      "size_bytes": 48640,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceSv.dll",
+      "size_bytes": 48128,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceTh.dll",
+      "size_bytes": 47616,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceTr.dll",
+      "size_bytes": 48128,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceUk.dll",
+      "size_bytes": 48128,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceZhCn.dll",
+      "size_bytes": 35840,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro.ResourceZhTw.dll",
+      "size_bytes": 36864,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "ToolkitPro1531vc142x64U.dll",
+      "size_bytes": 10844184,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "Ude.dll",
+      "size_bytes": 163840,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "WebView2Loader.dll",
+      "size_bytes": 165336,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "Xceed.Wpf.Toolkit.dll",
+      "size_bytes": 1005568,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "YamlDotNet.dll",
+      "size_bytes": 222208,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "btpvdt6.dll",
+      "size_bytes": 775192,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "dlsdk_shared.dll",
+      "size_bytes": 647168,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "epc-dotnet.dll",
+      "size_bytes": 220672,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "epc-translator-lib.dll",
+      "size_bytes": 678424,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "nsoftware.CloudStorage.dll",
+      "size_bytes": 3449024,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "nsoftware.IPWorks.System.dll",
+      "size_bytes": 203136,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "nsoftware.IPWorks.dll",
+      "size_bytes": 3646848,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "nsoftware.SecureBlackbox.dll",
+      "size_bytes": 19162272,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "sipXtapi.dll",
+      "size_bytes": 1165336,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": false
+    },
+    {
+      "filename": "stdole.dll",
+      "size_bytes": 22344,
+      "is_pe": true,
+      "architecture": "x86",
+      "is_clr_managed": true
+    },
+    {
+      "filename": "usps4cb.dll",
+      "size_bytes": 76352,
+      "is_pe": true,
+      "architecture": "x86_64",
+      "is_clr_managed": false
+    }
+  ]
+}
