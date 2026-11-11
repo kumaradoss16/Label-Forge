@@ -33,14 +33,14 @@
       "claim": "BarTend.exe FileVersion is 11.4.238.365 and ProductVersion is 11.4.0.1 (BarTender 11.4)",
       "status": "VERIFIED_STATIC",
       "evidence_source": "PE VersionInfo resource StringTable and VS_FIXEDFILEINFO",
-      "reconciled_notes": "Verified against binary resource table."
+      "reconciled_notes": "Verified against binary resource table in D:\\BarTender\\BarTend.exe."
     },
     {
       "id": "P1-004",
       "area": "PE Architecture",
       "claim": "Target architecture is x86_64 (Machine 0x8664, PE32+ Optional Header, Subsystem 2 GUI)",
       "status": "VERIFIED_STATIC",
-      "evidence_source": "IMAGE_NT_HEADERS64.FileHeader and OptionalHeader inspection",
+      "evidence_source": "IMAGE_NT_HEADERS64.FileHeader and OptionalHeader in D:\\BarTender\\BarTend.exe",
       "reconciled_notes": "Consistent across all evidence."
     },
     {
@@ -48,7 +48,7 @@
       "area": "PE Architecture",
       "claim": "Address of Entry Point is 0x97d0fb and ImageBase is 0x140000000",
       "status": "VERIFIED_STATIC",
-      "evidence_source": "PE OptionalHeader fields AddressOfEntryPoint and ImageBase",
+      "evidence_source": "PE OptionalHeader fields AddressOfEntryPoint and ImageBase in D:\\BarTender\\BarTend.exe",
       "reconciled_notes": "Report 11 erroneously cited 0x6f3e1c. Corrected to 0x97d0fb."
     },
     {
@@ -120,8 +120,8 @@
       "area": "Dependency Analysis",
       "claim": "Codejock GUI library is ToolkitPro1531vc142x64U.dll (10,844,184 bytes), not XtremeToolkitPro.dll",
       "status": "VERIFIED_STATIC",
-      "evidence_source": "PE Import descriptor of BarTend.exe and filesystem check of D:\\BarTender",
-      "reconciled_notes": "XtremeToolkitPro.dll was a placeholder name; actual module verified."
+      "evidence_source": "PE Import descriptor of BarTend.exe and filesystem check of D:\\BarTender\\ToolkitPro1531vc142x64U.dll",
+      "reconciled_notes": "XtremeToolkitPro.dll was a placeholder name; actual module verified on disk."
     },
     {
       "id": "P1-015",
@@ -160,7 +160,7 @@
       "area": "Resources & UI Assets",
       "claim": "83 extracted CHM help documentation screenshots and UI icons are copyrighted proprietary assets of Seagull Scientific, LLC and have been removed from the repository to ensure strict clean-room copyright compliance",
       "status": "VERIFIED_DOCUMENTATION",
-      "evidence_source": "resource_inventory.json, copyright audit of Help/BarTender.chm, and screenshots/UI_OBSERVATIONS_REFERENCE.md",
+      "evidence_source": "screenshots/UI_OBSERVATIONS_REFERENCE.md and copyright audit of Help/BarTender.chm",
       "reconciled_notes": "Clean-room compliance mandate: proprietary binary images removed from repository. Purely textual observations and anchor rules preserved in screenshots/UI_OBSERVATIONS_REFERENCE.md."
     },
     {
@@ -168,7 +168,7 @@
       "area": "Coordinate Precision",
       "claim": "BarTender utilizes integer twips (1/1440 inch = 0.01764 mm) with +/-8.8 um quantization; Label-Forge uses double-precision canonical millimeters (Length struct) for continuous float precision",
       "status": "VERIFIED_STATIC",
-      "evidence_source": "Mathematical analysis of GDI MulDiv twip conversions and Label-Forge Length.cs implementation",
+      "evidence_source": "src/LabelForge.Core/Geometry/Length.cs implementation and mathematical analysis of GDI MulDiv twip conversions",
       "reconciled_notes": "Rationale clarified: metric standardization, continuous floating-point transformation without cumulative rounding drift, and clean conversion to any DPI."
     },
     {
@@ -184,7 +184,7 @@
       "area": "Licensing Subsystem",
       "claim": "Seagull License Server communication and entitlement verification are handled via Seagull.License.dll and Seagull.Services.Licensing.dll over WCF/HTTP services",
       "status": "VERIFIED_STATIC",
-      "evidence_source": "Managed assembly inspection of Seagull.License.dll and WCF service contracts in D:\\BarTender",
+      "evidence_source": "D:\\BarTender\\Seagull.License.dll and WCF service contracts in D:\\BarTender",
       "reconciled_notes": "Verified statically from managed metadata."
     },
     {
@@ -206,10 +206,10 @@
     {
       "id": "P1-025",
       "area": "Runtime Observation",
-      "claim": "COM Automation Registration (RT-03): COM ProgID BarTender.Application is registered under CLSID {D5856250-13D3-11D1-9D2B-00609787E3AE}, launching BarTend.exe /Automation upon activation",
+      "claim": "COM Automation Registration (RT-03): COM ProgID BarTender.Application is registered under CLSID {D5856250-13D3-11D1-9D2B-00609787E3AE}, launching BarTend.exe /Automation upon activation, though unactivated execution requires interactive desktop licensing acknowledgment and does not yield unattended automated execution",
       "status": "VERIFIED_RUNTIME",
       "evidence_source": "evidence/phase1/runtime_observations.json (Test ID RT-03)",
-      "reconciled_notes": "Direct empirical runtime execution test via New-Object -ComObject BarTender.Application."
+      "reconciled_notes": "Direct empirical runtime execution test via New-Object -ComObject BarTender.Application. Confirmed limitation: unattended execution is blocked by modal activation dialog when unactivated."
     }
   ]
 }

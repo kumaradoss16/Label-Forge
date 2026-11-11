@@ -23,8 +23,8 @@
       "test_id": "RT-03",
       "target": "BarTender.Application COM Automation",
       "method": "New-Object -ComObject 'BarTender.Application'",
-      "observation": "Requires active desktop interaction to acknowledge license registration.",
-      "finding": "COM automation server instantiates BarTend.exe process."
+      "observation": "Resolves registered CLSID {D5856250-13D3-11D1-9D2B-00609787E3AE} and launches BarTend.exe /Automation. In an unactivated installation, the process displays a modal activation prompt and halts, requiring interactive desktop interaction to acknowledge licensing.",
+      "finding": "COM ProgID registration and process activation launch are verified; however, successful COM invocation does not constitute proof of unattended automated execution in an unactivated environment."
     }
   ],
   "windows_services": [

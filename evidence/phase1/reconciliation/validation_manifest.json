@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "status": "RECONCILED_AUTHORITATIVE",
-  "generated_at": "2026-11-11T06:48:29.954871+00:00",
+  "generated_at": "2026-11-11T07:13:37.778583+00:00",
   "target_application_sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594",
   "tracked_evidence_files_count": 15,
   "files": [
@@ -52,8 +52,8 @@
     },
     {
       "relative_path": "evidence/phase1/runtime_observations.json",
-      "size_bytes": 1706,
-      "sha256": "63364f14d7616d43a2e5498b591d2604d6ad71c53455f7dbf240d56794d1d30b"
+      "size_bytes": 2032,
+      "sha256": "414491045e126fe610f485aa7cb537b1dae6c4ffd4914832116a0e62b10002a8"
     },
     {
       "relative_path": "evidence/phase1/reconciliation/canonical_target_identity.json",
@@ -72,13 +72,13 @@
     },
     {
       "relative_path": "evidence/phase1/reconciliation/dependency_reconciliation.json",
-      "size_bytes": 6470,
-      "sha256": "8ebe14368e59f5a5b7f9702d8b7009714322f63a6e8bbf730d1224c23674a909"
+      "size_bytes": 8806,
+      "sha256": "ed858f7223603dce66e28fc9c127703aaa58af931c26f8255f9346e5e9b44861"
     },
     {
       "relative_path": "evidence/phase1/reconciliation/claim_register.json",
-      "size_bytes": 12967,
-      "sha256": "22caae822dc7c65944755ccc2a8c0437b5b9ca5402bb2cb55c107450a60be7c6"
+      "size_bytes": 13291,
+      "sha256": "282c4d5770ddd99a2963504d36c6bc2dad069911df57f747de2b0f61c9448a86"
     }
   ]
 }

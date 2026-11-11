@@ -237,3 +237,65 @@ This register documents every discrepancy, contradiction, inaccurate metric, or 
     - Validate claim register integrity, claim counts, and evidence references.
     - Verify all 24 markdown reports.
     - Provide complete accounting (`PASS`, `FAIL`, `WARNING`, `NOT_CHECKED`) with deterministic exit codes.
+
+---
+
+### Item CORR-015: Direct Import Category Arithmetic Reconciliation
+
+- **Original Inconsistency:**
+  - In Report 20, direct import categories were claimed to sum to 48 ($14 + 1 + 7 + 15 + 1 + 10 = 48$), but the commercial and barcode module list contained only 9 named DLLs, not 10.
+- **Authoritative Resolution:**
+  - Re-partitioned the 48 verified direct static imports into seven mutually exclusive categories with exact mathematical equality ($13 + 1 + 8 + 16 + 1 + 3 + 6 = 48$):
+    - Windows OS Core & Subsystems: 13 DLLs
+    - Windows Printing Spooler: 1 DLL (`WINSPOOL.DRV`)
+    - COM, Security & Cryptography: 8 DLLs
+    - C++ CRT & MFC Runtime: 16 DLLs (5 MSVC + 11 Universal CRT)
+    - CLR Execution Engine Shim: 1 DLL (`mscoree.dll`)
+    - Commercial GUI & Imaging Libraries: 3 DLLs
+    - Modular Native Barcode Rasterizers: 6 DLLs
+  - Updated `dependency_reconciliation.json`, `reports/13`, and `reports/20`. Zero DLLs invented.
+
+---
+
+### Item CORR-016: Validator Dynamic Derivation & Removal of Hardcoded Constants
+
+- **Original Inconsistency:**
+  - `validate-phase1-evidence.py` still contained hardcoded PE expectations (`0x10f2a00`, `0xae9b90`, `72`, `0xc3ca00`), contradicting the single-source-of-truth architecture.
+- **Authoritative Resolution:**
+  - Modified `scripts/validate-phase1-evidence.py` to derive all comparison baselines dynamically from `canonical_target_identity.json`:
+    - Expected `.data` section raw offset from `canonical['sections']`
+    - Expected Authenticode directory offset and size from `canonical['authenticode_signature']`
+    - Expected CLR COM descriptor RVA and size from `canonical['clr_runtime']['com_descriptor_directory']`
+    - Expected CLI metadata root RVA, size, and COR flags from `canonical['clr_runtime']['cli_metadata_root']` and `cor20_header`.
+
+---
+
+### Item CORR-017: Strict Claim Register & Verifiable Evidence Linkage
+
+- **Original Inconsistency:**
+  - Claim verification in the validation script previously granted automatic `PASS` to `VERIFIED_STATIC` claims upon reading the status string, without asserting claim ID uniqueness, verifying physical file existence, or linking runtime test IDs.
+- **Authoritative Resolution:**
+  - Upgraded Stage 6 of `scripts/validate-phase1-evidence.py` to:
+    - Enforce unique claim IDs (`len(claim_ids) == len(set(claim_ids))`).
+    - Validate exact status distribution against `cr['claims_by_status']`.
+    - Verify that every referenced file path exists on disk.
+    - Validate that every `VERIFIED_RUNTIME` claim links to a verified empirical test (`RT-01`, `RT-02`, `RT-03`) in `runtime_observations.json`.
+    - Execute programmatic static assertions for individual claim IDs.
+
+---
+
+### Item CORR-018: RT-03 Unattended Automation Limitation Acknowledgment
+
+- **Original Inconsistency:**
+  - Initial notes for `RT-03` reported that `New-Object -ComObject "BarTender.Application"` launched `BarTend.exe /Automation` without distinguishing between COM registration and unattended headless execution.
+- **Authoritative Resolution:**
+  - Clarified across `runtime_observations.json`, `claim_register.json`, and `reports/20` that while COM activation successfully launches `BarTend.exe /Automation`, an unactivated installation triggers a modal licensing activation dialog in Windows desktop sessions that halts execution, confirming that COM activation alone does not enable unattended automation without prior activation.
+
+---
+
+### Item CORR-019: Automated Execution Provenance Record Generation
+
+- **Original Inconsistency:**
+  - The repository lacked a machine-readable execution provenance record capturing the runtime environment, commit hash, target hash, and accounting output of the validation suite.
+- **Authoritative Resolution:**
+  - Integrated provenance generation directly into `scripts/validate-phase1-evidence.py`, automatically creating `evidence/phase1/reconciliation/validation_provenance.json` upon execution with ISO-8601 timestamp, git commit SHA, target binary SHA-256, OS/platform specs, audit accounting totals, exit code, and complete execution logs.

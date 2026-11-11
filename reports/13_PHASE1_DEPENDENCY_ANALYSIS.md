@@ -31,20 +31,24 @@ Static parsing of `BarTend.exe` reveals a multi-tier dependency architecture:
 
 ## 2. Direct PE Static Imports (48 DLLs)
 
-The primary executable directly binds to 48 DLLs across six major categories:
+The primary executable directly binds to 48 DLLs across seven mutually exclusive categories (mathematically reconciling $13 + 1 + 8 + 16 + 1 + 3 + 6 = 48$):
 
-1. **Core Operating System & Kernel:**
-   `KERNEL32.dll`, `ADVAPI32.dll`, `USER32.dll`, `GDI32.dll`, `VERSION.dll`, `WINMM.dll`, `Secur32.dll`, `IPHLPAPI.DLL`, `NETAPI32.dll`, `USP10.dll`, `IMM32.dll`, `USERENV.dll`, `RPCRT4.dll`, `SETUPAPI.dll`.
-2. **Printer Subsystem:**
+1. **Windows OS Core & Subsystems (13 DLLs):**
+   `KERNEL32.dll`, `USER32.dll`, `GDI32.dll`, `ADVAPI32.dll`, `VERSION.dll`, `WINMM.dll`, `IMM32.dll`, `USP10.dll`, `USERENV.dll`, `RPCRT4.dll`, `SETUPAPI.dll`, `IPHLPAPI.DLL`, `NETAPI32.dll`.
+2. **Windows Printing Spooler (1 DLL):**
    `WINSPOOL.DRV` (direct spooler access for device capabilities, DC creation, and raw escape streaming).
-3. **COM & Security:**
-   `ole32.dll`, `OLEAUT32.dll`, `COMCTL32.dll`, `COMDLG32.dll`, `CRYPT32.dll`, `WINTRUST.dll`, `imagehlp.dll`.
-4. **C++ Runtime & MFC:**
+3. **COM, Security & Cryptography (8 DLLs):**
+   `ole32.dll`, `OLEAUT32.dll`, `COMCTL32.dll`, `COMDLG32.dll`, `CRYPT32.dll`, `WINTRUST.dll`, `Secur32.dll`, `imagehlp.dll`.
+4. **C++ CRT & MFC Runtime (16 DLLs):**
    `mfc140u.dll`, `MFCM140U.dll`, `MSVCP140.dll`, `VCRUNTIME140.dll`, `VCRUNTIME140_1.dll`, plus 11 Universal CRT modules (`api-ms-win-crt-*`).
-5. **.NET CLR Hosting Shim:**
+5. **CLR Execution Engine Shim (1 DLL):**
    `mscoree.dll` (manages transition between native x64 and CLR v4.0.30319 runtime).
-6. **Commercial GUI & Barcode Plugins:**
-   `ToolkitPro1531vc142x64U.dll`, `dlsdk_shared.dll`, `SLImage.dll`, `BarCode_Code93i.dll`, `BarCode_DotCode.dll`, `BarCode_GridMatrix.dll`, `BarCode_HanXin.dll`, `BarCode_iQRCode.dll`, `BarCode_rMQRCode.dll`.
+6. **Commercial GUI & Imaging Libraries (3 DLLs):**
+   `ToolkitPro1531vc142x64U.dll`, `SLImage.dll`, `dlsdk_shared.dll`.
+7. **Modular Native Barcode Rasterizers (6 DLLs):**
+   `BarCode_Code93i.dll`, `BarCode_DotCode.dll`, `BarCode_GridMatrix.dll`, `BarCode_HanXin.dll`, `BarCode_iQRCode.dll`, `BarCode_rMQRCode.dll`.
+
+$$\text{Total Direct Static Imports} = 13 + 1 + 8 + 16 + 1 + 3 + 6 = 48\text{ DLLs}$$
 
 ---
 

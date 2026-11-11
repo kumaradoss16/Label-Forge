@@ -135,13 +135,15 @@ Of the 555 files, exactly **461 files are PE binaries** (24 EXEs + 433 DLLs + 4 
 ## 7. Dependency Analysis & Direct/Delay Imports
 
 ### 7.1 Direct Static Imports (48 DLLs)
-`BarTend.exe` binds directly at launch to 48 dynamic link libraries:
-- **Operating System Core (14):** `KERNEL32.dll`, `ADVAPI32.dll`, `USER32.dll`, `GDI32.dll`, `VERSION.dll`, `WINMM.dll`, `Secur32.dll`, `IPHLPAPI.DLL`, `NETAPI32.dll`, `USP10.dll`, `IMM32.dll`, `USERENV.dll`, `RPCRT4.dll`, `SETUPAPI.dll`.
-- **Printer Spooler (1):** `WINSPOOL.DRV` (direct spooler interfacing).
-- **COM & Security (7):** `ole32.dll`, `OLEAUT32.dll`, `COMCTL32.dll`, `COMDLG32.dll`, `CRYPT32.dll`, `WINTRUST.dll`, `imagehlp.dll`.
-- **C++ Runtime & MFC (15):** `mfc140u.dll`, `MFCM140U.dll`, `MSVCP140.dll`, `VCRUNTIME140.dll`, `VCRUNTIME140_1.dll`, plus 10 `api-ms-win-crt-*` modules.
-- **CLR Shim (1):** `mscoree.dll`.
-- **Commercial & Barcode Modules (10):** `ToolkitPro1531vc142x64U.dll`, `dlsdk_shared.dll`, `SLImage.dll`, `BarCode_Code93i.dll`, `BarCode_DotCode.dll`, `BarCode_GridMatrix.dll`, `BarCode_HanXin.dll`, `BarCode_iQRCode.dll`, `BarCode_rMQRCode.dll`.
+`BarTend.exe` binds directly at launch to 48 dynamic link libraries, classified into mutually exclusive, non-overlapping functional categories:
+- **Windows OS Core & Subsystems (13):** `KERNEL32.dll`, `USER32.dll`, `GDI32.dll`, `ADVAPI32.dll`, `VERSION.dll`, `WINMM.dll`, `IMM32.dll`, `USP10.dll`, `USERENV.dll`, `RPCRT4.dll`, `SETUPAPI.dll`, `IPHLPAPI.DLL`, `NETAPI32.dll`.
+- **Windows Printing Spooler (1):** `WINSPOOL.DRV` (direct spooler interfacing for printer handles, DC creation, and raw escapes).
+- **COM, Security & Cryptography (8):** `ole32.dll`, `OLEAUT32.dll`, `COMCTL32.dll`, `COMDLG32.dll`, `CRYPT32.dll`, `WINTRUST.dll`, `Secur32.dll`, `imagehlp.dll`.
+- **C++ Runtime & MFC (16):** `mfc140u.dll`, `MFCM140U.dll`, `MSVCP140.dll`, `VCRUNTIME140.dll`, `VCRUNTIME140_1.dll`, plus 11 Universal CRT modules (`api-ms-win-crt-convert-l1-1-0.dll`, `api-ms-win-crt-environment-l1-1-0.dll`, `api-ms-win-crt-filesystem-l1-1-0.dll`, `api-ms-win-crt-heap-l1-1-0.dll`, `api-ms-win-crt-locale-l1-1-0.dll`, `api-ms-win-crt-math-l1-1-0.dll`, `api-ms-win-crt-runtime-l1-1-0.dll`, `api-ms-win-crt-stdio-l1-1-0.dll`, `api-ms-win-crt-string-l1-1-0.dll`, `api-ms-win-crt-time-l1-1-0.dll`, `api-ms-win-crt-utility-l1-1-0.dll`).
+- **CLR Execution Engine Shim (1):** `mscoree.dll` (manages transition to CLR v4.0.30319).
+- **Commercial GUI & Imaging Libraries (3):** `ToolkitPro1531vc142x64U.dll` (Codejock Xtreme Toolkit Pro), `SLImage.dll` (imaging engine), `dlsdk_shared.dll` (shared device SDK).
+- **Modular Native Barcode Rasterizers (6):** `BarCode_Code93i.dll`, `BarCode_DotCode.dll`, `BarCode_GridMatrix.dll`, `BarCode_HanXin.dll`, `BarCode_iQRCode.dll`, `BarCode_rMQRCode.dll`.
+- **Category Sum Verification:** $13 + 1 + 8 + 16 + 1 + 3 + 6 = 48\text{ DLLs}$ ($100\%$ accounted for exactly once).
 
 ### 7.2 Delay-Loaded Imports (17 DLLs)
 - **Complex 2D Symbologies (7):** `BarCode_Aztec.dll`, `BarCode_Composite.dll`, `BarCode_DataMatrix.dll`, `BarCode_MaxiCode.dll`, `BarCode_QRCode.dll`, `BarCode_RoyalMail_FourStateMailmark_TypeC.dll`, `BarCode_RoyalMail_FourStateMailmark_TypeL.dll`.
@@ -251,9 +253,10 @@ Controlled runtime execution experiments are documented in `evidence/phase1/runt
 2. **Managed Print API License Enforcement (`RT-02`, Claim `P1-024` `[VERIFIED_RUNTIME]`):**
    - Invocation: Reflection instantiation of `Seagull.BarTender.Print.Engine.Start()`.
    - Result: Throws `Seagull.BarTender.Print.LicenseException: You must activate BarTender with a valid product key code`.
-3. **COM Automation Registration (`RT-03`, Claim `P1-025` `[VERIFIED_RUNTIME]`):**
+3. **COM Automation Registration & Unattended Limitation (`RT-03`, Claim `P1-025` `[VERIFIED_RUNTIME]`):**
    - Invocation: `New-Object -ComObject "BarTender.Application"`.
    - Result: Resolves registered CLSID `{D5856250-13D3-11D1-9D2B-00609787E3AE}` launching `BarTend.exe /Automation`.
+   - **Crucial Distinction:** In an unactivated installation, execution halts on a modal licensing activation prompt, requiring interactive desktop acknowledgment. Therefore, successful COM registration and process launch do **not** constitute proof of unattended automated execution in an unactivated environment.
 
 ---
 
@@ -277,12 +280,14 @@ Controlled runtime execution experiments are documented in `evidence/phase1/runt
 ## 19. Automated Validation Tooling & Test Results
 
 The comprehensive validation suite (`scripts/validate-phase1-evidence.py` and `scripts/validate-phase1-evidence.ps1`) was executed:
-- **Dynamic Derivation:** All expected target identity values derived from `canonical_target_identity.json`.
+- **Dynamic Derivation:** All expected target identity values derived from `canonical_target_identity.json` without hardcoded PE constants.
 - **Evidence Manifest Checksums:** Verified actual SHA-256 digests and file sizes of all 15 tracked evidence files against `validation_manifest.json`.
-- **Claim Register Integrity:** Verified 25 claims (20 `VERIFIED_STATIC`, 3 `VERIFIED_RUNTIME`, 1 `VERIFIED_DOCUMENTATION`, 1 `NOT_PERFORMED`), checking evidence references and runtime test IDs.
+- **Claim Register Integrity:** Verified 25 claims (20 `VERIFIED_STATIC`, 3 `VERIFIED_RUNTIME`, 1 `VERIFIED_DOCUMENTATION`, 1 `NOT_PERFORMED`), enforcing claim ID uniqueness, verifying physical existence of all referenced files, and matching runtime test IDs.
+- **Dependency Arithmetic Reconciliation:** Verified exact direct static import category sum: $13 + 1 + 8 + 16 + 1 + 3 + 6 = 48\text{ DLLs}$ across all 7 non-overlapping categories.
 - **Copyright Compliance:** Verified 0 proprietary images remain in `screenshots/`.
 - **Report Integrity:** Verified all 24 markdown reports (01 through 21) exist, have content, and contain no obsolete offsets.
-- **Result:** Complete deterministic `PASS` with 0 failures.
+- **Execution Provenance:** Automatically recorded audit execution metadata, environment specs, target executable SHA-256 (`d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594`), commit SHA, and accounting in `evidence/phase1/reconciliation/validation_provenance.json`.
+- **Result:** Complete deterministic `PASS` across 123 automated checks with 0 failures, 0 warnings, and exit code `0`.
 
 ---
 

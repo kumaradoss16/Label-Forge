@@ -53,7 +53,94 @@
       "mfc140u.dll",
       "mscoree.dll",
       "ole32.dll"
-    ]
+    ],
+    "categories": {
+      "windows_os_core": {
+        "count": 13,
+        "modules": [
+          "ADVAPI32.dll",
+          "GDI32.dll",
+          "IMM32.dll",
+          "IPHLPAPI.DLL",
+          "KERNEL32.dll",
+          "NETAPI32.dll",
+          "RPCRT4.dll",
+          "SETUPAPI.dll",
+          "USER32.dll",
+          "USERENV.dll",
+          "USP10.dll",
+          "VERSION.dll",
+          "WINMM.dll"
+        ]
+      },
+      "windows_print_spooler": {
+        "count": 1,
+        "modules": [
+          "WINSPOOL.DRV"
+        ]
+      },
+      "com_security_cryptography": {
+        "count": 8,
+        "modules": [
+          "COMCTL32.dll",
+          "COMDLG32.dll",
+          "CRYPT32.dll",
+          "OLEAUT32.dll",
+          "Secur32.dll",
+          "WINTRUST.dll",
+          "imagehlp.dll",
+          "ole32.dll"
+        ]
+      },
+      "cpp_crt_mfc_runtime": {
+        "count": 16,
+        "modules": [
+          "MFCM140U.dll",
+          "MSVCP140.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "mfc140u.dll"
+        ]
+      },
+      "clr_execution_shim": {
+        "count": 1,
+        "modules": [
+          "mscoree.dll"
+        ]
+      },
+      "commercial_gui_imaging": {
+        "count": 3,
+        "modules": [
+          "SLImage.dll",
+          "ToolkitPro1531vc142x64U.dll",
+          "dlsdk_shared.dll"
+        ]
+      },
+      "modular_barcode_rasterizers": {
+        "count": 6,
+        "modules": [
+          "BarCode_Code93i.dll",
+          "BarCode_DotCode.dll",
+          "BarCode_GridMatrix.dll",
+          "BarCode_HanXin.dll",
+          "BarCode_iQRCode.dll",
+          "BarCode_rMQRCode.dll"
+        ]
+      }
+    },
+    "categories_sum": 48,
+    "categories_match": true
   },
   "delay_load_imports": {
     "count": 17,
