@@ -1,0 +1,24 @@
+{
+  "milestone": "Phase 1.1.2.2",
+  "timestamp": "2026-11-13T15:39:54.852356+00:00",
+  "execution_method": "powershell -ExecutionPolicy Bypass -File scripts/validate-phase1-evidence.ps1",
+  "exit_code": 0,
+  "release_gate_status": "PHASE 1.1.2.2 \u2014 APPROVED",
+  "total_checks": 136,
+  "pass_count": 136,
+  "fail_count": 0,
+  "warning_count": 0,
+  "not_checked_count": 0,
+  "artifacts": {
+    "stdout_log": {
+      "relative_path": "evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt",
+      "sha256": "61b4f366d6e26dffa14607b21127d851765510d53941609a31bba9889e5c2556",
+      "size_bytes": 16293
+    },
+    "stderr_log": {
+      "relative_path": "evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    }
+  }
+}

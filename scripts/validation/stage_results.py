@@ -7,7 +7,7 @@ Enforces that stage status is mathematically derived from assertion results,
 with zero unconditional overwrites.
 """
 
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass, field
 
 # Authoritative Statuses
@@ -102,3 +102,48 @@ def aggregate_stage_status(assertions: List[AssertionRecord]) -> str:
     """Helper function to aggregate a list of assertions into a stage status."""
     dummy = StageResult(stage_id="aggregate", description="aggregated", assertions=list(assertions))
     return dummy.recompute_status()
+
+def evaluate_release_gate(
+    stage_results: Dict[str, str],
+    counts: Dict[str, int],
+    mandatory_stages: Optional[List[str]] = None
+) -> Tuple[int, str, str]:
+    """
+    Evaluates the final release gate across stage results and check counts.
+    Returns: (exit_code, release_gate_status, detail_message)
+    Exit Codes:
+      0: Fully passed release gate (All mandatory checks pass, 0 fail, 0 not_checked, 0 warnings)
+      1: Validation failure or unapproved warnings
+      2: Prerequisite unavailable / NOT_CHECKED
+      3: Internal validator error
+    """
+    if mandatory_stages is None:
+        mandatory_stages = [
+            'target_binary_integrity',
+            'manifest_integrity',
+            'direct_import_partition',
+            'status_accounting',
+            'evidence_references',
+            'claim_specific_assertions',
+            'recursive_image_audit',
+            'report_consistency'
+        ]
+
+    missing_stages = [st for st in mandatory_stages if st not in stage_results]
+    if missing_stages:
+        return (1, "PHASE 1.1.2.2 — BLOCKED", f"Missing mandatory validation stages: {missing_stages}")
+
+    if counts.get(STATUS_FAIL, 0) > 0 or any(stage_results.get(st) == STATUS_FAIL for st in mandatory_stages):
+        return (1, "PHASE 1.1.2.2 — FAILED", "One or more mandatory validation checks failed")
+
+    if counts.get(STATUS_NOT_CHECKED, 0) > 0 or any(stage_results.get(st) == STATUS_NOT_CHECKED for st in mandatory_stages):
+        return (2, "PHASE 1.1.2.2 — BLOCKED", "One or more mandatory stages were NOT_CHECKED due to missing prerequisites")
+
+    if counts.get(STATUS_WARNING, 0) > 0 or any(stage_results.get(st) == STATUS_WARNING for st in mandatory_stages):
+        return (1, "PHASE 1.1.2.2 — BLOCKED", "Unresolved validation warnings present")
+
+    all_stages_pass = all(stage_results.get(st) == STATUS_PASS for st in mandatory_stages)
+    if all_stages_pass and counts.get(STATUS_PASS, 0) > 0:
+        return (0, "PHASE 1.1.2.2 — APPROVED", "All mandatory integrity and evidence checks verified")
+
+    return (1, "PHASE 1.1.2.2 — FAILED", "Incomplete validation results")

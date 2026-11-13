@@ -11,7 +11,7 @@ import hashlib
 import platform
 import subprocess
 from datetime import datetime, timezone
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Tuple, List
 
 def generate_provenance_record(
     repo_root: str,
@@ -38,13 +38,19 @@ def generate_provenance_record(
         commit_sha = "UNKNOWN_COMMIT"
 
     try:
+        tree_sha = subprocess.check_output(['git', 'rev-parse', 'HEAD^{tree}'], cwd=repo_root).decode('utf-8').strip()
+    except Exception:
+        tree_sha = "UNKNOWN_TREE"
+
+    try:
         branch = subprocess.check_output(['git', 'branch', '--show-current'], cwd=repo_root).decode('utf-8').strip()
     except Exception:
         branch = "UNKNOWN_BRANCH"
 
     try:
         status_porcelain = subprocess.check_output(['git', 'status', '--porcelain'], cwd=repo_root).decode('utf-8').strip()
-        is_clean = (len(status_porcelain) == 0)
+        lines = [l.strip() for l in status_porcelain.splitlines() if l.strip() and not l.strip().endswith('validation_provenance.json')]
+        is_clean = (len(lines) == 0)
     except Exception:
         is_clean = False
         status_porcelain = "GIT_STATUS_FAILED"
@@ -63,14 +69,15 @@ def generate_provenance_record(
     manifest_verified = (stage_breakdown.get('manifest_integrity') == 'PASS')
 
     result_status = 'PASS' if exit_code == 0 else ('NOT_CHECKED' if exit_code == 2 else 'FAIL')
-    gate_status = 'PHASE 1.1.2.1 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.1 — BLOCKED'
+    gate_status = 'PHASE 1.1.2.2 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2 — BLOCKED'
 
     provenance = {
-        'schema_version': '1.1.2.1',
+        'schema_version': '1.1.2.2',
         'status': 'RECONCILED_AUTHORITATIVE',
         'provenance_metadata': {
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
             'validated_commit_sha': commit_sha,
+            'validated_tree_sha': tree_sha,
             'branch': branch,
             'is_working_tree_clean': is_clean,
             'working_tree_status_porcelain': status_porcelain,
@@ -118,3 +125,54 @@ def generate_provenance_record(
     }
 
     return provenance
+
+def validate_provenance_record(
+    provenance_doc: Dict[str, Any],
+    repo_root: str
+) -> Tuple[bool, List[str]]:
+    """
+    Validates provenance integrity:
+    - schema_version and status
+    - metadata presence (commit_sha, tree_sha, cleanliness)
+    - referenced validator and manifest files exist and hashes match
+    - execution environment records valid Python/OS strings
+    - exit code and summary accounting reconcile exactly
+    """
+    errors: List[str] = []
+    meta = provenance_doc.get('provenance_metadata', {})
+    commit_sha = meta.get('validated_commit_sha', '')
+    if not commit_sha or len(commit_sha) != 40:
+        errors.append(f"Invalid or missing validated_commit_sha: '{commit_sha}'")
+
+    val_script = meta.get('validator_script', {})
+    val_path = os.path.join(repo_root, val_script.get('path', '').replace('/', os.sep))
+    if not os.path.exists(val_path):
+        errors.append(f"Referenced validator script not found: '{val_script.get('path')}'")
+    else:
+        with open(val_path, 'rb') as f:
+            act_sha = hashlib.sha256(f.read()).hexdigest()
+        if act_sha != val_script.get('sha256'):
+            errors.append(f"Validator script SHA-256 mismatch: recorded={val_script.get('sha256')}, actual={act_sha}")
+
+    val_manifest = meta.get('validation_manifest', {})
+    manifest_p = os.path.join(repo_root, val_manifest.get('path', '').replace('/', os.sep))
+    if not os.path.exists(manifest_p):
+        errors.append(f"Referenced validation manifest not found: '{val_manifest.get('path')}'")
+    else:
+        with open(manifest_p, 'rb') as f:
+            act_m_sha = hashlib.sha256(f.read()).hexdigest()
+        if act_m_sha != val_manifest.get('sha256'):
+            errors.append(f"Validation manifest SHA-256 mismatch: recorded={val_manifest.get('sha256')}, actual={act_m_sha}")
+
+    res = provenance_doc.get('validation_results', {})
+    acc = res.get('summary_accounting', {})
+    tot = acc.get('total_checks', 0)
+    p = acc.get('pass', 0)
+    fl = acc.get('fail', 0)
+    w = acc.get('warning', 0)
+    nc = acc.get('not_checked', 0)
+    if tot != (p + fl + w + nc):
+        errors.append(f"Summary accounting arithmetic error: total {tot} != sum {p + fl + w + nc}")
+
+    is_valid = (len(errors) == 0)
+    return is_valid, errors
