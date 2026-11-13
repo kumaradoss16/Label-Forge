@@ -2,7 +2,8 @@
 """
 Unit and regression test suite for Label-Forge Phase 1.1.2.2 Independent Validator Acceptance.
 Exercises real production validation functions under scripts/validation/
-with mandatory negative fixture tests T01 through T24, edge cases, and positive tests.
+with mandatory negative fixture tests T01 through T24 strictly mapped to Phase 1.1.2.2
+Master Specification Section 7.3, plus comprehensive positive baseline tests.
 Zero mock tampering or tautological tests.
 """
 
@@ -156,51 +157,75 @@ class TestValidationInvariantsPositive(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(status, "PHASE 1.1.2.2 — APPROVED")
 
+    def test_symlink_path_boundary_protection(self):
+        """AC-05: Verify symlink and path traversal boundaries are strictly enforced."""
+        invalid_traversal_ref = {
+            "type": "file",
+            "path": "../../../../../Windows/System32/drivers/etc/hosts"
+        }
+        ok, msg = validate_structured_evidence_reference(invalid_traversal_ref, REPO_ROOT)
+        self.assertFalse(ok)
+        self.assertTrue("outside" in msg or "escapes" in msg or "Invalid" in msg)
+
 
 class TestValidationMandatoryFixtures(unittest.TestCase):
     """
     Mandatory negative and boundary fixture tests T01 through T24.
-    Every single test directly exercises production validation functions from scripts/validation.
+    Strictly mapped to Section 7.3 of the Master Implementation Specification.
+    Every test directly exercises production validation functions from scripts/validation.
     """
 
-    # T01: Duplicate direct-import category entry (FAIL)
-    def test_T01_duplicate_direct_import_category_entry(self):
-        canonical = ["A.DLL", "B.DLL"]
-        categories = {"cat1": ["A.DLL", "A.DLL"], "cat2": ["B.DLL"]}
-        res = validate_direct_import_partition(canonical, categories)
-        self.assertFalse(res['is_exact_partition'])
-        self.assertIn("cat1", res['category_internal_duplicates'])
-        self.assertEqual(res['category_internal_duplicates']["cat1"], ["A.DLL"])
+    # T01: Missing required evidence file (FAIL)
+    def test_T01_missing_required_evidence_file(self):
+        """T01: Missing required evidence file rejects manifest in validate_evidence_manifest."""
+        temp_dir = tempfile.mkdtemp(prefix='test_t01_')
+        try:
+            manifest = {
+                "manifest_schema_version": "1.0.0",
+                "files": [{"path": "missing_evidence_file.json", "sha256": "abc", "size_bytes": 10}]
+            }
+            m_path = os.path.join(temp_dir, "manifest.json")
+            with open(m_path, "w", encoding="utf-8") as f:
+                json.dump(manifest, f)
+            is_valid, assertions, summary = validate_evidence_manifest(m_path, temp_dir)
+            self.assertFalse(is_valid)
+            self.assertTrue(any("missing on disk" in a.detail for a in assertions))
+        finally:
+            shutil.rmtree(temp_dir)
 
-    # T02: Direct import missing from category partition (FAIL)
-    def test_T02_direct_import_missing_from_category_partition(self):
-        canonical = ["A.DLL", "B.DLL", "C.DLL"]
-        categories = {"cat1": ["A.DLL"], "cat2": ["B.DLL"]}
-        res = validate_direct_import_partition(canonical, categories)
-        self.assertFalse(res['is_exact_partition'])
-        self.assertIn("C.DLL", res['missing_modules'])
+    # T02: Evidence file size mismatch (FAIL)
+    def test_T02_evidence_file_size_mismatch(self):
+        """T02: Evidence file size mismatch fails validation in validate_evidence_manifest."""
+        temp_dir = tempfile.mkdtemp(prefix='test_t02_')
+        try:
+            sample_file = os.path.join(temp_dir, "sample.json")
+            file_bytes = b'{"hello": "world"}'
+            with open(sample_file, "wb") as f:
+                f.write(file_bytes)
 
-    # T03: Unexpected category module (FAIL)
-    def test_T03_unexpected_category_module(self):
-        canonical = ["A.DLL", "B.DLL"]
-        categories = {"cat1": ["A.DLL"], "cat2": ["B.DLL", "EXTRA.DLL"]}
-        res = validate_direct_import_partition(canonical, categories)
-        self.assertFalse(res['is_exact_partition'])
-        self.assertIn("EXTRA.DLL", res['unexpected_modules'])
+            manifest = {
+                "manifest_schema_version": "1.0.0",
+                "files": [
+                    {
+                        "path": "sample.json",
+                        "sha256": hashlib.sha256(file_bytes).hexdigest(),
+                        "size_bytes": 99999  # Deliberate size mismatch
+                    }
+                ]
+            }
+            m_path = os.path.join(temp_dir, "manifest.json")
+            with open(m_path, "w", encoding="utf-8") as f:
+                json.dump(manifest, f)
+            is_valid, assertions, summary = validate_evidence_manifest(m_path, temp_dir)
+            self.assertFalse(is_valid)
+            self.assertTrue(any("Size mismatch" in a.detail for a in assertions))
+        finally:
+            shutil.rmtree(temp_dir)
 
-    # T04: Module assigned to multiple categories (FAIL)
-    def test_T04_module_assigned_to_multiple_categories(self):
-        canonical = ["A.DLL", "B.DLL"]
-        categories = {"cat1": ["A.DLL", "B.DLL"], "cat2": ["B.DLL"]}
-        res = validate_direct_import_partition(canonical, categories)
-        self.assertFalse(res['is_exact_partition'])
-        self.assertIn("B.DLL", res['cross_category_overlaps'])
-        self.assertEqual(res['cross_category_overlaps']["B.DLL"], ["cat1", "cat2"])
-
-    # T05: Incorrect evidence SHA-256 (FAIL)
-    def test_T05_incorrect_evidence_sha256(self):
-        """Exercises production validate_evidence_manifest on a corrupted checksum fixture."""
-        temp_dir = tempfile.mkdtemp(prefix='test_t05_')
+    # T03: Evidence SHA-256 mismatch (FAIL)
+    def test_T03_evidence_sha256_mismatch(self):
+        """T03: Evidence SHA-256 mismatch fails validation in validate_evidence_manifest."""
+        temp_dir = tempfile.mkdtemp(prefix='test_t03_')
         try:
             rel_file = "test_data.json"
             full_file = os.path.join(temp_dir, rel_file)
@@ -219,20 +244,33 @@ class TestValidationMandatoryFixtures(unittest.TestCase):
                     }
                 ]
             }
-            manifest_path = os.path.join(temp_dir, "manifest.json")
-            with open(manifest_path, "w", encoding="utf-8") as f:
+            m_path = os.path.join(temp_dir, "manifest.json")
+            with open(m_path, "w", encoding="utf-8") as f:
                 json.dump(manifest, f)
 
-            is_valid, assertions, summary = validate_evidence_manifest(manifest_path, temp_dir)
+            is_valid, assertions, summary = validate_evidence_manifest(m_path, temp_dir)
             self.assertFalse(is_valid)
             self.assertTrue(any(a.status == STATUS_FAIL and "SHA-256 mismatch" in a.detail for a in assertions))
         finally:
             shutil.rmtree(temp_dir)
 
-    # T06: Incorrect evidence file size (FAIL)
-    def test_T06_incorrect_evidence_file_size(self):
-        """Exercises production validate_target_binary on a binary with incorrect file size."""
-        temp_dir = tempfile.mkdtemp(prefix='test_t06_')
+    # T04: Invalid manifest reference (FAIL)
+    def test_T04_invalid_manifest_reference(self):
+        """T04: Invalid manifest reference (path traversal / outside root) fails reference audit."""
+        invalid_refs = [
+            {"type": "file", "path": "../outside.json"},
+            {"type": "file", "path": "/etc/passwd"},
+            {"type": "file", "path": "C:\\Windows\\win.ini"}
+        ]
+        for ref in invalid_refs:
+            ok, msg = validate_structured_evidence_reference(ref, REPO_ROOT)
+            self.assertFalse(ok)
+            self.assertTrue("Invalid path" in msg or "escapes" in msg)
+
+    # T05: Actual binary integrity mismatch (FAIL)
+    def test_T05_actual_binary_integrity_mismatch(self):
+        """T05: Target binary integrity mismatch fails validate_target_binary."""
+        temp_dir = tempfile.mkdtemp(prefix='test_t05_')
         try:
             dummy_exe = os.path.join(temp_dir, "test.exe")
             with open(dummy_exe, "wb") as f:
@@ -250,238 +288,12 @@ class TestValidationMandatoryFixtures(unittest.TestCase):
         finally:
             shutil.rmtree(temp_dir)
 
-    # T07: Missing evidence file (FAIL)
-    def test_T07_missing_evidence_file(self):
-        """Exercises production validate_structured_evidence_reference and validate_evidence_manifest."""
-        ref = {"type": "file", "path": "evidence/phase1/non_existent_file_xyz.json"}
-        ok, msg = validate_structured_evidence_reference(ref, REPO_ROOT)
-        self.assertFalse(ok)
-        self.assertIn("missing on disk", msg)
-
-        # Also test validate_evidence_manifest on missing file entry
-        temp_dir = tempfile.mkdtemp(prefix='test_t07_')
-        try:
-            manifest = {
-                "manifest_schema_version": "1.0.0",
-                "files": [{"path": "missing_file.json", "sha256": "abc", "size_bytes": 10}]
-            }
-            m_path = os.path.join(temp_dir, "manifest.json")
-            with open(m_path, "w", encoding="utf-8") as f:
-                json.dump(manifest, f)
-            is_valid, assertions, summary = validate_evidence_manifest(m_path, temp_dir)
-            self.assertFalse(is_valid)
-            self.assertTrue(any("missing on disk" in a.detail for a in assertions))
-        finally:
-            shutil.rmtree(temp_dir)
-
-    # T08: Invalid JSON pointer (FAIL)
-    def test_T08_invalid_json_pointer(self):
-        """Exercises production resolve_json_pointer with various syntax errors and invalid escapes."""
-        # 1. Pointer not starting with /
-        with self.assertRaises(ValueError):
-            resolve_json_pointer({"key": 1}, "invalid_no_slash")
-        # 2. Key not in doc
-        with self.assertRaises(KeyError):
-            resolve_json_pointer({"key": 1}, "/missing_key")
-        # 3. Index out of range
-        with self.assertRaises(IndexError):
-            resolve_json_pointer([1, 2], "/10")
-        # 4. Malformed RFC 6901 escape sequence ~2
-        with self.assertRaises(ValueError):
-            resolve_json_pointer({"~key": 1}, "/~2key")
-
-    # T09: Evidence reference outside permitted root (FAIL)
-    def test_T09_evidence_reference_outside_permitted_root(self):
-        """Exercises production validate_structured_evidence_reference against path traversal."""
-        invalid_refs = [
-            {"type": "file", "path": "../outside.json"},
-            {"type": "file", "path": "/etc/passwd"},
-            {"type": "file", "path": "C:\\Windows\\win.ini"}
-        ]
-        for ref in invalid_refs:
-            ok, msg = validate_structured_evidence_reference(ref, REPO_ROOT)
-            self.assertFalse(ok)
-            self.assertTrue("Invalid path" in msg or "escapes" in msg)
-
-    # T10: Unknown claim ID (FAIL)
-    def test_T10_unknown_claim_id(self):
-        """Exercises production make_claim_assertion_registry for unknown claim registration."""
-        dummy_doc: Dict[str, Any] = {}
-        registry = make_claim_assertion_registry(
-            repo_root=REPO_ROOT,
-            can_doc=dummy_doc,
-            inv_doc=dummy_doc,
-            dep_doc=dummy_doc,
-            native_inv_doc=dummy_doc,
-            dotnet_interop_doc=dummy_doc,
-            managed_assm_doc=dummy_doc,
-            runtime_doc=dummy_doc
-        )
-        self.assertNotIn("P1-999", registry)
-        self.assertIsNone(registry.get("P1-999"))
-
-    # T11: Claim missing executable assertion (FAIL)
-    def test_T11_claim_missing_executable_assertion(self):
-        """Exercises validation logic when an assertion function is missing from registry."""
-        dummy_doc: Dict[str, Any] = {}
-        registry = make_claim_assertion_registry(
-            repo_root=REPO_ROOT,
-            can_doc=dummy_doc,
-            inv_doc=dummy_doc,
-            dep_doc=dummy_doc,
-            native_inv_doc=dummy_doc,
-            dotnet_interop_doc=dummy_doc,
-            managed_assm_doc=dummy_doc,
-            runtime_doc=dummy_doc
-        )
-        # Corrupt an entry by removing its assertion_fn
-        corrupted_registry = dict(registry)
-        corrupted_registry["P1-001"] = {"assertion_id": "P1-001"}
-
-        stage = StageResult("claim_specific_assertions")
-        entry = corrupted_registry.get("P1-001")
-        if not entry or 'assertion_fn' not in entry:
-            stage.record_assertion("Claim P1-001 assertion procedure", STATUS_FAIL, "No assertion function registered")
-
-        self.assertEqual(stage.status, STATUS_FAIL)
-
-    # T12: Claim missing required evidence references (FAIL)
-    def test_T12_claim_missing_required_evidence_references(self):
-        """Exercises production validate_structured_evidence_reference on malformed reference objects."""
-        # Malformed references missing required fields
-        malformed_refs = [
-            {},
-            {"type": "file"},  # missing path
-            {"path": "evidence/phase1/target_identity.json"},  # missing type
-            {"type": "json_pointer", "path": "evidence/phase1/target_identity.json"}  # missing pointer
-        ]
-        for ref in malformed_refs:
-            ok, msg = validate_structured_evidence_reference(ref, REPO_ROOT)
-            self.assertFalse(ok)
-            self.assertTrue(len(msg) > 0)
-
-    # T13: Unsupported VERIFIED status (FAIL)
-    def test_T13_unsupported_verified_status(self):
-        """Exercises production validate_status_accounting on unsupported status token."""
-        claims = [{"id": "P1-001", "status": "VERIFIED_UNSUPPORTED_XYZ"}]
-        declared = {st: 0 for st in ALLOWED_CLAIM_STATUSES}
-        res = validate_status_accounting(claims, declared)
-        self.assertFalse(res['is_valid'])
-        self.assertTrue(any("unrecognized status" in e for e in res['errors']))
-
-    # T14: Missing declared status category (FAIL)
-    def test_T14_missing_declared_status_category(self):
-        """Exercises production validate_status_accounting when a declared status category is missing."""
-        claims = [{"id": "P1-001", "status": "VERIFIED_STATIC"}]
-        declared = {
-            'VERIFIED_STATIC': 1,
-            'VERIFIED_RUNTIME': 0,
-            'VERIFIED_DOCUMENTATION': 0,
-            'INFERRED': 0,
-            'NOT_PERFORMED': 0
-            # 'UNKNOWN' is missing
-        }
-        res = validate_status_accounting(claims, declared)
-        self.assertFalse(res['is_valid'])
-        self.assertTrue(any("missing categories" in e for e in res['errors']))
-
-    # T15: Incorrect status count (FAIL)
-    def test_T15_incorrect_status_count(self):
-        """Exercises production validate_status_accounting when declared count does not match actual count."""
-        claims = [{"id": "P1-001", "status": "VERIFIED_STATIC"}]
-        declared = {st: 0 for st in ALLOWED_CLAIM_STATUSES}
-        declared['VERIFIED_STATIC'] = 999  # Actual is 1
-        res = validate_status_accounting(claims, declared)
-        self.assertFalse(res['is_valid'])
-        self.assertIn('VERIFIED_STATIC', res['mismatched_counts'])
-
-    # T16: Unexpected status category (FAIL)
-    def test_T16_unexpected_status_category(self):
-        """Exercises production validate_status_accounting when an unexpected extra category is provided."""
-        claims = [{"id": "P1-001", "status": "VERIFIED_STATIC"}]
-        declared = {st: 0 for st in ALLOWED_CLAIM_STATUSES}
-        declared['VERIFIED_STATIC'] = 1
-        declared['SOME_EXTRA_BOGUS_STATUS'] = 0
-        res = validate_status_accounting(claims, declared)
-        self.assertFalse(res['is_valid'])
-        self.assertTrue(any("unexpected categories" in e for e in res['errors']))
-
-    # T17: Prohibited image in nested screenshot directory (FAIL)
-    def test_T17_prohibited_image_in_nested_screenshot_directory(self):
-        """Exercises production scan_prohibited_images finding prohibited image deep in hierarchy."""
-        temp_dir = tempfile.mkdtemp(prefix='test_img_t17_')
-        try:
-            nested = os.path.join(temp_dir, 'sub1', 'sub2')
-            os.makedirs(nested, exist_ok=True)
-            prohibited_file = os.path.join(nested, 'forbidden_sample.PNG')
-            with open(prohibited_file, 'wb') as f:
-                f.write(b'\x89PNG\r\n\x1a\n')
-
-            res = scan_prohibited_images(temp_dir)
-            self.assertFalse(res['is_clean'])
-            self.assertEqual(len(res['found_images']), 1)
-            self.assertIn("sub1/sub2/forbidden_sample.PNG", res['found_images'][0].replace('\\', '/'))
-        finally:
-            shutil.rmtree(temp_dir)
-
-    # T18: Screenshot directory traversal error (FAIL / NOT_CHECKED)
-    def test_T18_screenshot_directory_traversal_error(self):
-        """Exercises production scan_prohibited_images on nonexistent directory path."""
-        nonexistent = os.path.join(REPO_ROOT, "nonexistent_screenshots_dir_12345")
-        res = scan_prohibited_images(nonexistent)
-        self.assertFalse(res['directory_exists'])
-        self.assertFalse(res['is_clean'])
-        self.assertTrue(len(res['traversal_errors']) > 0)
-
-    # T19: Unresolved mandatory warning (BLOCKED)
-    def test_T19_unresolved_mandatory_warning(self):
-        """Exercises production evaluate_release_gate when a mandatory stage or check has a WARNING."""
-        stage_results = {
-            'target_binary_integrity': STATUS_PASS,
-            'manifest_integrity': STATUS_PASS,
-            'direct_import_partition': STATUS_PASS,
-            'status_accounting': STATUS_PASS,
-            'evidence_references': STATUS_PASS,
-            'claim_specific_assertions': STATUS_PASS,
-            'recursive_image_audit': STATUS_PASS,
-            'report_consistency': STATUS_WARNING
-        }
-        counts = {STATUS_PASS: 100, STATUS_FAIL: 0, STATUS_WARNING: 1, STATUS_NOT_CHECKED: 0}
-        exit_code, status, msg = evaluate_release_gate(stage_results, counts)
-        self.assertEqual(exit_code, 1)
-        self.assertEqual(status, "PHASE 1.1.2.2 — BLOCKED")
-        self.assertIn("warnings present", msg.lower())
-
-    # T20: Mismatched provenance commit SHA (FAIL)
-    def test_T20_mismatched_provenance_commit_sha(self):
-        """Exercises production validate_provenance_record when commit SHA or validation script is corrupted."""
-        prov_doc = {
-            "provenance_metadata": {
-                "validated_commit_sha": "invalid_too_short",
-                "validator_script": {"path": "scripts/validate-phase1-evidence.py", "sha256": "0" * 64},
-                "validation_manifest": {"path": "evidence/phase1/reconciliation/evidence_manifest.json", "sha256": "0" * 64}
-            },
-            "validation_results": {
-                "summary_accounting": {
-                    "total_checks": 10,
-                    "pass": 10,
-                    "fail": 0,
-                    "warning": 0,
-                    "not_checked": 0
-                }
-            }
-        }
-        is_valid, errors = validate_provenance_record(prov_doc, REPO_ROOT)
-        self.assertFalse(is_valid)
-        self.assertTrue(any("validated_commit_sha" in e for e in errors))
-
-    # T21: Binary-stage subcheck failure (Stage FAIL)
-    def test_T21_binary_stage_subcheck_failure(self):
-        """Exercises production validate_target_binary on a corrupt PE header fixture."""
-        temp_dir = tempfile.mkdtemp(prefix='test_t21_')
+    # T06: Invalid PE metadata (FAIL)
+    def test_T06_invalid_pe_metadata(self):
+        """T06: Invalid PE metadata / signature fails validate_target_binary."""
+        temp_dir = tempfile.mkdtemp(prefix='test_t06_')
         try:
             corrupt_exe = os.path.join(temp_dir, "corrupt.exe")
-            # Create a file with MZ header but corrupt PE signature
             with open(corrupt_exe, "wb") as f:
                 header = bytearray(1024)
                 header[0:2] = b"MZ"
@@ -507,65 +319,276 @@ class TestValidationMandatoryFixtures(unittest.TestCase):
         finally:
             shutil.rmtree(temp_dir)
 
-    # T22: Missing runtime test identifier (FAIL)
-    def test_T22_missing_runtime_test_identifier(self):
-        """Exercises production validate_structured_evidence_reference with unknown runtime test ID."""
-        ref = {
-            "type": "runtime_test",
-            "path": "evidence/phase1/runtime_observations.json",
-            "test_id": "RT-NONEXISTENT-99"
-        }
-        known_tids = {"RT-01", "RT-02", "RT-03"}
-        ok, msg = validate_structured_evidence_reference(ref, REPO_ROOT, known_tids)
-        self.assertFalse(ok)
-        self.assertIn("not found", msg)
+    # T07: Missing dependency category (FAIL)
+    def test_T07_missing_dependency_category(self):
+        """T07: Missing direct-import module from category partition fails validate_direct_import_partition."""
+        canonical = ["A.DLL", "B.DLL", "C.DLL"]
+        categories = {"cat1": ["A.DLL"], "cat2": ["B.DLL"]}
+        res = validate_direct_import_partition(canonical, categories)
+        self.assertFalse(res['is_exact_partition'])
+        self.assertIn("C.DLL", res['missing_modules'])
 
-    # T23: Corrupted measurement conversion behavior (FAIL)
-    def test_T23_corrupted_measurement_conversion_behavior(self):
-        """Tests that mathematical verification bounds for twip and Length conversion fail when perturbed."""
-        # Standard twip is 1/1440 inch = 25.4 / 1440.0 = 0.017638888... mm
-        corrupted_twip_step_mm = 25.4 / 1000.0  # Wrong factor (1000 DPI)
-        is_in_bounds = (0.0176 < corrupted_twip_step_mm < 0.0177)
-        self.assertFalse(is_in_bounds)
+    # T08: Duplicate dependency classification (FAIL)
+    def test_T08_duplicate_dependency_classification(self):
+        """T08: Module assigned to multiple categories fails validate_direct_import_partition."""
+        canonical = ["A.DLL", "B.DLL"]
+        categories = {"cat1": ["A.DLL", "B.DLL"], "cat2": ["B.DLL"]}
+        res = validate_direct_import_partition(canonical, categories)
+        self.assertFalse(res['is_exact_partition'])
+        self.assertIn("B.DLL", res['cross_category_overlaps'])
+        self.assertEqual(res['cross_category_overlaps']["B.DLL"], ["cat1", "cat2"])
 
-    # T24: Phantom DLL present in target inventory (FAIL)
-    def test_T24_phantom_dll_present_in_target_inventory(self):
-        """Exercises production claim assertion for P1-015 detecting phantom DLL in components inventory."""
-        corrupted_app_comp = {
-            "components": [
-                {"name": "Core"},
-                {"name": "Printer"}
-            ],
-            "libraries": [
-                {"name": "BtEngine.dll"},  # Corrupted: phantom DLL present
-                {"name": "Other.dll"}
-            ]
-        }
-        corrupted_dep_doc = {
-            'phantom_dll_reconciliation': [
-                {'phantom_name': 'BtBarcode.dll'},
-                {'phantom_name': 'BtPrint.dll'},
-                {'phantom_name': 'BtSystem.dll'},
-                {'phantom_name': 'BtLic.dll'},
-                {'phantom_name': 'BtData.dll'},
-                {'phantom_name': 'BtEngine.dll'}
-            ]
-        }
-        dummy = {}
+    # T09: Unexpected direct import (FAIL)
+    def test_T09_unexpected_direct_import(self):
+        """T09: Undeclared direct import module fails validate_direct_import_partition."""
+        canonical = ["A.DLL", "B.DLL"]
+        categories = {"cat1": ["A.DLL"], "cat2": ["B.DLL", "EXTRA.DLL"]}
+        res = validate_direct_import_partition(canonical, categories)
+        self.assertFalse(res['is_exact_partition'])
+        self.assertIn("EXTRA.DLL", res['unexpected_modules'])
+
+    # T10: Unknown claim ID (FAIL)
+    def test_T10_unknown_claim_id(self):
+        """T10: Unknown claim ID returns None from make_claim_assertion_registry."""
+        dummy_doc: Dict[str, Any] = {}
         registry = make_claim_assertion_registry(
             repo_root=REPO_ROOT,
-            can_doc=dummy,
-            inv_doc=dummy,
-            dep_doc=corrupted_dep_doc,
-            native_inv_doc=dummy,
-            dotnet_interop_doc=dummy,
-            managed_assm_doc=dummy,
-            runtime_doc=dummy,
-            app_comp_doc=corrupted_app_comp
+            can_doc=dummy_doc,
+            inv_doc=dummy_doc,
+            dep_doc=dummy_doc,
+            native_inv_doc=dummy_doc,
+            dotnet_interop_doc=dummy_doc,
+            managed_assm_doc=dummy_doc,
+            runtime_doc=dummy_doc
         )
-        status, detail = registry['P1-015']['assertion_fn']()
-        self.assertEqual(status, 'FAIL')
-        self.assertIn("BtEngine.dll", detail)
+        self.assertNotIn("P1-999", registry)
+        self.assertIsNone(registry.get("P1-999"))
+
+    # T11: Missing claim evidence reference (FAIL)
+    def test_T11_missing_claim_evidence_reference(self):
+        """T11: Missing or empty claim evidence_refs fails validation."""
+        malformed_refs = [
+            {},
+            {"type": "file"},  # missing path
+            {"path": "evidence/phase1/target_identity.json"}  # missing type
+        ]
+        for ref in malformed_refs:
+            ok, msg = validate_structured_evidence_reference(ref, REPO_ROOT)
+            self.assertFalse(ok)
+            self.assertTrue(len(msg) > 0)
+
+    # T12: Invalid JSON Pointer (FAIL)
+    def test_T12_invalid_json_pointer(self):
+        """T12: Invalid JSON Pointer syntax or escape rejects via resolve_json_pointer."""
+        # 1. Pointer not starting with /
+        with self.assertRaises(ValueError):
+            resolve_json_pointer({"key": 1}, "invalid_no_slash")
+        # 2. Malformed escape ~2
+        with self.assertRaises(ValueError):
+            resolve_json_pointer({"~key": 1}, "/~2key")
+        # 3. Invalid array index with leading zero
+        with self.assertRaises(IndexError):
+            resolve_json_pointer([1, 2, 3], "/01")
+
+    # T13: Missing referenced JSON object (FAIL)
+    def test_T13_missing_referenced_json_object(self):
+        """T13: Missing referenced JSON key or out-of-range index raises KeyError / IndexError."""
+        with self.assertRaises(KeyError):
+            resolve_json_pointer({"key": 1}, "/missing_key")
+        with self.assertRaises(IndexError):
+            resolve_json_pointer([1, 2], "/10")
+
+    # T14: Invalid claim status (FAIL)
+    def test_T14_invalid_claim_status(self):
+        """T14: Invalid or unrecognized claim status token fails validate_status_accounting."""
+        claims = [{"id": "P1-001", "status": "VERIFIED_UNSUPPORTED_XYZ"}]
+        declared = {st: 0 for st in ALLOWED_CLAIM_STATUSES}
+        res = validate_status_accounting(claims, declared)
+        self.assertFalse(res['is_valid'])
+        self.assertTrue(any("unrecognized status" in e for e in res['errors']))
+
+    # T15: Incorrect claim status totals (FAIL)
+    def test_T15_incorrect_claim_status_totals(self):
+        """T15: Incorrect claim status count fails validate_status_accounting."""
+        claims = [{"id": "P1-001", "status": "VERIFIED_STATIC"}]
+        declared = {st: 0 for st in ALLOWED_CLAIM_STATUSES}
+        declared['VERIFIED_STATIC'] = 999  # Actual is 1
+        res = validate_status_accounting(claims, declared)
+        self.assertFalse(res['is_valid'])
+        self.assertIn('VERIFIED_STATIC', res['mismatched_counts'])
+
+    # T16: Missing declared status category (FAIL)
+    def test_T16_missing_declared_status_category(self):
+        """T16: Missing declared status category fails validate_status_accounting."""
+        claims = [{"id": "P1-001", "status": "VERIFIED_STATIC"}]
+        declared = {
+            'VERIFIED_STATIC': 1,
+            'VERIFIED_RUNTIME': 0,
+            'VERIFIED_DOCUMENTATION': 0,
+            'INFERRED': 0,
+            'NOT_PERFORMED': 0
+            # 'UNKNOWN' is missing
+        }
+        res = validate_status_accounting(claims, declared)
+        self.assertFalse(res['is_valid'])
+        self.assertTrue(any("missing categories" in e for e in res['errors']))
+
+    # T17: Prohibited image in nested directory (FAIL)
+    def test_T17_prohibited_image_in_nested_directory(self):
+        """T17: Prohibited image file in nested directory fails scan_prohibited_images."""
+        temp_dir = tempfile.mkdtemp(prefix='test_img_t17_')
+        try:
+            nested = os.path.join(temp_dir, 'sub1', 'sub2')
+            os.makedirs(nested, exist_ok=True)
+            prohibited_file = os.path.join(nested, 'forbidden_sample.PNG')
+            with open(prohibited_file, 'wb') as f:
+                f.write(b'\x89PNG\r\n\x1a\n')
+
+            res = scan_prohibited_images(temp_dir)
+            self.assertFalse(res['is_clean'])
+            self.assertEqual(len(res['found_images']), 1)
+            self.assertIn("sub1/sub2/forbidden_sample.PNG", res['found_images'][0].replace('\\', '/'))
+        finally:
+            shutil.rmtree(temp_dir)
+
+    # T18: Missing screenshot directory (FAIL)
+    def test_T18_missing_screenshot_directory(self):
+        """T18: Missing screenshot directory fails scan_prohibited_images."""
+        nonexistent = os.path.join(REPO_ROOT, "nonexistent_screenshots_dir_12345")
+        res = scan_prohibited_images(nonexistent)
+        self.assertFalse(res['directory_exists'])
+        self.assertFalse(res['is_clean'])
+        self.assertTrue(len(res['traversal_errors']) > 0)
+
+    # T19: Screenshot traversal error (FAIL)
+    def test_T19_screenshot_traversal_error(self):
+        """T19: Filesystem traversal errors are captured by scan_prohibited_images."""
+        temp_dir = tempfile.mkdtemp(prefix='test_img_t19_')
+        try:
+            file_as_dir = os.path.join(temp_dir, "not_a_dir.txt")
+            with open(file_as_dir, "w") as f:
+                f.write("test")
+            res = scan_prohibited_images(file_as_dir)
+            self.assertFalse(res['is_clean'])
+            self.assertTrue(len(res['traversal_errors']) > 0)
+        finally:
+            shutil.rmtree(temp_dir)
+
+    # T20: Source revision/provenance mismatch (FAIL)
+    def test_T20_source_revision_provenance_mismatch(self):
+        """T20: Provenance document with mismatched or invalid commit SHA fails validate_provenance_record."""
+        prov_doc = {
+            "provenance_metadata": {
+                "validated_commit_sha": "invalid_too_short",
+                "validator_script": {"path": "scripts/validate-phase1-evidence.py", "sha256": "0" * 64},
+                "validation_manifest": {"path": "evidence/phase1/reconciliation/validation_manifest.json", "sha256": "0" * 64}
+            },
+            "validation_results": {
+                "summary_accounting": {
+                    "total_checks": 10,
+                    "pass": 10,
+                    "fail": 0,
+                    "warning": 0,
+                    "not_checked": 0
+                }
+            }
+        }
+        is_valid, errors = validate_provenance_record(prov_doc, REPO_ROOT)
+        self.assertFalse(is_valid)
+        self.assertTrue(any("validated_commit_sha" in e for e in errors))
+
+    # T21: Validator or manifest hash mismatch (FAIL)
+    def test_T21_validator_or_manifest_hash_mismatch(self):
+        """T21: Validator script or manifest SHA-256 mismatch fails validate_provenance_record."""
+        prov_doc = {
+            "provenance_metadata": {
+                "validated_commit_sha": "a" * 40,
+                "validator_script": {"path": "scripts/validate-phase1-evidence.py", "sha256": "0" * 64},
+                "validation_manifest": {"path": "evidence/phase1/reconciliation/validation_manifest.json", "sha256": "0" * 64}
+            },
+            "validation_results": {
+                "summary_accounting": {
+                    "total_checks": 10,
+                    "pass": 10,
+                    "fail": 0,
+                    "warning": 0,
+                    "not_checked": 0
+                }
+            }
+        }
+        is_valid, errors = validate_provenance_record(prov_doc, REPO_ROOT)
+        self.assertFalse(is_valid)
+        self.assertTrue(any("mismatch" in e.lower() for e in errors))
+
+    # T22: Incomplete validation stage (FAIL / BLOCKED)
+    def test_T22_incomplete_validation_stage(self):
+        """T22: Incomplete or missing mandatory validation stage blocks release gate in evaluate_release_gate."""
+        incomplete_stages = {
+            'target_binary_integrity': STATUS_PASS,
+            'manifest_integrity': STATUS_PASS,
+            # 'direct_import_partition' missing
+            'status_accounting': STATUS_PASS,
+            'evidence_references': STATUS_PASS,
+            'claim_specific_assertions': STATUS_PASS,
+            'recursive_image_audit': STATUS_PASS,
+            'report_consistency': STATUS_PASS
+        }
+        counts = {STATUS_PASS: 100, STATUS_FAIL: 0, STATUS_WARNING: 0, STATUS_NOT_CHECKED: 0}
+        code, status, msg = evaluate_release_gate(incomplete_stages, counts)
+        self.assertEqual(code, 1)
+        self.assertEqual(status, "PHASE 1.1.2.2 — BLOCKED")
+        self.assertIn("Missing mandatory validation stages", msg)
+
+    # T23: Failed mandatory check incorrectly treated as PASS (FAIL)
+    def test_T23_failed_mandatory_check_incorrectly_treated_as_pass(self):
+        """T23: Failed mandatory check prevents PASS and fails release gate in evaluate_release_gate."""
+        stages_with_failure = {
+            'target_binary_integrity': STATUS_FAIL,
+            'manifest_integrity': STATUS_PASS,
+            'direct_import_partition': STATUS_PASS,
+            'status_accounting': STATUS_PASS,
+            'evidence_references': STATUS_PASS,
+            'claim_specific_assertions': STATUS_PASS,
+            'recursive_image_audit': STATUS_PASS,
+            'report_consistency': STATUS_PASS
+        }
+        counts = {STATUS_PASS: 100, STATUS_FAIL: 1, STATUS_WARNING: 0, STATUS_NOT_CHECKED: 0}
+        code, status, msg = evaluate_release_gate(stages_with_failure, counts)
+        self.assertEqual(code, 1)
+        self.assertEqual(status, "PHASE 1.1.2.2 — FAILED")
+
+    # T24: Warning or NOT_CHECKED result incorrectly treated as approval (BLOCKED)
+    def test_T24_warning_or_not_checked_result_incorrectly_treated_as_approval(self):
+        """T24: Unresolved warning or NOT_CHECKED blocks release gate with exit code 1 or 2."""
+        stages_not_checked = {
+            'target_binary_integrity': STATUS_NOT_CHECKED,
+            'manifest_integrity': STATUS_PASS,
+            'direct_import_partition': STATUS_PASS,
+            'status_accounting': STATUS_PASS,
+            'evidence_references': STATUS_PASS,
+            'claim_specific_assertions': STATUS_PASS,
+            'recursive_image_audit': STATUS_PASS,
+            'report_consistency': STATUS_PASS
+        }
+        counts_nc = {STATUS_PASS: 100, STATUS_FAIL: 0, STATUS_WARNING: 0, STATUS_NOT_CHECKED: 1}
+        code_nc, status_nc, _ = evaluate_release_gate(stages_not_checked, counts_nc)
+        self.assertEqual(code_nc, 2)
+        self.assertEqual(status_nc, "PHASE 1.1.2.2 — BLOCKED")
+
+        stages_warn = {
+            'target_binary_integrity': STATUS_PASS,
+            'manifest_integrity': STATUS_PASS,
+            'direct_import_partition': STATUS_PASS,
+            'status_accounting': STATUS_PASS,
+            'evidence_references': STATUS_PASS,
+            'claim_specific_assertions': STATUS_PASS,
+            'recursive_image_audit': STATUS_PASS,
+            'report_consistency': STATUS_WARNING
+        }
+        counts_w = {STATUS_PASS: 100, STATUS_FAIL: 0, STATUS_WARNING: 1, STATUS_NOT_CHECKED: 0}
+        code_w, status_w, _ = evaluate_release_gate(stages_warn, counts_w)
+        self.assertEqual(code_w, 1)
+        self.assertEqual(status_w, "PHASE 1.1.2.2 — BLOCKED")
 
 
 if __name__ == '__main__':

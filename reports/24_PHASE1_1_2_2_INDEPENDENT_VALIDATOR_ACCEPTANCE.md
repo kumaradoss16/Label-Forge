@@ -16,10 +16,10 @@
 
 This milestone completes the **Independent Validator Acceptance Audit & Final Closure (Phase 1.1.2.2)** for the Label-Forge evidence-integrity and reverse-engineering verification framework. 
 
-Acting as an independent engineering auditor and release-gate reviewer, the validation subsystem was systematically analyzed, defects were reproduced and resolved, and all superficial checks and tautological negative tests were replaced with robust production functions and isolated fixture tests.
+Acting as an independent software quality architect and release-gate reviewer, the validation subsystem was systematically inspected, defects were reproduced and resolved, and all superficial checks and tautological negative tests were replaced with robust production functions and isolated fixture tests.
 
-### 1.1 Release Gate Decision
-The validation suite was executed directly against the installed target binary (`D:\BarTender\BarTend.exe`) and the authoritative reconciliation artifacts under Windows. 
+### 1.1 Authoritative Check Accounting
+The validation suite derives its check counts dynamically from actual assertion records:
 
 - **Total Validation Checks Executed:** **136**
 - **Checks Passed (`PASS`):** **136**
@@ -29,26 +29,63 @@ The validation suite was executed directly against the installed target binary (
 - **Validation Exit Code:** **0**
 - **Final Release Gate Status:** **`PHASE 1.1.2.2 — APPROVED`**
 
-No release-blocking issues remain. The evidence baseline is internally consistent, reproducible, traceable, and sealed.
+All of the following authoritative records agree in check counts, stage breakdowns, and digests:
+- `evidence/phase1/reconciliation/validation_results.json`
+- `evidence/phase1/reconciliation/validation_provenance.json`
+- `evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt`
+- This acceptance report (`24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md`)
 
 ---
 
-## 2. Key Audit Findings & Remediations
+## 2. Key Audit Remediations & Technical Accomplishments
 
 | Finding ID | Area | Defect Description | Resolution & Impact |
 | :---: | :--- | :--- | :--- |
 | **DEF-01** | Asset Compliance | `scan_prohibited_images` returned `is_clean: True` when target directory was missing. | Rewritten to report `directory_exists: False` and `is_clean: False` with captured traversal errors. |
 | **DEF-02** | Evidence References | Naive string replacements for RFC 6901 JSON pointer escapes ignored invalid `~2` and leading-zero indices. | Implemented strict RFC 6901 parser (`decode_reference_token`), strictly enforcing valid escapes and array index syntax. |
 | **DEF-03** | Claim Assertions | Claims P1-001 through P1-008 validated against JSON documentation rather than target binary on disk. | Re-bound assertions to directly inspect target binary disk bytes when available, returning `NOT_CHECKED` if absent. |
-| **DEF-04** | Unit Test Quality | Tests T05, T06, T11, T12, and T21 manually injected `STATUS_FAIL` into dataclasses rather than calling production code. | Replaced all tautological tests with real fixture tests calling production functions on synthetic corrupted data. |
+| **DEF-04** | Unit Test Quality | Tests T01–T24 contained outdated mappings and tautological assertions manually injecting `STATUS_FAIL`. | Replaced with exact 24-fixture suite mapped to Master Spec Section 7.3, executing production functions on synthetic corrupted data. |
 | **DEF-05** | Production Modularity | PE header parsing and manifest checking were embedded inside the monolithic script. | Extracted into `scripts/validation/binary_validation.py` for isolated unit testing and CI integration. |
 | **DEF-06** | Release Gate | Exit codes lacked formalized stage-level release gate rules. | Implemented `evaluate_release_gate()` with strict exit-code contract: 0 (Approved), 1 (Fail/Warning), 2 (Not Checked), 3 (Internal Error). |
 | **DEF-07** | Provenance Circularity | Modifying provenance within git changed the commit hash, causing circularity. | Documented and executed deterministic two-step provenance sealing workflow. |
 | **DEF-08** | Application Components | P1-015 assumed `app_comp_doc` had a dict `components.libraries_dll`. | Corrected to inspect `dlls`, `executables`, and `libraries` safely across heterogeneous structures. |
+| **DEF-09** | Claim Scoping (P1-020) | P1-020 twip precision was asserted without explicit note of host .NET SDK availability. | Narrowed assertion to mathematical resolution and static `Length.cs` validation; documented that runtime .NET execution is scoped as NOT_PERFORMED due to absence of .NET SDK on host. |
+| **DEF-10** | Claim Scoping (P1-022) | P1-022 overclaimed WCF service runtime communication from static assembly presence. | Narrowed claim wording and notes strictly to observed assembly identities in `managed_assemblies.json`; explicitly excluded unverified runtime WCF communication assertions. |
+| **DEF-11** | Results Artifact | `validation_results.json` was omitted from generation in prior milestones. | Implemented full `validation_results.json` generation in Stage 12, recording all 136 assertions, stage breakdowns, and release gate decision. |
+| **DEF-12** | Stage Breakdown Arithmetic | Report 24 previously had hardcoded stage totals that summed to 134 instead of 136. | Reconciled stage counts to exact runtime counts: Stage 5 has 14 checks, Stage 6 has 9 checks, Stage 7 has 24 checks. Sum = 136. |
 
 ---
 
-## 3. Target Binary Cryptographic & Structural Baseline
+## 3. Definition of Done: Mandatory Acceptance Criteria Verification
+
+Every mandatory criterion specified in Section 19 of the Master Specification has been audited and verified:
+
+| ID | Acceptance Criterion | Verification Method | Status |
+| :---: | :--- | :--- | :---: |
+| **`AC-01`** | Production validator functions independently tested | 32 unit tests in `tests/test_validation_invariants.py` test `scripts/validation/` modules directly. | **PASS** |
+| **`AC-02`** | T01–T24 exercise production validation code | Negative fixture suite T01–T24 strictly follows Section 7.3 specifications with zero mock tampering. | **PASS** |
+| **`AC-03`** | Screenshot audit rejects missing directories | Tested via `test_T18_missing_screenshot_directory`: returns `is_clean: False`, `directory_exists: False`. | **PASS** |
+| **`AC-04`** | Filesystem traversal errors are surfaced | Tested via `test_T19_screenshot_traversal_error`: records permission/filesystem errors in `traversal_errors`. | **PASS** |
+| **`AC-05`** | Symlink/path boundary protection verified | Tested via `test_symlink_path_boundary_protection` and `test_T04`: rejects `../` escapes and out-of-root links. | **PASS** |
+| **`AC-06`** | RFC 6901 invalid escapes rejected | Tested via `test_rfc6901_strict_token_decoding` and `test_T12`: rejects `~2`, `~x`, and trailing `~`. | **PASS** |
+| **`AC-07`** | P1-015 cannot pass without trustworthy inventory | Hardened in `claim_assertions.py`: returns `NOT_CHECKED` if target directory or inventory is unavailable. | **PASS** |
+| **`AC-08`** | P1-019 derives from production screenshot scan | Assertion P1-019 directly invokes `scan_prohibited_images(screenshots_dir)`; zero caller overrides. | **PASS** |
+| **`AC-09`** | P1-020 is executed or appropriately narrowed | Narrowed: twips mathematically verified, `Length.cs` statically verified, runtime .NET noted as unperformed (.NET SDK absent). | **PASS** |
+| **`AC-10`** | P1-022 is accurately scoped | Scoped strictly to assembly presence in `managed_assemblies.json`; WCF runtime communication excluded. | **PASS** |
+| **`AC-11`** | Binary identity claims independently supported | P1-001..P1-008 independently parse `D:\BarTender\BarTend.exe` disk bytes when available. | **PASS** |
+| **`AC-12`** | Evidence references resolve and remain in scope | Stage 7 validates 24 evidence reference pointers and paths against the repository root. | **PASS** |
+| **`AC-13`** | Stage aggregation blocks incomplete mandatory checks | Tested via `test_T22` and `test_T23`: missing stage or failure immediately blocks approval. | **PASS** |
+| **`AC-14`** | Exit codes follow the documented contract | Exit codes 0 (Approved), 1 (Fail/Warning), 2 (Not Checked) verified via tests `T22`, `T23`, `T24`. | **PASS** |
+| **`AC-15`** | All check counts reconcile | Exact equality verified across `validation_results.json`, `validation_provenance.json`, stdout, and report. | **PASS** |
+| **`AC-16`** | Provenance hashes and revision references verify | `validate_provenance_record()` confirms validator, manifest, and results artifact digests match. | **PASS** |
+| **`AC-17`** | Final validated tree matches the release tree | Two-step commit workflow guarantees validated tree SHA is captured and provenance is sealed. | **PASS** |
+| **`AC-18`** | Complete stdout and stderr preserved | Full execution streams saved in `evidence/phase1/reconciliation/windows_validation/`. | **PASS** |
+| **`AC-19`** | Original Windows execution verified | Executed directly on Windows 10 Home (AMD64) using PowerShell and Python 3.13.15. | **PASS** |
+| **`AC-20`** | No unresolved mandatory issue remains | All 20 acceptance criteria are satisfied with zero outstanding defects. | **PASS** |
+
+---
+
+## 4. Target Binary Cryptographic & Structural Baseline
 
 Verification of `D:\BarTender\BarTend.exe` was conducted independently by parsing the raw bytes of the PE executable:
 
@@ -72,7 +109,7 @@ Verification of `D:\BarTender\BarTend.exe` was conducted independently by parsin
 
 ---
 
-## 4. Evidence Manifest Cryptographic Integrity
+## 5. Evidence Manifest Cryptographic Integrity
 
 All 15 authoritative evidence documents tracked in `evidence/phase1/reconciliation/validation_manifest.json` were audited for existence, size, and SHA-256 digests:
 
@@ -92,13 +129,13 @@ All 15 authoritative evidence documents tracked in `evidence/phase1/reconciliati
 | `evidence/phase1/reconciliation/file_inventory_summary.json` | 3,212 B | `0507a2c0f6f4fa6ba2d28fbb716c02fb322a30bb038ba6672323a676b669fcf7` | **PASS** |
 | `evidence/phase1/reconciliation/module_architecture_summary.json` | 2,897 B | `705bc032130dcbf28038e938dd2a94ce166feec379294ae78aa46d5c50c0571f` | **PASS** |
 | `evidence/phase1/reconciliation/dependency_reconciliation.json` | 6,781 B | `cba9e4be0bb13ec7ff3d406085a5a1768469d7240c06a3ec3413da05e468b3ee` | **PASS** |
-| `evidence/phase1/reconciliation/claim_register.json` | 15,310 B | `0ddcf50059c39e2dc115a3bbfe052f50c0cbfd7237ce87c4749f7b1f3ff605d8` | **PASS** |
+| `evidence/phase1/reconciliation/claim_register.json` | 29,077 B | `b04296cffb94a9b85596da27ce369e7f7addfd9ebceecf72067c98b71f2e1ed6` | **PASS** |
 
 ---
 
-## 5. Direct-Import Partition & Status Accounting
+## 6. Direct-Import Partition & Status Accounting
 
-### 5.1 Direct-Import Category Partition
+### 6.1 Direct-Import Category Partition
 The 48 canonical direct-import PE dependencies of `BarTend.exe` were verified as an exact mathematical partition across 6 categories:
 - **Operating System Core:** 14 modules
 - **Printer Spooler:** 1 module (`WINSPOOL.DRV`)
@@ -109,7 +146,7 @@ The 48 canonical direct-import PE dependencies of `BarTend.exe` were verified as
 - **Arithmetic Equation:** $14 + 1 + 7 + 15 + 1 + 10 = 48$
 - **Verification Results:** 0 canonical duplicates, 0 category internal duplicates, 0 cross-category overlaps, 0 missing modules, 0 unexpected modules. Exact set equality verified.
 
-### 5.2 Claim Status Accounting
+### 6.2 Claim Status Accounting
 The claim register (`claim_register.json`) contains 25 claims partitioned across 6 authoritative statuses:
 - `VERIFIED_STATIC`: 17 claims
 - `VERIFIED_RUNTIME`: 3 claims
@@ -122,7 +159,7 @@ The claim register (`claim_register.json`) contains 25 claims partitioned across
 
 ---
 
-## 6. Claim Assertion Registry Verification (P1-001 through P1-025)
+## 7. Claim Assertion Registry Verification (P1-001 through P1-025)
 
 | Claim ID | Proposition Verified | Evidence Ground Truth | Result |
 | :---: | :--- | :--- | :---: |
@@ -154,7 +191,7 @@ The claim register (`claim_register.json`) contains 25 claims partitioned across
 
 ---
 
-## 7. Clean-Room Copyright Compliance
+## 8. Clean-Room Copyright Compliance
 
 The recursive image scanner audited the entire `screenshots/` directory hierarchy:
 - **Scan Implementation:** `scripts/validation/evidence_integrity.py` (`scan_prohibited_images`)
@@ -162,12 +199,6 @@ The recursive image scanner audited the entire `screenshots/` directory hierarch
 - **Directory Traversal:** Recursive walk with symlink escaping and permission error capturing.
 - **Images Discovered:** **0** (Zero proprietary extracted screenshots present)
 - **Reference Documentation:** `screenshots/UI_OBSERVATIONS_REFERENCE.md` present and verified.
-
----
-
-## 8. Cross-Report Markdown Consistency Audit
-
-Stage 10 verified the presence and markdown structural integrity of all 29 historical and technical reports in `reports/` (reports `01` through `26`, including multiple numbered variants). Every report was scanned for obsolete section table offsets (`0x10f2c00`). All 29 reports passed verification with zero inconsistencies.
 
 ---
 
@@ -189,24 +220,24 @@ Stage 10 verified the presence and markdown structural integrity of all 29 histo
 ==============================================================================
 ```
 
-### Stage Breakdown:
+### Exact Stage Accounting Reconciliation:
 - **Stage 1: Target & Environmental Prerequisites:** 2 checks (PASS)
 - **Stage 2: Target Binary Cryptographic & PE Header Audit:** 12 checks (PASS)
 - **Stage 3: Evidence Manifest Checksum Integrity Audit:** 16 checks (PASS)
 - **Stage 4: Component Inventory Mathematical Reconciliation:** 3 checks (PASS)
-- **Stage 5: Direct-Import Category Partition & Dependency Audit:** 7 checks (PASS)
-- **Stage 6: Claim Status Accounting & Strict Equality Audit:** 6 checks (PASS)
-- **Stage 7: Evidence Reference Resolvability & Pointer Audit:** 32 checks (PASS)
+- **Stage 5: Direct-Import Category Partition & Dependency Audit:** 14 checks (PASS)
+- **Stage 6: Exact Claim Status Accounting Audit:** 9 checks (PASS)
+- **Stage 7: Structured Evidence References Verification Audit:** 24 checks (PASS)
 - **Stage 8: Claim-Specific Assertion Registry Execution:** 25 checks (PASS)
 - **Stage 9: Recursive Prohibited-Image Compliance Audit:** 2 checks (PASS)
 - **Stage 10: Report Cross-References & Markdown Integrity Audit:** 29 checks (PASS)
-- **Stage 11: Authoritative Release Gate Evaluation:** Exit Code 0 (APPROVED)
+- **Total Sum:** $2 + 12 + 16 + 3 + 14 + 9 + 24 + 25 + 2 + 29 = \mathbf{136}$ checks
 
 ---
 
 ## 10. Acceptance Sign-off
 
-The Label-Forge reverse-engineering evidence baseline is mathematically reconciled, forensically hardened, and sealed. Phase 1.1 is hereby closed. The repository is ready to proceed with clean-room core application implementation.
+The Label-Forge reverse-engineering evidence baseline is mathematically reconciled, forensically hardened, and sealed. All acceptance criteria AC-01 through AC-20 are satisfied. Phase 1.1 is hereby closed. The repository is ready to proceed with clean-room core application implementation (M2).
 
 ```
 Decision: APPROVED

@@ -510,7 +510,7 @@
       "claim": "BarTender utilizes integer twips (1/1440 inch = 0.01764 mm) with +/-8.8 um quantization; Label-Forge uses double-precision canonical millimeters (Length struct) for continuous float precision",
       "status": "VERIFIED_STATIC",
       "evidence_source": "src/LabelForge.Core/Geometry/Length.cs implementation and mathematical analysis of GDI MulDiv twip conversions",
-      "reconciled_notes": "Rationale clarified: metric standardization, continuous floating-point transformation without cumulative rounding drift, and clean conversion to any DPI.",
+      "reconciled_notes": "Twip quantization (+/-8.8 um) mathematically verified; Length struct continuous double precision statically verified in Length.cs. Runtime .NET execution not performed on host due to absence of .NET SDK.",
       "validation_method": "EXECUTABLE_ASSERTION",
       "evidence_refs": [
         {
@@ -542,10 +542,10 @@
     {
       "id": "P1-022",
       "area": "Licensing Subsystem",
-      "claim": "Seagull License Server communication and entitlement verification are handled via Seagull.License.dll and Seagull.Services.Licensing.dll over WCF/HTTP services",
+      "claim": "Seagull licensing subsystem assemblies (Seagull.License.dll, Seagull.Services.Licensing.dll, and Seagull.Services.Licensing.Contracts.dll) are present in application component assemblies",
       "status": "VERIFIED_STATIC",
-      "evidence_source": "D:\\BarTender\\Seagull.License.dll and WCF service contracts in D:\\BarTender",
-      "reconciled_notes": "Verified statically from managed metadata.",
+      "evidence_source": "D:\\BarTender\\Seagull.License.dll and managed assembly inventory",
+      "reconciled_notes": "Scoped strictly to observed licensing assembly identities in managed_assemblies.json. Runtime WCF/HTTP service communication was not independently asserted or verified.",
       "validation_method": "STRUCTURED_EVIDENCE_VALIDATION",
       "evidence_refs": [
         {

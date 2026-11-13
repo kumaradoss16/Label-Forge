@@ -28,7 +28,10 @@ def generate_provenance_record(
     target_exe_path: Optional[str] = None,
     actual_target_sha256: Optional[str] = None,
     expected_target_sha256: Optional[str] = None,
-    target_available: bool = False
+    target_available: bool = False,
+    results_path: Optional[str] = None,
+    stdout_log_path: Optional[str] = None,
+    stderr_log_path: Optional[str] = None
 ) -> Dict[str, Any]:
     """Generates the authoritative validation provenance dictionary."""
 
@@ -66,6 +69,21 @@ def generate_provenance_record(
         with open(val_manifest_path, 'rb') as f:
             manifest_sha256 = hashlib.sha256(f.read()).hexdigest()
 
+    results_sha256 = "MISSING"
+    if results_path and os.path.exists(results_path):
+        with open(results_path, 'rb') as f:
+            results_sha256 = hashlib.sha256(f.read()).hexdigest()
+
+    stdout_sha = "MISSING"
+    if stdout_log_path and os.path.exists(stdout_log_path):
+        with open(stdout_log_path, 'rb') as f:
+            stdout_sha = hashlib.sha256(f.read()).hexdigest()
+
+    stderr_sha = "MISSING"
+    if stderr_log_path and os.path.exists(stderr_log_path):
+        with open(stderr_log_path, 'rb') as f:
+            stderr_sha = hashlib.sha256(f.read()).hexdigest()
+
     manifest_verified = (stage_breakdown.get('manifest_integrity') == 'PASS')
 
     result_status = 'PASS' if exit_code == 0 else ('NOT_CHECKED' if exit_code == 2 else 'FAIL')
@@ -88,6 +106,20 @@ def generate_provenance_record(
             'validation_manifest': {
                 'path': os.path.relpath(val_manifest_path, repo_root).replace('\\', '/'),
                 'sha256': manifest_sha256
+            },
+            'validation_results_artifact': {
+                'path': os.path.relpath(results_path, repo_root).replace('\\', '/') if results_path else "MISSING",
+                'sha256': results_sha256
+            },
+            'raw_execution_logs': {
+                'stdout': {
+                    'path': os.path.relpath(stdout_log_path, repo_root).replace('\\', '/') if stdout_log_path else "evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt",
+                    'sha256': stdout_sha
+                },
+                'stderr': {
+                    'path': os.path.relpath(stderr_log_path, repo_root).replace('\\', '/') if stderr_log_path else "evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stderr.txt",
+                    'sha256': stderr_sha
+                }
             },
             'target_executable': {
                 'path': target_exe_path,
@@ -163,6 +195,17 @@ def validate_provenance_record(
             act_m_sha = hashlib.sha256(f.read()).hexdigest()
         if act_m_sha != val_manifest.get('sha256'):
             errors.append(f"Validation manifest SHA-256 mismatch: recorded={val_manifest.get('sha256')}, actual={act_m_sha}")
+
+    val_res = meta.get('validation_results_artifact')
+    if val_res and val_res.get('path') and val_res.get('path') != "MISSING":
+        res_p = os.path.join(repo_root, val_res.get('path', '').replace('/', os.sep))
+        if not os.path.exists(res_p):
+            errors.append(f"Referenced validation results not found: '{val_res.get('path')}'")
+        else:
+            with open(res_p, 'rb') as f:
+                act_r_sha = hashlib.sha256(f.read()).hexdigest()
+            if act_r_sha != val_res.get('sha256'):
+                errors.append(f"Validation results SHA-256 mismatch: recorded={val_res.get('sha256')}, actual={act_r_sha}")
 
     res = provenance_doc.get('validation_results', {})
     acc = res.get('summary_accounting', {})

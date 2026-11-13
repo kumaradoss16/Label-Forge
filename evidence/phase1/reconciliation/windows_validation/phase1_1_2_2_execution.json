@@ -1,6 +1,6 @@
 {
   "milestone": "Phase 1.1.2.2",
-  "timestamp": "2026-11-13T15:39:54.852356+00:00",
+  "timestamp": "2026-11-13T16:27:46.551742+00:00",
   "execution_method": "powershell -ExecutionPolicy Bypass -File scripts/validate-phase1-evidence.ps1",
   "exit_code": 0,
   "release_gate_status": "PHASE 1.1.2.2 \u2014 APPROVED",
@@ -12,13 +12,18 @@
   "artifacts": {
     "stdout_log": {
       "relative_path": "evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt",
-      "sha256": "61b4f366d6e26dffa14607b21127d851765510d53941609a31bba9889e5c2556",
-      "size_bytes": 16293
+      "sha256": "65e4deb938c357d77308004f66d096c4c319d906941b85fd26c2ec5444c10c15",
+      "size_bytes": 16412
     },
     "stderr_log": {
       "relative_path": "evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size_bytes": 0
+    },
+    "validation_results": {
+      "relative_path": "evidence/phase1/reconciliation/validation_results.json",
+      "sha256": "46535926fe0d1b145a5d4a0be6a3e7528d944fd2c96b50b3b6c546ee44c8d984",
+      "size_bytes": 24367
     }
   }
 }

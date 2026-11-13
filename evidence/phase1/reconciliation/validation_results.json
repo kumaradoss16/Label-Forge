@@ -1,0 +1,714 @@
+{
+  "schema_version": "1.1.2.2",
+  "milestone": "Phase 1.1.2.2",
+  "generated_at_utc": "2026-11-13T16:29:14.181317+00:00",
+  "target_binary": {
+    "path": "D:\\BarTender\\BarTend.exe",
+    "size_bytes": 20774984,
+    "sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594"
+  },
+  "summary_accounting": {
+    "total_checks": 136,
+    "pass": 136,
+    "fail": 0,
+    "warning": 0,
+    "not_checked": 0
+  },
+  "stage_breakdown": {
+    "target_binary_integrity": "PASS",
+    "manifest_integrity": "PASS",
+    "direct_import_partition": "PASS",
+    "status_accounting": "PASS",
+    "evidence_references": "PASS",
+    "claim_specific_assertions": "PASS",
+    "recursive_image_audit": "PASS",
+    "report_consistency": "PASS"
+  },
+  "release_gate": {
+    "exit_code": 0,
+    "status": "PHASE 1.1.2.2 \u2014 APPROVED",
+    "decision": "All mandatory integrity and evidence checks verified"
+  },
+  "assertions": [
+    {
+      "assertion_id": "Load canonical target identity manifest",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Target binary located: D:\\BarTender\\BarTend.exe",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "file_size",
+      "status": "PASS",
+      "detail": "File size matches canonical (20,774,984 bytes)"
+    },
+    {
+      "assertion_id": "md5_digest",
+      "status": "PASS",
+      "detail": "MD5 matches (7af37ab384391fcc03935a569d705aa0)"
+    },
+    {
+      "assertion_id": "sha1_digest",
+      "status": "PASS",
+      "detail": "SHA-1 matches (7a57fefa26e99ddec6a46625a8cc17c5a87593aa)"
+    },
+    {
+      "assertion_id": "sha256_digest",
+      "status": "PASS",
+      "detail": "SHA-256 matches (d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594)"
+    },
+    {
+      "assertion_id": "pe_architecture",
+      "status": "PASS",
+      "detail": "Architecture x86_64 PE32+ (Machine 0x8664, Magic 0x20b)"
+    },
+    {
+      "assertion_id": "pe_entry_point",
+      "status": "PASS",
+      "detail": "Entry point RVA matches canonical (0x97d0fb)"
+    },
+    {
+      "assertion_id": "section_table_names",
+      "status": "PASS",
+      "detail": "Sections match canonical exactly (['.text', '.nep', '.rdata', '.data', '.pdata', '.rsrc', '.reloc'])"
+    },
+    {
+      "assertion_id": "data_section_offset",
+      "status": "PASS",
+      "detail": ".data raw offset verified as 0x10f2a00"
+    },
+    {
+      "assertion_id": "authenticode_bounds",
+      "status": "PASS",
+      "detail": "Authenticode bounds verified (offset 0x13cb000, size 20552)"
+    },
+    {
+      "assertion_id": "clr_com_descriptor",
+      "status": "PASS",
+      "detail": "CLR COM descriptor verified at RVA 0xae9b90, size 72"
+    },
+    {
+      "assertion_id": "cli_metadata_root",
+      "status": "PASS",
+      "detail": "CLI Metadata Root verified at RVA 0xc3ca00 (Size: 3111676)"
+    },
+    {
+      "assertion_id": "cor20_flags",
+      "status": "PASS",
+      "detail": "COR20 flags verified as 0 (C++/CLI mixed mode)"
+    },
+    {
+      "assertion_id": "manifest_loaded",
+      "status": "PASS",
+      "detail": "Validation manifest loaded (15 tracked files)"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/target_identity.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/target_identity.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/application_components.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/application_components.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/dependency_graph.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/dependency_graph.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/dotnet_interop_map.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/dotnet_interop_map.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/feature_traceability.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/feature_traceability.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/managed_assemblies.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/managed_assemblies.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/native_dependencies.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/native_dependencies.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/native_module_inventory.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/native_module_inventory.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/resource_inventory.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/resource_inventory.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/runtime_observations.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/runtime_observations.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/reconciliation/canonical_target_identity.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/reconciliation/canonical_target_identity.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/reconciliation/file_inventory_summary.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/reconciliation/file_inventory_summary.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/reconciliation/module_architecture_summary.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/reconciliation/module_architecture_summary.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/reconciliation/dependency_reconciliation.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/reconciliation/dependency_reconciliation.json'"
+    },
+    {
+      "assertion_id": "checksum_match:evidence/phase1/reconciliation/claim_register.json",
+      "status": "PASS",
+      "detail": "Verified 'evidence/phase1/reconciliation/claim_register.json'"
+    },
+    {
+      "assertion_id": "Mutually exclusive file category sum (555 files)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Filesystem item equation: 34 directories + 555 files = 589 items",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "PE binary classification sum (461 PE binaries: 332 IL, 20 mixed, 27 x64, 82 x86)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Canonical direct-import list has zero duplicates (48 modules)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Categories have zero internal duplicates",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Zero cross-category module overlaps detected (mutually exclusive)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Zero canonical direct-import modules omitted from categories",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Zero unexpected modules found in direct-import categories",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Exact direct-import partition verified: categorized == canonical (48 modules)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Delay-loaded PE imports count verified (17 DLLs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Confirmed phantom DLL absent from target directory: BtEngine.dll",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Confirmed phantom DLL absent from target directory: BtBarcode.dll",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Confirmed phantom DLL absent from target directory: BtPrint.dll",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Confirmed phantom DLL absent from target directory: BtSystem.dll",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Confirmed phantom DLL absent from target directory: BtLic.dll",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Confirmed phantom DLL absent from target directory: BtData.dll",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Confirmed phantom DLL absent from target directory: XtremeToolkitPro.dll",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Total claims count field matches claims array length (25)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim ID uniqueness verified (25 distinct IDs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Complete status dictionary equality verified: actual_counts == declared_counts",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [UNKNOWN]: exactly 0 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [INFERRED]: exactly 0 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-001 structured evidence_refs verified (2 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-002 structured evidence_refs verified (3 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-003 structured evidence_refs verified (2 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-004 structured evidence_refs verified (3 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-005 structured evidence_refs verified (2 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-006 structured evidence_refs verified (3 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-007 structured evidence_refs verified (3 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-008 structured evidence_refs verified (3 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-009 structured evidence_refs verified (3 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-010 structured evidence_refs verified (3 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-011 structured evidence_refs verified (2 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-012 structured evidence_refs verified (2 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-013 structured evidence_refs verified (1 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-014 structured evidence_refs verified (2 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-015 structured evidence_refs verified (2 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-016 structured evidence_refs verified (2 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-017 structured evidence_refs verified (1 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-019 structured evidence_refs verified (1 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-020 structured evidence_refs verified (1 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-021 structured evidence_refs verified (1 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-022 structured evidence_refs verified (3 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-023 structured evidence_refs verified (1 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-024 structured evidence_refs verified (1 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-025 structured evidence_refs verified (1 valid refs)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Claim P1-001 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Primary executable size verified on disk as exactly 20,774,984 bytes (canonical: 20,774,984 bytes)"
+    },
+    {
+      "assertion_id": "Claim P1-002 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Cryptographic digests MD5, SHA-1, SHA-256 independently computed and match ground truth (SHA-256: d3498925149b91c6...)"
+    },
+    {
+      "assertion_id": "Claim P1-003 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "FileVersion '11.4.238.365' and ProductVersion '11.4.0.1' (BarTender 11.4) verified from VS_FIXEDFILEINFO"
+    },
+    {
+      "assertion_id": "Claim P1-004 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "PE Architecture independently verified: Machine=0x8664 (AMD64), Magic=0x020b (PE32+), Subsystem=2 (GUI)"
+    },
+    {
+      "assertion_id": "Claim P1-005 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "AddressOfEntryPoint (0x97d0fb) and ImageBase (0x140000000) independently verified from PE Optional Header"
+    },
+    {
+      "assertion_id": "Claim P1-006 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Section table (7 sections, .data RawOffset=0x10f2a00) independently parsed and verified from target binary"
+    },
+    {
+      "assertion_id": "Claim P1-007 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Authenticode bounds verified from target PE: offset 0x13cb000, size 20552 terminates at exact file end 20774984"
+    },
+    {
+      "assertion_id": "Claim P1-008 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "COM descriptor at RVA 0xae9b90 pointing to CLI Metadata Root at RVA 0xc3ca00, Flags=0 (C++/CLI mixed mode) independently verified from target binary"
+    },
+    {
+      "assertion_id": "Claim P1-009 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Filesystem inventory verified: 555 files + 34 directories = 589 items in target directory"
+    },
+    {
+      "assertion_id": "Claim P1-010 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "File category partition verified: 24 exe, 433 dll, 4 ocx, sum=555 files"
+    },
+    {
+      "assertion_id": "Claim P1-011 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "PE binary classifications verified (461 binaries: 332 IL, 20 mixed, 27 x64, 82 x86)"
+    },
+    {
+      "assertion_id": "Claim P1-012 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Direct static PE imports verified (48 DLLs across 7 categories, sum=48)"
+    },
+    {
+      "assertion_id": "Claim P1-013 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Delay-loaded PE imports verified (17 DLLs: ['BarCode_Aztec.dll', 'BarCode_Composite.dll', 'BarCode_DataMatrix.dll']...)"
+    },
+    {
+      "assertion_id": "Claim P1-014 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Codejock library verified as ToolkitPro1531vc142x64U.dll (10,844,184 bytes, x86_64)"
+    },
+    {
+      "assertion_id": "Claim P1-015 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Absence of standalone modules {'BtPrint.dll', 'BtEngine.dll', 'BtData.dll', 'BtBarcode.dll', 'BtSystem.dll', 'BtLic.dll'} verified across target directory 'D:\\BarTender' and reconciliation register"
+    },
+    {
+      "assertion_id": "Claim P1-016 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Modular 2D barcode plugin verified with exported C API GenerateQRCode in BarCode_QRCode.dll"
+    },
+    {
+      "assertion_id": "Claim P1-017 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "CArchive and MFC serialization boundaries verified in dotnet_interop_map.json"
+    },
+    {
+      "assertion_id": "Claim P1-018 [NOT_PERFORMED] assertion",
+      "status": "PASS",
+      "detail": "Ghidra deep decompilation verified as NOT_PERFORMED due to unset GHIDRA_INSTALL_DIR boundary"
+    },
+    {
+      "assertion_id": "Claim P1-019 [VERIFIED_DOCUMENTATION] assertion",
+      "status": "PASS",
+      "detail": "Clean-room asset compliance verified via production scan: zero proprietary images in screenshots tree and observational reference documented"
+    },
+    {
+      "assertion_id": "Claim P1-020 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Continuous millimeter float precision and integer twips (+/-8.8 um quantization) mathematically and statically verified in Length.cs (runtime .NET execution not performed: .NET SDK not installed on host)"
+    },
+    {
+      "assertion_id": "Claim P1-021 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Direct static linkage of WINSPOOL.DRV in Windows Print Spooler category verified"
+    },
+    {
+      "assertion_id": "Claim P1-022 [VERIFIED_STATIC] assertion",
+      "status": "PASS",
+      "detail": "Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.Contracts.dll', 'Seagull.Services.Licensing.dll', 'Seagull.License.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted)"
+    },
+    {
+      "assertion_id": "Claim P1-023 [VERIFIED_RUNTIME] assertion",
+      "status": "PASS",
+      "detail": "RT-01 process startup & modal activation prompt verified: Process spawns, initializes CLR v4.0.30319, loads MFC140u.dl..."
+    },
+    {
+      "assertion_id": "Claim P1-024 [VERIFIED_RUNTIME] assertion",
+      "status": "PASS",
+      "detail": "RT-02 managed print API LicenseException verified: Throws LicenseException: 'You must activate BarTender with a..."
+    },
+    {
+      "assertion_id": "Claim P1-025 [VERIFIED_RUNTIME] assertion",
+      "status": "PASS",
+      "detail": "RT-03 COM Automation ProgID & unattended execution limitation verified: COM ProgID registration and process activation launch are ve..."
+    },
+    {
+      "assertion_id": "Recursive prohibited-image audit: zero prohibited images found in screenshots/ tree",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "UI observations reference documentation present (UI_OBSERVATIONS_REFERENCE.md)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 01_TARGET_IDENTITY.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 02_EXECUTABLE_ANALYSIS.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 03_DEPENDENCY_MAP.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 04_COMPONENT_ARCHITECTURE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 05_UI_REFERENCE_SPECIFICATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 06_BEHAVIOURAL_SPECIFICATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 07_FEATURE_INVENTORY.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 07_TECHNICAL_ARCHITECTURE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 08_MVP_SCOPE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 08_WORKFLOW_CATALOG.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 09_BUILD_READINESS_REPORT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 09_RUNTIME_EVIDENCE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 10_M0_M1_EXECUTION_REPORT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 11_PHASE1_TARGET_IDENTITY.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 12_PHASE1_APPLICATION_STRUCTURE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 13_PHASE1_DEPENDENCY_ANALYSIS.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 14_PHASE1_DOTNET_ASSEMBLY_ANALYSIS.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 15_PHASE1_NATIVE_BINARY_ANALYSIS.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 16_PHASE1_RESOURCE_ANALYSIS.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 17_PHASE1_RUNTIME_AND_WINDOWS_INTEGRATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 18_PHASE1_FEATURE_TRACEABILITY.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 20_PHASE1_1_EVIDENCE_RECONCILIATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 21_PHASE1_1_CORRECTION_LOG.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 22_PHASE1_1_2_WINDOWS_VALIDATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 25_PHASE1_1_2_2_CORRECTION_LOG.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md",
+      "status": "PASS",
+      "detail": ""
+    }
+  ]
+}
