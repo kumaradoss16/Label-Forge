@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.2.2",
   "milestone": "Phase 1.1.2.2",
-  "generated_at_utc": "2026-11-13T16:29:14.181317+00:00",
+  "generated_at_utc": "2026-11-13T16:30:15.877771+00:00",
   "target_binary": {
     "path": "D:\\BarTender\\BarTend.exe",
     "size_bytes": 20774984,
@@ -281,21 +281,6 @@
       "detail": ""
     },
     {
-      "assertion_id": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
-      "status": "PASS",
-      "detail": ""
-    },
-    {
-      "assertion_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "status": "PASS",
-      "detail": ""
-    },
-    {
-      "assertion_id": "Status accounting [UNKNOWN]: exactly 0 claims",
-      "status": "PASS",
-      "detail": ""
-    },
-    {
       "assertion_id": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
       "status": "PASS",
       "detail": ""
@@ -306,7 +291,22 @@
       "detail": ""
     },
     {
+      "assertion_id": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [UNKNOWN]: exactly 0 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
       "assertion_id": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
       "status": "PASS",
       "detail": ""
     },
@@ -503,7 +503,7 @@
     {
       "assertion_id": "Claim P1-015 [VERIFIED_STATIC] assertion",
       "status": "PASS",
-      "detail": "Absence of standalone modules {'BtPrint.dll', 'BtEngine.dll', 'BtData.dll', 'BtBarcode.dll', 'BtSystem.dll', 'BtLic.dll'} verified across target directory 'D:\\BarTender' and reconciliation register"
+      "detail": "Absence of standalone modules {'BtPrint.dll', 'BtSystem.dll', 'BtBarcode.dll', 'BtEngine.dll', 'BtLic.dll', 'BtData.dll'} verified across target directory 'D:\\BarTender' and reconciliation register"
     },
     {
       "assertion_id": "Claim P1-016 [VERIFIED_STATIC] assertion",
@@ -538,7 +538,7 @@
     {
       "assertion_id": "Claim P1-022 [VERIFIED_STATIC] assertion",
       "status": "PASS",
-      "detail": "Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.Contracts.dll', 'Seagull.Services.Licensing.dll', 'Seagull.License.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted)"
+      "detail": "Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.dll', 'Seagull.Services.Licensing.Contracts.dll', 'Seagull.License.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted)"
     },
     {
       "assertion_id": "Claim P1-023 [VERIFIED_RUNTIME] assertion",
