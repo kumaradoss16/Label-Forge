@@ -1,0 +1,25 @@
+{
+  "operating_system": {
+    "platform": "Windows",
+    "release": "10",
+    "version": "10.0.19045",
+    "machine": "AMD64",
+    "processor": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD"
+  },
+  "python_environment": {
+    "version": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\python3.14\\python.exe",
+    "compiler": "MSC v.1944 64 bit (AMD64)",
+    "build": [
+      "tags/v3.13.15:4061bc4",
+      "Aug  5 2026 13:05:39"
+    ]
+  },
+  "powershell_version": "5.1.19041.5072",
+  "target_binary": {
+    "path": "D:\\BarTender\\BarTend.exe",
+    "exists": true,
+    "size_bytes": 20774984,
+    "sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594"
+  }
+}

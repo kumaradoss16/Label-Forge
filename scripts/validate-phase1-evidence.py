@@ -25,7 +25,16 @@ REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-from scripts.validation.stage_results import AssertionRecord, StageResult, aggregate_stage_status
+from scripts.validation.stage_results import (
+    AssertionRecord,
+    StageResult,
+    aggregate_stage_status,
+    evaluate_release_gate
+)
+from scripts.validation.binary_validation import (
+    validate_target_binary,
+    validate_evidence_manifest
+)
 from scripts.validation.dependency_validation import validate_direct_import_partition
 from scripts.validation.evidence_integrity import (
     resolve_json_pointer,
@@ -102,7 +111,7 @@ class ValidationSuite:
 
     def _run_internal(self):
         self.log_print("=" * 78)
-        self.log_print("   LABEL-FORGE PHASE 1.1.2.1: VALIDATOR CORRECTNESS & PROVENANCE CLOSURE")
+        self.log_print("   LABEL-FORGE PHASE 1.1.2.2: INDEPENDENT VALIDATOR ACCEPTANCE & FINAL CLOSURE")
         self.log_print("=" * 78)
 
         # -------------------------------------------------------------
@@ -139,228 +148,29 @@ class ValidationSuite:
 
         # -------------------------------------------------------------
         # STAGE 2: Target Binary Cryptographic & Header Verification
-        # (Strict Stage Result Aggregation - No Unconditional PASS)
+        # (Strict Stage Result Aggregation - Production Binary Validator)
         # -------------------------------------------------------------
         self.log_print("\n[STAGE 2] Target Binary Cryptographic & PE Header Audit (Dynamic Derivation)")
         stage2 = StageResult("target_binary_integrity", "Target Binary PE Verification")
-
-        if not target_available:
-            rec = AssertionRecord(
-                assertion_id="Binary size & hash verification",
-                status="NOT_CHECKED",
-                detail="Target binary not present on host"
-            )
-            stage2.add(rec)
-            self.record_assertion(rec)
-            self.stage_results['target_binary_integrity'] = stage2.recompute_status()
-        else:
-            actual_size = len(bin_data)
-            expected_size = canonical['file_size_bytes']
-            if actual_size == expected_size:
-                rec = AssertionRecord(f"File size matches canonical ({actual_size:,} bytes)", "PASS")
-            else:
-                rec = AssertionRecord("File size check", "FAIL", f"Expected {expected_size}, got {actual_size}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            actual_md5 = hashlib.md5(bin_data).hexdigest()
-            expected_md5 = canonical['hashes']['md5']
-            if actual_md5 == expected_md5:
-                rec = AssertionRecord(f"MD5 digest match ({actual_md5})", "PASS")
-            else:
-                rec = AssertionRecord("MD5 digest check", "FAIL", f"Expected {expected_md5}, got {actual_md5}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            actual_sha1 = hashlib.sha1(bin_data).hexdigest()
-            expected_sha1 = canonical['hashes']['sha1']
-            if actual_sha1 == expected_sha1:
-                rec = AssertionRecord(f"SHA-1 digest match ({actual_sha1})", "PASS")
-            else:
-                rec = AssertionRecord("SHA-1 digest check", "FAIL", f"Expected {expected_sha1}, got {actual_sha1}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            actual_sha256 = hashlib.sha256(bin_data).hexdigest()
-            if actual_sha256 == expected_sha256:
-                rec = AssertionRecord(f"SHA-256 digest match ({actual_sha256})", "PASS")
-            else:
-                rec = AssertionRecord("SHA-256 digest check", "FAIL", f"Expected {expected_sha256}, got {actual_sha256}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            # Parse PE Optional Header
-            e_lfanew = struct.unpack_from('<I', bin_data, 0x3C)[0]
-            machine = struct.unpack_from('<H', bin_data, e_lfanew+4)[0]
-            num_sections = struct.unpack_from('<H', bin_data, e_lfanew+6)[0]
-            opt_header_size = struct.unpack_from('<H', bin_data, e_lfanew+20)[0]
-            opt_offset = e_lfanew + 24
-            magic = struct.unpack_from('<H', bin_data, opt_offset)[0]
-            entry_point = struct.unpack_from('<I', bin_data, opt_offset+16)[0]
-
-            expected_machine = int(canonical['pe_header']['machine'], 16)
-            expected_magic = int(canonical['pe_header']['magic'], 16)
-            expected_ep = int(canonical['pe_header']['entry_point'], 16)
-
-            if machine == expected_machine and magic == expected_magic:
-                rec = AssertionRecord(f"PE Architecture x86_64 PE32+ (Machine {hex(machine)}, Magic {hex(magic)})", "PASS")
-            else:
-                rec = AssertionRecord("PE Architecture check", "FAIL", f"Machine {hex(machine)}, Magic {hex(magic)}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            if entry_point == expected_ep:
-                rec = AssertionRecord(f"Entry point RVA matches canonical ({hex(entry_point)})", "PASS")
-            else:
-                rec = AssertionRecord("Entry point RVA check", "FAIL", f"Expected {hex(expected_ep)}, got {hex(entry_point)}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            # Sections Verification
-            sec_table_offset = opt_offset + opt_header_size
-            actual_sections = []
-            for i in range(num_sections):
-                so = sec_table_offset + i * 40
-                name = bin_data[so:so+8].rstrip(b'\x00').decode('latin1')
-                vsize, vaddr, rsize, raddr = struct.unpack_from('<IIII', bin_data, so+8)
-                actual_sections.append({
-                    'name': name,
-                    'va': hex(vaddr),
-                    'vsize': vsize,
-                    'raddr': hex(raddr),
-                    'rsize': rsize
-                })
-
-            canonical_sec_names = [s['name'] for s in canonical['sections']]
-            actual_sec_names = [s['name'] for s in actual_sections]
-            if actual_sec_names == canonical_sec_names:
-                rec = AssertionRecord(f"Section table matches canonical exactly ({actual_sec_names})", "PASS")
-            else:
-                rec = AssertionRecord("Section names check", "FAIL", f"Expected {canonical_sec_names}, got {actual_sec_names}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            # Check section .data raw file offset dynamically from canonical manifest
-            canonical_data_sec = next((s for s in canonical['sections'] if s['name'] == '.data'), None)
-            expected_data_raddr = canonical_data_sec['raw_data_offset'] if canonical_data_sec else None
-            data_sec = next((s for s in actual_sections if s['name'] == '.data'), None)
-            if data_sec and data_sec['raddr'] == expected_data_raddr:
-                rec = AssertionRecord(f"Section .data raw offset dynamically verified as {expected_data_raddr}", "PASS")
-            else:
-                rec = AssertionRecord("Section .data raw offset check", "FAIL", f"Expected {expected_data_raddr}, got {data_sec['raddr'] if data_sec else 'missing'}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            # Authenticode boundary check dynamically derived from canonical manifest
-            dir_base = opt_offset + 112
-            cert_va, cert_size = struct.unpack_from('<II', bin_data, dir_base + 4*8)
-            expected_cert_va = int(canonical['authenticode_signature']['file_offset'], 16)
-            expected_cert_size = canonical['authenticode_signature']['size']
-
-            if cert_va == expected_cert_va and cert_size == expected_cert_size:
-                rec = AssertionRecord(f"Authenticode directory physical bounds verified (offset {hex(cert_va)}, size {cert_size}, terminates at file end)", "PASS")
-            else:
-                rec = AssertionRecord("Authenticode boundary check", "FAIL", f"Expected offset {hex(expected_cert_va)} size {expected_cert_size}, got offset {hex(cert_va)} size {cert_size}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            # CLR COM descriptor dynamically derived from canonical manifest
-            com_rva, com_size = struct.unpack_from('<II', bin_data, dir_base + 14*8)
-            com_desc = canonical['clr_runtime']['com_descriptor_directory']
-            expected_com_rva = int(com_desc['virtual_address'], 16)
-            expected_com_size = com_desc['size']
-
-            if com_rva == expected_com_rva and com_size == expected_com_size:
-                rec = AssertionRecord(f"CLR COM descriptor verified dynamically at RVA {hex(com_rva)}, size {com_size}", "PASS")
-            else:
-                rec = AssertionRecord("CLR COM descriptor check", "FAIL", f"Expected RVA {hex(expected_com_rva)} size {expected_com_size}, got {hex(com_rva)} {com_size}")
-            stage2.add(rec)
-            self.record_assertion(rec)
-
-            def rva_to_off(rva):
-                for s in actual_sections:
-                    va = int(s['va'], 16)
-                    vs = s['vsize']
-                    ra = int(s['raddr'], 16)
-                    if va <= rva < va + vs:
-                        return ra + (rva - va)
-                return None
-
-            com_off = rva_to_off(com_rva)
-            if com_off is None or com_off + 72 > len(bin_data):
-                rec = AssertionRecord("CLR COM header offset resolution", "FAIL", f"Invalid com_off: {com_off}")
-                stage2.add(rec)
-                self.record_assertion(rec)
-            else:
-                cor_header = bin_data[com_off:com_off+72]
-                meta_rva, meta_size = struct.unpack_from('<II', cor_header, 8)
-                cor_flags = struct.unpack_from('<I', cor_header, 16)[0]
-
-                cli_meta = canonical['clr_runtime']['cli_metadata_root']
-                expected_meta_rva = int(cli_meta['virtual_address'], 16)
-                expected_meta_size = cli_meta['size_bytes']
-                expected_cor_flags = canonical['clr_runtime']['cor20_header']['flags']
-
-                if meta_rva == expected_meta_rva and meta_size == expected_meta_size:
-                    rec = AssertionRecord(f"CLI Metadata Root verified dynamically at RVA {hex(meta_rva)} (Size: {meta_size})", "PASS")
-                else:
-                    rec = AssertionRecord("CLI Metadata Root check", "FAIL", f"Expected RVA {hex(expected_meta_rva)} size {expected_meta_size}, got {hex(meta_rva)} {meta_size}")
-                stage2.add(rec)
-                self.record_assertion(rec)
-
-                if cor_flags == expected_cor_flags:
-                    rec = AssertionRecord(f"COMIMAGE_FLAGS_ILONLY verified as {expected_cor_flags} (C++/CLI mixed mode)", "PASS")
-                else:
-                    rec = AssertionRecord("COMIMAGE_FLAGS check", "FAIL", f"Expected {expected_cor_flags}, got {hex(cor_flags)}")
-                stage2.add(rec)
-                self.record_assertion(rec)
-
-            self.stage_results['target_binary_integrity'] = stage2.recompute_status()
+        is_bin_valid, bin_records, bin_info = validate_target_binary(target_exe, canonical)
+        for brec in bin_records:
+            stage2.add(brec)
+            self.record_assertion(brec)
+        self.stage_results['target_binary_integrity'] = stage2.recompute_status()
+        if 'sha256' in bin_info:
+            actual_sha256 = bin_info['sha256']
 
         # -------------------------------------------------------------
         # STAGE 3: Evidence Manifest Integrity & SHA-256 Validation
+        # (Production Manifest Validator)
         # -------------------------------------------------------------
         self.log_print("\n[STAGE 3] Evidence Manifest Checksum Integrity Audit")
         stage3 = StageResult("manifest_integrity", "Validation Manifest Checksums")
         val_manifest_path = os.path.join(RECON_DIR, 'validation_manifest.json')
-        if not os.path.exists(val_manifest_path):
-            rec = AssertionRecord("Validation manifest presence", "FAIL", f"Missing {val_manifest_path}")
-            stage3.add(rec)
-            self.record_assertion(rec)
-        else:
-            with open(val_manifest_path, 'r', encoding='utf-8') as f:
-                val_manifest = json.load(f)
-
-            manifest_files = val_manifest.get('files', [])
-            rec = AssertionRecord(f"Validation manifest loaded ({len(manifest_files)} tracked evidence files)", "PASS")
-            stage3.add(rec)
-            self.record_assertion(rec)
-
-            for entry in manifest_files:
-                rel_path = entry['relative_path']
-                exp_size = entry['size_bytes']
-                exp_sha = entry['sha256']
-                full_path = os.path.join(REPO_ROOT, rel_path.replace('/', os.sep))
-
-                if not os.path.exists(full_path):
-                    rec = AssertionRecord(f"Tracked evidence exists: {rel_path}", "FAIL", "File missing on disk")
-                    stage3.add(rec)
-                    self.record_assertion(rec)
-                    continue
-
-                with open(full_path, 'rb') as ef:
-                    actual_ef_data = ef.read()
-
-                act_size = len(actual_ef_data)
-                act_sha = hashlib.sha256(actual_ef_data).hexdigest()
-
-                if act_size == exp_size and act_sha == exp_sha:
-                    rec = AssertionRecord(f"Evidence checksum match: {rel_path}", "PASS")
-                else:
-                    rec = AssertionRecord(f"Evidence checksum check: {rel_path}", "FAIL", f"Expected {exp_sha[:12]}, got {act_sha[:12]}")
-                stage3.add(rec)
-                self.record_assertion(rec)
-
+        is_man_valid, man_records, man_summary = validate_evidence_manifest(val_manifest_path, REPO_ROOT)
+        for mrec in man_records:
+            stage3.add(mrec)
+            self.record_assertion(mrec)
         self.stage_results['manifest_integrity'] = stage3.recompute_status()
 
         # -------------------------------------------------------------
@@ -608,8 +418,8 @@ class ValidationSuite:
             dotnet_interop_doc=dotnet_interop_doc,
             managed_assm_doc=managed_assm_doc,
             runtime_doc=runtime_doc,
-            target_exe_path=target_exe if target_exe else r"D:\BarTender\BarTend.exe",
-            screenshots_clean_room_verified=is_clean_room
+            app_comp_doc=app_comp_doc,
+            target_exe_path=target_exe if target_exe else r"D:\BarTender\BarTend.exe"
         )
 
         for c in claims:
@@ -698,7 +508,10 @@ class ValidationSuite:
             '20_PHASE1_1_EVIDENCE_RECONCILIATION.md',
             '21_PHASE1_1_CORRECTION_LOG.md',
             '22_PHASE1_1_2_WINDOWS_VALIDATION.md',
-            '23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md'
+            '23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md',
+            '24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md',
+            '25_PHASE1_1_2_2_CORRECTION_LOG.md',
+            '26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md'
         ]
 
         for rep in expected_reports:
@@ -746,29 +559,17 @@ class ValidationSuite:
         self.log_print(f"  NOT_CHECKED           : {self.counts['NOT_CHECKED']}")
         self.log_print("-" * 78)
 
-        # Enforce exact exit code semantics:
-        # 0: all pass, 0 fail, 0 not_checked, 0 warnings
-        # 1: failure
-        # 2: not_checked / prerequisite failure
-        exit_code = 0
+        # Authoritative Release Gate Evaluation
+        # (Production Module: stage_results.py)
+        exit_code, gate_status, gate_message = evaluate_release_gate(self.stage_results, self.counts)
+        self.log_print(f"  RELEASE GATE STATUS   : {gate_status}")
+        self.log_print(f"  RELEASE GATE DECISION : {gate_message}")
+        self.log_print(f"  EXIT CODE             : {exit_code}")
         if self.counts['FAIL'] > 0:
-            self.log_print("  RESULT: FAILED (See failures below)")
+            self.log_print("  FAILURE DETAILS:")
             for f in self.failures:
                 self.log_print(f"    - {f}")
-            self.log_print("=" * 78)
-            exit_code = 1
-        elif self.counts['NOT_CHECKED'] > 0:
-            self.log_print("  RESULT: PREREQUISITE ERROR OR UNCHECKED CHECKS (NOT_CHECKED > 0)")
-            self.log_print("=" * 78)
-            exit_code = 2
-        elif self.counts['WARNING'] > 0:
-            self.log_print("  RESULT: WARNINGS PRESENT (Release gate blocked unless resolved)")
-            self.log_print("=" * 78)
-            exit_code = 1
-        else:
-            self.log_print("  RESULT: DETERMINISTIC PASS (All integrity checks verified)")
-            self.log_print("=" * 78)
-            exit_code = 0
+        self.log_print("=" * 78)
 
         # -------------------------------------------------------------
         # STAGE 12: Validation Execution Provenance Generation

@@ -24,27 +24,59 @@ PROHIBITED_IMAGE_EXTENSIONS: Tuple[str, ...] = (
     '.heif', '.jfif'
 )
 
+def decode_reference_token(token: str) -> str:
+    """
+    Decodes an RFC 6901 reference token.
+    Enforces strict RFC 6901 rules:
+    - '~1' decodes to '/'
+    - '~0' decodes to '~'
+    - Any '~' followed by a character other than '0' or '1' is an error.
+    - A trailing '~' is an error.
+    """
+    i = 0
+    n = len(token)
+    res = []
+    while i < n:
+        if token[i] == '~':
+            if i + 1 >= n:
+                raise ValueError(f"Invalid RFC 6901 JSON pointer: trailing '~' in token '{token}'")
+            next_c = token[i + 1]
+            if next_c == '0':
+                res.append('~')
+                i += 2
+            elif next_c == '1':
+                res.append('/')
+                i += 2
+            else:
+                raise ValueError(f"Invalid RFC 6901 JSON pointer: invalid escape sequence '~{next_c}' in token '{token}'")
+        else:
+            res.append(token[i])
+            i += 1
+    return "".join(res)
+
 def resolve_json_pointer(doc: Any, pointer: str) -> Any:
     """
     Resolves an RFC 6901 JSON pointer against a Python dictionary/list structure.
-    Escaping:
-      ~1 -> /
-      ~0 -> ~
+    Enforces strict RFC 6901 syntax validation:
+    - Pointer must be empty string (whole doc) or start with '/'
+    - Reference tokens are separated by '/'
+    - Tokens are strictly decoded with decode_reference_token
+    - Array indexes must be non-negative integers without leading zeros or signs
     """
     if not pointer or pointer == "":
         return doc
     if not pointer.startswith('/'):
-        raise ValueError(f"Invalid JSON pointer (must start with '/'): '{pointer}'")
+        raise ValueError(f"Invalid RFC 6901 JSON pointer (must start with '/'): '{pointer}'")
 
-    parts = pointer[1:].split('/')
+    raw_parts = pointer[1:].split('/')
     curr = doc
-    for part in parts:
-        part = part.replace('~1', '/').replace('~0', '~')
+    for raw_part in raw_parts:
+        part = decode_reference_token(raw_part)
         if isinstance(curr, list):
-            try:
-                idx = int(part)
-            except ValueError:
-                raise IndexError(f"List index must be integer, got '{part}'")
+            # RFC 6901 Section 4: array-index = "0" / ( %x31-39 *(%x30-39) )
+            if not part.isdigit() or (len(part) > 1 and part.startswith('0')) or part.startswith('+') or part.startswith('-'):
+                raise IndexError(f"Invalid array index token: '{part}' (must be non-negative integer without leading zeros)")
+            idx = int(part)
             if idx < 0 or idx >= len(curr):
                 raise IndexError(f"Index {idx} out of range (length {len(curr)})")
             curr = curr[idx]
@@ -137,13 +169,17 @@ def scan_prohibited_images(
     Recursively scans target_directory for files with prohibited image extensions.
     Guards against symlink directory traversal outside the root.
     Records any traversal or access errors explicitly.
+    CRITICAL ACCEPTANCE RULE:
+    - If target_directory does not exist: is_clean is FALSE (directory_exists = False).
+    - If any traversal/permission error occurs: is_clean is FALSE.
+    - If any prohibited image is found: is_clean is FALSE.
     """
     found_images: List[str] = []
     traversal_errors: List[str] = []
 
     if not os.path.exists(target_directory):
         return {
-            'is_clean': True,
+            'is_clean': False,
             'directory_exists': False,
             'found_images': [],
             'traversal_errors': [f"Directory not found: '{target_directory}'"]
@@ -151,19 +187,33 @@ def scan_prohibited_images(
 
     real_target_root = os.path.realpath(target_directory)
 
+    def on_walk_error(err: OSError):
+        traversal_errors.append(f"Filesystem traversal error at '{err.filename}': {err.strerror}")
+
     try:
-        for root, dirs, files in os.walk(target_directory, followlinks=follow_symlinks):
-            # Check symlink boundary
-            if not follow_symlinks:
-                real_current = os.path.realpath(root)
-                if not real_current.startswith(real_target_root):
-                    traversal_errors.append(f"Symlink directory traversal detected outside target: '{root}'")
-                    continue
+        for root, dirs, files in os.walk(target_directory, followlinks=follow_symlinks, onerror=on_walk_error):
+            real_current = os.path.realpath(root)
+            if not (real_current == real_target_root or real_current.startswith(real_target_root + os.sep)):
+                traversal_errors.append(f"Symlink directory traversal detected outside target: '{root}'")
+                continue
+
+            for d in list(dirs):
+                dpath = os.path.join(root, d)
+                if os.path.islink(dpath) and not follow_symlinks:
+                    real_d = os.path.realpath(dpath)
+                    if not (real_d == real_target_root or real_d.startswith(real_target_root + os.sep)):
+                        traversal_errors.append(f"Symlinked directory escapes target root: '{dpath}' -> '{real_d}'")
 
             for f in files:
+                fpath = os.path.join(root, f)
+                if os.path.islink(fpath) and not follow_symlinks:
+                    real_f = os.path.realpath(fpath)
+                    if not (real_f == real_target_root or real_f.startswith(real_target_root + os.sep)):
+                        traversal_errors.append(f"Symlinked file escapes target root: '{fpath}' -> '{real_f}'")
+
                 ext = os.path.splitext(f)[1].lower()
                 if ext in prohibited_extensions:
-                    rel_p = os.path.relpath(os.path.join(root, f), target_directory).replace('\\', '/')
+                    rel_p = os.path.relpath(fpath, target_directory).replace('\\', '/')
                     found_images.append(rel_p)
 
     except Exception as e:
@@ -174,7 +224,7 @@ def scan_prohibited_images(
     return {
         'is_clean': is_clean,
         'directory_exists': True,
-        'found_images': found_images,
+        'found_images': sorted(found_images),
         'traversal_errors': traversal_errors
     }
 

@@ -7,11 +7,16 @@ from .stage_results import (
     AssertionRecord,
     StageResult,
     aggregate_stage_status,
+    evaluate_release_gate,
     STATUS_PASS,
     STATUS_FAIL,
     STATUS_WARNING,
     STATUS_NOT_CHECKED,
     ALLOWED_RESULT_STATUSES
+)
+from .binary_validation import (
+    validate_target_binary,
+    validate_evidence_manifest
 )
 from .dependency_validation import validate_direct_import_partition
 from .evidence_integrity import (
@@ -23,4 +28,7 @@ from .evidence_integrity import (
     PROHIBITED_IMAGE_EXTENSIONS
 )
 from .claim_assertions import make_claim_assertion_registry
-from .provenance import generate_provenance_record
+from .provenance import (
+    generate_provenance_record,
+    validate_provenance_record
+)
