@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "status": "RECONCILED_AUTHORITATIVE",
-  "generated_at": "2026-11-11T07:44:27.007090+00:00",
+  "generated_at": "2026-11-13T14:57:35.877992+00:00",
   "target_application_sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594",
   "tracked_evidence_files_count": 15,
   "files": [
@@ -77,8 +77,8 @@
     },
     {
       "relative_path": "evidence/phase1/reconciliation/claim_register.json",
-      "size_bytes": 28120,
-      "sha256": "e768063e904508461338e17c24aefd500cb7f1db2cc4443269799176624f3c5c"
+      "size_bytes": 28886,
+      "sha256": "c1f951aec512f7071165908a745f06589b5614e2ceab80a3ca9cdc0241ff0d76"
     }
   ]
 }
