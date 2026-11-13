@@ -418,6 +418,12 @@
           "pointer": "/phantom_dll_reconciliation",
           "description": "Verified absent phantom DLL register",
           "required": true
+        },
+        {
+          "type": "file",
+          "path": "evidence/phase1/application_components.json",
+          "description": "Complete application component inventory verifying absence of phantom DLLs",
+          "required": true
         }
       ]
     },
@@ -547,6 +553,20 @@
           "path": "evidence/phase1/managed_assemblies.json",
           "pointer": "/assemblies/220/name",
           "description": "Seagull License Server assembly",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/managed_assemblies.json",
+          "pointer": "/assemblies/253/name",
+          "description": "Seagull Licensing Contracts assembly",
+          "required": true
+        },
+        {
+          "type": "json_pointer",
+          "path": "evidence/phase1/managed_assemblies.json",
+          "pointer": "/assemblies/255/name",
+          "description": "Seagull Licensing Service assembly",
           "required": true
         }
       ]

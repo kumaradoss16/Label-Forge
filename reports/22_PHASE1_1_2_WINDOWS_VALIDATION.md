@@ -185,3 +185,13 @@ VALIDATOR_EXIT_CODE=0
 **Final Decision:** **`PHASE 1.1.2 — PASSED`**
 
 All release-blocking evidence integrity requirements have been fully satisfied with zero failures, zero warnings, and zero unverified assumptions. Label-Forge is officially cleared to proceed into Phase 2 product implementation.
+
+---
+
+## 8. Milestone Follow-Up & Hardening (Phase 1.1.2.1)
+
+For the final validator correctness hardening, modularization into `scripts/validation/`, full 24 negative fixture test suite (T01–T24), and provenance closure, refer to:
+- [`reports/23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md`](23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md)
+
+*Note on Host Environment:* The actual runtime environment on the Windows validation host is Python 3.13.15 (AMD64) on Windows 10 Home (10.0.19045), reconciling historical template references to Python 3.12.8.
+
