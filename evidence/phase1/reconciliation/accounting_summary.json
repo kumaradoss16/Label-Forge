@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.1.2.2.3",
+  "generation_timestamp_utc": "2026-11-14T16:56:35.811287+00:00",
+  "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
+  "validated_commit_sha": "37e7681e2b36e753583eeb7d65efb489b3755755",
+  "validated_tree_sha": "75ba136624ebb117c7b1338a3540733e779c8db3",
+  "overall_totals": {
+    "total_checks": 150,
+    "pass": 150,
+    "fail": 0,
+    "warning": 0,
+    "not_checked": 0,
+    "blocked": 0,
+    "not_applicable": 0
+  },
+  "stage_totals": {
+    "target_prerequisites": {
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "target_binary_integrity": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "manifest_integrity": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "component_inventory": {
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "direct_import_partition": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "status_accounting": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "evidence_references": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "claim_specific_assertions": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "recursive_image_audit": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    },
+    "report_consistency": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "warning": 0,
+      "not_checked": 0,
+      "blocked": 0,
+      "not_applicable": 0,
+      "status": "PASS"
+    }
+  },
+  "claim_classification_distribution": {
+    "VERIFIED_STATIC": 20,
+    "VERIFIED_RUNTIME": 3,
+    "VERIFIED_DOCUMENTATION": 1,
+    "INFERRED": 0,
+    "UNKNOWN": 0,
+    "NOT_PERFORMED": 1
+  },
+  "reconciliation_result": "PERFECT_MATCH"
+}
