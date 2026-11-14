@@ -2,23 +2,23 @@
   "schema_version": "1.1.2.2.3",
   "provenance_schema_version": "1.1.2.2.3",
   "status": "RECONCILED_AUTHORITATIVE",
-  "run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
+  "run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
   "provenance_metadata": {
-    "timestamp_utc": "2026-11-14T16:56:36.768133+00:00",
-    "validated_commit_sha": "996b404e10b36c410602ba9c88379eb9d50e1fe7",
-    "validated_tree_sha": "3a9702417cc5505a8091b3238100c862d36a4292",
+    "timestamp_utc": "2026-11-14T17:07:46.621569+00:00",
+    "validated_commit_sha": "6a93ed886f9c3e2f23c5918c9ca21e11c89bfaec",
+    "validated_tree_sha": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
     "validation_revision_verified": true,
     "final_merge_commit_sha": "37e7681e2b36e753583eeb7d65efb489b3755755",
     "final_merge_tree_sha": "75ba136624ebb117c7b1338a3540733e779c8db3",
     "implementation_commit_sha": "ca68a0fb91b203f1045b1af223bf295ee001609b",
     "implementation_tree_sha": "145c52d7a0c09cde200889959cb5455b89adb0a3",
     "evidence_sealing_commit_sha": "PENDING",
-    "evidence_sealing_tree_sha": "3a9702417cc5505a8091b3238100c862d36a4292",
+    "evidence_sealing_tree_sha": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
     "tree_equivalence_status": "TREE_DIFFERENT",
     "working_tree_clean": false,
     "is_working_tree_clean": false,
     "branch": "phase1.1.2.2.3-final-attestation-closure",
-    "working_tree_status_porcelain": "M evidence/phase1/reconciliation/validation_results.json\n M evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt\n?? evidence/phase1/reconciliation/acceptance_matrix.json\n?? evidence/phase1/reconciliation/accounting_summary.json\n?? evidence/phase1/reconciliation/execution_manifest.json",
+    "working_tree_status_porcelain": "M README.md\n M evidence/phase1/reconciliation/accounting_summary.json\n M evidence/phase1/reconciliation/execution_manifest.json\n M evidence/phase1/reconciliation/validation_results.json\n M evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt",
     "validator_script": {
       "path": "scripts/validate-phase1-evidence.py",
       "sha256": "a93c59ae26cbcbcc29112f6119333e471216c7eeb72607970e845c52c1a77b2c"
@@ -29,15 +29,15 @@
     },
     "validation_results_artifact": {
       "path": "evidence/phase1/reconciliation/validation_results.json",
-      "sha256": "1097b3de5f5bd01743a4222af9dea676952c9a1a7e6998ef9ab38822c6df8f02"
+      "sha256": "1a14a61699a65139b90b74c258b206c535bbe09490527dae3b0e52ff455a7f73"
     },
     "execution_manifest_artifact": {
       "path": "evidence/phase1/reconciliation/execution_manifest.json",
-      "sha256": "9cb38636ef9bd0ae00f2c1ff278628d9a1c4be9002edc899463f85ab34794182"
+      "sha256": "301e1575b266b1de3f98f449ada0303584238d0696ac24bc80dcc3e4badb07cf"
     },
     "accounting_summary_artifact": {
       "path": "evidence/phase1/reconciliation/accounting_summary.json",
-      "sha256": "851ad6eac392726446d2e292cf370aa84be8dcd04d91a914e1a074a85a643f7c"
+      "sha256": "a1f08231a4ea1e60cdb7fb1eb80dae1e83ce04c6280e6764b3660a0890f0f6a2"
     },
     "acceptance_matrix_artifact": {
       "path": "evidence/phase1/reconciliation/acceptance_matrix.json",
@@ -45,11 +45,11 @@
     },
     "raw_execution_logs": {
       "stdout": {
-        "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-3-20261114165635/stdout.log",
-        "sha256": "029ee6122fed2b89530ab0d9d3ae1fd64eaaa38c636ef69eeaefe40b77f077f6"
+        "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-3-20261114170744/stdout.log",
+        "sha256": "a38738520e8e128a575d3ee9507dafb938ea9d635f76b29f2ecf6aa1a5632799"
       },
       "stderr": {
-        "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-3-20261114165635/stderr.log",
+        "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-3-20261114170744/stderr.log",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       }
     },
@@ -156,12 +156,12 @@
     "  [PASS]         \u2713 Total claims count field matches claims array length (25)",
     "  [PASS]         \u2713 Claim ID uniqueness verified (25 distinct IDs)",
     "  [PASS]         \u2713 Complete status dictionary equality verified: actual_counts == declared_counts",
-    "  [PASS]         \u2713 Status accounting [NOT_PERFORMED]: exactly 1 claims",
-    "  [PASS]         \u2713 Status accounting [INFERRED]: exactly 0 claims",
-    "  [PASS]         \u2713 Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+    "  [PASS]         \u2713 Status accounting [UNKNOWN]: exactly 0 claims",
     "  [PASS]         \u2713 Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
     "  [PASS]         \u2713 Status accounting [VERIFIED_STATIC]: exactly 20 claims",
-    "  [PASS]         \u2713 Status accounting [UNKNOWN]: exactly 0 claims",
+    "  [PASS]         \u2713 Status accounting [NOT_PERFORMED]: exactly 1 claims",
+    "  [PASS]         \u2713 Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+    "  [PASS]         \u2713 Status accounting [INFERRED]: exactly 0 claims",
     "\n[STAGE 7] Structured Evidence References Verification Audit",
     "  [PASS]         \u2713 Claim P1-001 structured evidence_refs verified (2 valid refs)",
     "  [PASS]         \u2713 Claim P1-002 structured evidence_refs verified (3 valid refs)",
@@ -202,14 +202,14 @@
     "  [PASS]         \u2713 Claim P1-012 [VERIFIED_STATIC] assertion (Direct static PE imports verified (48 DLLs across 7 categories, sum=48))",
     "  [PASS]         \u2713 Claim P1-013 [VERIFIED_STATIC] assertion (Delay-loaded PE imports verified (17 DLLs: ['BarCode_Aztec.dll', 'BarCode_Composite.dll', 'BarCode_DataMatrix.dll']...))",
     "  [PASS]         \u2713 Claim P1-014 [VERIFIED_STATIC] assertion (Codejock library verified as ToolkitPro1531vc142x64U.dll (10,844,184 bytes, x86_64))",
-    "  [PASS]         \u2713 Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtSystem.dll', 'BtEngine.dll', 'BtBarcode.dll', 'BtPrint.dll', 'BtData.dll', 'BtLic.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)",
+    "  [PASS]         \u2713 Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtLic.dll', 'BtBarcode.dll', 'BtEngine.dll', 'BtPrint.dll', 'BtSystem.dll', 'BtData.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)",
     "  [PASS]         \u2713 Claim P1-016 [VERIFIED_STATIC] assertion (Modular 2D barcode plugin verified with exported C API GenerateQRCode in BarCode_QRCode.dll)",
     "  [PASS]         \u2713 Claim P1-017 [VERIFIED_STATIC] assertion (CArchive and MFC serialization boundaries verified in dotnet_interop_map.json)",
     "  [PASS]         \u2713 Claim P1-018 [NOT_PERFORMED] assertion (Ghidra deep decompilation verified as NOT_PERFORMED due to unset GHIDRA_INSTALL_DIR boundary)",
     "  [PASS]         \u2713 Claim P1-019 [VERIFIED_DOCUMENTATION] assertion (Clean-room asset compliance verified via production scan: zero proprietary images in screenshots tree and observational reference documented)",
     "  [PASS]         \u2713 Claim P1-020 [VERIFIED_STATIC] assertion (VERIFIED_MATHEMATICAL_RESOLUTION: Twip resolution step 0.017639 mm (+/-8.8 um) verified mathematically; static double mm primitives verified in Length.cs; RUNTIME_IMPLEMENTATION_NOT_VERIFIED (.NET SDK absent on host))",
     "  [PASS]         \u2713 Claim P1-021 [VERIFIED_STATIC] assertion (Direct static linkage of WINSPOOL.DRV in Windows Print Spooler category verified)",
-    "  [PASS]         \u2713 Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.dll', 'Seagull.License.dll', 'Seagull.Services.Licensing.Contracts.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))",
+    "  [PASS]         \u2713 Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.License.dll', 'Seagull.Services.Licensing.dll', 'Seagull.Services.Licensing.Contracts.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))",
     "  [PASS]         \u2713 Claim P1-023 [VERIFIED_RUNTIME] assertion (RT-01 process startup & modal activation prompt verified: Process spawns, initializes CLR v4.0.30319, loads MFC140u.dl...)",
     "  [PASS]         \u2713 Claim P1-024 [VERIFIED_RUNTIME] assertion (RT-02 managed print API LicenseException verified: Throws LicenseException: 'You must activate BarTender with a...)",
     "  [PASS]         \u2713 Claim P1-025 [VERIFIED_RUNTIME] assertion (RT-03 COM Automation ProgID & unattended execution limitation verified: COM ProgID registration and process activation launch are ve...)",

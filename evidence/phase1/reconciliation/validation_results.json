@@ -1,8 +1,8 @@
 {
   "schema_version": "1.1.2.2.3",
   "milestone": "Phase 1.1.2.2.3",
-  "run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-  "generated_at_utc": "2026-11-14T16:56:35.488696+00:00",
+  "run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+  "generated_at_utc": "2026-11-14T17:07:44.911267+00:00",
   "target_binary": {
     "path": "D:\\BarTender\\BarTend.exe",
     "size_bytes": 20774984,
@@ -286,17 +286,7 @@
       "detail": ""
     },
     {
-      "assertion_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "status": "PASS",
-      "detail": ""
-    },
-    {
-      "assertion_id": "Status accounting [INFERRED]: exactly 0 claims",
-      "status": "PASS",
-      "detail": ""
-    },
-    {
-      "assertion_id": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+      "assertion_id": "Status accounting [UNKNOWN]: exactly 0 claims",
       "status": "PASS",
       "detail": ""
     },
@@ -311,7 +301,17 @@
       "detail": ""
     },
     {
-      "assertion_id": "Status accounting [UNKNOWN]: exactly 0 claims",
+      "assertion_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [INFERRED]: exactly 0 claims",
       "status": "PASS",
       "detail": ""
     },
@@ -508,7 +508,7 @@
     {
       "assertion_id": "Claim P1-015 [VERIFIED_STATIC] assertion",
       "status": "PASS",
-      "detail": "ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtSystem.dll', 'BtEngine.dll', 'BtBarcode.dll', 'BtPrint.dll', 'BtData.dll', 'BtLic.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll"
+      "detail": "ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtLic.dll', 'BtBarcode.dll', 'BtEngine.dll', 'BtPrint.dll', 'BtSystem.dll', 'BtData.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll"
     },
     {
       "assertion_id": "Claim P1-016 [VERIFIED_STATIC] assertion",
@@ -543,7 +543,7 @@
     {
       "assertion_id": "Claim P1-022 [VERIFIED_STATIC] assertion",
       "status": "PASS",
-      "detail": "Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.dll', 'Seagull.License.dll', 'Seagull.Services.Licensing.Contracts.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted)"
+      "detail": "Seagull licensing subsystem assemblies verified ({'Seagull.License.dll', 'Seagull.Services.Licensing.dll', 'Seagull.Services.Licensing.Contracts.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted)"
     },
     {
       "assertion_id": "Claim P1-023 [VERIFIED_RUNTIME] assertion",
@@ -795,8 +795,8 @@
       "severity": "MANDATORY",
       "assertion": "Load canonical target identity manifest",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487864+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909871+00:00",
       "failure_reason": null
     },
     {
@@ -807,8 +807,8 @@
       "severity": "MANDATORY",
       "assertion": "Target binary located: D:\\BarTender\\BarTend.exe",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487881+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909899+00:00",
       "failure_reason": null
     },
     {
@@ -819,8 +819,8 @@
       "severity": "MANDATORY",
       "assertion": "file_size",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487889+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909913+00:00",
       "failure_reason": null
     },
     {
@@ -831,8 +831,8 @@
       "severity": "MANDATORY",
       "assertion": "md5_digest",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487896+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909924+00:00",
       "failure_reason": null
     },
     {
@@ -843,8 +843,8 @@
       "severity": "MANDATORY",
       "assertion": "sha1_digest",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487903+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909934+00:00",
       "failure_reason": null
     },
     {
@@ -855,8 +855,8 @@
       "severity": "MANDATORY",
       "assertion": "sha256_digest",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487908+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909944+00:00",
       "failure_reason": null
     },
     {
@@ -867,8 +867,8 @@
       "severity": "MANDATORY",
       "assertion": "pe_architecture",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487914+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909953+00:00",
       "failure_reason": null
     },
     {
@@ -879,8 +879,8 @@
       "severity": "MANDATORY",
       "assertion": "pe_entry_point",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487920+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909962+00:00",
       "failure_reason": null
     },
     {
@@ -891,8 +891,8 @@
       "severity": "MANDATORY",
       "assertion": "section_table_names",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487925+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909971+00:00",
       "failure_reason": null
     },
     {
@@ -903,8 +903,8 @@
       "severity": "MANDATORY",
       "assertion": "data_section_offset",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487931+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909980+00:00",
       "failure_reason": null
     },
     {
@@ -915,8 +915,8 @@
       "severity": "MANDATORY",
       "assertion": "authenticode_bounds",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487936+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909988+00:00",
       "failure_reason": null
     },
     {
@@ -927,8 +927,8 @@
       "severity": "MANDATORY",
       "assertion": "clr_com_descriptor",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487941+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.909997+00:00",
       "failure_reason": null
     },
     {
@@ -939,8 +939,8 @@
       "severity": "MANDATORY",
       "assertion": "cli_metadata_root",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487946+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910006+00:00",
       "failure_reason": null
     },
     {
@@ -951,8 +951,8 @@
       "severity": "MANDATORY",
       "assertion": "cor20_flags",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487951+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910015+00:00",
       "failure_reason": null
     },
     {
@@ -963,8 +963,8 @@
       "severity": "MANDATORY",
       "assertion": "manifest_loaded",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487956+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910025+00:00",
       "failure_reason": null
     },
     {
@@ -975,8 +975,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/target_identity.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487961+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910034+00:00",
       "failure_reason": null
     },
     {
@@ -987,8 +987,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/application_components.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487967+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910043+00:00",
       "failure_reason": null
     },
     {
@@ -999,8 +999,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/dependency_graph.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487973+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910052+00:00",
       "failure_reason": null
     },
     {
@@ -1011,8 +1011,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/dotnet_interop_map.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487978+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910060+00:00",
       "failure_reason": null
     },
     {
@@ -1023,8 +1023,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/feature_traceability.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487983+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910069+00:00",
       "failure_reason": null
     },
     {
@@ -1035,8 +1035,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/managed_assemblies.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487988+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910077+00:00",
       "failure_reason": null
     },
     {
@@ -1047,8 +1047,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/native_dependencies.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487993+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910085+00:00",
       "failure_reason": null
     },
     {
@@ -1059,8 +1059,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/native_module_inventory.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487998+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910094+00:00",
       "failure_reason": null
     },
     {
@@ -1071,8 +1071,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/resource_inventory.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488004+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910103+00:00",
       "failure_reason": null
     },
     {
@@ -1083,8 +1083,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/runtime_observations.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488009+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910111+00:00",
       "failure_reason": null
     },
     {
@@ -1095,8 +1095,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/canonical_target_identity.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488014+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910120+00:00",
       "failure_reason": null
     },
     {
@@ -1107,8 +1107,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/file_inventory_summary.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488019+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910129+00:00",
       "failure_reason": null
     },
     {
@@ -1119,8 +1119,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/module_architecture_summary.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488024+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910137+00:00",
       "failure_reason": null
     },
     {
@@ -1131,8 +1131,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/dependency_reconciliation.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488029+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910146+00:00",
       "failure_reason": null
     },
     {
@@ -1143,8 +1143,8 @@
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/claim_register.json",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488034+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910154+00:00",
       "failure_reason": null
     },
     {
@@ -1155,8 +1155,8 @@
       "severity": "MANDATORY",
       "assertion": "Mutually exclusive file category sum (555 files)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488039+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910163+00:00",
       "failure_reason": null
     },
     {
@@ -1167,8 +1167,8 @@
       "severity": "MANDATORY",
       "assertion": "Filesystem item equation: 34 directories + 555 files = 589 items",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488047+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910171+00:00",
       "failure_reason": null
     },
     {
@@ -1179,8 +1179,8 @@
       "severity": "MANDATORY",
       "assertion": "PE binary classification sum (461 PE binaries: 332 IL, 20 mixed, 27 x64, 82 x86)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488053+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910180+00:00",
       "failure_reason": null
     },
     {
@@ -1191,8 +1191,8 @@
       "severity": "MANDATORY",
       "assertion": "Canonical direct-import list has zero duplicates (48 modules)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488058+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910189+00:00",
       "failure_reason": null
     },
     {
@@ -1203,8 +1203,8 @@
       "severity": "MANDATORY",
       "assertion": "Categories have zero internal duplicates",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488063+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910197+00:00",
       "failure_reason": null
     },
     {
@@ -1215,8 +1215,8 @@
       "severity": "MANDATORY",
       "assertion": "Zero cross-category module overlaps detected (mutually exclusive)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488068+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910212+00:00",
       "failure_reason": null
     },
     {
@@ -1227,8 +1227,8 @@
       "severity": "MANDATORY",
       "assertion": "Zero canonical direct-import modules omitted from categories",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488073+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910221+00:00",
       "failure_reason": null
     },
     {
@@ -1239,8 +1239,8 @@
       "severity": "MANDATORY",
       "assertion": "Zero unexpected modules found in direct-import categories",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488078+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910230+00:00",
       "failure_reason": null
     },
     {
@@ -1251,8 +1251,8 @@
       "severity": "MANDATORY",
       "assertion": "Exact direct-import partition verified: categorized == canonical (48 modules)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488089+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910238+00:00",
       "failure_reason": null
     },
     {
@@ -1263,8 +1263,8 @@
       "severity": "MANDATORY",
       "assertion": "Delay-loaded PE imports count verified (17 DLLs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488094+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910246+00:00",
       "failure_reason": null
     },
     {
@@ -1275,8 +1275,8 @@
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtEngine.dll (ABSENT_MODULE_CONFIRMED)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488099+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910255+00:00",
       "failure_reason": null
     },
     {
@@ -1287,8 +1287,8 @@
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtBarcode.dll (ABSENT_MODULE_CONFIRMED)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488104+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910263+00:00",
       "failure_reason": null
     },
     {
@@ -1299,8 +1299,8 @@
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtPrint.dll (ABSENT_MODULE_CONFIRMED)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488111+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910277+00:00",
       "failure_reason": null
     },
     {
@@ -1311,8 +1311,8 @@
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtSystem.dll (ABSENT_MODULE_CONFIRMED)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488116+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910285+00:00",
       "failure_reason": null
     },
     {
@@ -1323,8 +1323,8 @@
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtLic.dll (ABSENT_MODULE_CONFIRMED)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488121+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910293+00:00",
       "failure_reason": null
     },
     {
@@ -1335,8 +1335,8 @@
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtData.dll (ABSENT_MODULE_CONFIRMED)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488126+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910301+00:00",
       "failure_reason": null
     },
     {
@@ -1347,8 +1347,8 @@
       "severity": "MANDATORY",
       "assertion": "Confirmed obsolete reference absent as standalone DLL: XtremeToolkitPro.dll (OBSOLETE_OR_MISNAMED_REFERENCE)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488131+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910310+00:00",
       "failure_reason": null
     },
     {
@@ -1359,8 +1359,8 @@
       "severity": "MANDATORY",
       "assertion": "Total claims count field matches claims array length (25)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488140+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910318+00:00",
       "failure_reason": null
     },
     {
@@ -1371,8 +1371,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim ID uniqueness verified (25 distinct IDs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488146+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910331+00:00",
       "failure_reason": null
     },
     {
@@ -1383,68 +1383,8 @@
       "severity": "MANDATORY",
       "assertion": "Complete status dictionary equality verified: actual_counts == declared_counts",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488151+00:00",
-      "failure_reason": null
-    },
-    {
-      "check_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "stage_id": "",
-      "check_name": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "status": "PASS",
-      "severity": "MANDATORY",
-      "assertion": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488155+00:00",
-      "failure_reason": null
-    },
-    {
-      "check_id": "Status accounting [INFERRED]: exactly 0 claims",
-      "stage_id": "",
-      "check_name": "Status accounting [INFERRED]: exactly 0 claims",
-      "status": "PASS",
-      "severity": "MANDATORY",
-      "assertion": "Status accounting [INFERRED]: exactly 0 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488161+00:00",
-      "failure_reason": null
-    },
-    {
-      "check_id": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
-      "stage_id": "",
-      "check_name": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
-      "status": "PASS",
-      "severity": "MANDATORY",
-      "assertion": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488166+00:00",
-      "failure_reason": null
-    },
-    {
-      "check_id": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
-      "stage_id": "",
-      "check_name": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
-      "status": "PASS",
-      "severity": "MANDATORY",
-      "assertion": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488173+00:00",
-      "failure_reason": null
-    },
-    {
-      "check_id": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
-      "stage_id": "",
-      "check_name": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
-      "status": "PASS",
-      "severity": "MANDATORY",
-      "assertion": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488182+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910339+00:00",
       "failure_reason": null
     },
     {
@@ -1455,8 +1395,68 @@
       "severity": "MANDATORY",
       "assertion": "Status accounting [UNKNOWN]: exactly 0 claims",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488187+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910348+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "stage_id": "",
+      "check_name": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "evidence_refs": [],
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910356+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
+      "stage_id": "",
+      "check_name": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
+      "evidence_refs": [],
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910364+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
+      "stage_id": "",
+      "check_name": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
+      "evidence_refs": [],
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910373+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+      "stage_id": "",
+      "check_name": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+      "evidence_refs": [],
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910382+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Status accounting [INFERRED]: exactly 0 claims",
+      "stage_id": "",
+      "check_name": "Status accounting [INFERRED]: exactly 0 claims",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Status accounting [INFERRED]: exactly 0 claims",
+      "evidence_refs": [],
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910390+00:00",
       "failure_reason": null
     },
     {
@@ -1467,8 +1467,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-001 structured evidence_refs verified (2 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488192+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910402+00:00",
       "failure_reason": null
     },
     {
@@ -1479,8 +1479,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-002 structured evidence_refs verified (3 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488198+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910411+00:00",
       "failure_reason": null
     },
     {
@@ -1491,8 +1491,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-003 structured evidence_refs verified (2 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488203+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910420+00:00",
       "failure_reason": null
     },
     {
@@ -1503,8 +1503,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-004 structured evidence_refs verified (3 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488208+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910428+00:00",
       "failure_reason": null
     },
     {
@@ -1515,8 +1515,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-005 structured evidence_refs verified (2 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488213+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910437+00:00",
       "failure_reason": null
     },
     {
@@ -1527,8 +1527,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-006 structured evidence_refs verified (3 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488218+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910446+00:00",
       "failure_reason": null
     },
     {
@@ -1539,8 +1539,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-007 structured evidence_refs verified (3 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488223+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910454+00:00",
       "failure_reason": null
     },
     {
@@ -1551,8 +1551,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-008 structured evidence_refs verified (3 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488228+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910463+00:00",
       "failure_reason": null
     },
     {
@@ -1563,8 +1563,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-009 structured evidence_refs verified (3 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488233+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910471+00:00",
       "failure_reason": null
     },
     {
@@ -1575,8 +1575,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-010 structured evidence_refs verified (3 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488239+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910481+00:00",
       "failure_reason": null
     },
     {
@@ -1587,8 +1587,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-011 structured evidence_refs verified (2 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488244+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910490+00:00",
       "failure_reason": null
     },
     {
@@ -1599,8 +1599,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-012 structured evidence_refs verified (2 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488249+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910499+00:00",
       "failure_reason": null
     },
     {
@@ -1611,8 +1611,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-013 structured evidence_refs verified (1 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488254+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910508+00:00",
       "failure_reason": null
     },
     {
@@ -1623,8 +1623,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-014 structured evidence_refs verified (2 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488259+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910517+00:00",
       "failure_reason": null
     },
     {
@@ -1635,8 +1635,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-015 structured evidence_refs verified (2 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488265+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910525+00:00",
       "failure_reason": null
     },
     {
@@ -1647,8 +1647,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-016 structured evidence_refs verified (2 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488270+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910534+00:00",
       "failure_reason": null
     },
     {
@@ -1659,8 +1659,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-017 structured evidence_refs verified (1 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488275+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910542+00:00",
       "failure_reason": null
     },
     {
@@ -1671,8 +1671,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-019 structured evidence_refs verified (1 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488280+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910551+00:00",
       "failure_reason": null
     },
     {
@@ -1683,8 +1683,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-020 structured evidence_refs verified (1 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488285+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910560+00:00",
       "failure_reason": null
     },
     {
@@ -1695,8 +1695,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-021 structured evidence_refs verified (1 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488292+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910568+00:00",
       "failure_reason": null
     },
     {
@@ -1707,8 +1707,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-022 structured evidence_refs verified (3 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488297+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910577+00:00",
       "failure_reason": null
     },
     {
@@ -1719,8 +1719,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-023 structured evidence_refs verified (1 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488303+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910588+00:00",
       "failure_reason": null
     },
     {
@@ -1731,8 +1731,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-024 structured evidence_refs verified (1 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488308+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910601+00:00",
       "failure_reason": null
     },
     {
@@ -1743,8 +1743,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-025 structured evidence_refs verified (1 valid refs)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488313+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910609+00:00",
       "failure_reason": null
     },
     {
@@ -1755,8 +1755,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-001 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488318+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910618+00:00",
       "failure_reason": null
     },
     {
@@ -1767,8 +1767,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-002 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488325+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910630+00:00",
       "failure_reason": null
     },
     {
@@ -1779,8 +1779,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-003 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488331+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910639+00:00",
       "failure_reason": null
     },
     {
@@ -1791,8 +1791,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-004 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488336+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910647+00:00",
       "failure_reason": null
     },
     {
@@ -1803,8 +1803,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-005 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488340+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910655+00:00",
       "failure_reason": null
     },
     {
@@ -1815,8 +1815,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-006 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488345+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910663+00:00",
       "failure_reason": null
     },
     {
@@ -1827,8 +1827,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-007 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488350+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910672+00:00",
       "failure_reason": null
     },
     {
@@ -1839,8 +1839,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-008 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488355+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910680+00:00",
       "failure_reason": null
     },
     {
@@ -1851,8 +1851,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-009 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488360+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910688+00:00",
       "failure_reason": null
     },
     {
@@ -1863,8 +1863,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-010 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488365+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910697+00:00",
       "failure_reason": null
     },
     {
@@ -1875,8 +1875,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-011 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488370+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910705+00:00",
       "failure_reason": null
     },
     {
@@ -1887,8 +1887,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-012 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488375+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910714+00:00",
       "failure_reason": null
     },
     {
@@ -1899,8 +1899,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-013 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488380+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910722+00:00",
       "failure_reason": null
     },
     {
@@ -1911,8 +1911,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-014 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488385+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910732+00:00",
       "failure_reason": null
     },
     {
@@ -1923,8 +1923,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-015 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488390+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910740+00:00",
       "failure_reason": null
     },
     {
@@ -1935,8 +1935,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-016 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488395+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910748+00:00",
       "failure_reason": null
     },
     {
@@ -1947,8 +1947,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-017 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488400+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910757+00:00",
       "failure_reason": null
     },
     {
@@ -1959,8 +1959,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-018 [NOT_PERFORMED] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488405+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910765+00:00",
       "failure_reason": null
     },
     {
@@ -1971,8 +1971,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-019 [VERIFIED_DOCUMENTATION] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488414+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910773+00:00",
       "failure_reason": null
     },
     {
@@ -1983,8 +1983,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-020 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488419+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910785+00:00",
       "failure_reason": null
     },
     {
@@ -1995,8 +1995,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-021 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488424+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910794+00:00",
       "failure_reason": null
     },
     {
@@ -2007,8 +2007,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-022 [VERIFIED_STATIC] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488431+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910806+00:00",
       "failure_reason": null
     },
     {
@@ -2019,8 +2019,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-023 [VERIFIED_RUNTIME] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488436+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910818+00:00",
       "failure_reason": null
     },
     {
@@ -2031,8 +2031,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-024 [VERIFIED_RUNTIME] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488441+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910827+00:00",
       "failure_reason": null
     },
     {
@@ -2043,8 +2043,8 @@
       "severity": "MANDATORY",
       "assertion": "Claim P1-025 [VERIFIED_RUNTIME] assertion",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488446+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910835+00:00",
       "failure_reason": null
     },
     {
@@ -2055,8 +2055,8 @@
       "severity": "MANDATORY",
       "assertion": "Recursive prohibited-image audit: zero prohibited images found in screenshots/ tree",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488451+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910844+00:00",
       "failure_reason": null
     },
     {
@@ -2067,8 +2067,8 @@
       "severity": "MANDATORY",
       "assertion": "UI observations reference documentation present (UI_OBSERVATIONS_REFERENCE.md)",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488456+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910852+00:00",
       "failure_reason": null
     },
     {
@@ -2079,8 +2079,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 01_TARGET_IDENTITY.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488461+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910861+00:00",
       "failure_reason": null
     },
     {
@@ -2091,8 +2091,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 02_EXECUTABLE_ANALYSIS.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488466+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910869+00:00",
       "failure_reason": null
     },
     {
@@ -2103,8 +2103,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 03_DEPENDENCY_MAP.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488471+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910879+00:00",
       "failure_reason": null
     },
     {
@@ -2115,8 +2115,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 04_COMPONENT_ARCHITECTURE.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488476+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910888+00:00",
       "failure_reason": null
     },
     {
@@ -2127,8 +2127,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 05_UI_REFERENCE_SPECIFICATION.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488481+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910896+00:00",
       "failure_reason": null
     },
     {
@@ -2139,8 +2139,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 06_BEHAVIOURAL_SPECIFICATION.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488486+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910904+00:00",
       "failure_reason": null
     },
     {
@@ -2151,8 +2151,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 07_FEATURE_INVENTORY.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488491+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910913+00:00",
       "failure_reason": null
     },
     {
@@ -2163,8 +2163,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 07_TECHNICAL_ARCHITECTURE.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488495+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910921+00:00",
       "failure_reason": null
     },
     {
@@ -2175,8 +2175,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 08_MVP_SCOPE.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488501+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910929+00:00",
       "failure_reason": null
     },
     {
@@ -2187,8 +2187,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 08_WORKFLOW_CATALOG.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488505+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910938+00:00",
       "failure_reason": null
     },
     {
@@ -2199,8 +2199,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 09_BUILD_READINESS_REPORT.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488510+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910947+00:00",
       "failure_reason": null
     },
     {
@@ -2211,8 +2211,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 09_RUNTIME_EVIDENCE.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488515+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910955+00:00",
       "failure_reason": null
     },
     {
@@ -2223,8 +2223,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 10_M0_M1_EXECUTION_REPORT.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488523+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910963+00:00",
       "failure_reason": null
     },
     {
@@ -2235,8 +2235,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 11_PHASE1_TARGET_IDENTITY.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488530+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910976+00:00",
       "failure_reason": null
     },
     {
@@ -2247,8 +2247,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 12_PHASE1_APPLICATION_STRUCTURE.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488535+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910985+00:00",
       "failure_reason": null
     },
     {
@@ -2259,8 +2259,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 13_PHASE1_DEPENDENCY_ANALYSIS.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488540+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.910994+00:00",
       "failure_reason": null
     },
     {
@@ -2271,8 +2271,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 14_PHASE1_DOTNET_ASSEMBLY_ANALYSIS.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488545+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911005+00:00",
       "failure_reason": null
     },
     {
@@ -2283,8 +2283,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 15_PHASE1_NATIVE_BINARY_ANALYSIS.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488550+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911014+00:00",
       "failure_reason": null
     },
     {
@@ -2295,8 +2295,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 16_PHASE1_RESOURCE_ANALYSIS.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488555+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911022+00:00",
       "failure_reason": null
     },
     {
@@ -2307,8 +2307,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 17_PHASE1_RUNTIME_AND_WINDOWS_INTEGRATION.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488559+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911031+00:00",
       "failure_reason": null
     },
     {
@@ -2319,8 +2319,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 18_PHASE1_FEATURE_TRACEABILITY.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488564+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911039+00:00",
       "failure_reason": null
     },
     {
@@ -2331,8 +2331,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488569+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911047+00:00",
       "failure_reason": null
     },
     {
@@ -2343,8 +2343,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 20_PHASE1_1_EVIDENCE_RECONCILIATION.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488575+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911057+00:00",
       "failure_reason": null
     },
     {
@@ -2355,8 +2355,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 21_PHASE1_1_CORRECTION_LOG.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488580+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911066+00:00",
       "failure_reason": null
     },
     {
@@ -2367,8 +2367,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 22_PHASE1_1_2_WINDOWS_VALIDATION.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488585+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911074+00:00",
       "failure_reason": null
     },
     {
@@ -2379,8 +2379,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488590+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911083+00:00",
       "failure_reason": null
     },
     {
@@ -2391,8 +2391,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488595+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911091+00:00",
       "failure_reason": null
     },
     {
@@ -2403,8 +2403,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 25_PHASE1_1_2_2_CORRECTION_LOG.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488600+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911099+00:00",
       "failure_reason": null
     },
     {
@@ -2415,8 +2415,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488605+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911108+00:00",
       "failure_reason": null
     },
     {
@@ -2427,8 +2427,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488610+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911116+00:00",
       "failure_reason": null
     },
     {
@@ -2439,8 +2439,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488615+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911125+00:00",
       "failure_reason": null
     },
     {
@@ -2451,8 +2451,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488620+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911133+00:00",
       "failure_reason": null
     },
     {
@@ -2463,8 +2463,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488625+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911141+00:00",
       "failure_reason": null
     },
     {
@@ -2475,8 +2475,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 31_PHASE1_1_2_2_2_FINAL_MERGE_PROVENANCE_AUDIT.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488634+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911153+00:00",
       "failure_reason": null
     },
     {
@@ -2487,8 +2487,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 32_PHASE1_1_2_2_2_EXECUTION_ARTIFACT_INTEGRITY.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488640+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911162+00:00",
       "failure_reason": null
     },
     {
@@ -2499,8 +2499,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 33_PHASE1_1_2_2_2_AUTHORITATIVE_ACCOUNTING_RECONCILIATION.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488645+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911170+00:00",
       "failure_reason": null
     },
     {
@@ -2511,8 +2511,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 34_PHASE1_1_2_2_2_CLAIM_CLASSIFICATION_CORRECTIONS.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488650+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911178+00:00",
       "failure_reason": null
     },
     {
@@ -2523,8 +2523,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 35_PHASE1_1_2_2_2_REGRESSION_AND_ACCEPTANCE_REPORT.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488655+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911187+00:00",
       "failure_reason": null
     },
     {
@@ -2535,8 +2535,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 36_PHASE1_1_2_2_3_FINAL_MERGE_ATTESTATION.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488660+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911199+00:00",
       "failure_reason": null
     },
     {
@@ -2547,8 +2547,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 37_PHASE1_1_2_2_3_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488665+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911207+00:00",
       "failure_reason": null
     },
     {
@@ -2559,8 +2559,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 38_PHASE1_1_2_2_3_ACCOUNTING_AND_CLAIM_RECONCILIATION.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488670+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911216+00:00",
       "failure_reason": null
     },
     {
@@ -2571,8 +2571,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 39_PHASE1_1_2_2_3_INDEPENDENT_REGRESSION_AND_ACCEPTANCE_REPORT.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488675+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911224+00:00",
       "failure_reason": null
     },
     {
@@ -2583,8 +2583,8 @@
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 40_PHASE1_1_2_2_3_FINAL_CORRECTION_AND_PROVENANCE_LOG.md",
       "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488683+00:00",
+      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114170744",
+      "executed_at_utc": "2026-11-14T17:07:44.911236+00:00",
       "failure_reason": null
     }
   ]
