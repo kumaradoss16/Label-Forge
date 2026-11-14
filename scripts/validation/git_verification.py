@@ -101,17 +101,38 @@ def verify_final_merge_equivalence(
     final_merge_commit: str,
     validated_tree_sha: str,
     repo_root: str
-) -> Tuple[bool, str]:
+) -> Tuple[bool, str, Dict[str, Any]]:
     """
-    Verifies that the final merge commit resolves to a tree SHA that is
-    byte-for-byte identical to the validated tree SHA.
+    Verifies that the final merge commit resolves to a tree SHA and assesses its
+    relationship to the validated tree SHA.
+    Returns: (is_valid, message, details_dict)
+    details_dict contains:
+      - final_merge_commit: str
+      - final_merge_tree: str
+      - validated_tree_sha: str
+      - tree_equivalence_status: 'TREE_EQUIVALENT' | 'TREE_DIFFERENT'
+      - parents: List[str]
     """
     ok, info, msg = resolve_git_commit_and_tree(final_merge_commit, repo_root)
     if not ok or info is None:
-        return False, f"Failed to verify final merge commit: {msg}"
+        return False, f"Failed to verify final merge commit: {msg}", {}
 
     actual_merge_tree = info['tree_sha']
-    if actual_merge_tree != validated_tree_sha:
-        return False, f"Final merge tree mismatch: commit '{final_merge_commit}' has tree '{actual_merge_tree}', expected validated tree '{validated_tree_sha}'"
+    is_equiv = (actual_merge_tree == validated_tree_sha)
+    equiv_status = "TREE_EQUIVALENT" if is_equiv else "TREE_DIFFERENT"
 
-    return True, f"Final merge commit '{final_merge_commit}' tree identity verified ({actual_merge_tree})"
+    details = {
+        'final_merge_commit': info['commit_sha'],
+        'final_merge_tree': actual_merge_tree,
+        'validated_tree_sha': validated_tree_sha,
+        'tree_equivalence_status': equiv_status,
+        'parents': info.get('parents', []),
+        'author': info.get('author', ''),
+        'committer': info.get('committer', '')
+    }
+
+    if is_equiv:
+        return True, f"Final merge commit '{final_merge_commit}' tree identity verified (TREE_EQUIVALENT: {actual_merge_tree})", details
+    else:
+        return False, f"Final merge tree mismatch (TREE_DIFFERENT): commit '{final_merge_commit}' has tree '{actual_merge_tree}', expected validated tree '{validated_tree_sha}'", details
+

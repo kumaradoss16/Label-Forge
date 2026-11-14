@@ -295,12 +295,15 @@ class TestWorkstreamERawLogsAndProvenance(unittest.TestCase):
         self.tree_sha = t_res.stdout.strip()
 
         self.prov_doc = {
-            "schema_version": "1.1.2.2.1",
+            "schema_version": "1.1.2.2.3",
             "status": "RECONCILED_AUTHORITATIVE",
             "provenance_metadata": {
                 "validated_commit_sha": self.commit_sha,
                 "validated_tree_sha": self.tree_sha,
-                "branch": "phase1.1.2.2.1-final-closure",
+                "final_merge_commit_sha": self.commit_sha,
+                "final_merge_tree_sha": self.tree_sha,
+                "tree_equivalence_status": "TREE_EQUIVALENT",
+                "branch": "phase1.1.2.2.3-final-attestation-closure",
                 "is_working_tree_clean": True,
                 "validator_script": {
                     "path": "scripts/validate.py",
@@ -379,11 +382,14 @@ class TestWorkstreamERawLogsAndProvenance(unittest.TestCase):
         """Verify final merge tree equivalence helper."""
         from scripts.validation.git_verification import verify_final_merge_equivalence
         # Matching tree should be equivalent
-        ok, msg = verify_final_merge_equivalence(self.commit_sha, self.tree_sha, self.repo_root)
+        ok, msg, details = verify_final_merge_equivalence(self.commit_sha, self.tree_sha, self.repo_root)
         self.assertTrue(ok)
+        self.assertEqual(details["tree_equivalence_status"], "TREE_EQUIVALENT")
         # Mismatched tree should fail
-        ok_bad, msg_bad = verify_final_merge_equivalence(self.commit_sha, "0" * 40, self.repo_root)
+        ok_bad, msg_bad, details_bad = verify_final_merge_equivalence(self.commit_sha, "0" * 40, self.repo_root)
         self.assertFalse(ok_bad)
+        self.assertEqual(details_bad["tree_equivalence_status"], "TREE_DIFFERENT")
+
 
 
 if __name__ == '__main__':

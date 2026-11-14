@@ -301,5 +301,72 @@ def validate_structured_evidence_reference(
                 return False, f"Test ID '{test_id}' not found in authoritative runtime test set"
         return True, f"Runtime test reference '{test_id}' verified"
 
-    else:
-        return False, f"Unknown reference type: '{rtype}'"
+def validate_execution_artifact(
+    artifact_entry: Dict[str, Any],
+    repo_root: str,
+    expected_run_id: Optional[str] = None
+) -> Tuple[bool, str]:
+    """
+    Validates an individual execution artifact (e.g. stdout.log or stderr.log):
+    - Path safety (relative, repository-contained, no traversal, no symlink escape)
+    - File existence and regular file verification
+    - Byte size calculation and exact comparison
+    - SHA-256 calculation and exact comparison
+    - Run ID match if specified
+    """
+    if not isinstance(artifact_entry, dict):
+        return False, "Artifact entry must be a dictionary"
+
+    rel_path = artifact_entry.get("path")
+    if not rel_path:
+        return False, "Missing 'path' in artifact entry"
+
+    # Traversal and slash checks
+    if os.path.isabs(rel_path) or ".." in rel_path or "\\" in rel_path or rel_path.startswith("/"):
+        return False, f"Invalid artifact path (must be repository-relative forward-slash): '{rel_path}'"
+
+    full_path = os.path.normpath(os.path.join(repo_root, rel_path.replace("/", os.sep)))
+    real_repo_root = os.path.realpath(repo_root)
+    real_file_path = os.path.realpath(full_path)
+
+    try:
+        common = os.path.commonpath([real_repo_root, real_file_path])
+        if os.path.normcase(common) != os.path.normcase(real_repo_root):
+            return False, f"Artifact path escapes repository root: '{rel_path}'"
+    except ValueError:
+        return False, f"Artifact path on different drive or invalid: '{rel_path}'"
+
+    if not os.path.exists(full_path):
+        return False, f"Artifact file missing on disk: '{rel_path}'"
+
+    if not os.path.isfile(full_path):
+        return False, f"Artifact path is not a regular file: '{rel_path}'"
+
+    if os.path.islink(full_path):
+        # Additional symlink boundary check
+        target_real = os.path.realpath(full_path)
+        common_sym = os.path.commonpath([real_repo_root, target_real])
+        if os.path.normcase(common_sym) != os.path.normcase(real_repo_root):
+            return False, f"Artifact symlink escapes repository root: '{rel_path}'"
+
+    with open(full_path, "rb") as f:
+        data = f.read()
+
+    actual_size = len(data)
+    import hashlib
+    actual_sha = hashlib.sha256(data).hexdigest()
+
+    expected_size = artifact_entry.get("byte_size")
+    if expected_size is not None and expected_size != actual_size:
+        return False, f"Artifact byte size mismatch for '{rel_path}': expected {expected_size}, got {actual_size}"
+
+    expected_sha = artifact_entry.get("sha256")
+    if expected_sha and expected_sha != actual_sha:
+        return False, f"Artifact SHA-256 mismatch for '{rel_path}': expected {expected_sha}, got {actual_sha}"
+
+    if expected_run_id and artifact_entry.get("run_id"):
+        if artifact_entry.get("run_id") != expected_run_id:
+            return False, f"Artifact run_id mismatch for '{rel_path}': expected {expected_run_id}, got {artifact_entry.get('run_id')}"
+
+    return True, f"Artifact '{rel_path}' verified (size: {actual_size}, sha: {actual_sha[:8]}...)"
+
