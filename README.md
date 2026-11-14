@@ -56,9 +56,9 @@ All technical specifications, reverse engineering reports, behavior models, and 
 
 Key architectural choices are documented under [`docs/adr/`](docs/adr/):
 
-* [**ADR-001: Canonical Physical Coordinate System**](docs/adr/ADR-001-canonical-physical-coordinate-system.md) — Double-precision millimeter (`mm`) physical coordinate system decoupled from screen and printer DPI.
-* [**ADR-002: Versioned JSON Open Label (.olb) Document Format**](docs/adr/ADR-002-versioned-json-olb-document-format.md) — Open, human-readable, schema-versioned file format with atomic save and corruption protection.
-* [**ADR-003: Domain Model Decoupling from UI and Output Runtimes**](docs/adr/ADR-003-domain-model-decoupling.md) — Pure .NET 8 core domain isolated from WPF, GDI, and printer spooler dependencies.
+* [**ADR-001: Canonical Physical Coordinate System**](docs/adr/ADR-001-canonical-physical-coordinate-system.md) - Double-precision millimeter (`mm`) physical coordinate system decoupled from screen and printer DPI.
+* [**ADR-002: Versioned JSON Open Label (.olb) Document Format**](docs/adr/ADR-002-versioned-json-olb-document-format.md) - Open, human-readable, schema-versioned file format with atomic save and corruption protection.
+* [**ADR-003: Domain Model Decoupling from UI and Output Runtimes**](docs/adr/ADR-003-domain-model-decoupling.md) - Pure .NET 8 core domain isolated from WPF, GDI, and printer spooler dependencies.
 
 ---
 
