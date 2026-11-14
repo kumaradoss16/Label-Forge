@@ -131,19 +131,19 @@ def evaluate_release_gate(
 
     missing_stages = [st for st in mandatory_stages if st not in stage_results]
     if missing_stages:
-        return (1, "PHASE 1.1.2.2 — BLOCKED", f"Missing mandatory validation stages: {missing_stages}")
+        return (1, "PHASE 1.1.2.2.2 — BLOCKED", f"Missing mandatory validation stages: {missing_stages}")
 
     if counts.get(STATUS_FAIL, 0) > 0 or any(stage_results.get(st) == STATUS_FAIL for st in mandatory_stages):
-        return (1, "PHASE 1.1.2.2 — FAILED", "One or more mandatory validation checks failed")
+        return (1, "PHASE 1.1.2.2.2 — FAILED", "One or more mandatory validation checks failed")
 
     if counts.get(STATUS_NOT_CHECKED, 0) > 0 or any(stage_results.get(st) == STATUS_NOT_CHECKED for st in mandatory_stages):
-        return (2, "PHASE 1.1.2.2 — BLOCKED", "One or more mandatory stages were NOT_CHECKED due to missing prerequisites")
+        return (2, "PHASE 1.1.2.2.2 — BLOCKED", "One or more mandatory stages were NOT_CHECKED due to missing prerequisites")
 
     if counts.get(STATUS_WARNING, 0) > 0 or any(stage_results.get(st) == STATUS_WARNING for st in mandatory_stages):
-        return (1, "PHASE 1.1.2.2 — BLOCKED", "Unresolved validation warnings present")
+        return (1, "PHASE 1.1.2.2.2 — BLOCKED", "Unresolved validation warnings present")
 
     all_stages_pass = all(stage_results.get(st) == STATUS_PASS for st in mandatory_stages)
     if all_stages_pass and counts.get(STATUS_PASS, 0) > 0:
-        return (0, "PHASE 1.1.2.2 — APPROVED", "All mandatory integrity and evidence checks verified")
+        return (0, "PHASE 1.1.2.2.2 — APPROVED", "All mandatory integrity and evidence checks verified")
 
-    return (1, "PHASE 1.1.2.2 — FAILED", "Incomplete validation results")
+    return (1, "PHASE 1.1.2.2.2 — FAILED", "Incomplete validation results")

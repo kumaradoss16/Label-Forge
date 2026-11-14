@@ -12,6 +12,7 @@ import platform
 import subprocess
 from datetime import datetime, timezone
 from typing import Dict, Any, Optional, Tuple, List
+from scripts.validation.git_verification import resolve_git_commit_and_tree, verify_final_merge_equivalence
 
 def generate_provenance_record(
     repo_root: str,
@@ -87,10 +88,10 @@ def generate_provenance_record(
     manifest_verified = (stage_breakdown.get('manifest_integrity') == 'PASS')
 
     result_status = 'PASS' if exit_code == 0 else ('NOT_CHECKED' if exit_code == 2 else 'FAIL')
-    gate_status = 'PHASE 1.1.2.2.1 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2.1 — BLOCKED'
+    gate_status = 'PHASE 1.1.2.2.2 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2.2 — BLOCKED'
 
     provenance = {
-        'schema_version': '1.1.2.2.1',
+        'schema_version': '1.1.2.2.2',
         'status': 'RECONCILED_AUTHORITATIVE',
         'provenance_metadata': {
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
@@ -175,6 +176,26 @@ def validate_provenance_record(
     commit_sha = meta.get('validated_commit_sha', '')
     if not commit_sha or len(commit_sha) != 40:
         errors.append(f"Invalid or missing validated_commit_sha: '{commit_sha}'")
+    else:
+        # Independently verify Git commit object and tree relationship
+        ok_git, info_git, msg_git = resolve_git_commit_and_tree(commit_sha, repo_root)
+        if not ok_git or info_git is None:
+            errors.append(f"Git object verification failed for validated_commit_sha '{commit_sha}': {msg_git}")
+        else:
+            rec_tree = meta.get('validated_tree_sha', '')
+            if rec_tree and info_git['tree_sha'] != rec_tree:
+                errors.append(f"Recorded tree SHA '{rec_tree}' does not match actual commit tree '{info_git['tree_sha']}'")
+
+    # If final merge commit is specified, verify it and its tree identity
+    final_merge = meta.get('final_merge_commit')
+    if final_merge:
+        ok_m, info_m, msg_m = resolve_git_commit_and_tree(final_merge, repo_root)
+        if not ok_m or info_m is None:
+            errors.append(f"Git object verification failed for final_merge_commit '{final_merge}': {msg_m}")
+        else:
+            rec_m_tree = meta.get('final_merge_tree')
+            if rec_m_tree and info_m['tree_sha'] != rec_m_tree:
+                errors.append(f"Recorded final merge tree '{rec_m_tree}' does not match actual merge commit tree '{info_m['tree_sha']}'")
 
     val_script = meta.get('validator_script', {})
     val_path = os.path.join(repo_root, val_script.get('path', '').replace('/', os.sep))

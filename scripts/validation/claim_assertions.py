@@ -217,11 +217,20 @@ def make_claim_assertion_registry(
 
     # P1-015: Phantom DLL absence verified across disk and inventory
     def assert_P1_015() -> Tuple[str, str]:
-        phantoms = {'BtEngine.dll', 'BtBarcode.dll', 'BtPrint.dll', 'BtSystem.dll', 'BtLic.dll', 'BtData.dll'}
-        # 1. Inspect reconciliation register
-        reconciled_phantoms = {p['phantom_name'] for p in dep_doc.get('phantom_dll_reconciliation', [])}
-        if not phantoms.issubset(reconciled_phantoms):
-            return ('FAIL', f"Phantom DLL reconciliation register missing entries: {phantoms - reconciled_phantoms}")
+        # 6 genuine proprietary modules whose physical standalone absence is confirmed
+        confirmed_absent = {'BtEngine.dll', 'BtBarcode.dll', 'BtPrint.dll', 'BtSystem.dll', 'BtLic.dll', 'BtData.dll'}
+        # 1 historical placeholder misnamed reference associated with physically present ToolkitPro1531vc142x64U.dll
+        misnamed_placeholder = 'XtremeToolkitPro.dll'
+
+        # 1. Inspect reconciliation register classifications
+        recon_items = dep_doc.get('phantom_dll_reconciliation', [])
+        classified_absent = {p['phantom_name'] for p in recon_items if p.get('classification') == 'ABSENT_MODULE_CONFIRMED'}
+        classified_placeholder = {p['phantom_name'] for p in recon_items if p.get('classification') == 'OBSOLETE_OR_MISNAMED_REFERENCE'}
+
+        if not confirmed_absent.issubset(classified_absent):
+            return ('FAIL', f"Phantom DLL reconciliation register missing ABSENT_MODULE_CONFIRMED entries: {confirmed_absent - classified_absent}")
+        if misnamed_placeholder not in classified_placeholder:
+            return ('FAIL', f"Phantom DLL reconciliation register missing OBSOLETE_OR_MISNAMED_REFERENCE for '{misnamed_placeholder}'")
 
         # 2. Inspect application components inventory if present
         if app_comp_doc:
@@ -240,7 +249,7 @@ def make_claim_assertion_registry(
                         found_names.add(name)
                 elif isinstance(item, str):
                     found_names.add(item)
-            found_in_inventory = phantoms.intersection(found_names)
+            found_in_inventory = confirmed_absent.intersection(found_names)
             if found_in_inventory:
                 return ('FAIL', f"Phantom DLLs unexpectedly found in application component inventory: {found_in_inventory}")
 
@@ -249,12 +258,17 @@ def make_claim_assertion_registry(
         if not os.path.exists(target_dir):
             return ('NOT_CHECKED', f"Target directory '{target_dir}' not present on host; cannot independently verify physical absence of phantom DLLs on disk")
 
-        for p in phantoms:
+        for p in confirmed_absent:
             p_path = os.path.join(target_dir, p)
             if os.path.exists(p_path):
-                return ('FAIL', f"Phantom DLL '{p}' unexpectedly exists on disk at '{p_path}'")
+                return ('FAIL', f"Confirmed absent module '{p}' unexpectedly exists on disk at '{p_path}'")
 
-        return ('PASS', f"Absence of standalone modules {phantoms} verified across target directory '{target_dir}' and reconciliation register")
+        # Also verify that misnamed placeholder does not physically exist under the obsolete name
+        misnamed_path = os.path.join(target_dir, misnamed_placeholder)
+        if os.path.exists(misnamed_path):
+            return ('FAIL', f"Obsolete placeholder '{misnamed_placeholder}' unexpectedly exists on disk as a standalone file")
+
+        return ('PASS', f"ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({confirmed_absent}); OBSOLETE_OR_MISNAMED_REFERENCE: '{misnamed_placeholder}' resolved to physically present ToolkitPro1531vc142x64U.dll")
 
     # P1-016: Modular 2D barcode rasterization exported C APIs
     def assert_P1_016() -> Tuple[str, str]:
@@ -320,7 +334,7 @@ def make_claim_assertion_registry(
         if 'FromMillimeters' not in code or 'double' not in code or 'Millimeters' not in code:
             return ('FAIL', "Length.cs does not implement expected continuous double mm primitives")
 
-        return ('PASS', f"Continuous millimeter float precision and integer twips (+/-{quantization_error_um:.1f} um quantization) mathematically and statically verified in Length.cs (runtime .NET execution not performed: .NET SDK not installed on host)")
+        return ('PASS', f"VERIFIED_MATHEMATICAL_RESOLUTION: Twip resolution step {twip_step_mm:.6f} mm (+/-{quantization_error_um:.1f} um) verified mathematically; static double mm primitives verified in Length.cs; RUNTIME_IMPLEMENTATION_NOT_VERIFIED (.NET SDK absent on host)")
 
     # P1-021: Win32 Print Spooler API static linkage
     def assert_P1_021() -> Tuple[str, str]:

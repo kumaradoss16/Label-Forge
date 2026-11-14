@@ -507,10 +507,10 @@
     {
       "id": "P1-020",
       "area": "Coordinate Precision",
-      "claim": "BarTender utilizes integer twips (1/1440 inch = 0.01764 mm) with +/-8.8 um quantization; Label-Forge uses double-precision canonical millimeters (Length struct) for continuous float precision",
+      "claim": "Mathematical twip resolution is 1/1440 inch (~0.01764 mm) with +/-8.8 um quantization; static inspection of Length.cs confirms continuous double-precision millimeter representation; runtime C# conversion implementation is not verified",
       "status": "VERIFIED_STATIC",
       "evidence_source": "src/LabelForge.Core/Geometry/Length.cs implementation and mathematical analysis of GDI MulDiv twip conversions",
-      "reconciled_notes": "Twip quantization (+/-8.8 um) mathematically verified; Length struct continuous double precision statically verified in Length.cs. Runtime .NET execution not performed on host due to absence of .NET SDK.",
+      "reconciled_notes": "Twip mathematical quantization (+/-8.8 um) verified; Length struct continuous double precision statically verified in Length.cs. Runtime .NET execution not performed on host due to absence of .NET SDK.",
       "validation_method": "EXECUTABLE_ASSERTION",
       "evidence_refs": [
         {
