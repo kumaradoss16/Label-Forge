@@ -62,6 +62,7 @@ class ValidationSuite:
         self.failures = []
         self.warnings = []
         self.logs = []
+        self.all_assertions = []
         
         # Structured stage results for provenance
         self.stage_results = {
@@ -80,6 +81,7 @@ class ValidationSuite:
 
     def record(self, check_name, status, detail=""):
         self.counts[status] += 1
+        self.all_assertions.append(AssertionRecord(check_name, status, detail))
         tag = f"[{status}]"
         if status == 'PASS':
             msg = f"  {tag:<14} ✓ {check_name}"
@@ -511,7 +513,11 @@ class ValidationSuite:
             '23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md',
             '24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md',
             '25_PHASE1_1_2_2_CORRECTION_LOG.md',
-            '26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md'
+            '26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md',
+            '27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md',
+            '28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md',
+            '29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md',
+            '30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md'
         ]
 
         for rep in expected_reports:
@@ -562,7 +568,10 @@ class ValidationSuite:
         # Authoritative Release Gate Evaluation
         # (Production Module: stage_results.py)
         exit_code, gate_status, gate_message = evaluate_release_gate(self.stage_results, self.counts)
-        self.log_print(f"  RELEASE GATE STATUS   : {gate_status}")
+        gate_status_label = "PHASE 1.1.2.2.1 — APPROVED" if exit_code == 0 else (
+            "PHASE 1.1.2.2.1 — BLOCKED" if exit_code == 2 else "PHASE 1.1.2.2.1 — FAILED"
+        )
+        self.log_print(f"  RELEASE GATE STATUS   : {gate_status_label}")
         self.log_print(f"  RELEASE GATE DECISION : {gate_message}")
         self.log_print(f"  EXIT CODE             : {exit_code}")
         if self.counts['FAIL'] > 0:
@@ -572,9 +581,47 @@ class ValidationSuite:
         self.log_print("=" * 78)
 
         # -------------------------------------------------------------
-        # STAGE 12: Validation Execution Provenance Generation
+        # STAGE 12: Validation Results & Provenance Artifact Generation
         # (Production Module: provenance.py)
         # -------------------------------------------------------------
+        results_path = os.path.join(RECON_DIR, 'validation_results.json')
+        results_doc = {
+            'schema_version': '1.1.2.2.1',
+            'milestone': 'Phase 1.1.2.2.1',
+            'generated_at_utc': datetime.now(timezone.utc).isoformat(),
+            'target_binary': {
+                'path': target_exe if target_available else r"D:\BarTender\BarTend.exe",
+                'size_bytes': len(bin_data) if (target_available and bin_data is not None) else None,
+                'sha256': actual_sha256 if target_available else None
+            },
+            'summary_accounting': {
+                'total_checks': total_checks,
+                'pass': self.counts['PASS'],
+                'fail': self.counts['FAIL'],
+                'warning': self.counts['WARNING'],
+                'not_checked': self.counts['NOT_CHECKED']
+            },
+            'stage_breakdown': self.stage_results,
+            'release_gate': {
+                'exit_code': exit_code,
+                'status': gate_status,
+                'decision': gate_message
+            },
+            'assertions': [
+                {
+                    'assertion_id': a.assertion_id,
+                    'status': a.status,
+                    'detail': a.detail
+                }
+                for a in self.all_assertions
+            ]
+        }
+        with open(results_path, 'w', encoding='utf-8') as rf:
+            json.dump(results_doc, rf, indent=2)
+
+        stdout_log = os.path.join(RECON_DIR, 'windows_validation', 'phase1_1_2_2_stdout.txt')
+        stderr_log = os.path.join(RECON_DIR, 'windows_validation', 'phase1_1_2_2_stderr.txt')
+
         if self.write_provenance:
             provenance = generate_provenance_record(
                 repo_root=REPO_ROOT,
@@ -591,7 +638,10 @@ class ValidationSuite:
                 target_exe_path=target_exe,
                 actual_target_sha256=actual_sha256 if target_available else None,
                 expected_target_sha256=expected_sha256 if target_available else None,
-                target_available=target_available
+                target_available=target_available,
+                results_path=results_path,
+                stdout_log_path=stdout_log if os.path.exists(stdout_log) else None,
+                stderr_log_path=stderr_log if os.path.exists(stderr_log) else None
             )
             provenance_path = os.path.join(RECON_DIR, 'validation_provenance.json')
             with open(provenance_path, 'w', encoding='utf-8') as pf:

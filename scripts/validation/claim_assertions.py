@@ -247,9 +247,7 @@ def make_claim_assertion_registry(
         # 3. Inspect target installation directory
         target_dir = can_doc.get('target_directory', r'D:\BarTender')
         if not os.path.exists(target_dir):
-            if not app_comp_doc:
-                return ('NOT_CHECKED', f"Target directory '{target_dir}' and components inventory both unavailable")
-            return ('PASS', f"Absence of standalone modules {phantoms} verified in application component inventory (target directory not present on host)")
+            return ('NOT_CHECKED', f"Target directory '{target_dir}' not present on host; cannot independently verify physical absence of phantom DLLs on disk")
 
         for p in phantoms:
             p_path = os.path.join(target_dir, p)
@@ -322,7 +320,7 @@ def make_claim_assertion_registry(
         if 'FromMillimeters' not in code or 'double' not in code or 'Millimeters' not in code:
             return ('FAIL', "Length.cs does not implement expected continuous double mm primitives")
 
-        return ('PASS', f"Continuous millimeter float precision and integer twips (+/-{quantization_error_um:.1f} um quantization) mathematically and statically verified in Length.cs")
+        return ('PASS', f"Continuous millimeter float precision and integer twips (+/-{quantization_error_um:.1f} um quantization) mathematically and statically verified in Length.cs (runtime .NET execution not performed: .NET SDK not installed on host)")
 
     # P1-021: Win32 Print Spooler API static linkage
     def assert_P1_021() -> Tuple[str, str]:
@@ -338,7 +336,7 @@ def make_claim_assertion_registry(
         names = {a.get('name') for a in assms}
         required_lic_assemblies = {'Seagull.License.dll', 'Seagull.Services.Licensing.Contracts.dll', 'Seagull.Services.Licensing.dll'}
         if required_lic_assemblies.issubset(names):
-            return ('PASS', f"Seagull licensing subsystem assemblies verified ({required_lic_assemblies}) (scoped to observed assemblies in inventory)")
+            return ('PASS', f"Seagull licensing subsystem assemblies verified ({required_lic_assemblies}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted)")
         return ('FAIL', f"Missing licensing assemblies: {required_lic_assemblies - names}")
 
     # P1-023: RT-01 Process startup lifecycle

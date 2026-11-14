@@ -1,20 +1,34 @@
 {
-  "schema_version": "1.1.2.2",
+  "schema_version": "1.1.2.2.1",
   "status": "RECONCILED_AUTHORITATIVE",
   "provenance_metadata": {
-    "timestamp_utc": "2026-11-13T15:45:11.495916+00:00",
-    "validated_commit_sha": "931106f402514b2ee665038a9bddaa59516255f3",
-    "validated_tree_sha": "3ec16e8b1c00ead13fea7d33d509738d00fbecee",
-    "branch": "phase1.1.2.2-independent-validator-audit",
-    "is_working_tree_clean": true,
-    "working_tree_status_porcelain": "",
+    "timestamp_utc": "2026-11-14T14:28:11.136580+00:00",
+    "validated_commit_sha": "1ba2502035a06ecbd976f08d269918b9b330efa1",
+    "validated_tree_sha": "246724558922a6f9880a90ccb5b55b3b0c494fd3",
+    "branch": "phase1.1.2.2.1-final-closure",
+    "is_working_tree_clean": false,
+    "working_tree_status_porcelain": "M evidence/phase1/reconciliation/validation_provenance.json\n M evidence/phase1/reconciliation/validation_results.json\n M evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt",
     "validator_script": {
       "path": "scripts/validate-phase1-evidence.py",
-      "sha256": "2510f072772e81f4245296a39c60d5d766dcf640a19ec8724db7f301c07ef689"
+      "sha256": "7e367b602d511c790037e4482ec51a5a06692eb933b39c509e6ee06ad19a4f64"
     },
     "validation_manifest": {
       "path": "evidence/phase1/reconciliation/validation_manifest.json",
-      "sha256": "b150278998cac96fac2e37817d6ba8d4540a9e96a6af953d20359798eafb0a27"
+      "sha256": "8998a7e86c6defb33f009558506205e2cb9c9054e980673896312c8a1517f056"
+    },
+    "validation_results_artifact": {
+      "path": "evidence/phase1/reconciliation/validation_results.json",
+      "sha256": "2ecfd7efb82a4890fbd11c06c0682887fc66f34f5136ce16f97d79f024c21565"
+    },
+    "raw_execution_logs": {
+      "stdout": {
+        "path": "evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt",
+        "sha256": "8ea8030ace1fd76c0a6f65e4be571b7cfdd286b9d84f4bd35b8c5ba0831a2d4e"
+      },
+      "stderr": {
+        "path": "evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
     },
     "target_executable": {
       "path": "D:\\BarTender\\BarTend.exe",
@@ -34,10 +48,10 @@
   "validation_results": {
     "exit_code": 0,
     "result_status": "PASS",
-    "release_gate_status": "PHASE 1.1.2.2 \u2014 APPROVED",
+    "release_gate_status": "PHASE 1.1.2.2.1 \u2014 APPROVED",
     "summary_accounting": {
-      "total_checks": 136,
-      "pass": 136,
+      "total_checks": 140,
+      "pass": 140,
       "fail": 0,
       "warning": 0,
       "not_checked": 0
@@ -118,10 +132,10 @@
     "  [PASS]         \u2713 Claim ID uniqueness verified (25 distinct IDs)",
     "  [PASS]         \u2713 Complete status dictionary equality verified: actual_counts == declared_counts",
     "  [PASS]         \u2713 Status accounting [VERIFIED_STATIC]: exactly 20 claims",
+    "  [PASS]         \u2713 Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+    "  [PASS]         \u2713 Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
     "  [PASS]         \u2713 Status accounting [NOT_PERFORMED]: exactly 1 claims",
     "  [PASS]         \u2713 Status accounting [UNKNOWN]: exactly 0 claims",
-    "  [PASS]         \u2713 Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
-    "  [PASS]         \u2713 Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
     "  [PASS]         \u2713 Status accounting [INFERRED]: exactly 0 claims",
     "\n[STAGE 7] Structured Evidence References Verification Audit",
     "  [PASS]         \u2713 Claim P1-001 structured evidence_refs verified (2 valid refs)",
@@ -163,14 +177,14 @@
     "  [PASS]         \u2713 Claim P1-012 [VERIFIED_STATIC] assertion (Direct static PE imports verified (48 DLLs across 7 categories, sum=48))",
     "  [PASS]         \u2713 Claim P1-013 [VERIFIED_STATIC] assertion (Delay-loaded PE imports verified (17 DLLs: ['BarCode_Aztec.dll', 'BarCode_Composite.dll', 'BarCode_DataMatrix.dll']...))",
     "  [PASS]         \u2713 Claim P1-014 [VERIFIED_STATIC] assertion (Codejock library verified as ToolkitPro1531vc142x64U.dll (10,844,184 bytes, x86_64))",
-    "  [PASS]         \u2713 Claim P1-015 [VERIFIED_STATIC] assertion (Absence of standalone modules {'BtEngine.dll', 'BtPrint.dll', 'BtSystem.dll', 'BtData.dll', 'BtLic.dll', 'BtBarcode.dll'} verified across target directory 'D:\\BarTender' and reconciliation register)",
+    "  [PASS]         \u2713 Claim P1-015 [VERIFIED_STATIC] assertion (Absence of standalone modules {'BtData.dll', 'BtBarcode.dll', 'BtSystem.dll', 'BtPrint.dll', 'BtEngine.dll', 'BtLic.dll'} verified across target directory 'D:\\BarTender' and reconciliation register)",
     "  [PASS]         \u2713 Claim P1-016 [VERIFIED_STATIC] assertion (Modular 2D barcode plugin verified with exported C API GenerateQRCode in BarCode_QRCode.dll)",
     "  [PASS]         \u2713 Claim P1-017 [VERIFIED_STATIC] assertion (CArchive and MFC serialization boundaries verified in dotnet_interop_map.json)",
     "  [PASS]         \u2713 Claim P1-018 [NOT_PERFORMED] assertion (Ghidra deep decompilation verified as NOT_PERFORMED due to unset GHIDRA_INSTALL_DIR boundary)",
     "  [PASS]         \u2713 Claim P1-019 [VERIFIED_DOCUMENTATION] assertion (Clean-room asset compliance verified via production scan: zero proprietary images in screenshots tree and observational reference documented)",
-    "  [PASS]         \u2713 Claim P1-020 [VERIFIED_STATIC] assertion (Continuous millimeter float precision and integer twips (+/-8.8 um quantization) mathematically and statically verified in Length.cs)",
+    "  [PASS]         \u2713 Claim P1-020 [VERIFIED_STATIC] assertion (Continuous millimeter float precision and integer twips (+/-8.8 um quantization) mathematically and statically verified in Length.cs (runtime .NET execution not performed: .NET SDK not installed on host))",
     "  [PASS]         \u2713 Claim P1-021 [VERIFIED_STATIC] assertion (Direct static linkage of WINSPOOL.DRV in Windows Print Spooler category verified)",
-    "  [PASS]         \u2713 Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.dll', 'Seagull.License.dll', 'Seagull.Services.Licensing.Contracts.dll'}) (scoped to observed assemblies in inventory))",
+    "  [PASS]         \u2713 Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.Contracts.dll', 'Seagull.Services.Licensing.dll', 'Seagull.License.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))",
     "  [PASS]         \u2713 Claim P1-023 [VERIFIED_RUNTIME] assertion (RT-01 process startup & modal activation prompt verified: Process spawns, initializes CLR v4.0.30319, loads MFC140u.dl...)",
     "  [PASS]         \u2713 Claim P1-024 [VERIFIED_RUNTIME] assertion (RT-02 managed print API LicenseException verified: Throws LicenseException: 'You must activate BarTender with a...)",
     "  [PASS]         \u2713 Claim P1-025 [VERIFIED_RUNTIME] assertion (RT-03 COM Automation ProgID & unattended execution limitation verified: COM ProgID registration and process activation launch are ve...)",
@@ -207,16 +221,20 @@
     "  [PASS]         \u2713 Report verified consistent: 24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md",
     "  [PASS]         \u2713 Report verified consistent: 25_PHASE1_1_2_2_CORRECTION_LOG.md",
     "  [PASS]         \u2713 Report verified consistent: 26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md",
+    "  [PASS]         \u2713 Report verified consistent: 27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md",
+    "  [PASS]         \u2713 Report verified consistent: 28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md",
+    "  [PASS]         \u2713 Report verified consistent: 29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md",
+    "  [PASS]         \u2713 Report verified consistent: 30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md",
     "\n==============================================================================",
     "                        VALIDATION AUDIT SUMMARY",
     "==============================================================================",
-    "  TOTAL CHECKS EXECUTED : 136",
-    "  PASS                  : 136",
+    "  TOTAL CHECKS EXECUTED : 140",
+    "  PASS                  : 140",
     "  FAIL                  : 0",
     "  WARNING               : 0",
     "  NOT_CHECKED           : 0",
     "------------------------------------------------------------------------------",
-    "  RELEASE GATE STATUS   : PHASE 1.1.2.2 \u2014 APPROVED",
+    "  RELEASE GATE STATUS   : PHASE 1.1.2.2.1 \u2014 APPROVED",
     "  RELEASE GATE DECISION : All mandatory integrity and evidence checks verified",
     "  EXIT CODE             : 0",
     "=============================================================================="
