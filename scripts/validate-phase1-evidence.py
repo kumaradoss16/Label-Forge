@@ -279,12 +279,16 @@ class ValidationSuite:
         else:
             self.record("Delay-load imports check", "FAIL", f"Expected 17, got {dep['delay_load_imports']['count']}")
 
-        # Phantom DLL absence verification
+        # Phantom DLL absence & obsolete placeholder classification verification
         for phantom in dep['phantom_dll_reconciliation']:
             pname = phantom['phantom_name']
+            pclass = phantom.get('classification', 'ABSENT_MODULE_CONFIRMED')
             ppath = os.path.join(canonical['target_directory'] if 'target_directory' in canonical else r'D:\BarTender', pname)
             if not os.path.exists(ppath):
-                self.record(f"Confirmed phantom DLL absent from target directory: {pname}", "PASS")
+                if pclass == 'OBSOLETE_OR_MISNAMED_REFERENCE':
+                    self.record(f"Confirmed obsolete reference absent as standalone DLL: {pname} (OBSOLETE_OR_MISNAMED_REFERENCE)", "PASS")
+                else:
+                    self.record(f"Confirmed proprietary module absent from target directory: {pname} (ABSENT_MODULE_CONFIRMED)", "PASS")
             else:
                 self.record(f"Phantom DLL check: {pname}", "FAIL", "File unexpectedly exists on disk")
 
@@ -517,7 +521,12 @@ class ValidationSuite:
             '27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md',
             '28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md',
             '29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md',
-            '30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md'
+            '30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md',
+            '31_PHASE1_1_2_2_2_FINAL_MERGE_PROVENANCE_AUDIT.md',
+            '32_PHASE1_1_2_2_2_EXECUTION_ARTIFACT_INTEGRITY.md',
+            '33_PHASE1_1_2_2_2_AUTHORITATIVE_ACCOUNTING_RECONCILIATION.md',
+            '34_PHASE1_1_2_2_2_CLAIM_CLASSIFICATION_CORRECTIONS.md',
+            '35_PHASE1_1_2_2_2_REGRESSION_AND_ACCEPTANCE_REPORT.md'
         ]
 
         for rep in expected_reports:
@@ -568,8 +577,8 @@ class ValidationSuite:
         # Authoritative Release Gate Evaluation
         # (Production Module: stage_results.py)
         exit_code, gate_status, gate_message = evaluate_release_gate(self.stage_results, self.counts)
-        gate_status_label = "PHASE 1.1.2.2.1 — APPROVED" if exit_code == 0 else (
-            "PHASE 1.1.2.2.1 — BLOCKED" if exit_code == 2 else "PHASE 1.1.2.2.1 — FAILED"
+        gate_status_label = "PHASE 1.1.2.2.2 — APPROVED" if exit_code == 0 else (
+            "PHASE 1.1.2.2.2 — BLOCKED" if exit_code == 2 else "PHASE 1.1.2.2.2 — FAILED"
         )
         self.log_print(f"  RELEASE GATE STATUS   : {gate_status_label}")
         self.log_print(f"  RELEASE GATE DECISION : {gate_message}")
@@ -586,8 +595,8 @@ class ValidationSuite:
         # -------------------------------------------------------------
         results_path = os.path.join(RECON_DIR, 'validation_results.json')
         results_doc = {
-            'schema_version': '1.1.2.2.1',
-            'milestone': 'Phase 1.1.2.2.1',
+            'schema_version': '1.1.2.2.2',
+            'milestone': 'Phase 1.1.2.2.2',
             'generated_at_utc': datetime.now(timezone.utc).isoformat(),
             'target_binary': {
                 'path': target_exe if target_available else r"D:\BarTender\BarTend.exe",

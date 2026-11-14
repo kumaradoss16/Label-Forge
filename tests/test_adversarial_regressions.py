@@ -19,6 +19,7 @@ import tempfile
 import shutil
 import json
 import hashlib
+import subprocess
 from typing import Dict, Any
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -281,12 +282,24 @@ class TestWorkstreamERawLogsAndProvenance(unittest.TestCase):
         with open(self.stderr, "wb") as f:
             f.write(b"")
 
+        # Initialize a real Git repository in temp_dir for git object verification
+        subprocess.run(["git", "init"], cwd=self.repo_root, check=True, capture_output=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=self.repo_root, check=True, capture_output=True)
+        subprocess.run(["git", "config", "user.name", "Test Runner"], cwd=self.repo_root, check=True, capture_output=True)
+        subprocess.run(["git", "add", "."], cwd=self.repo_root, check=True, capture_output=True)
+        subprocess.run(["git", "commit", "-m", "Initial test commit"], cwd=self.repo_root, check=True, capture_output=True)
+        
+        c_res = subprocess.run(["git", "rev-parse", "HEAD"], cwd=self.repo_root, capture_output=True, text=True, check=True)
+        self.commit_sha = c_res.stdout.strip()
+        t_res = subprocess.run(["git", "rev-parse", "HEAD^{tree}"], cwd=self.repo_root, capture_output=True, text=True, check=True)
+        self.tree_sha = t_res.stdout.strip()
+
         self.prov_doc = {
             "schema_version": "1.1.2.2.1",
             "status": "RECONCILED_AUTHORITATIVE",
             "provenance_metadata": {
-                "validated_commit_sha": "a" * 40,
-                "validated_tree_sha": "b" * 40,
+                "validated_commit_sha": self.commit_sha,
+                "validated_tree_sha": self.tree_sha,
                 "branch": "phase1.1.2.2.1-final-closure",
                 "is_working_tree_clean": True,
                 "validator_script": {
@@ -347,6 +360,30 @@ class TestWorkstreamERawLogsAndProvenance(unittest.TestCase):
         ok, errors = validate_provenance_record(self.prov_doc, self.repo_root)
         self.assertFalse(ok)
         self.assertTrue(any("Referenced raw stderr log not found" in e for e in errors))
+
+    def test_invalid_commit_sha_fails(self):
+        """Nonexistent or malformed commit SHA fails git object verification."""
+        self.prov_doc["provenance_metadata"]["validated_commit_sha"] = "0" * 40
+        ok, errors = validate_provenance_record(self.prov_doc, self.repo_root)
+        self.assertFalse(ok)
+        self.assertTrue(any("Git object verification failed" in e for e in errors))
+
+    def test_mismatched_tree_sha_fails(self):
+        """Recorded tree SHA differing from actual commit tree fails validation."""
+        self.prov_doc["provenance_metadata"]["validated_tree_sha"] = "0" * 40
+        ok, errors = validate_provenance_record(self.prov_doc, self.repo_root)
+        self.assertFalse(ok)
+        self.assertTrue(any("does not match actual commit tree" in e for e in errors))
+
+    def test_final_merge_equivalence_verification(self):
+        """Verify final merge tree equivalence helper."""
+        from scripts.validation.git_verification import verify_final_merge_equivalence
+        # Matching tree should be equivalent
+        ok, msg = verify_final_merge_equivalence(self.commit_sha, self.tree_sha, self.repo_root)
+        self.assertTrue(ok)
+        # Mismatched tree should fail
+        ok_bad, msg_bad = verify_final_merge_equivalence(self.commit_sha, "0" * 40, self.repo_root)
+        self.assertFalse(ok_bad)
 
 
 if __name__ == '__main__':

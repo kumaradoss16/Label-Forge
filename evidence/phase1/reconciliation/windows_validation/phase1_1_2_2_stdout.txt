@@ -51,24 +51,24 @@
   [PASS]         ✓ Zero unexpected modules found in direct-import categories
   [PASS]         ✓ Exact direct-import partition verified: categorized == canonical (48 modules)
   [PASS]         ✓ Delay-loaded PE imports count verified (17 DLLs)
-  [PASS]         ✓ Confirmed phantom DLL absent from target directory: BtEngine.dll
-  [PASS]         ✓ Confirmed phantom DLL absent from target directory: BtBarcode.dll
-  [PASS]         ✓ Confirmed phantom DLL absent from target directory: BtPrint.dll
-  [PASS]         ✓ Confirmed phantom DLL absent from target directory: BtSystem.dll
-  [PASS]         ✓ Confirmed phantom DLL absent from target directory: BtLic.dll
-  [PASS]         ✓ Confirmed phantom DLL absent from target directory: BtData.dll
-  [PASS]         ✓ Confirmed phantom DLL absent from target directory: XtremeToolkitPro.dll
+  [PASS]         ✓ Confirmed proprietary module absent from target directory: BtEngine.dll (ABSENT_MODULE_CONFIRMED)
+  [PASS]         ✓ Confirmed proprietary module absent from target directory: BtBarcode.dll (ABSENT_MODULE_CONFIRMED)
+  [PASS]         ✓ Confirmed proprietary module absent from target directory: BtPrint.dll (ABSENT_MODULE_CONFIRMED)
+  [PASS]         ✓ Confirmed proprietary module absent from target directory: BtSystem.dll (ABSENT_MODULE_CONFIRMED)
+  [PASS]         ✓ Confirmed proprietary module absent from target directory: BtLic.dll (ABSENT_MODULE_CONFIRMED)
+  [PASS]         ✓ Confirmed proprietary module absent from target directory: BtData.dll (ABSENT_MODULE_CONFIRMED)
+  [PASS]         ✓ Confirmed obsolete reference absent as standalone DLL: XtremeToolkitPro.dll (OBSOLETE_OR_MISNAMED_REFERENCE)
 
 [STAGE 6] Exact Claim Status Accounting Audit
   [PASS]         ✓ Total claims count field matches claims array length (25)
   [PASS]         ✓ Claim ID uniqueness verified (25 distinct IDs)
   [PASS]         ✓ Complete status dictionary equality verified: actual_counts == declared_counts
+  [PASS]         ✓ Status accounting [UNKNOWN]: exactly 0 claims
+  [PASS]         ✓ Status accounting [VERIFIED_STATIC]: exactly 20 claims
   [PASS]         ✓ Status accounting [VERIFIED_RUNTIME]: exactly 3 claims
+  [PASS]         ✓ Status accounting [INFERRED]: exactly 0 claims
   [PASS]         ✓ Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims
   [PASS]         ✓ Status accounting [NOT_PERFORMED]: exactly 1 claims
-  [PASS]         ✓ Status accounting [VERIFIED_STATIC]: exactly 20 claims
-  [PASS]         ✓ Status accounting [INFERRED]: exactly 0 claims
-  [PASS]         ✓ Status accounting [UNKNOWN]: exactly 0 claims
 
 [STAGE 7] Structured Evidence References Verification Audit
   [PASS]         ✓ Claim P1-001 structured evidence_refs verified (2 valid refs)
@@ -111,14 +111,14 @@
   [PASS]         ✓ Claim P1-012 [VERIFIED_STATIC] assertion (Direct static PE imports verified (48 DLLs across 7 categories, sum=48))
   [PASS]         ✓ Claim P1-013 [VERIFIED_STATIC] assertion (Delay-loaded PE imports verified (17 DLLs: ['BarCode_Aztec.dll', 'BarCode_Composite.dll', 'BarCode_DataMatrix.dll']...))
   [PASS]         ✓ Claim P1-014 [VERIFIED_STATIC] assertion (Codejock library verified as ToolkitPro1531vc142x64U.dll (10,844,184 bytes, x86_64))
-  [PASS]         ✓ Claim P1-015 [VERIFIED_STATIC] assertion (Absence of standalone modules {'BtData.dll', 'BtEngine.dll', 'BtBarcode.dll', 'BtLic.dll', 'BtSystem.dll', 'BtPrint.dll'} verified across target directory 'D:\BarTender' and reconciliation register)
+  [PASS]         ✓ Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtPrint.dll', 'BtBarcode.dll', 'BtSystem.dll', 'BtLic.dll', 'BtData.dll', 'BtEngine.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)
   [PASS]         ✓ Claim P1-016 [VERIFIED_STATIC] assertion (Modular 2D barcode plugin verified with exported C API GenerateQRCode in BarCode_QRCode.dll)
   [PASS]         ✓ Claim P1-017 [VERIFIED_STATIC] assertion (CArchive and MFC serialization boundaries verified in dotnet_interop_map.json)
   [PASS]         ✓ Claim P1-018 [NOT_PERFORMED] assertion (Ghidra deep decompilation verified as NOT_PERFORMED due to unset GHIDRA_INSTALL_DIR boundary)
   [PASS]         ✓ Claim P1-019 [VERIFIED_DOCUMENTATION] assertion (Clean-room asset compliance verified via production scan: zero proprietary images in screenshots tree and observational reference documented)
-  [PASS]         ✓ Claim P1-020 [VERIFIED_STATIC] assertion (Continuous millimeter float precision and integer twips (+/-8.8 um quantization) mathematically and statically verified in Length.cs (runtime .NET execution not performed: .NET SDK not installed on host))
+  [PASS]         ✓ Claim P1-020 [VERIFIED_STATIC] assertion (VERIFIED_MATHEMATICAL_RESOLUTION: Twip resolution step 0.017639 mm (+/-8.8 um) verified mathematically; static double mm primitives verified in Length.cs; RUNTIME_IMPLEMENTATION_NOT_VERIFIED (.NET SDK absent on host))
   [PASS]         ✓ Claim P1-021 [VERIFIED_STATIC] assertion (Direct static linkage of WINSPOOL.DRV in Windows Print Spooler category verified)
-  [PASS]         ✓ Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.License.dll', 'Seagull.Services.Licensing.Contracts.dll', 'Seagull.Services.Licensing.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))
+  [PASS]         ✓ Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.dll', 'Seagull.Services.Licensing.Contracts.dll', 'Seagull.License.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))
   [PASS]         ✓ Claim P1-023 [VERIFIED_RUNTIME] assertion (RT-01 process startup & modal activation prompt verified: Process spawns, initializes CLR v4.0.30319, loads MFC140u.dl...)
   [PASS]         ✓ Claim P1-024 [VERIFIED_RUNTIME] assertion (RT-02 managed print API LicenseException verified: Throws LicenseException: 'You must activate BarTender with a...)
   [PASS]         ✓ Claim P1-025 [VERIFIED_RUNTIME] assertion (RT-03 COM Automation ProgID & unattended execution limitation verified: COM ProgID registration and process activation launch are ve...)
@@ -161,17 +161,22 @@
   [PASS]         ✓ Report verified consistent: 28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md
   [PASS]         ✓ Report verified consistent: 29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md
   [PASS]         ✓ Report verified consistent: 30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md
+  [PASS]         ✓ Report verified consistent: 31_PHASE1_1_2_2_2_FINAL_MERGE_PROVENANCE_AUDIT.md
+  [PASS]         ✓ Report verified consistent: 32_PHASE1_1_2_2_2_EXECUTION_ARTIFACT_INTEGRITY.md
+  [PASS]         ✓ Report verified consistent: 33_PHASE1_1_2_2_2_AUTHORITATIVE_ACCOUNTING_RECONCILIATION.md
+  [PASS]         ✓ Report verified consistent: 34_PHASE1_1_2_2_2_CLAIM_CLASSIFICATION_CORRECTIONS.md
+  [PASS]         ✓ Report verified consistent: 35_PHASE1_1_2_2_2_REGRESSION_AND_ACCEPTANCE_REPORT.md
 
 ==============================================================================
                         VALIDATION AUDIT SUMMARY
 ==============================================================================
-  TOTAL CHECKS EXECUTED : 140
-  PASS                  : 140
+  TOTAL CHECKS EXECUTED : 145
+  PASS                  : 145
   FAIL                  : 0
   WARNING               : 0
   NOT_CHECKED           : 0
 ------------------------------------------------------------------------------
-  RELEASE GATE STATUS   : PHASE 1.1.2.2.1 — APPROVED
+  RELEASE GATE STATUS   : PHASE 1.1.2.2.2 — APPROVED
   RELEASE GATE DECISION : All mandatory integrity and evidence checks verified
   EXIT CODE             : 0
 ==============================================================================

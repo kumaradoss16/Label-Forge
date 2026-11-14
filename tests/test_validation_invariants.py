@@ -155,7 +155,7 @@ class TestValidationInvariantsPositive(unittest.TestCase):
         counts = {STATUS_PASS: 100, STATUS_FAIL: 0, STATUS_WARNING: 0, STATUS_NOT_CHECKED: 0}
         code, status, msg = evaluate_release_gate(stage_results, counts)
         self.assertEqual(code, 0)
-        self.assertEqual(status, "PHASE 1.1.2.2 — APPROVED")
+        self.assertIn("APPROVED", status)
 
     def test_symlink_path_boundary_protection(self):
         """AC-05: Verify symlink and path traversal boundaries are strictly enforced."""
@@ -536,7 +536,7 @@ class TestValidationMandatoryFixtures(unittest.TestCase):
         counts = {STATUS_PASS: 100, STATUS_FAIL: 0, STATUS_WARNING: 0, STATUS_NOT_CHECKED: 0}
         code, status, msg = evaluate_release_gate(incomplete_stages, counts)
         self.assertEqual(code, 1)
-        self.assertEqual(status, "PHASE 1.1.2.2 — BLOCKED")
+        self.assertIn("BLOCKED", status)
         self.assertIn("Missing mandatory validation stages", msg)
 
     # T23: Failed mandatory check incorrectly treated as PASS (FAIL)

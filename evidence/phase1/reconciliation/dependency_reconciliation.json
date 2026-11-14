@@ -168,42 +168,49 @@
   "phantom_dll_reconciliation": [
     {
       "phantom_name": "BtEngine.dll",
+      "classification": "ABSENT_MODULE_CONFIRMED",
       "prior_claim": "Core label geometry, affine transform matrices, object hit-testing, twip-to-pixel math",
       "actual_reality": "Does not exist as a standalone DLL in the audited directory. CArchive and MFC geometry routines are linked directly within BarTend.exe, indicating core serialization and layout are hosted in BarTend.exe.",
       "evidence": "os.path.exists(D:\\BarTender\\BtEngine.dll) == False; CArchive/CObList symbols reside in BarTend.exe."
     },
     {
       "phantom_name": "BtBarcode.dll",
+      "classification": "ABSENT_MODULE_CONFIRMED",
       "prior_claim": "1D & 2D symbology rasterization, Reed-Solomon error correction",
       "actual_reality": "Does not exist as a standalone DLL in the audited directory. Modular 2D symbologies export C APIs in dedicated plugins (BarCode_QRCode.dll, BarCode_DataMatrix.dll), while 1D barcodes are rasterized in BarTend.exe.",
       "evidence": "os.path.exists(D:\\BarTender\\BtBarcode.dll) == False; BarCode_*.dll plugin series confirmed present with exported C functions."
     },
     {
       "phantom_name": "BtPrint.dll",
+      "classification": "ABSENT_MODULE_CONFIRMED",
       "prior_claim": "Windows spooler interfacing, raw printer command construction",
       "actual_reality": "Does not exist. Printing spooler communication is handled across BarTend.exe, Seagull.BarTender.Print.dll, and Seagull.PrinterSetup.dll via winspool.drv.",
       "evidence": "os.path.exists(D:\\BarTender\\BtPrint.dll) == False; winspool.drv imported directly by BarTend.exe."
     },
     {
       "phantom_name": "BtSystem.dll",
+      "classification": "ABSENT_MODULE_CONFIRMED",
       "prior_claim": "Memory pooling, OS version checks, IPC pipe communication",
       "actual_reality": "Does not exist. System services and database interop are provided by BtSystem.Client.dll, BtSystem.DataAccess.dll, BtSystem.Interfaces.dll, and Seagull.Framework.dll.",
       "evidence": "os.path.exists(D:\\BarTender\\BtSystem.dll) == False; BtSystem.* managed assembly family verified on disk."
     },
     {
       "phantom_name": "BtLic.dll",
+      "classification": "ABSENT_MODULE_CONFIRMED",
       "prior_claim": "Seagull License Server communication and license checks",
       "actual_reality": "Does not exist. Licensing and security verification are managed by Seagull.License.dll and Seagull.Services.Licensing.dll over WCF/HTTP.",
       "evidence": "os.path.exists(D:\\BarTender\\BtLic.dll) == False; Seagull.License.dll and Seagull.Services.Licensing.* verified."
     },
     {
       "phantom_name": "BtData.dll",
+      "classification": "ABSENT_MODULE_CONFIRMED",
       "prior_claim": "Delimited text parser, database queries, serialization counters",
       "actual_reality": "Does not exist. Data processing is handled by Seagull.Data.dll, Seagull.Data.Core.dll, Seagull.Data.TextFileClient.dll, and Seagull.Data.DataBuilder.dll.",
       "evidence": "os.path.exists(D:\\BarTender\\BtData.dll) == False; Seagull.Data.* assembly suite verified."
     },
     {
       "phantom_name": "XtremeToolkitPro.dll",
+      "classification": "OBSOLETE_OR_MISNAMED_REFERENCE",
       "prior_claim": "Codejock Software professional GUI components",
       "actual_reality": "The actual file on disk is ToolkitPro1531vc142x64U.dll (size: 10,844,184 bytes), representing Codejock Xtreme Toolkit Pro v15.3.1 compiled for Visual C++ 14.2 x64 Unicode.",
       "evidence": "os.path.exists(D:\\BarTender\\ToolkitPro1531vc142x64U.dll) == True (10,844,184 bytes); imported by BarTend.exe."
