@@ -87,10 +87,10 @@ def generate_provenance_record(
     manifest_verified = (stage_breakdown.get('manifest_integrity') == 'PASS')
 
     result_status = 'PASS' if exit_code == 0 else ('NOT_CHECKED' if exit_code == 2 else 'FAIL')
-    gate_status = 'PHASE 1.1.2.2 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2 — BLOCKED'
+    gate_status = 'PHASE 1.1.2.2.1 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2.1 — BLOCKED'
 
     provenance = {
-        'schema_version': '1.1.2.2',
+        'schema_version': '1.1.2.2.1',
         'status': 'RECONCILED_AUTHORITATIVE',
         'provenance_metadata': {
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
@@ -206,6 +206,30 @@ def validate_provenance_record(
                 act_r_sha = hashlib.sha256(f.read()).hexdigest()
             if act_r_sha != val_res.get('sha256'):
                 errors.append(f"Validation results SHA-256 mismatch: recorded={val_res.get('sha256')}, actual={act_r_sha}")
+
+    # Validate raw execution logs (stdout and stderr)
+    raw_logs = meta.get('raw_execution_logs', {})
+    stdout_entry = raw_logs.get('stdout')
+    if stdout_entry and stdout_entry.get('path') and stdout_entry.get('path') != "MISSING":
+        out_p = os.path.join(repo_root, stdout_entry.get('path', '').replace('/', os.sep))
+        if not os.path.exists(out_p):
+            errors.append(f"Referenced raw stdout log not found: '{stdout_entry.get('path')}'")
+        else:
+            with open(out_p, 'rb') as f:
+                act_out_sha = hashlib.sha256(f.read()).hexdigest()
+            if act_out_sha != stdout_entry.get('sha256'):
+                errors.append(f"Raw stdout log SHA-256 mismatch: recorded={stdout_entry.get('sha256')}, actual={act_out_sha}")
+
+    stderr_entry = raw_logs.get('stderr')
+    if stderr_entry and stderr_entry.get('path') and stderr_entry.get('path') != "MISSING":
+        err_p = os.path.join(repo_root, stderr_entry.get('path', '').replace('/', os.sep))
+        if not os.path.exists(err_p):
+            errors.append(f"Referenced raw stderr log not found: '{stderr_entry.get('path')}'")
+        else:
+            with open(err_p, 'rb') as f:
+                act_err_sha = hashlib.sha256(f.read()).hexdigest()
+            if act_err_sha != stderr_entry.get('sha256'):
+                errors.append(f"Raw stderr log SHA-256 mismatch: recorded={stderr_entry.get('sha256')}, actual={act_err_sha}")
 
     res = provenance_doc.get('validation_results', {})
     acc = res.get('summary_accounting', {})

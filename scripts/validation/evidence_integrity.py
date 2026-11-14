@@ -7,6 +7,7 @@ exact claim-status accounting, and recursive prohibited-image scanning.
 """
 
 import os
+import re
 from typing import Dict, List, Set, Any, Tuple, Optional
 
 ALLOWED_CLAIM_STATUSES: Set[str] = {
@@ -74,8 +75,9 @@ def resolve_json_pointer(doc: Any, pointer: str) -> Any:
         part = decode_reference_token(raw_part)
         if isinstance(curr, list):
             # RFC 6901 Section 4: array-index = "0" / ( %x31-39 *(%x30-39) )
-            if not part.isdigit() or (len(part) > 1 and part.startswith('0')) or part.startswith('+') or part.startswith('-'):
-                raise IndexError(f"Invalid array index token: '{part}' (must be non-negative integer without leading zeros)")
+            # Strict ASCII digit check: reject Unicode digits, leading zeros, signs, etc.
+            if not re.fullmatch(r'^(?:0|[1-9][0-9]*)$', part):
+                raise IndexError(f"Invalid array index token: '{part}' (must be non-negative ASCII integer without leading zeros)")
             idx = int(part)
             if idx < 0 or idx >= len(curr):
                 raise IndexError(f"Index {idx} out of range (length {len(curr)})")
@@ -190,26 +192,31 @@ def scan_prohibited_images(
     def on_walk_error(err: OSError):
         traversal_errors.append(f"Filesystem traversal error at '{err.filename}': {err.strerror}")
 
+    def is_contained_in_target(path_to_check: str) -> bool:
+        real_p = os.path.realpath(path_to_check)
+        try:
+            common = os.path.commonpath([real_target_root, real_p])
+            return os.path.normcase(common) == os.path.normcase(real_target_root)
+        except ValueError:
+            return False
+
     try:
         for root, dirs, files in os.walk(target_directory, followlinks=follow_symlinks, onerror=on_walk_error):
-            real_current = os.path.realpath(root)
-            if not (real_current == real_target_root or real_current.startswith(real_target_root + os.sep)):
+            if not is_contained_in_target(root):
                 traversal_errors.append(f"Symlink directory traversal detected outside target: '{root}'")
                 continue
 
             for d in list(dirs):
                 dpath = os.path.join(root, d)
                 if os.path.islink(dpath) and not follow_symlinks:
-                    real_d = os.path.realpath(dpath)
-                    if not (real_d == real_target_root or real_d.startswith(real_target_root + os.sep)):
-                        traversal_errors.append(f"Symlinked directory escapes target root: '{dpath}' -> '{real_d}'")
+                    if not is_contained_in_target(dpath):
+                        traversal_errors.append(f"Symlinked directory escapes target root: '{dpath}' -> '{os.path.realpath(dpath)}'")
 
             for f in files:
                 fpath = os.path.join(root, f)
                 if os.path.islink(fpath) and not follow_symlinks:
-                    real_f = os.path.realpath(fpath)
-                    if not (real_f == real_target_root or real_f.startswith(real_target_root + os.sep)):
-                        traversal_errors.append(f"Symlinked file escapes target root: '{fpath}' -> '{real_f}'")
+                    if not is_contained_in_target(fpath):
+                        traversal_errors.append(f"Symlinked file escapes target root: '{fpath}' -> '{os.path.realpath(fpath)}'")
 
                 ext = os.path.splitext(f)[1].lower()
                 if ext in prohibited_extensions:
@@ -252,12 +259,17 @@ def validate_structured_evidence_reference(
     if os.path.isabs(rpath) or '..' in rpath or '\\' in rpath or rpath.startswith('/'):
         return False, f"Invalid path (must be repository-relative forward-slash path): '{rpath}'"
 
-    full_path = os.path.join(repo_root, rpath.replace('/', os.sep))
+    full_path = os.path.normpath(os.path.join(repo_root, rpath.replace('/', os.sep)))
     real_repo_root = os.path.realpath(repo_root)
     real_file_path = os.path.realpath(full_path)
 
-    if not real_file_path.startswith(real_repo_root):
-        return False, f"Path escapes repository root: '{rpath}'"
+    # Robust path-aware containment via os.path.commonpath and normalized drive case
+    try:
+        common = os.path.commonpath([real_repo_root, real_file_path])
+        if os.path.normcase(common) != os.path.normcase(real_repo_root):
+            return False, f"Path escapes repository root via traversal: '{rpath}'"
+    except ValueError:
+        return False, f"Path on different drive or invalid path: '{rpath}'"
 
     if not os.path.exists(full_path):
         return False, f"Referenced file missing on disk: '{rpath}'"

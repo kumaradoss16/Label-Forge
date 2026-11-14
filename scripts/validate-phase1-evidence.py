@@ -513,7 +513,11 @@ class ValidationSuite:
             '23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md',
             '24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md',
             '25_PHASE1_1_2_2_CORRECTION_LOG.md',
-            '26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md'
+            '26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md',
+            '27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md',
+            '28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md',
+            '29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md',
+            '30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md'
         ]
 
         for rep in expected_reports:
@@ -564,7 +568,10 @@ class ValidationSuite:
         # Authoritative Release Gate Evaluation
         # (Production Module: stage_results.py)
         exit_code, gate_status, gate_message = evaluate_release_gate(self.stage_results, self.counts)
-        self.log_print(f"  RELEASE GATE STATUS   : {gate_status}")
+        gate_status_label = "PHASE 1.1.2.2.1 — APPROVED" if exit_code == 0 else (
+            "PHASE 1.1.2.2.1 — BLOCKED" if exit_code == 2 else "PHASE 1.1.2.2.1 — FAILED"
+        )
+        self.log_print(f"  RELEASE GATE STATUS   : {gate_status_label}")
         self.log_print(f"  RELEASE GATE DECISION : {gate_message}")
         self.log_print(f"  EXIT CODE             : {exit_code}")
         if self.counts['FAIL'] > 0:
@@ -579,8 +586,8 @@ class ValidationSuite:
         # -------------------------------------------------------------
         results_path = os.path.join(RECON_DIR, 'validation_results.json')
         results_doc = {
-            'schema_version': '1.1.2.2',
-            'milestone': 'Phase 1.1.2.2',
+            'schema_version': '1.1.2.2.1',
+            'milestone': 'Phase 1.1.2.2.1',
             'generated_at_utc': datetime.now(timezone.utc).isoformat(),
             'target_binary': {
                 'path': target_exe if target_available else r"D:\BarTender\BarTend.exe",
