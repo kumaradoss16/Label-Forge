@@ -49,6 +49,25 @@ All technical specifications, reverse engineering reports, behavior models, and 
 | [**19. Phase 1: Reverse Engineering Summary**](reports/19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md) | Master Phase 1 summary, Gates A-G evaluation, confirmed facts, inferences, unknowns, and roadmap. |
 | [**20. Phase 1.1: Evidence Reconciliation Report**](reports/20_PHASE1_1_EVIDENCE_RECONCILIATION.md) | Comprehensive 20-section authoritative baseline reconciliation, PE verification, and component census. |
 | [**21. Phase 1.1: Correction Log & Register**](reports/21_PHASE1_1_CORRECTION_LOG.md) | Itemized audit log of historical claim corrections, discrepancy root causes, and justifications. |
+| [**22. Phase 1.1.2: Windows Validation**](reports/22_PHASE1_1_2_WINDOWS_VALIDATION.md) | Independent Windows runtime verification and cryptographic identity validation. |
+| [**23. Phase 1.1.2.1: Validator Correctness**](reports/23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md) | Validator hardening, path-aware containment, and adversarial test harness implementation. |
+| [**24. Phase 1.1.2.2: Independent Validator Acceptance**](reports/24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md) | Stage-level result aggregation, authoritative check derivation, and release gate evaluator. |
+| [**25. Phase 1.1.2.2: Correction Log**](reports/25_PHASE1_1_2_2_CORRECTION_LOG.md) | Comprehensive audit log of Phase 1.1.2.2 corrections, root causes, and verification tests. |
+| [**26. Phase 1.1.2.2: Test Coverage Matrix**](reports/26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md) | Complete test traceability matrix mapping requirements to production validation tests. |
+| [**27. Phase 1.1.2.2.1: Final Accounting & Regression Closure**](reports/27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md) | Authoritative accounting closure, ASCII RFC 6901 pointer grammar, and regression verification. |
+| [**28. Phase 1.1.2.2.1: Provenance & Revision Audit**](reports/28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md) | Revision tracking, cryptographic digest audit, and Git object resolution. |
+| [**29. Phase 1.1.2.2.1: Final Correction Log**](reports/29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md) | Itemized log of Phase 1.1.2.2.1 findings F-01 through F-11 and corrective actions. |
+| [**30. Phase 1.1.2.2.1: Test Coverage & Acceptance Matrix**](reports/30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md) | Test mapping and acceptance matrix for findings F-01 through F-11. |
+| [**31. Phase 1.1.2.2.2: Final Merge Provenance Audit**](reports/31_PHASE1_1_2_2_2_FINAL_MERGE_PROVENANCE_AUDIT.md) | Git object, revision tree, and merge equivalence verification. |
+| [**32. Phase 1.1.2.2.2: Execution Artifact Integrity**](reports/32_PHASE1_1_2_2_2_EXECUTION_ARTIFACT_INTEGRITY.md) | Forensic analysis of raw execution logs, encoding, BOM mechanics, and digest resolution. |
+| [**33. Phase 1.1.2.2.2: Authoritative Accounting Reconciliation**](reports/33_PHASE1_1_2_2_2_AUTHORITATIVE_ACCOUNTING_RECONCILIATION.md) | 10-stage check breakdown and claim status distribution closure. |
+| [**34. Phase 1.1.2.2.2: Claim Classification Corrections**](reports/34_PHASE1_1_2_2_2_CLAIM_CLASSIFICATION_CORRECTIONS.md) | Resolution of P1-015 phantom categorization and P1-020 coordinate precision scoping. |
+| [**35. Phase 1.1.2.2.2: Regression & Acceptance Report**](reports/35_PHASE1_1_2_2_2_REGRESSION_AND_ACCEPTANCE_REPORT.md) | Release gate evaluation, adversarial test execution, and clean-room certification. |
+| [**36. Phase 1.1.2.2.3: Final Merge Attestation**](reports/36_PHASE1_1_2_2_3_FINAL_MERGE_ATTESTATION.md) | PR #4 merge commit verification, parent relationships, and exact-revision attestation. |
+| [**37. Phase 1.1.2.2.3: Windows Execution & Artifact Integrity**](reports/37_PHASE1_1_2_2_3_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md) | Fresh Windows validation execution, run-scoped execution logs, and cryptographic verification. |
+| [**38. Phase 1.1.2.2.3: Accounting & Claim Reconciliation**](reports/38_PHASE1_1_2_2_3_ACCOUNTING_AND_CLAIM_RECONCILIATION.md) | Authoritative 10-stage registry, 150-check derivation, and machine-readable consistency. |
+| [**39. Phase 1.1.2.2.3: Independent Regression & Acceptance Report**](reports/39_PHASE1_1_2_2_3_INDEPENDENT_REGRESSION_AND_ACCEPTANCE_REPORT.md) | Production test discovery (56/56 PASS), CI status disclosure, and AC-01 through AC-22 evaluation. |
+| [**40. Phase 1.1.2.2.3: Final Correction & Provenance Log**](reports/40_PHASE1_1_2_2_3_FINAL_CORRECTION_AND_PROVENANCE_LOG.md) | Resolution log for findings F-01 through F-06 and final sealed provenance audit. |
 
 ---
 
@@ -104,7 +123,12 @@ python scripts/validate-phase1-evidence.py
 # Or via PowerShell wrapper:
 .\scripts\validate-phase1-evidence.ps1
 ```
-*Deterministic exit codes:* `0` (PASS), `1` (FAIL), `2` (PREREQUISITE_ERROR).
+*Deterministic exit codes:* `0` (APPROVED), `1` (FAILED), `2` (BLOCKED), `3` (INTERNAL_ERROR).
+
+### Run Test Suite (Invariants & Adversarial Regressions)
+```powershell
+python -m unittest discover -s tests -v
+```
 
 ### Launch Application
 ```powershell
@@ -115,8 +139,8 @@ dotnet run --project src/LabelForge.App/LabelForge.App.csproj -c Release
 
 ## Supporting Evidence & Screenshots
 
-* [`evidence/`](evidence/): PE analysis summaries (`bartend_pe_summary.json`), imported symbol maps (`bartend_imports.json`), embedded manifest (`BarTend.exe.manifest`), and PowerShell diagnostic scripts.
-* [`screenshots/`](screenshots/): 83 extracted official UI reference screenshots, dialog templates, toolbar diagrams, and workflow guides.
+* [`evidence/`](evidence/): Canonical target identity (`target_identity.json`), component inventories, dependency reconciliation graphs, validation manifest, execution manifests, and authoritative validation provenance.
+* [`screenshots/`](screenshots/): Clean-room observational reference documentation (`UI_OBSERVATIONS_REFERENCE.md`) compliant with zero-proprietary-asset standards.
 
 ---
 
