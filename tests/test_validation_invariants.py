@@ -26,6 +26,7 @@ from scripts.validation.stage_results import (
     StageResult,
     aggregate_stage_status,
     evaluate_release_gate,
+    STAGE_REGISTRY,
     STATUS_PASS,
     STATUS_FAIL,
     STATUS_WARNING,
@@ -143,8 +144,10 @@ class TestValidationInvariantsPositive(unittest.TestCase):
     def test_release_gate_evaluation_approved(self):
         """Verify evaluate_release_gate produces exit code 0 and APPROVED when all mandatory stages pass."""
         stage_results = {
+            'target_prerequisites': STATUS_PASS,
             'target_binary_integrity': STATUS_PASS,
             'manifest_integrity': STATUS_PASS,
+            'component_inventory': STATUS_PASS,
             'direct_import_partition': STATUS_PASS,
             'status_accounting': STATUS_PASS,
             'evidence_references': STATUS_PASS,
@@ -560,31 +563,15 @@ class TestValidationMandatoryFixtures(unittest.TestCase):
     # T24: Warning or NOT_CHECKED result incorrectly treated as approval (BLOCKED)
     def test_T24_warning_or_not_checked_result_incorrectly_treated_as_approval(self):
         """T24: Unresolved warning or NOT_CHECKED blocks release gate with exit code 1 or 2."""
-        stages_not_checked = {
-            'target_binary_integrity': STATUS_NOT_CHECKED,
-            'manifest_integrity': STATUS_PASS,
-            'direct_import_partition': STATUS_PASS,
-            'status_accounting': STATUS_PASS,
-            'evidence_references': STATUS_PASS,
-            'claim_specific_assertions': STATUS_PASS,
-            'recursive_image_audit': STATUS_PASS,
-            'report_consistency': STATUS_PASS
-        }
+        stages_not_checked = {st: STATUS_PASS for st in STAGE_REGISTRY}
+        stages_not_checked['target_binary_integrity'] = STATUS_NOT_CHECKED
         counts_nc = {STATUS_PASS: 100, STATUS_FAIL: 0, STATUS_WARNING: 0, STATUS_NOT_CHECKED: 1}
         code_nc, status_nc, _ = evaluate_release_gate(stages_not_checked, counts_nc)
         self.assertEqual(code_nc, 2)
         self.assertIn("BLOCKED", status_nc)
 
-        stages_warn = {
-            'target_binary_integrity': STATUS_PASS,
-            'manifest_integrity': STATUS_PASS,
-            'direct_import_partition': STATUS_PASS,
-            'status_accounting': STATUS_PASS,
-            'evidence_references': STATUS_PASS,
-            'claim_specific_assertions': STATUS_PASS,
-            'recursive_image_audit': STATUS_PASS,
-            'report_consistency': STATUS_WARNING
-        }
+        stages_warn = {st: STATUS_PASS for st in STAGE_REGISTRY}
+        stages_warn['report_consistency'] = STATUS_WARNING
         counts_w = {STATUS_PASS: 100, STATUS_FAIL: 0, STATUS_WARNING: 1, STATUS_NOT_CHECKED: 0}
         code_w, status_w, _ = evaluate_release_gate(stages_warn, counts_w)
         self.assertEqual(code_w, 1)

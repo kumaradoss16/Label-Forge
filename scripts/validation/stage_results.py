@@ -15,13 +15,82 @@ STATUS_PASS = "PASS"
 STATUS_FAIL = "FAIL"
 STATUS_WARNING = "WARNING"
 STATUS_NOT_CHECKED = "NOT_CHECKED"
+STATUS_BLOCKED = "BLOCKED"
+STATUS_NOT_APPLICABLE = "NOT_APPLICABLE"
 
 ALLOWED_RESULT_STATUSES = {
     STATUS_PASS,
     STATUS_FAIL,
     STATUS_WARNING,
-    STATUS_NOT_CHECKED
+    STATUS_NOT_CHECKED,
+    STATUS_BLOCKED,
+    STATUS_NOT_APPLICABLE
 }
+
+# Authoritative 10 Validation Stages Registry
+STAGE_REGISTRY = {
+    "target_prerequisites": {
+        "id": "target_prerequisites",
+        "name": "Target & Environmental Prerequisites",
+        "required": True,
+        "legacy_key": "target_prerequisites"
+    },
+    "target_binary_integrity": {
+        "id": "target_binary_integrity",
+        "name": "Target Binary Cryptographic & Header Verification",
+        "required": True,
+        "legacy_key": "target_binary_integrity"
+    },
+    "manifest_integrity": {
+        "id": "manifest_integrity",
+        "name": "Evidence Manifest Checksum Integrity Audit",
+        "required": True,
+        "legacy_key": "manifest_integrity"
+    },
+    "component_inventory": {
+        "id": "component_inventory",
+        "name": "Component Inventory Mathematical Reconciliation",
+        "required": True,
+        "legacy_key": "component_inventory"
+    },
+    "direct_import_partition": {
+        "id": "direct_import_partition",
+        "name": "Direct-Import Category Partition & Dependency Audit",
+        "required": True,
+        "legacy_key": "direct_import_partition"
+    },
+    "status_accounting": {
+        "id": "status_accounting",
+        "name": "Claim Status Accounting Integrity",
+        "required": True,
+        "legacy_key": "status_accounting"
+    },
+    "evidence_references": {
+        "id": "evidence_references",
+        "name": "Structured Evidence References Verification Audit",
+        "required": True,
+        "legacy_key": "evidence_references"
+    },
+    "claim_specific_assertions": {
+        "id": "claim_specific_assertions",
+        "name": "Claim-Specific Assertion Registry",
+        "required": True,
+        "legacy_key": "claim_specific_assertions"
+    },
+    "recursive_image_audit": {
+        "id": "recursive_image_audit",
+        "name": "Recursive Prohibited-Image Compliance Audit",
+        "required": True,
+        "legacy_key": "recursive_image_audit"
+    },
+    "report_consistency": {
+        "id": "report_consistency",
+        "name": "Report Cross-References & Markdown Integrity Audit",
+        "required": True,
+        "legacy_key": "report_consistency"
+    }
+}
+
 
 @dataclass
 class AssertionRecord:
@@ -80,23 +149,27 @@ class StageResult:
             return self.status
 
         has_fail = any(a.status == STATUS_FAIL for a in self.assertions)
+        has_blocked = any(a.status == STATUS_BLOCKED for a in self.assertions)
         has_not_checked = any(a.status == STATUS_NOT_CHECKED for a in self.assertions)
         has_warning = any(a.status == STATUS_WARNING for a in self.assertions)
-        all_pass = all(a.status == STATUS_PASS for a in self.assertions)
+        all_pass = all(a.status in (STATUS_PASS, STATUS_NOT_APPLICABLE) for a in self.assertions)
 
         if has_fail:
             self.status = STATUS_FAIL
+        elif has_blocked:
+            self.status = STATUS_BLOCKED
         elif has_not_checked:
             # If any mandatory subcheck is NOT_CHECKED, the stage cannot be PASS
             self.status = STATUS_NOT_CHECKED
         elif has_warning:
             self.status = STATUS_WARNING
-        elif all_pass:
+        elif all_pass and any(a.status == STATUS_PASS for a in self.assertions):
             self.status = STATUS_PASS
         else:
             self.status = STATUS_FAIL
 
         return self.status
+
 
 def aggregate_stage_status(assertions: List[AssertionRecord]) -> str:
     """Helper function to aggregate a list of assertions into a stage status."""
@@ -114,36 +187,32 @@ def evaluate_release_gate(
     Exit Codes:
       0: Fully passed release gate (All mandatory checks pass, 0 fail, 0 not_checked, 0 warnings)
       1: Validation failure or unapproved warnings
-      2: Prerequisite unavailable / NOT_CHECKED
+      2: Prerequisite unavailable / NOT_CHECKED / BLOCKED
       3: Internal validator error
     """
     if mandatory_stages is None:
-        mandatory_stages = [
-            'target_binary_integrity',
-            'manifest_integrity',
-            'direct_import_partition',
-            'status_accounting',
-            'evidence_references',
-            'claim_specific_assertions',
-            'recursive_image_audit',
-            'report_consistency'
-        ]
+        mandatory_stages = list(STAGE_REGISTRY.keys())
+
+    if counts.get(STATUS_FAIL, 0) > 0 or any(stage_results.get(st) == STATUS_FAIL for st in mandatory_stages):
+        return (1, "PHASE 1.1.2.2.3 — FAILED", "One or more mandatory validation checks failed")
 
     missing_stages = [st for st in mandatory_stages if st not in stage_results]
     if missing_stages:
-        return (1, "PHASE 1.1.2.2.2 — BLOCKED", f"Missing mandatory validation stages: {missing_stages}")
+        return (1, "PHASE 1.1.2.2.3 — BLOCKED", f"Missing mandatory validation stages: {missing_stages}")
 
-    if counts.get(STATUS_FAIL, 0) > 0 or any(stage_results.get(st) == STATUS_FAIL for st in mandatory_stages):
-        return (1, "PHASE 1.1.2.2.2 — FAILED", "One or more mandatory validation checks failed")
+
+    if counts.get(STATUS_BLOCKED, 0) > 0 or any(stage_results.get(st) == STATUS_BLOCKED for st in mandatory_stages):
+        return (2, "PHASE 1.1.2.2.3 — BLOCKED", "One or more mandatory stages were BLOCKED due to unavailable prerequisites")
 
     if counts.get(STATUS_NOT_CHECKED, 0) > 0 or any(stage_results.get(st) == STATUS_NOT_CHECKED for st in mandatory_stages):
-        return (2, "PHASE 1.1.2.2.2 — BLOCKED", "One or more mandatory stages were NOT_CHECKED due to missing prerequisites")
+        return (2, "PHASE 1.1.2.2.3 — BLOCKED", "One or more mandatory stages were NOT_CHECKED due to missing prerequisites")
 
     if counts.get(STATUS_WARNING, 0) > 0 or any(stage_results.get(st) == STATUS_WARNING for st in mandatory_stages):
-        return (1, "PHASE 1.1.2.2.2 — BLOCKED", "Unresolved validation warnings present")
+        return (1, "PHASE 1.1.2.2.3 — BLOCKED", "Unresolved validation warnings present")
 
     all_stages_pass = all(stage_results.get(st) == STATUS_PASS for st in mandatory_stages)
     if all_stages_pass and counts.get(STATUS_PASS, 0) > 0:
-        return (0, "PHASE 1.1.2.2.2 — APPROVED", "All mandatory integrity and evidence checks verified")
+        return (0, "PHASE 1.1.2.2.3 — APPROVED", "All mandatory integrity and evidence checks verified")
 
-    return (1, "PHASE 1.1.2.2.2 — FAILED", "Incomplete validation results")
+    return (1, "PHASE 1.1.2.2.3 — FAILED", "Incomplete validation results")
+
