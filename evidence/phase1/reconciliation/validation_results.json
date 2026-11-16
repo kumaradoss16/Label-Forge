@@ -1,16 +1,16 @@
 {
-  "schema_version": "1.1.2.2.3",
-  "milestone": "Phase 1.1.2.2.3",
-  "run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-  "generated_at_utc": "2026-11-14T16:56:35.488696+00:00",
+  "schema_version": "1.1.2.2.4",
+  "milestone": "Phase 1.1.2.2.4",
+  "run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+  "generated_at_utc": "2026-11-16T16:22:21.505545+00:00",
   "target_binary": {
     "path": "D:\\BarTender\\BarTend.exe",
     "size_bytes": 20774984,
     "sha256": "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594"
   },
   "summary_accounting": {
-    "total_checks": 150,
-    "pass": 150,
+    "total_checks": 164,
+    "pass": 164,
     "fail": 0,
     "warning": 0,
     "not_checked": 0,
@@ -31,7 +31,7 @@
   },
   "release_gate": {
     "exit_code": 0,
-    "status": "PHASE 1.1.2.2.3 \u2014 APPROVED",
+    "status": "PHASE 1.1.2.2.4 \u2014 APPROVED",
     "decision": "All mandatory integrity and evidence checks verified"
   },
   "assertions": [
@@ -44,6 +44,31 @@
       "assertion_id": "Target binary located: D:\\BarTender\\BarTend.exe",
       "status": "PASS",
       "detail": ""
+    },
+    {
+      "assertion_id": "git_verification_pr5_merge_commit",
+      "status": "PASS",
+      "detail": "Resolved PR #5 merge commit 94d0643d0d45fba564916ab152b1581ffe87e9ef"
+    },
+    {
+      "assertion_id": "git_verification_pr5_tree",
+      "status": "PASS",
+      "detail": "Resolved PR #5 merge tree 0891300af884bd8820b2ceadbbca6b4d8a4865fd"
+    },
+    {
+      "assertion_id": "git_verification_tree_equivalence",
+      "status": "PASS",
+      "detail": "TREE_EQUIVALENT verified between PR #5 merge and sealing commit (0891300)"
+    },
+    {
+      "assertion_id": "provenance_cleanliness",
+      "status": "PASS",
+      "detail": "Working tree cleanliness verified"
+    },
+    {
+      "assertion_id": "windows_platform_verification",
+      "status": "PASS",
+      "detail": "Platform system: Windows"
     },
     {
       "assertion_id": "file_size",
@@ -286,22 +311,12 @@
       "detail": ""
     },
     {
-      "assertion_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "status": "PASS",
-      "detail": ""
-    },
-    {
-      "assertion_id": "Status accounting [INFERRED]: exactly 0 claims",
-      "status": "PASS",
-      "detail": ""
-    },
-    {
       "assertion_id": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
       "status": "PASS",
       "detail": ""
     },
     {
-      "assertion_id": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "assertion_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
       "status": "PASS",
       "detail": ""
     },
@@ -311,7 +326,17 @@
       "detail": ""
     },
     {
+      "assertion_id": "Status accounting [INFERRED]: exactly 0 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
       "assertion_id": "Status accounting [UNKNOWN]: exactly 0 claims",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
       "status": "PASS",
       "detail": ""
     },
@@ -508,7 +533,7 @@
     {
       "assertion_id": "Claim P1-015 [VERIFIED_STATIC] assertion",
       "status": "PASS",
-      "detail": "ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtSystem.dll', 'BtEngine.dll', 'BtBarcode.dll', 'BtPrint.dll', 'BtData.dll', 'BtLic.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll"
+      "detail": "ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtEngine.dll', 'BtPrint.dll', 'BtBarcode.dll', 'BtLic.dll', 'BtData.dll', 'BtSystem.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll"
     },
     {
       "assertion_id": "Claim P1-016 [VERIFIED_STATIC] assertion",
@@ -543,7 +568,7 @@
     {
       "assertion_id": "Claim P1-022 [VERIFIED_STATIC] assertion",
       "status": "PASS",
-      "detail": "Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.dll', 'Seagull.License.dll', 'Seagull.Services.Licensing.Contracts.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted)"
+      "detail": "Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.Contracts.dll', 'Seagull.License.dll', 'Seagull.Services.Licensing.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted)"
     },
     {
       "assertion_id": "Claim P1-023 [VERIFIED_RUNTIME] assertion",
@@ -784,1807 +809,2348 @@
       "assertion_id": "Report verified consistent: 40_PHASE1_1_2_2_3_FINAL_CORRECTION_AND_PROVENANCE_LOG.md",
       "status": "PASS",
       "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 41_PHASE1_1_2_2_4_BASELINE_AND_REVISION_AUDIT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 42_PHASE1_1_2_2_4_REVISION_PROVENANCE_ATTESTATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 43_PHASE1_1_2_2_4_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 44_PHASE1_1_2_2_4_VALIDATION_RECORD_RECONCILIATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 45_PHASE1_1_2_2_4_STAGE_ACCOUNTING_RECONCILIATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 46_PHASE1_1_2_2_4_ACCEPTANCE_MATRIX_REVALIDATION.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 47_PHASE1_1_2_2_4_REGRESSION_AND_ADVERSARIAL_TEST_REPORT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 48_PHASE1_1_2_2_4_INDEPENDENT_EVIDENCE_AUDIT.md",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "assertion_id": "Report verified consistent: 49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md",
+      "status": "PASS",
+      "detail": ""
     }
   ],
   "checks": [
     {
       "check_id": "Load canonical target identity manifest",
-      "stage_id": "",
+      "stage_id": "target_prerequisites",
       "check_name": "Load canonical target identity manifest",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Load canonical target identity manifest",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487864+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504761+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Target binary located: D:\\BarTender\\BarTend.exe",
-      "stage_id": "",
+      "stage_id": "target_prerequisites",
       "check_name": "Target binary located: D:\\BarTender\\BarTend.exe",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Target binary located: D:\\BarTender\\BarTend.exe",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487881+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504776+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "git_verification_pr5_merge_commit",
+      "stage_id": "target_prerequisites",
+      "check_name": "git_verification_pr5_merge_commit",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "git_verification_pr5_merge_commit",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504782+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "git_verification_pr5_tree",
+      "stage_id": "target_prerequisites",
+      "check_name": "git_verification_pr5_tree",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "git_verification_pr5_tree",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504794+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "git_verification_tree_equivalence",
+      "stage_id": "target_prerequisites",
+      "check_name": "git_verification_tree_equivalence",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "git_verification_tree_equivalence",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504799+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "provenance_cleanliness",
+      "stage_id": "target_prerequisites",
+      "check_name": "provenance_cleanliness",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "provenance_cleanliness",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504804+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "windows_platform_verification",
+      "stage_id": "target_prerequisites",
+      "check_name": "windows_platform_verification",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "windows_platform_verification",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504809+00:00",
       "failure_reason": null
     },
     {
       "check_id": "file_size",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "file_size",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "file_size",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487889+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504814+00:00",
       "failure_reason": null
     },
     {
       "check_id": "md5_digest",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "md5_digest",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "md5_digest",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487896+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504820+00:00",
       "failure_reason": null
     },
     {
       "check_id": "sha1_digest",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "sha1_digest",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "sha1_digest",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487903+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504824+00:00",
       "failure_reason": null
     },
     {
       "check_id": "sha256_digest",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "sha256_digest",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "sha256_digest",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487908+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504829+00:00",
       "failure_reason": null
     },
     {
       "check_id": "pe_architecture",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "pe_architecture",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "pe_architecture",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487914+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504834+00:00",
       "failure_reason": null
     },
     {
       "check_id": "pe_entry_point",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "pe_entry_point",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "pe_entry_point",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487920+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504838+00:00",
       "failure_reason": null
     },
     {
       "check_id": "section_table_names",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "section_table_names",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "section_table_names",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487925+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504843+00:00",
       "failure_reason": null
     },
     {
       "check_id": "data_section_offset",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "data_section_offset",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "data_section_offset",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487931+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504847+00:00",
       "failure_reason": null
     },
     {
       "check_id": "authenticode_bounds",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "authenticode_bounds",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "authenticode_bounds",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487936+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504852+00:00",
       "failure_reason": null
     },
     {
       "check_id": "clr_com_descriptor",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "clr_com_descriptor",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "clr_com_descriptor",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487941+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504856+00:00",
       "failure_reason": null
     },
     {
       "check_id": "cli_metadata_root",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "cli_metadata_root",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "cli_metadata_root",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487946+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504861+00:00",
       "failure_reason": null
     },
     {
       "check_id": "cor20_flags",
-      "stage_id": "",
+      "stage_id": "target_binary_integrity",
       "check_name": "cor20_flags",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "cor20_flags",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487951+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504866+00:00",
       "failure_reason": null
     },
     {
       "check_id": "manifest_loaded",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "manifest_loaded",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "manifest_loaded",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487956+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/validation_manifest.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504870+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/target_identity.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/target_identity.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/target_identity.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487961+00:00",
+      "evidence_refs": [
+        "evidence/phase1/target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504874+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/application_components.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/application_components.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/application_components.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487967+00:00",
+      "evidence_refs": [
+        "evidence/phase1/application_components.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504879+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/dependency_graph.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/dependency_graph.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/dependency_graph.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487973+00:00",
+      "evidence_refs": [
+        "evidence/phase1/dependency_graph.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504884+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/dotnet_interop_map.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/dotnet_interop_map.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/dotnet_interop_map.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487978+00:00",
+      "evidence_refs": [
+        "evidence/phase1/dotnet_interop_map.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504888+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/feature_traceability.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/feature_traceability.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/feature_traceability.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487983+00:00",
+      "evidence_refs": [
+        "evidence/phase1/feature_traceability.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504895+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/managed_assemblies.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/managed_assemblies.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/managed_assemblies.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487988+00:00",
+      "evidence_refs": [
+        "evidence/phase1/managed_assemblies.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504900+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/native_dependencies.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/native_dependencies.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/native_dependencies.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487993+00:00",
+      "evidence_refs": [
+        "evidence/phase1/native_dependencies.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504906+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/native_module_inventory.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/native_module_inventory.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/native_module_inventory.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.487998+00:00",
+      "evidence_refs": [
+        "evidence/phase1/native_module_inventory.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504911+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/resource_inventory.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/resource_inventory.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/resource_inventory.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488004+00:00",
+      "evidence_refs": [
+        "evidence/phase1/resource_inventory.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504916+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/runtime_observations.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/runtime_observations.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/runtime_observations.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488009+00:00",
+      "evidence_refs": [
+        "evidence/phase1/runtime_observations.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504921+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/reconciliation/canonical_target_identity.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/reconciliation/canonical_target_identity.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/canonical_target_identity.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488014+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/canonical_target_identity.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504926+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/reconciliation/file_inventory_summary.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/reconciliation/file_inventory_summary.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/file_inventory_summary.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488019+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/file_inventory_summary.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504931+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/reconciliation/module_architecture_summary.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/reconciliation/module_architecture_summary.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/module_architecture_summary.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488024+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/module_architecture_summary.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504937+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/reconciliation/dependency_reconciliation.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/reconciliation/dependency_reconciliation.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/dependency_reconciliation.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488029+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504942+00:00",
       "failure_reason": null
     },
     {
       "check_id": "checksum_match:evidence/phase1/reconciliation/claim_register.json",
-      "stage_id": "",
+      "stage_id": "manifest_integrity",
       "check_name": "checksum_match:evidence/phase1/reconciliation/claim_register.json",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "checksum_match:evidence/phase1/reconciliation/claim_register.json",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488034+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504947+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Mutually exclusive file category sum (555 files)",
-      "stage_id": "",
+      "stage_id": "component_inventory",
       "check_name": "Mutually exclusive file category sum (555 files)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Mutually exclusive file category sum (555 files)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488039+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/file_inventory_summary.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504952+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Filesystem item equation: 34 directories + 555 files = 589 items",
-      "stage_id": "",
+      "stage_id": "component_inventory",
       "check_name": "Filesystem item equation: 34 directories + 555 files = 589 items",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Filesystem item equation: 34 directories + 555 files = 589 items",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488047+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/file_inventory_summary.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504957+00:00",
       "failure_reason": null
     },
     {
       "check_id": "PE binary classification sum (461 PE binaries: 332 IL, 20 mixed, 27 x64, 82 x86)",
-      "stage_id": "",
+      "stage_id": "component_inventory",
       "check_name": "PE binary classification sum (461 PE binaries: 332 IL, 20 mixed, 27 x64, 82 x86)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "PE binary classification sum (461 PE binaries: 332 IL, 20 mixed, 27 x64, 82 x86)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488053+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/file_inventory_summary.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504962+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Canonical direct-import list has zero duplicates (48 modules)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Canonical direct-import list has zero duplicates (48 modules)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Canonical direct-import list has zero duplicates (48 modules)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488058+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504968+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Categories have zero internal duplicates",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Categories have zero internal duplicates",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Categories have zero internal duplicates",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488063+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504973+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Zero cross-category module overlaps detected (mutually exclusive)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Zero cross-category module overlaps detected (mutually exclusive)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Zero cross-category module overlaps detected (mutually exclusive)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488068+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504979+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Zero canonical direct-import modules omitted from categories",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Zero canonical direct-import modules omitted from categories",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Zero canonical direct-import modules omitted from categories",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488073+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504984+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Zero unexpected modules found in direct-import categories",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Zero unexpected modules found in direct-import categories",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Zero unexpected modules found in direct-import categories",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488078+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504988+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Exact direct-import partition verified: categorized == canonical (48 modules)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Exact direct-import partition verified: categorized == canonical (48 modules)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Exact direct-import partition verified: categorized == canonical (48 modules)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488089+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504992+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Delay-loaded PE imports count verified (17 DLLs)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Delay-loaded PE imports count verified (17 DLLs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Delay-loaded PE imports count verified (17 DLLs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488094+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.504996+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Confirmed proprietary module absent from target directory: BtEngine.dll (ABSENT_MODULE_CONFIRMED)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Confirmed proprietary module absent from target directory: BtEngine.dll (ABSENT_MODULE_CONFIRMED)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtEngine.dll (ABSENT_MODULE_CONFIRMED)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488099+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505000+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Confirmed proprietary module absent from target directory: BtBarcode.dll (ABSENT_MODULE_CONFIRMED)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Confirmed proprietary module absent from target directory: BtBarcode.dll (ABSENT_MODULE_CONFIRMED)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtBarcode.dll (ABSENT_MODULE_CONFIRMED)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488104+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505004+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Confirmed proprietary module absent from target directory: BtPrint.dll (ABSENT_MODULE_CONFIRMED)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Confirmed proprietary module absent from target directory: BtPrint.dll (ABSENT_MODULE_CONFIRMED)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtPrint.dll (ABSENT_MODULE_CONFIRMED)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488111+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505010+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Confirmed proprietary module absent from target directory: BtSystem.dll (ABSENT_MODULE_CONFIRMED)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Confirmed proprietary module absent from target directory: BtSystem.dll (ABSENT_MODULE_CONFIRMED)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtSystem.dll (ABSENT_MODULE_CONFIRMED)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488116+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505014+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Confirmed proprietary module absent from target directory: BtLic.dll (ABSENT_MODULE_CONFIRMED)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Confirmed proprietary module absent from target directory: BtLic.dll (ABSENT_MODULE_CONFIRMED)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtLic.dll (ABSENT_MODULE_CONFIRMED)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488121+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505019+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Confirmed proprietary module absent from target directory: BtData.dll (ABSENT_MODULE_CONFIRMED)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Confirmed proprietary module absent from target directory: BtData.dll (ABSENT_MODULE_CONFIRMED)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Confirmed proprietary module absent from target directory: BtData.dll (ABSENT_MODULE_CONFIRMED)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488126+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505023+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Confirmed obsolete reference absent as standalone DLL: XtremeToolkitPro.dll (OBSOLETE_OR_MISNAMED_REFERENCE)",
-      "stage_id": "",
+      "stage_id": "direct_import_partition",
       "check_name": "Confirmed obsolete reference absent as standalone DLL: XtremeToolkitPro.dll (OBSOLETE_OR_MISNAMED_REFERENCE)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Confirmed obsolete reference absent as standalone DLL: XtremeToolkitPro.dll (OBSOLETE_OR_MISNAMED_REFERENCE)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488131+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/dependency_reconciliation.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505027+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Total claims count field matches claims array length (25)",
-      "stage_id": "",
+      "stage_id": "status_accounting",
       "check_name": "Total claims count field matches claims array length (25)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Total claims count field matches claims array length (25)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488140+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505031+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim ID uniqueness verified (25 distinct IDs)",
-      "stage_id": "",
+      "stage_id": "status_accounting",
       "check_name": "Claim ID uniqueness verified (25 distinct IDs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim ID uniqueness verified (25 distinct IDs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488146+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505036+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Complete status dictionary equality verified: actual_counts == declared_counts",
-      "stage_id": "",
+      "stage_id": "status_accounting",
       "check_name": "Complete status dictionary equality verified: actual_counts == declared_counts",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Complete status dictionary equality verified: actual_counts == declared_counts",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488151+00:00",
-      "failure_reason": null
-    },
-    {
-      "check_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "stage_id": "",
-      "check_name": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "status": "PASS",
-      "severity": "MANDATORY",
-      "assertion": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488155+00:00",
-      "failure_reason": null
-    },
-    {
-      "check_id": "Status accounting [INFERRED]: exactly 0 claims",
-      "stage_id": "",
-      "check_name": "Status accounting [INFERRED]: exactly 0 claims",
-      "status": "PASS",
-      "severity": "MANDATORY",
-      "assertion": "Status accounting [INFERRED]: exactly 0 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488161+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505040+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
-      "stage_id": "",
+      "stage_id": "status_accounting",
       "check_name": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488166+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505044+00:00",
       "failure_reason": null
     },
     {
-      "check_id": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
-      "stage_id": "",
-      "check_name": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "check_id": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
+      "stage_id": "status_accounting",
+      "check_name": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
       "status": "PASS",
       "severity": "MANDATORY",
-      "assertion": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488173+00:00",
+      "assertion": "Status accounting [NOT_PERFORMED]: exactly 1 claims",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505048+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
-      "stage_id": "",
+      "stage_id": "status_accounting",
       "check_name": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Status accounting [VERIFIED_STATIC]: exactly 20 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488182+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505052+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Status accounting [INFERRED]: exactly 0 claims",
+      "stage_id": "status_accounting",
+      "check_name": "Status accounting [INFERRED]: exactly 0 claims",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Status accounting [INFERRED]: exactly 0 claims",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505056+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Status accounting [UNKNOWN]: exactly 0 claims",
-      "stage_id": "",
+      "stage_id": "status_accounting",
       "check_name": "Status accounting [UNKNOWN]: exactly 0 claims",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Status accounting [UNKNOWN]: exactly 0 claims",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488187+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505060+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "stage_id": "status_accounting",
+      "check_name": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505070+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-001 structured evidence_refs verified (2 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-001 structured evidence_refs verified (2 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-001 structured evidence_refs verified (2 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488192+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505078+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-002 structured evidence_refs verified (3 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-002 structured evidence_refs verified (3 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-002 structured evidence_refs verified (3 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488198+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505083+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-003 structured evidence_refs verified (2 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-003 structured evidence_refs verified (2 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-003 structured evidence_refs verified (2 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488203+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505087+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-004 structured evidence_refs verified (3 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-004 structured evidence_refs verified (3 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-004 structured evidence_refs verified (3 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488208+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505091+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-005 structured evidence_refs verified (2 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-005 structured evidence_refs verified (2 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-005 structured evidence_refs verified (2 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488213+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505096+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-006 structured evidence_refs verified (3 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-006 structured evidence_refs verified (3 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-006 structured evidence_refs verified (3 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488218+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505103+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-007 structured evidence_refs verified (3 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-007 structured evidence_refs verified (3 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-007 structured evidence_refs verified (3 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488223+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505108+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-008 structured evidence_refs verified (3 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-008 structured evidence_refs verified (3 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-008 structured evidence_refs verified (3 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488228+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505115+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-009 structured evidence_refs verified (3 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-009 structured evidence_refs verified (3 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-009 structured evidence_refs verified (3 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488233+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505119+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-010 structured evidence_refs verified (3 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-010 structured evidence_refs verified (3 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-010 structured evidence_refs verified (3 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488239+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505123+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-011 structured evidence_refs verified (2 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-011 structured evidence_refs verified (2 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-011 structured evidence_refs verified (2 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488244+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505127+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-012 structured evidence_refs verified (2 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-012 structured evidence_refs verified (2 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-012 structured evidence_refs verified (2 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488249+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505131+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-013 structured evidence_refs verified (1 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-013 structured evidence_refs verified (1 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-013 structured evidence_refs verified (1 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488254+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505135+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-014 structured evidence_refs verified (2 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-014 structured evidence_refs verified (2 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-014 structured evidence_refs verified (2 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488259+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505151+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-015 structured evidence_refs verified (2 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-015 structured evidence_refs verified (2 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-015 structured evidence_refs verified (2 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488265+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505156+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-016 structured evidence_refs verified (2 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-016 structured evidence_refs verified (2 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-016 structured evidence_refs verified (2 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488270+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505160+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-017 structured evidence_refs verified (1 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-017 structured evidence_refs verified (1 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-017 structured evidence_refs verified (1 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488275+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505165+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-019 structured evidence_refs verified (1 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-019 structured evidence_refs verified (1 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-019 structured evidence_refs verified (1 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488280+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505169+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-020 structured evidence_refs verified (1 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-020 structured evidence_refs verified (1 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-020 structured evidence_refs verified (1 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488285+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505173+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-021 structured evidence_refs verified (1 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-021 structured evidence_refs verified (1 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-021 structured evidence_refs verified (1 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488292+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505177+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-022 structured evidence_refs verified (3 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-022 structured evidence_refs verified (3 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-022 structured evidence_refs verified (3 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488297+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505181+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-023 structured evidence_refs verified (1 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-023 structured evidence_refs verified (1 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-023 structured evidence_refs verified (1 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488303+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505186+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-024 structured evidence_refs verified (1 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-024 structured evidence_refs verified (1 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-024 structured evidence_refs verified (1 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488308+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505190+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-025 structured evidence_refs verified (1 valid refs)",
-      "stage_id": "",
+      "stage_id": "evidence_references",
       "check_name": "Claim P1-025 structured evidence_refs verified (1 valid refs)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-025 structured evidence_refs verified (1 valid refs)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488313+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505194+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-001 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-001 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-001 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488318+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505199+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-002 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-002 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-002 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488325+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505203+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-003 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-003 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-003 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488331+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505207+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-004 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-004 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-004 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488336+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505213+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-005 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-005 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-005 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488340+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505217+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-006 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-006 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-006 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488345+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505221+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-007 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-007 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-007 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488350+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505226+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-008 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-008 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-008 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488355+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505230+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-009 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-009 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-009 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488360+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505234+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-010 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-010 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-010 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488365+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505238+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-011 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-011 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-011 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488370+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505242+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-012 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-012 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-012 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488375+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505247+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-013 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-013 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-013 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488380+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505250+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-014 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-014 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-014 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488385+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505254+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-015 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-015 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-015 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488390+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505258+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-016 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-016 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-016 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488395+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505263+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-017 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-017 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-017 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488400+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505268+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-018 [NOT_PERFORMED] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-018 [NOT_PERFORMED] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-018 [NOT_PERFORMED] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488405+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505272+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-019 [VERIFIED_DOCUMENTATION] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-019 [VERIFIED_DOCUMENTATION] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-019 [VERIFIED_DOCUMENTATION] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488414+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505276+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-020 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-020 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-020 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488419+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505280+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-021 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-021 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-021 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488424+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505284+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-022 [VERIFIED_STATIC] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-022 [VERIFIED_STATIC] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-022 [VERIFIED_STATIC] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488431+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505288+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-023 [VERIFIED_RUNTIME] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-023 [VERIFIED_RUNTIME] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-023 [VERIFIED_RUNTIME] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488436+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505294+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-024 [VERIFIED_RUNTIME] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-024 [VERIFIED_RUNTIME] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-024 [VERIFIED_RUNTIME] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488441+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505298+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Claim P1-025 [VERIFIED_RUNTIME] assertion",
-      "stage_id": "",
+      "stage_id": "claim_specific_assertions",
       "check_name": "Claim P1-025 [VERIFIED_RUNTIME] assertion",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Claim P1-025 [VERIFIED_RUNTIME] assertion",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488446+00:00",
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505303+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Recursive prohibited-image audit: zero prohibited images found in screenshots/ tree",
-      "stage_id": "",
+      "stage_id": "recursive_image_audit",
       "check_name": "Recursive prohibited-image audit: zero prohibited images found in screenshots/ tree",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Recursive prohibited-image audit: zero prohibited images found in screenshots/ tree",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488451+00:00",
+      "evidence_refs": [
+        "screenshots/UI_OBSERVATIONS_REFERENCE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505309+00:00",
       "failure_reason": null
     },
     {
       "check_id": "UI observations reference documentation present (UI_OBSERVATIONS_REFERENCE.md)",
-      "stage_id": "",
+      "stage_id": "recursive_image_audit",
       "check_name": "UI observations reference documentation present (UI_OBSERVATIONS_REFERENCE.md)",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "UI observations reference documentation present (UI_OBSERVATIONS_REFERENCE.md)",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488456+00:00",
+      "evidence_refs": [
+        "screenshots/UI_OBSERVATIONS_REFERENCE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505313+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 01_TARGET_IDENTITY.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 01_TARGET_IDENTITY.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 01_TARGET_IDENTITY.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488461+00:00",
+      "evidence_refs": [
+        "reports/01_TARGET_IDENTITY.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505317+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 02_EXECUTABLE_ANALYSIS.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 02_EXECUTABLE_ANALYSIS.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 02_EXECUTABLE_ANALYSIS.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488466+00:00",
+      "evidence_refs": [
+        "reports/02_EXECUTABLE_ANALYSIS.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505321+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 03_DEPENDENCY_MAP.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 03_DEPENDENCY_MAP.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 03_DEPENDENCY_MAP.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488471+00:00",
+      "evidence_refs": [
+        "reports/03_DEPENDENCY_MAP.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505325+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 04_COMPONENT_ARCHITECTURE.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 04_COMPONENT_ARCHITECTURE.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 04_COMPONENT_ARCHITECTURE.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488476+00:00",
+      "evidence_refs": [
+        "reports/04_COMPONENT_ARCHITECTURE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505329+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 05_UI_REFERENCE_SPECIFICATION.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 05_UI_REFERENCE_SPECIFICATION.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 05_UI_REFERENCE_SPECIFICATION.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488481+00:00",
+      "evidence_refs": [
+        "reports/05_UI_REFERENCE_SPECIFICATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505333+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 06_BEHAVIOURAL_SPECIFICATION.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 06_BEHAVIOURAL_SPECIFICATION.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 06_BEHAVIOURAL_SPECIFICATION.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488486+00:00",
+      "evidence_refs": [
+        "reports/06_BEHAVIOURAL_SPECIFICATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505337+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 07_FEATURE_INVENTORY.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 07_FEATURE_INVENTORY.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 07_FEATURE_INVENTORY.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488491+00:00",
+      "evidence_refs": [
+        "reports/07_FEATURE_INVENTORY.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505342+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 07_TECHNICAL_ARCHITECTURE.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 07_TECHNICAL_ARCHITECTURE.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 07_TECHNICAL_ARCHITECTURE.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488495+00:00",
+      "evidence_refs": [
+        "reports/07_TECHNICAL_ARCHITECTURE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505346+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 08_MVP_SCOPE.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 08_MVP_SCOPE.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 08_MVP_SCOPE.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488501+00:00",
+      "evidence_refs": [
+        "reports/08_MVP_SCOPE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505350+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 08_WORKFLOW_CATALOG.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 08_WORKFLOW_CATALOG.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 08_WORKFLOW_CATALOG.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488505+00:00",
+      "evidence_refs": [
+        "reports/08_WORKFLOW_CATALOG.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505354+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 09_BUILD_READINESS_REPORT.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 09_BUILD_READINESS_REPORT.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 09_BUILD_READINESS_REPORT.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488510+00:00",
+      "evidence_refs": [
+        "reports/09_BUILD_READINESS_REPORT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505358+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 09_RUNTIME_EVIDENCE.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 09_RUNTIME_EVIDENCE.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 09_RUNTIME_EVIDENCE.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488515+00:00",
+      "evidence_refs": [
+        "reports/09_RUNTIME_EVIDENCE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505364+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 10_M0_M1_EXECUTION_REPORT.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 10_M0_M1_EXECUTION_REPORT.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 10_M0_M1_EXECUTION_REPORT.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488523+00:00",
+      "evidence_refs": [
+        "reports/10_M0_M1_EXECUTION_REPORT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505368+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 11_PHASE1_TARGET_IDENTITY.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 11_PHASE1_TARGET_IDENTITY.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 11_PHASE1_TARGET_IDENTITY.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488530+00:00",
+      "evidence_refs": [
+        "reports/11_PHASE1_TARGET_IDENTITY.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505372+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 12_PHASE1_APPLICATION_STRUCTURE.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 12_PHASE1_APPLICATION_STRUCTURE.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 12_PHASE1_APPLICATION_STRUCTURE.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488535+00:00",
+      "evidence_refs": [
+        "reports/12_PHASE1_APPLICATION_STRUCTURE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505376+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 13_PHASE1_DEPENDENCY_ANALYSIS.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 13_PHASE1_DEPENDENCY_ANALYSIS.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 13_PHASE1_DEPENDENCY_ANALYSIS.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488540+00:00",
+      "evidence_refs": [
+        "reports/13_PHASE1_DEPENDENCY_ANALYSIS.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505382+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 14_PHASE1_DOTNET_ASSEMBLY_ANALYSIS.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 14_PHASE1_DOTNET_ASSEMBLY_ANALYSIS.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 14_PHASE1_DOTNET_ASSEMBLY_ANALYSIS.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488545+00:00",
+      "evidence_refs": [
+        "reports/14_PHASE1_DOTNET_ASSEMBLY_ANALYSIS.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505386+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 15_PHASE1_NATIVE_BINARY_ANALYSIS.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 15_PHASE1_NATIVE_BINARY_ANALYSIS.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 15_PHASE1_NATIVE_BINARY_ANALYSIS.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488550+00:00",
+      "evidence_refs": [
+        "reports/15_PHASE1_NATIVE_BINARY_ANALYSIS.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505391+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 16_PHASE1_RESOURCE_ANALYSIS.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 16_PHASE1_RESOURCE_ANALYSIS.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 16_PHASE1_RESOURCE_ANALYSIS.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488555+00:00",
+      "evidence_refs": [
+        "reports/16_PHASE1_RESOURCE_ANALYSIS.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505395+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 17_PHASE1_RUNTIME_AND_WINDOWS_INTEGRATION.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 17_PHASE1_RUNTIME_AND_WINDOWS_INTEGRATION.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 17_PHASE1_RUNTIME_AND_WINDOWS_INTEGRATION.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488559+00:00",
+      "evidence_refs": [
+        "reports/17_PHASE1_RUNTIME_AND_WINDOWS_INTEGRATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505399+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 18_PHASE1_FEATURE_TRACEABILITY.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 18_PHASE1_FEATURE_TRACEABILITY.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 18_PHASE1_FEATURE_TRACEABILITY.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488564+00:00",
+      "evidence_refs": [
+        "reports/18_PHASE1_FEATURE_TRACEABILITY.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505403+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488569+00:00",
+      "evidence_refs": [
+        "reports/19_PHASE1_REVERSE_ENGINEERING_SUMMARY.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505407+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 20_PHASE1_1_EVIDENCE_RECONCILIATION.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 20_PHASE1_1_EVIDENCE_RECONCILIATION.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 20_PHASE1_1_EVIDENCE_RECONCILIATION.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488575+00:00",
+      "evidence_refs": [
+        "reports/20_PHASE1_1_EVIDENCE_RECONCILIATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505411+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 21_PHASE1_1_CORRECTION_LOG.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 21_PHASE1_1_CORRECTION_LOG.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 21_PHASE1_1_CORRECTION_LOG.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488580+00:00",
+      "evidence_refs": [
+        "reports/21_PHASE1_1_CORRECTION_LOG.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505415+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 22_PHASE1_1_2_WINDOWS_VALIDATION.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 22_PHASE1_1_2_WINDOWS_VALIDATION.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 22_PHASE1_1_2_WINDOWS_VALIDATION.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488585+00:00",
+      "evidence_refs": [
+        "reports/22_PHASE1_1_2_WINDOWS_VALIDATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505419+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488590+00:00",
+      "evidence_refs": [
+        "reports/23_PHASE1_1_2_1_VALIDATOR_CORRECTNESS.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505423+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488595+00:00",
+      "evidence_refs": [
+        "reports/24_PHASE1_1_2_2_INDEPENDENT_VALIDATOR_ACCEPTANCE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505427+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 25_PHASE1_1_2_2_CORRECTION_LOG.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 25_PHASE1_1_2_2_CORRECTION_LOG.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 25_PHASE1_1_2_2_CORRECTION_LOG.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488600+00:00",
+      "evidence_refs": [
+        "reports/25_PHASE1_1_2_2_CORRECTION_LOG.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505432+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488605+00:00",
+      "evidence_refs": [
+        "reports/26_PHASE1_1_2_2_TEST_COVERAGE_MATRIX.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505436+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488610+00:00",
+      "evidence_refs": [
+        "reports/27_PHASE1_1_2_2_1_FINAL_ACCOUNTING_AND_REGRESSION_CLOSURE.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505440+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488615+00:00",
+      "evidence_refs": [
+        "reports/28_PHASE1_1_2_2_1_PROVENANCE_AND_REVISION_AUDIT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505444+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488620+00:00",
+      "evidence_refs": [
+        "reports/29_PHASE1_1_2_2_1_FINAL_CORRECTION_LOG.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505448+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488625+00:00",
+      "evidence_refs": [
+        "reports/30_PHASE1_1_2_2_1_TEST_COVERAGE_AND_ACCEPTANCE_MATRIX.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505453+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 31_PHASE1_1_2_2_2_FINAL_MERGE_PROVENANCE_AUDIT.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 31_PHASE1_1_2_2_2_FINAL_MERGE_PROVENANCE_AUDIT.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 31_PHASE1_1_2_2_2_FINAL_MERGE_PROVENANCE_AUDIT.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488634+00:00",
+      "evidence_refs": [
+        "reports/31_PHASE1_1_2_2_2_FINAL_MERGE_PROVENANCE_AUDIT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505456+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 32_PHASE1_1_2_2_2_EXECUTION_ARTIFACT_INTEGRITY.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 32_PHASE1_1_2_2_2_EXECUTION_ARTIFACT_INTEGRITY.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 32_PHASE1_1_2_2_2_EXECUTION_ARTIFACT_INTEGRITY.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488640+00:00",
+      "evidence_refs": [
+        "reports/32_PHASE1_1_2_2_2_EXECUTION_ARTIFACT_INTEGRITY.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505464+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 33_PHASE1_1_2_2_2_AUTHORITATIVE_ACCOUNTING_RECONCILIATION.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 33_PHASE1_1_2_2_2_AUTHORITATIVE_ACCOUNTING_RECONCILIATION.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 33_PHASE1_1_2_2_2_AUTHORITATIVE_ACCOUNTING_RECONCILIATION.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488645+00:00",
+      "evidence_refs": [
+        "reports/33_PHASE1_1_2_2_2_AUTHORITATIVE_ACCOUNTING_RECONCILIATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505468+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 34_PHASE1_1_2_2_2_CLAIM_CLASSIFICATION_CORRECTIONS.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 34_PHASE1_1_2_2_2_CLAIM_CLASSIFICATION_CORRECTIONS.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 34_PHASE1_1_2_2_2_CLAIM_CLASSIFICATION_CORRECTIONS.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488650+00:00",
+      "evidence_refs": [
+        "reports/34_PHASE1_1_2_2_2_CLAIM_CLASSIFICATION_CORRECTIONS.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505472+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 35_PHASE1_1_2_2_2_REGRESSION_AND_ACCEPTANCE_REPORT.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 35_PHASE1_1_2_2_2_REGRESSION_AND_ACCEPTANCE_REPORT.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 35_PHASE1_1_2_2_2_REGRESSION_AND_ACCEPTANCE_REPORT.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488655+00:00",
+      "evidence_refs": [
+        "reports/35_PHASE1_1_2_2_2_REGRESSION_AND_ACCEPTANCE_REPORT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505477+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 36_PHASE1_1_2_2_3_FINAL_MERGE_ATTESTATION.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 36_PHASE1_1_2_2_3_FINAL_MERGE_ATTESTATION.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 36_PHASE1_1_2_2_3_FINAL_MERGE_ATTESTATION.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488660+00:00",
+      "evidence_refs": [
+        "reports/36_PHASE1_1_2_2_3_FINAL_MERGE_ATTESTATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505481+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 37_PHASE1_1_2_2_3_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 37_PHASE1_1_2_2_3_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 37_PHASE1_1_2_2_3_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488665+00:00",
+      "evidence_refs": [
+        "reports/37_PHASE1_1_2_2_3_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505485+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 38_PHASE1_1_2_2_3_ACCOUNTING_AND_CLAIM_RECONCILIATION.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 38_PHASE1_1_2_2_3_ACCOUNTING_AND_CLAIM_RECONCILIATION.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 38_PHASE1_1_2_2_3_ACCOUNTING_AND_CLAIM_RECONCILIATION.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488670+00:00",
+      "evidence_refs": [
+        "reports/38_PHASE1_1_2_2_3_ACCOUNTING_AND_CLAIM_RECONCILIATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505489+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 39_PHASE1_1_2_2_3_INDEPENDENT_REGRESSION_AND_ACCEPTANCE_REPORT.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 39_PHASE1_1_2_2_3_INDEPENDENT_REGRESSION_AND_ACCEPTANCE_REPORT.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 39_PHASE1_1_2_2_3_INDEPENDENT_REGRESSION_AND_ACCEPTANCE_REPORT.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488675+00:00",
+      "evidence_refs": [
+        "reports/39_PHASE1_1_2_2_3_INDEPENDENT_REGRESSION_AND_ACCEPTANCE_REPORT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505493+00:00",
       "failure_reason": null
     },
     {
       "check_id": "Report verified consistent: 40_PHASE1_1_2_2_3_FINAL_CORRECTION_AND_PROVENANCE_LOG.md",
-      "stage_id": "",
+      "stage_id": "report_consistency",
       "check_name": "Report verified consistent: 40_PHASE1_1_2_2_3_FINAL_CORRECTION_AND_PROVENANCE_LOG.md",
       "status": "PASS",
       "severity": "MANDATORY",
       "assertion": "Report verified consistent: 40_PHASE1_1_2_2_3_FINAL_CORRECTION_AND_PROVENANCE_LOG.md",
-      "evidence_refs": [],
-      "execution_run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-      "executed_at_utc": "2026-11-14T16:56:35.488683+00:00",
+      "evidence_refs": [
+        "reports/40_PHASE1_1_2_2_3_FINAL_CORRECTION_AND_PROVENANCE_LOG.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505497+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 41_PHASE1_1_2_2_4_BASELINE_AND_REVISION_AUDIT.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 41_PHASE1_1_2_2_4_BASELINE_AND_REVISION_AUDIT.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 41_PHASE1_1_2_2_4_BASELINE_AND_REVISION_AUDIT.md",
+      "evidence_refs": [
+        "reports/41_PHASE1_1_2_2_4_BASELINE_AND_REVISION_AUDIT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505501+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 42_PHASE1_1_2_2_4_REVISION_PROVENANCE_ATTESTATION.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 42_PHASE1_1_2_2_4_REVISION_PROVENANCE_ATTESTATION.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 42_PHASE1_1_2_2_4_REVISION_PROVENANCE_ATTESTATION.md",
+      "evidence_refs": [
+        "reports/42_PHASE1_1_2_2_4_REVISION_PROVENANCE_ATTESTATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505505+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 43_PHASE1_1_2_2_4_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 43_PHASE1_1_2_2_4_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 43_PHASE1_1_2_2_4_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
+      "evidence_refs": [
+        "reports/43_PHASE1_1_2_2_4_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505509+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 44_PHASE1_1_2_2_4_VALIDATION_RECORD_RECONCILIATION.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 44_PHASE1_1_2_2_4_VALIDATION_RECORD_RECONCILIATION.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 44_PHASE1_1_2_2_4_VALIDATION_RECORD_RECONCILIATION.md",
+      "evidence_refs": [
+        "reports/44_PHASE1_1_2_2_4_VALIDATION_RECORD_RECONCILIATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505513+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 45_PHASE1_1_2_2_4_STAGE_ACCOUNTING_RECONCILIATION.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 45_PHASE1_1_2_2_4_STAGE_ACCOUNTING_RECONCILIATION.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 45_PHASE1_1_2_2_4_STAGE_ACCOUNTING_RECONCILIATION.md",
+      "evidence_refs": [
+        "reports/45_PHASE1_1_2_2_4_STAGE_ACCOUNTING_RECONCILIATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505517+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 46_PHASE1_1_2_2_4_ACCEPTANCE_MATRIX_REVALIDATION.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 46_PHASE1_1_2_2_4_ACCEPTANCE_MATRIX_REVALIDATION.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 46_PHASE1_1_2_2_4_ACCEPTANCE_MATRIX_REVALIDATION.md",
+      "evidence_refs": [
+        "reports/46_PHASE1_1_2_2_4_ACCEPTANCE_MATRIX_REVALIDATION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505521+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 47_PHASE1_1_2_2_4_REGRESSION_AND_ADVERSARIAL_TEST_REPORT.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 47_PHASE1_1_2_2_4_REGRESSION_AND_ADVERSARIAL_TEST_REPORT.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 47_PHASE1_1_2_2_4_REGRESSION_AND_ADVERSARIAL_TEST_REPORT.md",
+      "evidence_refs": [
+        "reports/47_PHASE1_1_2_2_4_REGRESSION_AND_ADVERSARIAL_TEST_REPORT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505527+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 48_PHASE1_1_2_2_4_INDEPENDENT_EVIDENCE_AUDIT.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 48_PHASE1_1_2_2_4_INDEPENDENT_EVIDENCE_AUDIT.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 48_PHASE1_1_2_2_4_INDEPENDENT_EVIDENCE_AUDIT.md",
+      "evidence_refs": [
+        "reports/48_PHASE1_1_2_2_4_INDEPENDENT_EVIDENCE_AUDIT.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505531+00:00",
+      "failure_reason": null
+    },
+    {
+      "check_id": "Report verified consistent: 49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md",
+      "stage_id": "report_consistency",
+      "check_name": "Report verified consistent: 49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md",
+      "status": "PASS",
+      "severity": "MANDATORY",
+      "assertion": "Report verified consistent: 49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md",
+      "evidence_refs": [
+        "reports/49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md"
+      ],
+      "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "executed_at_utc": "2026-11-16T16:22:21.505535+00:00",
       "failure_reason": null
     }
   ]

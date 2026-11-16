@@ -1,25 +1,25 @@
 {
-  "schema_version": "1.1.2.2.3",
-  "run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
-  "validated_commit_sha": "37e7681e2b36e753583eeb7d65efb489b3755755",
-  "validated_tree_sha": "75ba136624ebb117c7b1338a3540733e779c8db3",
+  "schema_version": "1.1.2.2.4",
+  "run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+  "validated_commit_sha": "225ab2a31e44b265503d0d3f8a8ae937beca83f0",
+  "validated_tree_sha": "fe719b246a49696358a42ac3bd7a7006c7c3ae15",
   "platform": "Windows-10-10.0.19045-SP0",
   "python_version": "3.13.15",
-  "started_at_utc": "2026-11-14T16:56:35.809836+00:00",
-  "completed_at_utc": "2026-11-14T16:56:35.809856+00:00",
+  "started_at_utc": "2026-11-16T16:22:21.657753+00:00",
+  "completed_at_utc": "2026-11-16T16:22:21.657772+00:00",
   "command": "python scripts/validate-phase1-evidence.py --repo-root .",
   "exit_code": 0,
   "stdout": {
-    "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-3-20261114165635/stdout.log",
-    "byte_size": 18255,
-    "sha256": "029ee6122fed2b89530ab0d9d3ae1fd64eaaa38c636ef69eeaefe40b77f077f6",
-    "run_id": "RUN-PHASE1-1-2-2-3-20261114165635"
+    "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-4-20261116162221/stdout.log",
+    "byte_size": 19721,
+    "sha256": "80a9571eb7f746669f216f0fedc302092ebb4cbb9104853d4363534edba3fb8d",
+    "run_id": "RUN-PHASE1-1-2-2-4-20261116162221"
   },
   "stderr": {
-    "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-3-20261114165635/stderr.log",
+    "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-4-20261116162221/stderr.log",
     "byte_size": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "run_id": "RUN-PHASE1-1-2-2-3-20261114165635"
+    "run_id": "RUN-PHASE1-1-2-2-4-20261116162221"
   },
   "execution_status": "COMPLETED"
 }

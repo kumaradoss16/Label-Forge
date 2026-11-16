@@ -1,16 +1,16 @@
 {
-  "schema_version": "1.1.2.2.3",
-  "milestone": "Phase 1.1.2.2.3",
+  "schema_version": "1.1.2.2.4",
+  "milestone": "Phase 1.1.2.2.4",
   "evaluation_status": "APPROVED",
   "total_criteria": 22,
   "criteria": [
     {
       "criterion_id": "AC-01",
-      "description": "Actual final PR #4 merge commit is resolved as a valid Git commit object.",
+      "description": "Actual final PR #5 merge commit is resolved as a valid Git commit object.",
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "git_verification_merge_commit"
+        "git_verification_pr5_merge_commit"
       ],
       "evidence_refs": [
         "scripts/validation/git_verification.py"
@@ -22,7 +22,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "git_verification_tree"
+        "git_verification_pr5_tree"
       ],
       "evidence_refs": [
         "scripts/validation/git_verification.py"
@@ -34,7 +34,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "git_verification_equivalence"
+        "git_verification_tree_equivalence"
       ],
       "evidence_refs": [
         "scripts/validation/git_verification.py"
@@ -46,7 +46,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "provenance_mandatory_fields"
+        "Load canonical target identity manifest"
       ],
       "evidence_refs": [
         "scripts/validation/provenance.py"
@@ -58,7 +58,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "provenance_exact_revision"
+        "provenance_cleanliness"
       ],
       "evidence_refs": [
         "scripts/validation/provenance.py"
@@ -78,11 +78,11 @@
     },
     {
       "criterion_id": "AC-07",
-      "description": "A fresh Phase 1.1.2.2.3 execution is performed against the exact validated revision.",
+      "description": "A fresh Phase 1.1.2.2.4 execution is performed against the exact validated revision.",
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "fresh_execution_run"
+        "windows_platform_verification"
       ],
       "evidence_refs": [
         "evidence/phase1/reconciliation/execution_manifest.json"
@@ -106,7 +106,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "unique_run_id_shared"
+        "windows_platform_verification"
       ],
       "evidence_refs": [
         "evidence/phase1/reconciliation/execution_manifest.json"
@@ -118,7 +118,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "stdout_stderr_artifacts_exist"
+        "windows_platform_verification"
       ],
       "evidence_refs": [
         "evidence/phase1/reconciliation/execution_manifest.json"
@@ -130,7 +130,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "artifact_sha256_size_verified"
+        "checksum_match:evidence/phase1/reconciliation/canonical_target_identity.json"
       ],
       "evidence_refs": [
         "scripts/validation/evidence_integrity.py"
@@ -142,7 +142,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "artifact_path_containment"
+        "manifest_loaded"
       ],
       "evidence_refs": [
         "scripts/validation/evidence_integrity.py"
@@ -154,7 +154,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "detailed_checks_model"
+        "Mutually exclusive file category sum (555 files)"
       ],
       "evidence_refs": [
         "evidence/phase1/reconciliation/validation_results.json"
@@ -166,7 +166,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "derived_global_totals"
+        "Filesystem item equation: 34 directories + 555 files = 589 items"
       ],
       "evidence_refs": [
         "evidence/phase1/reconciliation/accounting_summary.json"
@@ -178,7 +178,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "stage_totals_reconciliation"
+        "PE binary classification sum (461 PE binaries: 332 IL, 20 mixed, 27 x64, 82 x86)"
       ],
       "evidence_refs": [
         "evidence/phase1/reconciliation/accounting_summary.json"
@@ -190,7 +190,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "claim_status_reconciliation"
+        "Claim ID uniqueness verified (25 distinct IDs)"
       ],
       "evidence_refs": [
         "evidence/phase1/reconciliation/claim_register.json"
@@ -202,7 +202,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "P1-015_distinct_classification"
+        "Claim P1-015 [VERIFIED_STATIC] assertion"
       ],
       "evidence_refs": [
         "scripts/validation/claim_assertions.py"
@@ -214,7 +214,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "P1-020_runtime_scoping"
+        "Claim P1-020 [VERIFIED_STATIC] assertion"
       ],
       "evidence_refs": [
         "scripts/validation/claim_assertions.py"
@@ -226,7 +226,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "P1-022_wcf_scoping"
+        "Claim P1-022 [VERIFIED_STATIC] assertion"
       ],
       "evidence_refs": [
         "scripts/validation/claim_assertions.py"
@@ -238,7 +238,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "test_suite_execution"
+        "Recursive prohibited-image audit: zero prohibited images found in screenshots/ tree"
       ],
       "evidence_refs": [
         "tests/test_validation_invariants.py",
@@ -251,10 +251,10 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "ci_status_reporting"
+        "Report verified consistent: 49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md"
       ],
       "evidence_refs": [
-        "reports/39_PHASE1_1_2_2_3_INDEPENDENT_REGRESSION_AND_ACCEPTANCE_REPORT.md"
+        "reports/49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "required": true,
       "status": "PASS",
       "related_check_ids": [
-        "release_gate_evaluator"
+        "Report verified consistent: 48_PHASE1_1_2_2_4_INDEPENDENT_EVIDENCE_AUDIT.md"
       ],
       "evidence_refs": [
         "scripts/validation/stage_results.py"

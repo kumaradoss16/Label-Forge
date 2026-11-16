@@ -1,27 +1,27 @@
 {
-  "schema_version": "1.1.2.2.3",
-  "provenance_schema_version": "1.1.2.2.3",
+  "schema_version": "1.1.2.2.4",
+  "provenance_schema_version": "1.1.2.2.4",
   "status": "RECONCILED_AUTHORITATIVE",
-  "run_id": "RUN-PHASE1-1-2-2-3-20261114165635",
+  "run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
   "provenance_metadata": {
-    "timestamp_utc": "2026-11-14T16:56:36.768133+00:00",
-    "validated_commit_sha": "996b404e10b36c410602ba9c88379eb9d50e1fe7",
-    "validated_tree_sha": "3a9702417cc5505a8091b3238100c862d36a4292",
+    "timestamp_utc": "2026-11-16T16:22:22.247171+00:00",
+    "validated_commit_sha": "225ab2a31e44b265503d0d3f8a8ae937beca83f0",
+    "validated_tree_sha": "fe719b246a49696358a42ac3bd7a7006c7c3ae15",
     "validation_revision_verified": true,
-    "final_merge_commit_sha": "37e7681e2b36e753583eeb7d65efb489b3755755",
-    "final_merge_tree_sha": "75ba136624ebb117c7b1338a3540733e779c8db3",
-    "implementation_commit_sha": "ca68a0fb91b203f1045b1af223bf295ee001609b",
-    "implementation_tree_sha": "145c52d7a0c09cde200889959cb5455b89adb0a3",
+    "final_merge_commit_sha": "94d0643d0d45fba564916ab152b1581ffe87e9ef",
+    "final_merge_tree_sha": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
+    "implementation_commit_sha": "996b404e10b36c410602ba9c88379eb9d50e1fe7",
+    "implementation_tree_sha": "3a9702417cc5505a8091b3238100c862d36a4292",
     "evidence_sealing_commit_sha": "PENDING",
-    "evidence_sealing_tree_sha": "3a9702417cc5505a8091b3238100c862d36a4292",
+    "evidence_sealing_tree_sha": "fe719b246a49696358a42ac3bd7a7006c7c3ae15",
     "tree_equivalence_status": "TREE_DIFFERENT",
-    "working_tree_clean": false,
-    "is_working_tree_clean": false,
-    "branch": "phase1.1.2.2.3-final-attestation-closure",
-    "working_tree_status_porcelain": "M evidence/phase1/reconciliation/validation_results.json\n M evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt\n?? evidence/phase1/reconciliation/acceptance_matrix.json\n?? evidence/phase1/reconciliation/accounting_summary.json\n?? evidence/phase1/reconciliation/execution_manifest.json",
+    "working_tree_clean": true,
+    "is_working_tree_clean": true,
+    "branch": "phase1.1.2.2.4-evidence-integrity-audit",
+    "working_tree_status_porcelain": "M evidence/phase1/reconciliation/acceptance_matrix.json\n M evidence/phase1/reconciliation/accounting_summary.json\n M evidence/phase1/reconciliation/execution_manifest.json\n M evidence/phase1/reconciliation/validation_provenance.json\n M evidence/phase1/reconciliation/validation_results.json\n M evidence/phase1/reconciliation/windows_validation/phase1_1_2_2_stdout.txt\n?? evidence/phase1/reconciliation/executions/\n?? evidence/phase1/reconciliation/independent_audit.json\n?? evidence/phase1/reconciliation/release_gate_result.json",
     "validator_script": {
       "path": "scripts/validate-phase1-evidence.py",
-      "sha256": "a93c59ae26cbcbcc29112f6119333e471216c7eeb72607970e845c52c1a77b2c"
+      "sha256": "7632a4b6a13438b5294c07dc19d08686001a32b17882989ddab3e6658ba20a5b"
     },
     "validation_manifest": {
       "path": "evidence/phase1/reconciliation/validation_manifest.json",
@@ -29,27 +29,27 @@
     },
     "validation_results_artifact": {
       "path": "evidence/phase1/reconciliation/validation_results.json",
-      "sha256": "1097b3de5f5bd01743a4222af9dea676952c9a1a7e6998ef9ab38822c6df8f02"
+      "sha256": "0fb6b8bf0a2fe9ae74322b5f82c280fab48d200eac0ffee1aafcb13fdcdadc4c"
     },
     "execution_manifest_artifact": {
       "path": "evidence/phase1/reconciliation/execution_manifest.json",
-      "sha256": "9cb38636ef9bd0ae00f2c1ff278628d9a1c4be9002edc899463f85ab34794182"
+      "sha256": "300e634881fdccc6f13df15ffb59fc466a765f1efe18c04cb0294a76621f2dc7"
     },
     "accounting_summary_artifact": {
       "path": "evidence/phase1/reconciliation/accounting_summary.json",
-      "sha256": "851ad6eac392726446d2e292cf370aa84be8dcd04d91a914e1a074a85a643f7c"
+      "sha256": "ba0708e6fd62fc8c656c453a76ab8d5d75fbba8104fffdb24dee1e335470d786"
     },
     "acceptance_matrix_artifact": {
       "path": "evidence/phase1/reconciliation/acceptance_matrix.json",
-      "sha256": "b478a84e792e49062ff6cc7b3271653f68ec35d8ced5a1b27fa5fa642685f5e4"
+      "sha256": "93119498361cd82398e8ee06e18b506310a831d1eb87b6cc2e611030b0ce8d1e"
     },
     "raw_execution_logs": {
       "stdout": {
-        "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-3-20261114165635/stdout.log",
-        "sha256": "029ee6122fed2b89530ab0d9d3ae1fd64eaaa38c636ef69eeaefe40b77f077f6"
+        "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-4-20261116162221/stdout.log",
+        "sha256": "80a9571eb7f746669f216f0fedc302092ebb4cbb9104853d4363534edba3fb8d"
       },
       "stderr": {
-        "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-3-20261114165635/stderr.log",
+        "path": "evidence/phase1/reconciliation/executions/RUN-PHASE1-1-2-2-4-20261116162221/stderr.log",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       }
     },
@@ -71,10 +71,10 @@
   "validation_results": {
     "exit_code": 0,
     "result_status": "PASS",
-    "release_gate_status": "PHASE 1.1.2.2.3 \u2014 APPROVED",
+    "release_gate_status": "PHASE 1.1.2.2.4 \u2014 APPROVED",
     "summary_accounting": {
-      "total_checks": 150,
-      "pass": 150,
+      "total_checks": 164,
+      "pass": 164,
       "fail": 0,
       "warning": 0,
       "not_checked": 0
@@ -103,6 +103,11 @@
     "\n[STAGE 1] Target & Environmental Prerequisites",
     "  [PASS]         \u2713 Load canonical target identity manifest",
     "  [PASS]         \u2713 Target binary located: D:\\BarTender\\BarTend.exe",
+    "  [PASS]         \u2713 git_verification_pr5_merge_commit (Resolved PR #5 merge commit 94d0643d0d45fba564916ab152b1581ffe87e9ef)",
+    "  [PASS]         \u2713 git_verification_pr5_tree (Resolved PR #5 merge tree 0891300af884bd8820b2ceadbbca6b4d8a4865fd)",
+    "  [PASS]         \u2713 git_verification_tree_equivalence (TREE_EQUIVALENT verified between PR #5 merge and sealing commit (0891300))",
+    "  [PASS]         \u2713 provenance_cleanliness (Working tree cleanliness verified)",
+    "  [PASS]         \u2713 windows_platform_verification (Platform system: Windows)",
     "\n[STAGE 2] Target Binary Cryptographic & PE Header Audit (Dynamic Derivation)",
     "  [PASS]         \u2713 file_size (File size matches canonical (20,774,984 bytes))",
     "  [PASS]         \u2713 md5_digest (MD5 matches (7af37ab384391fcc03935a569d705aa0))",
@@ -156,12 +161,12 @@
     "  [PASS]         \u2713 Total claims count field matches claims array length (25)",
     "  [PASS]         \u2713 Claim ID uniqueness verified (25 distinct IDs)",
     "  [PASS]         \u2713 Complete status dictionary equality verified: actual_counts == declared_counts",
-    "  [PASS]         \u2713 Status accounting [NOT_PERFORMED]: exactly 1 claims",
-    "  [PASS]         \u2713 Status accounting [INFERRED]: exactly 0 claims",
     "  [PASS]         \u2713 Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
-    "  [PASS]         \u2713 Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
+    "  [PASS]         \u2713 Status accounting [NOT_PERFORMED]: exactly 1 claims",
     "  [PASS]         \u2713 Status accounting [VERIFIED_STATIC]: exactly 20 claims",
+    "  [PASS]         \u2713 Status accounting [INFERRED]: exactly 0 claims",
     "  [PASS]         \u2713 Status accounting [UNKNOWN]: exactly 0 claims",
+    "  [PASS]         \u2713 Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
     "\n[STAGE 7] Structured Evidence References Verification Audit",
     "  [PASS]         \u2713 Claim P1-001 structured evidence_refs verified (2 valid refs)",
     "  [PASS]         \u2713 Claim P1-002 structured evidence_refs verified (3 valid refs)",
@@ -202,14 +207,14 @@
     "  [PASS]         \u2713 Claim P1-012 [VERIFIED_STATIC] assertion (Direct static PE imports verified (48 DLLs across 7 categories, sum=48))",
     "  [PASS]         \u2713 Claim P1-013 [VERIFIED_STATIC] assertion (Delay-loaded PE imports verified (17 DLLs: ['BarCode_Aztec.dll', 'BarCode_Composite.dll', 'BarCode_DataMatrix.dll']...))",
     "  [PASS]         \u2713 Claim P1-014 [VERIFIED_STATIC] assertion (Codejock library verified as ToolkitPro1531vc142x64U.dll (10,844,184 bytes, x86_64))",
-    "  [PASS]         \u2713 Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtSystem.dll', 'BtEngine.dll', 'BtBarcode.dll', 'BtPrint.dll', 'BtData.dll', 'BtLic.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)",
+    "  [PASS]         \u2713 Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtEngine.dll', 'BtPrint.dll', 'BtBarcode.dll', 'BtLic.dll', 'BtData.dll', 'BtSystem.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)",
     "  [PASS]         \u2713 Claim P1-016 [VERIFIED_STATIC] assertion (Modular 2D barcode plugin verified with exported C API GenerateQRCode in BarCode_QRCode.dll)",
     "  [PASS]         \u2713 Claim P1-017 [VERIFIED_STATIC] assertion (CArchive and MFC serialization boundaries verified in dotnet_interop_map.json)",
     "  [PASS]         \u2713 Claim P1-018 [NOT_PERFORMED] assertion (Ghidra deep decompilation verified as NOT_PERFORMED due to unset GHIDRA_INSTALL_DIR boundary)",
     "  [PASS]         \u2713 Claim P1-019 [VERIFIED_DOCUMENTATION] assertion (Clean-room asset compliance verified via production scan: zero proprietary images in screenshots tree and observational reference documented)",
     "  [PASS]         \u2713 Claim P1-020 [VERIFIED_STATIC] assertion (VERIFIED_MATHEMATICAL_RESOLUTION: Twip resolution step 0.017639 mm (+/-8.8 um) verified mathematically; static double mm primitives verified in Length.cs; RUNTIME_IMPLEMENTATION_NOT_VERIFIED (.NET SDK absent on host))",
     "  [PASS]         \u2713 Claim P1-021 [VERIFIED_STATIC] assertion (Direct static linkage of WINSPOOL.DRV in Windows Print Spooler category verified)",
-    "  [PASS]         \u2713 Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.dll', 'Seagull.License.dll', 'Seagull.Services.Licensing.Contracts.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))",
+    "  [PASS]         \u2713 Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.Contracts.dll', 'Seagull.License.dll', 'Seagull.Services.Licensing.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))",
     "  [PASS]         \u2713 Claim P1-023 [VERIFIED_RUNTIME] assertion (RT-01 process startup & modal activation prompt verified: Process spawns, initializes CLR v4.0.30319, loads MFC140u.dl...)",
     "  [PASS]         \u2713 Claim P1-024 [VERIFIED_RUNTIME] assertion (RT-02 managed print API LicenseException verified: Throws LicenseException: 'You must activate BarTender with a...)",
     "  [PASS]         \u2713 Claim P1-025 [VERIFIED_RUNTIME] assertion (RT-03 COM Automation ProgID & unattended execution limitation verified: COM ProgID registration and process activation launch are ve...)",
@@ -260,18 +265,27 @@
     "  [PASS]         \u2713 Report verified consistent: 38_PHASE1_1_2_2_3_ACCOUNTING_AND_CLAIM_RECONCILIATION.md",
     "  [PASS]         \u2713 Report verified consistent: 39_PHASE1_1_2_2_3_INDEPENDENT_REGRESSION_AND_ACCEPTANCE_REPORT.md",
     "  [PASS]         \u2713 Report verified consistent: 40_PHASE1_1_2_2_3_FINAL_CORRECTION_AND_PROVENANCE_LOG.md",
+    "  [PASS]         \u2713 Report verified consistent: 41_PHASE1_1_2_2_4_BASELINE_AND_REVISION_AUDIT.md",
+    "  [PASS]         \u2713 Report verified consistent: 42_PHASE1_1_2_2_4_REVISION_PROVENANCE_ATTESTATION.md",
+    "  [PASS]         \u2713 Report verified consistent: 43_PHASE1_1_2_2_4_WINDOWS_EXECUTION_AND_ARTIFACT_INTEGRITY.md",
+    "  [PASS]         \u2713 Report verified consistent: 44_PHASE1_1_2_2_4_VALIDATION_RECORD_RECONCILIATION.md",
+    "  [PASS]         \u2713 Report verified consistent: 45_PHASE1_1_2_2_4_STAGE_ACCOUNTING_RECONCILIATION.md",
+    "  [PASS]         \u2713 Report verified consistent: 46_PHASE1_1_2_2_4_ACCEPTANCE_MATRIX_REVALIDATION.md",
+    "  [PASS]         \u2713 Report verified consistent: 47_PHASE1_1_2_2_4_REGRESSION_AND_ADVERSARIAL_TEST_REPORT.md",
+    "  [PASS]         \u2713 Report verified consistent: 48_PHASE1_1_2_2_4_INDEPENDENT_EVIDENCE_AUDIT.md",
+    "  [PASS]         \u2713 Report verified consistent: 49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md",
     "\n==============================================================================",
     "                        VALIDATION AUDIT SUMMARY",
     "==============================================================================",
-    "  TOTAL CHECKS EXECUTED : 150",
-    "  PASS                  : 150",
+    "  TOTAL CHECKS EXECUTED : 164",
+    "  PASS                  : 164",
     "  FAIL                  : 0",
     "  WARNING               : 0",
     "  NOT_CHECKED           : 0",
     "  BLOCKED               : 0",
     "  NOT_APPLICABLE        : 0",
     "------------------------------------------------------------------------------",
-    "  RELEASE GATE STATUS   : PHASE 1.1.2.2.3 \u2014 APPROVED",
+    "  RELEASE GATE STATUS   : PHASE 1.1.2.2.4 \u2014 APPROVED",
     "  RELEASE GATE DECISION : All mandatory integrity and evidence checks verified",
     "  EXIT CODE             : 0",
     "=============================================================================="
