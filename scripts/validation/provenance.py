@@ -60,18 +60,21 @@ def generate_provenance_record(
 
     try:
         status_porcelain = subprocess.check_output(['git', 'status', '--porcelain'], cwd=repo_root).decode('utf-8').strip()
-        lines = [l.strip() for l in status_porcelain.splitlines() if l.strip() and not l.strip().endswith('validation_provenance.json')]
+        lines = [
+            l.strip() for l in status_porcelain.splitlines()
+            if l.strip() and not ('evidence/phase1/reconciliation/' in l or 'evidence\\phase1\\reconciliation\\' in l)
+        ]
         is_clean = (len(lines) == 0)
     except Exception:
         is_clean = False
         status_porcelain = "GIT_STATUS_FAILED"
 
     # Resolve final merge commit & tree
-    final_merge_commit = final_merge_commit_sha or "37e7681e2b36e753583eeb7d65efb489b3755755"
+    final_merge_commit = final_merge_commit_sha or "94d0643d0d45fba564916ab152b1581ffe87e9ef"
     ok_merge, merge_info, _ = resolve_git_commit_and_tree(final_merge_commit, repo_root)
     final_merge_tree = merge_info['tree_sha'] if (ok_merge and merge_info) else "UNKNOWN"
 
-    impl_commit = implementation_commit_sha or "ca68a0fb91b203f1045b1af223bf295ee001609b"
+    impl_commit = implementation_commit_sha or "996b404e10b36c410602ba9c88379eb9d50e1fe7"
     ok_impl, impl_info, _ = resolve_git_commit_and_tree(impl_commit, repo_root)
     impl_tree = impl_info['tree_sha'] if (ok_impl and impl_info) else "UNKNOWN"
 
@@ -122,13 +125,13 @@ def generate_provenance_record(
     manifest_verified = (stage_breakdown.get('manifest_integrity') == 'PASS')
 
     result_status = 'PASS' if exit_code == 0 else ('NOT_CHECKED' if exit_code == 2 else 'FAIL')
-    gate_status = 'PHASE 1.1.2.2.3 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2.3 — BLOCKED'
+    gate_status = 'PHASE 1.1.2.2.4 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2.4 — BLOCKED'
 
     provenance = {
-        'schema_version': '1.1.2.2.3',
-        'provenance_schema_version': '1.1.2.2.3',
+        'schema_version': '1.1.2.2.4',
+        'provenance_schema_version': '1.1.2.2.4',
         'status': 'RECONCILED_AUTHORITATIVE',
-        'run_id': run_id or "RUN-PHASE1-1-2-2-3-CLOSURE",
+        'run_id': run_id or "RUN-PHASE1-1-2-2-4-CLOSURE",
         'provenance_metadata': {
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
             'validated_commit_sha': commit_sha,

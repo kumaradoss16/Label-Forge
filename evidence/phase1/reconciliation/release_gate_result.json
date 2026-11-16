@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.1.2.2.4",
+  "milestone": "Phase 1.1.2.2.4",
+  "timestamp_utc": "2026-11-16T16:24:21.400024+00:00",
+  "final_status": "ACCEPTED",
+  "decision_message": "PHASE 1.1.2.2.4 \u2014 ACCEPTED: All independent evidence invariants, PR #5 attestation, validation check records, stage accounting, acceptance matrix, artifact integrity, and regression tests verified.",
+  "invariants_evaluated": 29,
+  "invariants_passed": 29,
+  "invariants_failed": 0,
+  "blocking_findings": [],
+  "git_attestation": {
+    "pr5_merge_commit": "94d0643d0d45fba564916ab152b1581ffe87e9ef",
+    "pr5_merge_tree": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
+    "sealing_commit": "6a93ed886f9c3e2f23c5918c9ca21e11c89bfaec",
+    "sealing_tree": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
+    "head_commit": "83f03a0bd8de685bcf633583e79d1740dd7c4da6",
+    "head_tree": "7be31c0926205deef0dc39f60f78306291195888",
+    "is_clean": true
+  },
+  "execution_evidence": {
+    "run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+    "stdout_valid": true,
+    "stderr_valid": true
+  },
+  "accounting_reconciliation": {
+    "total_checks": 164,
+    "pass_count": 164,
+    "is_perfect_match": true
+  },
+  "acceptance_matrix": {
+    "total_criteria": 22,
+    "all_pass": true
+  },
+  "regression_suite": {
+    "command": "D:\\python3.14\\python.exe -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "tests_run": 56,
+    "duration_seconds": 5.439452,
+    "stderr_summary": [
+      "Ran 56 tests in 5.089s",
+      "",
+      "OK"
+    ]
+  }
+}

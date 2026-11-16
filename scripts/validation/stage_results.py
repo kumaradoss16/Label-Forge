@@ -99,12 +99,17 @@ class AssertionRecord:
     detail: str = ""
     stage_id: str = ""
     evidence_ref: str = ""
+    evidence_refs: List[str] = field(default_factory=list)
     expected: Any = None
     actual: Any = None
 
     def __post_init__(self):
         if self.status not in ALLOWED_RESULT_STATUSES:
             raise ValueError(f"Invalid assertion status: '{self.status}'. Must be one of {ALLOWED_RESULT_STATUSES}")
+        if not self.evidence_refs and self.evidence_ref:
+            self.evidence_refs = [self.evidence_ref]
+        elif self.evidence_refs and not self.evidence_ref:
+            self.evidence_ref = self.evidence_refs[0]
 
     @property
     def name(self) -> str:
@@ -118,17 +123,24 @@ class StageResult:
     assertions: List[AssertionRecord] = field(default_factory=list)
 
     def add(self, record: AssertionRecord):
+        if not record.stage_id:
+            record.stage_id = self.stage_id
         self.assertions.append(record)
         self.recompute_status()
         return record
 
-    def record_assertion(self, assertion_id: str, status: str, detail: str = "", evidence_ref: str = "", expected: Any = None, actual: Any = None) -> AssertionRecord:
+    def record_assertion(self, assertion_id: str, status: str, detail: str = "", evidence_ref: str = "", evidence_refs: Optional[List[str]] = None, expected: Any = None, actual: Any = None) -> AssertionRecord:
+        if evidence_refs is None:
+            evidence_refs = [evidence_ref] if evidence_ref else []
+        elif not evidence_ref and evidence_refs:
+            evidence_ref = evidence_refs[0]
         record = AssertionRecord(
             stage_id=self.stage_id,
             assertion_id=assertion_id,
             status=status,
             detail=detail,
             evidence_ref=evidence_ref,
+            evidence_refs=evidence_refs,
             expected=expected,
             actual=actual
         )
@@ -179,7 +191,8 @@ def aggregate_stage_status(assertions: List[AssertionRecord]) -> str:
 def evaluate_release_gate(
     stage_results: Dict[str, str],
     counts: Dict[str, int],
-    mandatory_stages: Optional[List[str]] = None
+    mandatory_stages: Optional[List[str]] = None,
+    milestone: str = "Phase 1.1.2.2.4"
 ) -> Tuple[int, str, str]:
     """
     Evaluates the final release gate across stage results and check counts.
@@ -190,29 +203,29 @@ def evaluate_release_gate(
       2: Prerequisite unavailable / NOT_CHECKED / BLOCKED
       3: Internal validator error
     """
+    prefix = milestone.upper()
     if mandatory_stages is None:
         mandatory_stages = list(STAGE_REGISTRY.keys())
 
     if counts.get(STATUS_FAIL, 0) > 0 or any(stage_results.get(st) == STATUS_FAIL for st in mandatory_stages):
-        return (1, "PHASE 1.1.2.2.3 — FAILED", "One or more mandatory validation checks failed")
+        return (1, f"{prefix} — FAILED", "One or more mandatory validation checks failed")
 
     missing_stages = [st for st in mandatory_stages if st not in stage_results]
     if missing_stages:
-        return (1, "PHASE 1.1.2.2.3 — BLOCKED", f"Missing mandatory validation stages: {missing_stages}")
-
+        return (1, f"{prefix} — BLOCKED", f"Missing mandatory validation stages: {missing_stages}")
 
     if counts.get(STATUS_BLOCKED, 0) > 0 or any(stage_results.get(st) == STATUS_BLOCKED for st in mandatory_stages):
-        return (2, "PHASE 1.1.2.2.3 — BLOCKED", "One or more mandatory stages were BLOCKED due to unavailable prerequisites")
+        return (2, f"{prefix} — BLOCKED", "One or more mandatory stages were BLOCKED due to unavailable prerequisites")
 
     if counts.get(STATUS_NOT_CHECKED, 0) > 0 or any(stage_results.get(st) == STATUS_NOT_CHECKED for st in mandatory_stages):
-        return (2, "PHASE 1.1.2.2.3 — BLOCKED", "One or more mandatory stages were NOT_CHECKED due to missing prerequisites")
+        return (2, f"{prefix} — BLOCKED", "One or more mandatory stages were NOT_CHECKED due to missing prerequisites")
 
     if counts.get(STATUS_WARNING, 0) > 0 or any(stage_results.get(st) == STATUS_WARNING for st in mandatory_stages):
-        return (1, "PHASE 1.1.2.2.3 — BLOCKED", "Unresolved validation warnings present")
+        return (1, f"{prefix} — BLOCKED", "Unresolved validation warnings present")
 
     all_stages_pass = all(stage_results.get(st) == STATUS_PASS for st in mandatory_stages)
     if all_stages_pass and counts.get(STATUS_PASS, 0) > 0:
-        return (0, "PHASE 1.1.2.2.3 — APPROVED", "All mandatory integrity and evidence checks verified")
+        return (0, f"{prefix} — APPROVED", "All mandatory integrity and evidence checks verified")
 
-    return (1, "PHASE 1.1.2.2.3 — FAILED", "Incomplete validation results")
+    return (1, f"{prefix} — FAILED", "Incomplete validation results")
 

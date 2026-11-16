@@ -17,6 +17,7 @@ target/
 # Temporary / Scratch
 *.tmp
 *.log
+!evidence/phase1/reconciliation/executions/**/*.log
 *.bak
 .DS_Store
 Thumbs.db

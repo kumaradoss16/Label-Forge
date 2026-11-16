@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.1.2.2.4",
+  "milestone": "Phase 1.1.2.2.4",
+  "timestamp_utc": "2026-11-16T16:24:21.399097+00:00",
+  "audit_result": "PASS",
+  "invariants_evaluated": 29,
+  "invariants_passed": 29,
+  "invariants_failed": 0,
+  "findings": [],
+  "summary": {
+    "git": {
+      "pr5_merge_commit": "94d0643d0d45fba564916ab152b1581ffe87e9ef",
+      "pr5_merge_tree": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
+      "sealing_commit": "6a93ed886f9c3e2f23c5918c9ca21e11c89bfaec",
+      "sealing_tree": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
+      "head_commit": "83f03a0bd8de685bcf633583e79d1740dd7c4da6",
+      "head_tree": "7be31c0926205deef0dc39f60f78306291195888",
+      "is_clean": true
+    },
+    "records": {
+      "total": 164
+    },
+    "accounting": {
+      "raw_total": 164,
+      "raw_counts": {
+        "NOT_APPLICABLE": 0,
+        "NOT_CHECKED": 0,
+        "WARNING": 0,
+        "FAIL": 0,
+        "PASS": 164,
+        "BLOCKED": 0
+      },
+      "stage_calc": {
+        "target_prerequisites": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 7,
+          "BLOCKED": 0,
+          "total": 7
+        },
+        "target_binary_integrity": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 12,
+          "BLOCKED": 0,
+          "total": 12
+        },
+        "manifest_integrity": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 16,
+          "BLOCKED": 0,
+          "total": 16
+        },
+        "component_inventory": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 3,
+          "BLOCKED": 0,
+          "total": 3
+        },
+        "direct_import_partition": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 14,
+          "BLOCKED": 0,
+          "total": 14
+        },
+        "status_accounting": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 9,
+          "BLOCKED": 0,
+          "total": 9
+        },
+        "evidence_references": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 24,
+          "BLOCKED": 0,
+          "total": 24
+        },
+        "claim_specific_assertions": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 25,
+          "BLOCKED": 0,
+          "total": 25
+        },
+        "recursive_image_audit": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 2,
+          "BLOCKED": 0,
+          "total": 2
+        },
+        "report_consistency": {
+          "NOT_APPLICABLE": 0,
+          "NOT_CHECKED": 0,
+          "WARNING": 0,
+          "FAIL": 0,
+          "PASS": 52,
+          "BLOCKED": 0,
+          "total": 52
+        }
+      },
+      "is_perfect_match": true
+    },
+    "matrix": {
+      "total_criteria": 22,
+      "all_pass": true,
+      "findings": []
+    },
+    "artifacts": {
+      "run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+      "stdout_valid": true,
+      "stderr_valid": true
+    },
+    "regression": {
+      "command": "D:\\python3.14\\python.exe -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tests_run": 56,
+      "duration_seconds": 5.439452,
+      "stderr_summary": [
+        "Ran 56 tests in 5.089s",
+        "",
+        "OK"
+      ]
+    }
+  }
+}
