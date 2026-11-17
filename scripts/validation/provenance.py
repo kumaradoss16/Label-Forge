@@ -33,13 +33,16 @@ def generate_provenance_record(
     results_path: Optional[str] = None,
     stdout_log_path: Optional[str] = None,
     stderr_log_path: Optional[str] = None,
+    regression_stdout_path: Optional[str] = None,
+    regression_stderr_path: Optional[str] = None,
     execution_manifest_path: Optional[str] = None,
     accounting_summary_path: Optional[str] = None,
     acceptance_matrix_path: Optional[str] = None,
     run_id: Optional[str] = None,
     final_merge_commit_sha: Optional[str] = None,
     implementation_commit_sha: Optional[str] = None,
-    evidence_sealing_commit_sha: Optional[str] = None
+    evidence_sealing_commit_sha: Optional[str] = None,
+    baseline_merge_commit_sha: Optional[str] = None
 ) -> Dict[str, Any]:
     """Generates the authoritative validation provenance dictionary."""
 
@@ -60,21 +63,22 @@ def generate_provenance_record(
 
     try:
         status_porcelain = subprocess.check_output(['git', 'status', '--porcelain'], cwd=repo_root).decode('utf-8').strip()
-        lines = [
-            l.strip() for l in status_porcelain.splitlines()
-            if l.strip() and not ('evidence/phase1/reconciliation/' in l or 'evidence\\phase1\\reconciliation\\' in l)
-        ]
+        lines = [l.strip() for l in status_porcelain.splitlines() if l.strip()]
         is_clean = (len(lines) == 0)
     except Exception:
         is_clean = False
         status_porcelain = "GIT_STATUS_FAILED"
 
-    # Resolve final merge commit & tree
-    final_merge_commit = final_merge_commit_sha or "94d0643d0d45fba564916ab152b1581ffe87e9ef"
+    # Resolve baseline & final merge commit & tree
+    baseline_merge = baseline_merge_commit_sha or "56f70518b14a2fe3cd96a56c683ab1b717639f04"
+    ok_b, info_b, _ = resolve_git_commit_and_tree(baseline_merge, repo_root)
+    baseline_tree = info_b['tree_sha'] if (ok_b and info_b) else "UNKNOWN"
+
+    final_merge_commit = final_merge_commit_sha or "56f70518b14a2fe3cd96a56c683ab1b717639f04"
     ok_merge, merge_info, _ = resolve_git_commit_and_tree(final_merge_commit, repo_root)
     final_merge_tree = merge_info['tree_sha'] if (ok_merge and merge_info) else "UNKNOWN"
 
-    impl_commit = implementation_commit_sha or "996b404e10b36c410602ba9c88379eb9d50e1fe7"
+    impl_commit = implementation_commit_sha or "225ab2a31e44b265503d0d3f8a8ae937beca83f0"
     ok_impl, impl_info, _ = resolve_git_commit_and_tree(impl_commit, repo_root)
     impl_tree = impl_info['tree_sha'] if (ok_impl and impl_info) else "UNKNOWN"
 
@@ -107,6 +111,16 @@ def generate_provenance_record(
         with open(stderr_log_path, 'rb') as f:
             stderr_sha = hashlib.sha256(f.read()).hexdigest()
 
+    reg_stdout_sha = "MISSING"
+    if regression_stdout_path and os.path.exists(regression_stdout_path):
+        with open(regression_stdout_path, 'rb') as f:
+            reg_stdout_sha = hashlib.sha256(f.read()).hexdigest()
+
+    reg_stderr_sha = "MISSING"
+    if regression_stderr_path and os.path.exists(regression_stderr_path):
+        with open(regression_stderr_path, 'rb') as f:
+            reg_stderr_sha = hashlib.sha256(f.read()).hexdigest()
+
     exec_manifest_sha = "MISSING"
     if execution_manifest_path and os.path.exists(execution_manifest_path):
         with open(execution_manifest_path, 'rb') as f:
@@ -125,19 +139,33 @@ def generate_provenance_record(
     manifest_verified = (stage_breakdown.get('manifest_integrity') == 'PASS')
 
     result_status = 'PASS' if exit_code == 0 else ('NOT_CHECKED' if exit_code == 2 else 'FAIL')
-    gate_status = 'PHASE 1.1.2.2.4 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2.4 — BLOCKED'
+    gate_status = 'PHASE 1.1.2.2.4.1 — APPROVED' if exit_code == 0 else 'PHASE 1.1.2.2.4.1 — BLOCKED'
 
     provenance = {
-        'schema_version': '1.1.2.2.4',
-        'provenance_schema_version': '1.1.2.2.4',
+        'schema_version': '1.1.2.2.4.1',
+        'provenance_schema_version': '1.1.2.2.4.1',
         'status': 'RECONCILED_AUTHORITATIVE',
-        'run_id': run_id or "RUN-PHASE1-1-2-2-4-CLOSURE",
+        'run_id': run_id or "RUN-PHASE1-1-2-2-4-1-CLOSURE",
         'provenance_metadata': {
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
+            'baseline_merge_commit_sha': baseline_merge,
+            'baseline_merge_tree_sha': baseline_tree,
+            'previous_implementation_commit_sha': "225ab2a31e44b265503d0d3f8a8ae937beca83f0",
+            'previous_sealing_commit_sha': "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3",
+            'implementation_commit_sha': impl_commit,
+            'implementation_tree_sha': impl_tree,
             'validated_commit_sha': commit_sha,
             'validated_tree_sha': tree_sha,
             'validation_revision_verified': True,
+            'evidence_sealing_commit_sha': evidence_sealing_commit_sha or commit_sha,
+            'evidence_sealing_tree_sha': tree_sha,
             'final_merge_commit_sha': final_merge_commit,
+            'final_merge_tree_sha': final_merge_tree,
+            'tree_equivalence_status': equiv_status,
+            'working_tree_clean': is_clean,
+            'is_working_tree_clean': is_clean,
+            'branch': branch,
+            'working_tree_status_porcelain': status_porcelain,
             'final_merge_tree_sha': final_merge_tree,
             'implementation_commit_sha': impl_commit,
             'implementation_tree_sha': impl_tree,
@@ -180,6 +208,14 @@ def generate_provenance_record(
                 'stderr': {
                     'path': os.path.relpath(stderr_log_path, repo_root).replace('\\', '/') if stderr_log_path else "MISSING",
                     'sha256': stderr_sha
+                },
+                'regression_stdout': {
+                    'path': os.path.relpath(regression_stdout_path, repo_root).replace('\\', '/') if regression_stdout_path else "MISSING",
+                    'sha256': reg_stdout_sha
+                },
+                'regression_stderr': {
+                    'path': os.path.relpath(regression_stderr_path, repo_root).replace('\\', '/') if regression_stderr_path else "MISSING",
+                    'sha256': reg_stderr_sha
                 }
             },
             'target_executable': {
@@ -265,12 +301,21 @@ def validate_provenance_record(
             elif info_m['tree_sha'] != rec_m_tree:
                 errors.append(f"Recorded final merge tree '{rec_m_tree}' does not match actual merge commit tree '{info_m['tree_sha']}'")
 
-    # 3. Tree equivalence status
+    # 3. Mandatory Implementation commit
+    impl = meta.get('implementation_commit_sha')
+    if not impl:
+        errors.append("Mandatory field 'implementation_commit_sha' is missing in provenance metadata")
+    else:
+        ok_i, info_i, msg_i = resolve_git_commit_and_tree(impl, repo_root)
+        if not ok_i or info_i is None:
+            errors.append(f"Git object verification failed for implementation_commit_sha '{impl}': {msg_i}")
+
+    # 4. Tree equivalence status
     equiv_st = meta.get('tree_equivalence_status')
     if not equiv_st or equiv_st not in ('TREE_EQUIVALENT', 'TREE_DIFFERENT'):
         errors.append(f"Invalid or missing 'tree_equivalence_status': '{equiv_st}'")
 
-    # 4. Validator script
+    # 5. Validator script
     val_script = meta.get('validator_script', {})
     val_path = os.path.join(repo_root, val_script.get('path', '').replace('/', os.sep))
     if not os.path.exists(val_path):
@@ -327,6 +372,28 @@ def validate_provenance_record(
                 act_err_sha = hashlib.sha256(f.read()).hexdigest()
             if act_err_sha != stderr_entry.get('sha256'):
                 errors.append(f"Raw stderr log SHA-256 mismatch: recorded={stderr_entry.get('sha256')}, actual={act_err_sha}")
+
+    reg_out_entry = raw_logs.get('regression_stdout')
+    if reg_out_entry and reg_out_entry.get('path') and reg_out_entry.get('path') != "MISSING":
+        reg_p = os.path.join(repo_root, reg_out_entry.get('path', '').replace('/', os.sep))
+        if not os.path.exists(reg_p):
+            errors.append(f"Referenced raw regression stdout not found: '{reg_out_entry.get('path')}'")
+        else:
+            with open(reg_p, 'rb') as f:
+                act_reg_sha = hashlib.sha256(f.read()).hexdigest()
+            if act_reg_sha != reg_out_entry.get('sha256'):
+                errors.append(f"Raw regression stdout SHA-256 mismatch: recorded={reg_out_entry.get('sha256')}, actual={act_reg_sha}")
+
+    reg_err_entry = raw_logs.get('regression_stderr')
+    if reg_err_entry and reg_err_entry.get('path') and reg_err_entry.get('path') != "MISSING":
+        reg_ep = os.path.join(repo_root, reg_err_entry.get('path', '').replace('/', os.sep))
+        if not os.path.exists(reg_ep):
+            errors.append(f"Referenced raw regression stderr not found: '{reg_err_entry.get('path')}'")
+        else:
+            with open(reg_ep, 'rb') as f:
+                act_reg_e_sha = hashlib.sha256(f.read()).hexdigest()
+            if act_reg_e_sha != reg_err_entry.get('sha256'):
+                errors.append(f"Raw regression stderr SHA-256 mismatch: recorded={reg_err_entry.get('sha256')}, actual={act_reg_e_sha}")
 
     # 8. Summary accounting arithmetic
     res = provenance_doc.get('validation_results', {})

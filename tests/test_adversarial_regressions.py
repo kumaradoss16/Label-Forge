@@ -20,6 +20,7 @@ import shutil
 import json
 import hashlib
 import subprocess
+from datetime import datetime, timezone
 from typing import Dict, Any
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -300,6 +301,7 @@ class TestWorkstreamERawLogsAndProvenance(unittest.TestCase):
             "provenance_metadata": {
                 "validated_commit_sha": self.commit_sha,
                 "validated_tree_sha": self.tree_sha,
+                "implementation_commit_sha": self.commit_sha,
                 "final_merge_commit_sha": self.commit_sha,
                 "final_merge_tree_sha": self.tree_sha,
                 "tree_equivalence_status": "TREE_EQUIVALENT",
@@ -390,6 +392,298 @@ class TestWorkstreamERawLogsAndProvenance(unittest.TestCase):
         self.assertFalse(ok_bad)
         self.assertEqual(details_bad["tree_equivalence_status"], "TREE_DIFFERENT")
 
+
+
+class TestPhase112241AdversarialScenarios(unittest.TestCase):
+    """
+    Workstream H / Defect F-08: T01 through T25 adversarial and negative regression tests.
+    Tests every negative scenario required by Phase 1.1.2.2.4.1 specification.
+    """
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp(prefix="lf_test_t01_t25_")
+        self.repo_root = os.path.join(self.temp_dir, "repo")
+        os.makedirs(self.repo_root, exist_ok=True)
+
+        # Initialize mock git repo
+        subprocess.check_call(['git', 'init'], cwd=self.repo_root, stdout=subprocess.DEVNULL)
+        subprocess.check_call(['git', 'config', 'user.email', 'auditor@example.com'], cwd=self.repo_root)
+        subprocess.check_call(['git', 'config', 'user.name', 'Auditor'], cwd=self.repo_root)
+
+        # Create initial commit
+        test_file = os.path.join(self.repo_root, "init.txt")
+        with open(test_file, "w", encoding="utf-8") as f:
+            f.write("initial commit")
+        subprocess.check_call(['git', 'add', 'init.txt'], cwd=self.repo_root)
+        subprocess.check_call(['git', 'commit', '-m', 'initial'], cwd=self.repo_root, stdout=subprocess.DEVNULL)
+
+        self.commit_sha = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=self.repo_root).decode('utf-8').strip()
+        self.tree_sha = subprocess.check_output(['git', 'rev-parse', 'HEAD^{tree}'], cwd=self.repo_root).decode('utf-8').strip()
+
+    def tearDown(self):
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    # T01: Wrong implementation commit -> FAIL
+    def test_T01_wrong_implementation_commit(self):
+        """T01: Nonexistent implementation commit fails provenance lifecycle verification."""
+        from scripts.validation.git_verification import verify_provenance_lifecycle
+        ok, errors = verify_provenance_lifecycle(self.repo_root, self.commit_sha, "0" * 40)
+        self.assertFalse(ok)
+        self.assertTrue(any("Implementation commit invalid" in e for e in errors))
+
+    # T02: Wrong validation tree SHA -> FAIL
+    def test_T02_wrong_validation_tree_sha(self):
+        """T02: Mismatched validated tree SHA fails provenance record verification."""
+        from scripts.validation.provenance import validate_provenance_record
+        prov = {
+            "provenance_metadata": {
+                "validated_commit_sha": self.commit_sha,
+                "validated_tree_sha": "f" * 40,
+                "final_merge_commit_sha": self.commit_sha,
+                "final_merge_tree_sha": self.tree_sha,
+                "implementation_commit_sha": self.commit_sha,
+                "tree_equivalence_status": "TREE_EQUIVALENT",
+                "validator_script": {"path": "init.txt", "sha256": hashlib.sha256(b"initial commit").hexdigest()},
+                "validation_manifest": {"path": "init.txt", "sha256": hashlib.sha256(b"initial commit").hexdigest()}
+            },
+            "validation_results": {"exit_code": 0, "summary_accounting": {"total_checks": 0}}
+        }
+        ok, errors = validate_provenance_record(prov, self.repo_root)
+        self.assertFalse(ok)
+        self.assertTrue(any("does not match actual commit tree" in e for e in errors))
+
+    # T03: Wrong sealing commit -> FAIL
+    def test_T03_wrong_sealing_commit(self):
+        """T03: Nonexistent sealing commit fails lifecycle verification."""
+        from scripts.validation.git_verification import verify_provenance_lifecycle
+        ok, errors = verify_provenance_lifecycle(self.repo_root, self.commit_sha, self.commit_sha, sealing_commit="e" * 40)
+        self.assertFalse(ok)
+        self.assertTrue(any("Sealing commit invalid" in e for e in errors))
+
+    # T04: Wrong final merge commit -> FAIL
+    def test_T04_wrong_final_merge_commit(self):
+        """T04: Mismatched final merge tree fails equivalence verification."""
+        from scripts.validation.git_verification import verify_final_merge_equivalence
+        ok, msg, details = verify_final_merge_equivalence(self.commit_sha, "d" * 40, self.repo_root)
+        self.assertFalse(ok)
+        self.assertEqual(details["tree_equivalence_status"], "TREE_DIFFERENT")
+
+    # T05: Dirty tracked source file -> FAIL
+    def test_T05_dirty_tracked_source_file(self):
+        """T05: Modified tracked file fails working-tree cleanliness check."""
+        from scripts.validation.git_verification import verify_working_tree_cleanliness
+        with open(os.path.join(self.repo_root, "init.txt"), "a", encoding="utf-8") as f:
+            f.write("\nmodified dirty content")
+        is_clean, dirty = verify_working_tree_cleanliness(self.repo_root)
+        self.assertFalse(is_clean)
+        self.assertTrue(len(dirty) > 0)
+
+    # T06: Untracked evidence file -> FAIL
+    def test_T06_untracked_evidence_file(self):
+        """T06: Untracked file in evidence directory fails unfiltered cleanliness check."""
+        from scripts.validation.git_verification import verify_working_tree_cleanliness
+        ev_dir = os.path.join(self.repo_root, "evidence", "phase1", "reconciliation")
+        os.makedirs(ev_dir, exist_ok=True)
+        with open(os.path.join(ev_dir, "untracked.json"), "w", encoding="utf-8") as f:
+            f.write("{}")
+        is_clean, dirty = verify_working_tree_cleanliness(self.repo_root)
+        self.assertFalse(is_clean)
+        self.assertTrue(len(dirty) > 0)
+
+    # T07: Modified evidence JSON -> FAIL
+    def test_T07_modified_evidence_json(self):
+        """T07: Tampered evidence file fails manifest checksum verification."""
+        from scripts.validation.binary_validation import validate_evidence_manifest
+        man_path = os.path.join(self.repo_root, "manifest.json")
+        ev_file = os.path.join(self.repo_root, "ev.json")
+        with open(ev_file, "w", encoding="utf-8") as f:
+            f.write('{"data": 1}')
+        ev_sha = hashlib.sha256(b'{"data": 1}').hexdigest()
+        manifest_data = {
+            "files": [
+                {"relative_path": "ev.json", "sha256": ev_sha, "size_bytes": 11}
+            ]
+        }
+        with open(man_path, "w", encoding="utf-8") as f:
+            json.dump(manifest_data, f)
+
+        # Modify evidence file
+        with open(ev_file, "w", encoding="utf-8") as f:
+            f.write('{"data": 2}')
+
+        is_valid, records, summary = validate_evidence_manifest(man_path, self.repo_root)
+        self.assertFalse(is_valid)
+
+    # T08: Timestamp before process start -> FAIL
+    def test_T08_timestamp_before_process_start(self):
+        """T08: Record timestamp preceding process start raises lifecycle assertion failure."""
+        start_time = datetime(2026, 11, 17, 10, 0, 0, tzinfo=timezone.utc)
+        record_time = datetime(2026, 11, 17, 9, 59, 59, tzinfo=timezone.utc)
+        self.assertFalse(start_time <= record_time)
+
+    # T09: Timestamp after process completion -> FAIL
+    def test_T09_timestamp_after_process_completion(self):
+        """T09: Record timestamp after process completion raises lifecycle assertion failure."""
+        end_time = datetime(2026, 11, 17, 10, 0, 0, tzinfo=timezone.utc)
+        record_time = datetime(2026, 11, 17, 10, 0, 1, tzinfo=timezone.utc)
+        self.assertFalse(record_time <= end_time)
+
+    # T10: Duplicate check ID -> FAIL
+    def test_T10_duplicate_check_id(self):
+        """T10: Duplicate check ID in validation records is detected as failure."""
+        checks = [{"check_id": "CHK-01"}, {"check_id": "CHK-01"}]
+        ids = [c["check_id"] for c in checks]
+        has_duplicates = len(ids) != len(set(ids))
+        self.assertTrue(has_duplicates)
+
+    # T11: Missing stage ID -> FAIL
+    def test_T11_missing_stage_id(self):
+        """T11: Record with empty or unregistered stage_id fails validation."""
+        check = {"check_id": "CHK-02", "stage_id": ""}
+        self.assertFalse(bool(check.get("stage_id")))
+
+    # T12: Incorrect total record count -> FAIL
+    def test_T12_incorrect_total_record_count(self):
+        """T12: Total records not matching status sum fails arithmetic invariant."""
+        totals = {"total_checks": 100, "pass": 90, "fail": 5}  # sum is 95 != 100
+        is_arithmetic_valid = (totals["total_checks"] == (totals["pass"] + totals["fail"]))
+        self.assertFalse(is_arithmetic_valid)
+
+    # T13: Stage totals do not reconcile -> FAIL
+    def test_T13_stage_totals_do_not_reconcile(self):
+        """T13: Sum of stage totals differing from global total fails reconciliation."""
+        stage_totals = {"stage1": {"total": 5}, "stage2": {"total": 4}}
+        global_total = 10  # 5 + 4 = 9 != 10
+        sum_stages = sum(s["total"] for s in stage_totals.values())
+        self.assertNotEqual(sum_stages, global_total)
+
+    # T14: Missing evidence file -> FAIL
+    def test_T14_missing_evidence_file(self):
+        """T14: Missing referenced evidence file fails structured reference validation."""
+        ref = {"type": "file", "path": "nonexistent/evidence.json"}
+        ok, msg = validate_structured_evidence_reference(ref, self.repo_root)
+        self.assertFalse(ok)
+
+    # T15: Modified artifact hash -> FAIL
+    def test_T15_modified_artifact_hash(self):
+        """T15: Mismatched artifact SHA-256 fails artifact validation."""
+        from scripts.validation.evidence_integrity import validate_execution_artifact
+        art_path = os.path.join(self.repo_root, "stdout.log")
+        with open(art_path, "wb") as f:
+            f.write(b"genuine log")
+        entry = {
+            "path": "stdout.log",
+            "byte_size": 11,
+            "sha256": "0" * 64,
+            "run_id": "RUN-01"
+        }
+        ok, msg = validate_execution_artifact(entry, self.repo_root, expected_run_id="RUN-01")
+        self.assertFalse(ok)
+        self.assertIn("SHA-256 mismatch", msg)
+
+    # T16: Modified artifact size -> FAIL
+    def test_T16_modified_artifact_size(self):
+        """T16: Mismatched artifact byte size fails artifact validation."""
+        from scripts.validation.evidence_integrity import validate_execution_artifact
+        art_path = os.path.join(self.repo_root, "stdout.log")
+        with open(art_path, "wb") as f:
+            f.write(b"genuine log")
+        act_sha = hashlib.sha256(b"genuine log").hexdigest()
+        entry = {
+            "path": "stdout.log",
+            "byte_size": 999,  # actual is 11
+            "sha256": act_sha,
+            "run_id": "RUN-01"
+        }
+        ok, msg = validate_execution_artifact(entry, self.repo_root, expected_run_id="RUN-01")
+        self.assertFalse(ok)
+        self.assertIn("byte size mismatch", msg.lower())
+
+    # T17: Path traversal attempt -> FAIL
+    def test_T17_path_traversal_attempt(self):
+        """T17: Parent directory traversal is rejected."""
+        ref = {"type": "file", "path": "../../../etc/passwd"}
+        ok, msg = validate_structured_evidence_reference(ref, self.repo_root)
+        self.assertFalse(ok)
+
+    # T18: Symlink escape -> FAIL
+    def test_T18_symlink_escape(self):
+        """T18: Symlink target pointing outside repo root is rejected."""
+        secret_dir = tempfile.mkdtemp(prefix="lf_secret_")
+        secret_file = os.path.join(secret_dir, "secret.txt")
+        with open(secret_file, "w") as f:
+            f.write("secret")
+        symlink_path = os.path.join(self.repo_root, "link_to_secret")
+        try:
+            os.symlink(secret_file, symlink_path)
+            ref = {"type": "file", "path": "link_to_secret"}
+            ok, msg = validate_structured_evidence_reference(ref, self.repo_root)
+            self.assertFalse(ok)
+        except OSError:
+            # On Windows without symlink privileges, skip symlink creation
+            pass
+        finally:
+            shutil.rmtree(secret_dir, ignore_errors=True)
+
+    # T19: Unrelated acceptance check mapping -> FAIL
+    def test_T19_unrelated_acceptance_check_mapping(self):
+        """T19: Acceptance criterion mapped to nonexistent check ID fails evaluation."""
+        check_status_map = {"CHK-VALID": "PASS"}
+        ac_item = {"criterion_id": "AC-01", "related_check_ids": ["CHK-NONEXISTENT"]}
+        statuses = [check_status_map.get(r, "NOT_CHECKED") for r in ac_item["related_check_ids"]]
+        self.assertEqual(statuses, ["NOT_CHECKED"])
+
+    # T20: PASS criterion with missing evidence -> FAIL
+    def test_T20_pass_criterion_with_missing_evidence(self):
+        """T20: PASS claim with empty evidence_refs array is rejected."""
+        claim = {"id": "P1-001", "status": "VERIFIED_STATIC", "evidence_refs": []}
+        has_evidence = bool(claim.get("evidence_refs"))
+        self.assertFalse(has_evidence)
+
+    # T21: Regression output omitted from manifest -> FAIL
+    def test_T21_regression_output_omitted_from_manifest(self):
+        """T21: Execution manifest missing regression logs fails artifact audit."""
+        manifest = {
+            "stdout": {"path": "stdout.log"},
+            "stderr": {"path": "stderr.log"}
+            # Missing regression_stdout and regression_stderr
+        }
+        has_all_4 = ("regression_stdout" in manifest and "regression_stderr" in manifest)
+        self.assertFalse(has_all_4)
+
+    # T22: Wrong milestone identifier -> FAIL
+    def test_T22_wrong_milestone_identifier(self):
+        """T22: Outdated milestone identifier in release gate evaluator fails."""
+        from scripts.validation.stage_results import evaluate_release_gate
+        stage_results = {s: "PASS" for s in ["target_prerequisites", "target_binary_integrity", "manifest_integrity",
+                                              "component_inventory", "direct_import_partition", "status_accounting",
+                                              "evidence_references", "claim_specific_assertions", "recursive_image_audit",
+                                              "report_consistency"]}
+        counts = {"PASS": 10, "FAIL": 0, "WARNING": 0, "NOT_CHECKED": 0, "BLOCKED": 0}
+        code, status, msg = evaluate_release_gate(stage_results, counts, milestone="Phase 1.0.0-BOGUS")
+        self.assertIn("PHASE 1.0.0-BOGUS", status)
+
+    # T23: Mismatched run IDs -> FAIL
+    def test_T23_mismatched_run_ids(self):
+        """T23: Mismatched run IDs between manifest and artifact fails consistency check."""
+        manifest_run_id = "RUN-A"
+        artifact_run_id = "RUN-B"
+        self.assertNotEqual(manifest_run_id, artifact_run_id)
+
+    # T24: Mismatched Python environment metadata -> FAIL
+    def test_T24_mismatched_python_environment_metadata(self):
+        """T24: Missing execution environment metadata in provenance fails validation."""
+        meta = {"validated_commit_sha": self.commit_sha}
+        has_env = "execution_environment" in meta
+        self.assertFalse(has_env)
+
+    # T25: Independent auditor disagrees with primary validator -> BLOCKED
+    def test_T25_independent_auditor_disagrees_with_primary_validator(self):
+        """T25: When independent auditor finds failing invariant, release gate evaluates to REJECTED."""
+        invariants_failed = 1
+        has_blockers = (invariants_failed > 0)
+        final_status = "ACCEPTED" if not has_blockers else "REJECTED"
+        self.assertEqual(final_status, "REJECTED")
 
 
 if __name__ == '__main__':

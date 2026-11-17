@@ -136,3 +136,66 @@ def verify_final_merge_equivalence(
     else:
         return False, f"Final merge tree mismatch (TREE_DIFFERENT): commit '{final_merge_commit}' has tree '{actual_merge_tree}', expected validated tree '{validated_tree_sha}'", details
 
+
+def verify_working_tree_cleanliness(repo_root: str) -> Tuple[bool, List[str]]:
+    """
+    Independently inspects git working-tree status with ZERO directory exclusions.
+    Returns: (is_clean, dirty_lines)
+    """
+    try:
+        porcelain = subprocess.check_output(
+            ['git', 'status', '--porcelain'],
+            cwd=repo_root,
+            stderr=subprocess.PIPE
+        ).decode('utf-8').strip()
+        lines = [l.strip() for l in porcelain.splitlines() if l.strip()]
+        return (len(lines) == 0), lines
+    except Exception as e:
+        return False, [f"git status failed: {str(e)}"]
+
+
+def verify_provenance_lifecycle(
+    repo_root: str,
+    baseline_merge_commit: str,
+    implementation_commit: str,
+    sealing_commit: Optional[str] = None,
+    final_merge_commit: Optional[str] = None
+) -> Tuple[bool, List[str]]:
+    """
+    Validates complete lifecycle revision relationships:
+    1. baseline_merge_commit exists
+    2. implementation_commit exists
+    3. sealing_commit exists (if provided) and has implementation_commit in its history
+    4. final_merge_commit exists (if provided)
+    """
+    errors: List[str] = []
+    ok_b, info_b, msg_b = resolve_git_commit_and_tree(baseline_merge_commit, repo_root)
+    if not ok_b:
+        errors.append(f"Baseline merge commit invalid: {msg_b}")
+
+    ok_i, info_i, msg_i = resolve_git_commit_and_tree(implementation_commit, repo_root)
+    if not ok_i:
+        errors.append(f"Implementation commit invalid: {msg_i}")
+
+    if sealing_commit and sealing_commit not in ("PENDING", "UNKNOWN"):
+        ok_s, info_s, msg_s = resolve_git_commit_and_tree(sealing_commit, repo_root)
+        if not ok_s:
+            errors.append(f"Sealing commit invalid: {msg_s}")
+        elif ok_i:
+            try:
+                subprocess.check_call(
+                    ['git', 'merge-base', '--is-ancestor', implementation_commit, sealing_commit],
+                    cwd=repo_root,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL
+                )
+            except Exception:
+                errors.append(f"Implementation commit '{implementation_commit}' is not an ancestor of sealing commit '{sealing_commit}'")
+
+    if final_merge_commit and final_merge_commit not in ("PENDING", "UNKNOWN"):
+        ok_m, info_m, msg_m = resolve_git_commit_and_tree(final_merge_commit, repo_root)
+        if not ok_m:
+            errors.append(f"Final merge commit invalid: {msg_m}")
+
+    return (len(errors) == 0), errors
+

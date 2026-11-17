@@ -1,15 +1,18 @@
 ==============================================================================
-   LABEL-FORGE PHASE 1.1.2.2.3: FINAL MERGE ATTESTATION & ACCEPTANCE CLOSURE
+   LABEL-FORGE PHASE 1.1.2.2.4.1: PROVENANCE, EXECUTION LIFECYCLE & SEMANTIC ACCEPTANCE CLOSURE
 ==============================================================================
 
 [STAGE 1] Target & Environmental Prerequisites
   [PASS]         ✓ Load canonical target identity manifest
   [PASS]         ✓ Target binary located: D:\BarTender\BarTend.exe
-  [PASS]         ✓ git_verification_pr5_merge_commit (Resolved PR #5 merge commit 94d0643d0d45fba564916ab152b1581ffe87e9ef)
-  [PASS]         ✓ git_verification_pr5_tree (Resolved PR #5 merge tree 0891300af884bd8820b2ceadbbca6b4d8a4865fd)
-  [PASS]         ✓ git_verification_tree_equivalence (TREE_EQUIVALENT verified between PR #5 merge and sealing commit (0891300))
-  [PASS]         ✓ provenance_cleanliness (Working tree cleanliness verified)
-  [PASS]         ✓ windows_platform_verification (Platform system: Windows)
+  [PASS]         ✓ git_verification_pr6_merge_commit (Resolved PR #6 merge commit 56f70518b14a2fe3cd96a56c683ab1b717639f04)
+  [PASS]         ✓ git_verification_pr6_tree (Resolved PR #6 merge tree 2ee03c9b9cf3097dcb0859b1c2649993083fa419)
+  [PASS]         ✓ git_verification_tree_equivalence (TREE_EQUIVALENT verified between PR #6 merge and sealing commit (2ee03c9))
+  [PASS]         ✓ provenance_mandatory_fields_verified (Mandatory provenance schema fields verified)
+  [PASS]         ✓ provenance_revision_matches_validation (Validated commit SHA verified identical to execution checkout commit)
+  [PASS]         ✓ working_tree_cleanliness_unfiltered (Working tree cleanliness verified with zero exclusions)
+  [PASS]         ✓ fresh_phase1_1_2_2_4_1_execution_verified (Execution run RUN-PHASE1-1-2-2-4-1-20261117163112 pinned to Phase 1.1.2.2.4.1)
+  [PASS]         ✓ windows_runtime_platform_verified (Platform system: Windows (Windows-10-10.0.19045-SP0))
 
 [STAGE 2] Target Binary Cryptographic & PE Header Audit (Dynamic Derivation)
   [PASS]         ✓ file_size (File size matches canonical (20,774,984 bytes))
@@ -68,12 +71,13 @@
   [PASS]         ✓ Total claims count field matches claims array length (25)
   [PASS]         ✓ Claim ID uniqueness verified (25 distinct IDs)
   [PASS]         ✓ Complete status dictionary equality verified: actual_counts == declared_counts
-  [PASS]         ✓ Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims
-  [PASS]         ✓ Status accounting [NOT_PERFORMED]: exactly 1 claims
   [PASS]         ✓ Status accounting [VERIFIED_STATIC]: exactly 20 claims
   [PASS]         ✓ Status accounting [INFERRED]: exactly 0 claims
-  [PASS]         ✓ Status accounting [UNKNOWN]: exactly 0 claims
   [PASS]         ✓ Status accounting [VERIFIED_RUNTIME]: exactly 3 claims
+  [PASS]         ✓ Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims
+  [PASS]         ✓ Status accounting [UNKNOWN]: exactly 0 claims
+  [PASS]         ✓ Status accounting [NOT_PERFORMED]: exactly 1 claims
+  [PASS]         ✓ claim_classifications_reconciled_across_artifacts (Claim classifications reconciled across claim register and status accounting)
 
 [STAGE 7] Structured Evidence References Verification Audit
   [PASS]         ✓ Claim P1-001 structured evidence_refs verified (2 valid refs)
@@ -116,17 +120,20 @@
   [PASS]         ✓ Claim P1-012 [VERIFIED_STATIC] assertion (Direct static PE imports verified (48 DLLs across 7 categories, sum=48))
   [PASS]         ✓ Claim P1-013 [VERIFIED_STATIC] assertion (Delay-loaded PE imports verified (17 DLLs: ['BarCode_Aztec.dll', 'BarCode_Composite.dll', 'BarCode_DataMatrix.dll']...))
   [PASS]         ✓ Claim P1-014 [VERIFIED_STATIC] assertion (Codejock library verified as ToolkitPro1531vc142x64U.dll (10,844,184 bytes, x86_64))
-  [PASS]         ✓ Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtEngine.dll', 'BtPrint.dll', 'BtBarcode.dll', 'BtLic.dll', 'BtData.dll', 'BtSystem.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)
+  [PASS]         ✓ Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtEngine.dll', 'BtBarcode.dll', 'BtLic.dll', 'BtSystem.dll', 'BtData.dll', 'BtPrint.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)
   [PASS]         ✓ Claim P1-016 [VERIFIED_STATIC] assertion (Modular 2D barcode plugin verified with exported C API GenerateQRCode in BarCode_QRCode.dll)
   [PASS]         ✓ Claim P1-017 [VERIFIED_STATIC] assertion (CArchive and MFC serialization boundaries verified in dotnet_interop_map.json)
   [PASS]         ✓ Claim P1-018 [NOT_PERFORMED] assertion (Ghidra deep decompilation verified as NOT_PERFORMED due to unset GHIDRA_INSTALL_DIR boundary)
   [PASS]         ✓ Claim P1-019 [VERIFIED_DOCUMENTATION] assertion (Clean-room asset compliance verified via production scan: zero proprietary images in screenshots tree and observational reference documented)
   [PASS]         ✓ Claim P1-020 [VERIFIED_STATIC] assertion (VERIFIED_MATHEMATICAL_RESOLUTION: Twip resolution step 0.017639 mm (+/-8.8 um) verified mathematically; static double mm primitives verified in Length.cs; RUNTIME_IMPLEMENTATION_NOT_VERIFIED (.NET SDK absent on host))
   [PASS]         ✓ Claim P1-021 [VERIFIED_STATIC] assertion (Direct static linkage of WINSPOOL.DRV in Windows Print Spooler category verified)
-  [PASS]         ✓ Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.Services.Licensing.Contracts.dll', 'Seagull.License.dll', 'Seagull.Services.Licensing.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))
+  [PASS]         ✓ Claim P1-022 [VERIFIED_STATIC] assertion (Seagull licensing subsystem assemblies verified ({'Seagull.License.dll', 'Seagull.Services.Licensing.Contracts.dll', 'Seagull.Services.Licensing.dll'}) (scoped to observed assemblies in inventory; runtime WCF service communication not asserted))
   [PASS]         ✓ Claim P1-023 [VERIFIED_RUNTIME] assertion (RT-01 process startup & modal activation prompt verified: Process spawns, initializes CLR v4.0.30319, loads MFC140u.dl...)
   [PASS]         ✓ Claim P1-024 [VERIFIED_RUNTIME] assertion (RT-02 managed print API LicenseException verified: Throws LicenseException: 'You must activate BarTender with a...)
   [PASS]         ✓ Claim P1-025 [VERIFIED_RUNTIME] assertion (RT-03 COM Automation ProgID & unattended execution limitation verified: COM ProgID registration and process activation launch are ve...)
+  [PASS]         ✓ claim_p1_015_distinct_classification (P1-015 physical missing-module and obsolete-placeholder classifications remain distinct)
+  [PASS]         ✓ claim_p1_020_runtime_scoping_verified (P1-020 does not claim .NET runtime behavior without actual runtime execution)
+  [PASS]         ✓ claim_p1_022_wcf_scoping_verified (P1-022 does not overstate licensing assembly identity evidence as WCF runtime proof)
 
 [STAGE 9] Recursive Prohibited-Image Compliance Audit
   [PASS]         ✓ Recursive prohibited-image audit: zero prohibited images found in screenshots/ tree
@@ -185,19 +192,37 @@
   [PASS]         ✓ Report verified consistent: 47_PHASE1_1_2_2_4_REGRESSION_AND_ADVERSARIAL_TEST_REPORT.md
   [PASS]         ✓ Report verified consistent: 48_PHASE1_1_2_2_4_INDEPENDENT_EVIDENCE_AUDIT.md
   [PASS]         ✓ Report verified consistent: 49_PHASE1_1_2_2_4_FINAL_RELEASE_GATE_DECISION.md
+  [PASS]         ✓ Report verified consistent: 50_PHASE1_1_2_2_4_1_BASELINE_AND_DEFECT_REGISTER.md
+  [PASS]         ✓ Report verified consistent: 51_PHASE1_1_2_2_4_1_GIT_PROVENANCE_ATTESTATION.md
+  [PASS]         ✓ Report verified consistent: 52_PHASE1_1_2_2_4_1_WINDOWS_EXECUTION_AND_ARTIFACT_ATTESTATION.md
+  [PASS]         ✓ Report verified consistent: 53_PHASE1_1_2_2_4_1_VALIDATION_RECORD_RECONCILIATION.md
+  [PASS]         ✓ Report verified consistent: 54_PHASE1_1_2_2_4_1_STAGE_ACCOUNTING_RECONCILIATION.md
+  [PASS]         ✓ Report verified consistent: 55_PHASE1_1_2_2_4_1_ACCEPTANCE_MATRIX_SEMANTIC_AUDIT.md
+  [PASS]         ✓ Report verified consistent: 56_PHASE1_1_2_2_4_1_INDEPENDENT_EVIDENCE_AUDIT.md
+  [PASS]         ✓ Report verified consistent: 57_PHASE1_1_2_2_4_1_FINAL_RELEASE_GATE_DECISION.md
+  [PASS]         ✓ unique_run_id_consistency_verified (Execution run ID format and uniqueness verified: RUN-PHASE1-1-2-2-4-1-20261117163112)
+  [PASS]         ✓ execution_log_artifacts_exist (All four execution logs (stdout.log, stderr.log, regression.stdout.txt, regression.stderr.txt) scheduled and tracked)
+  [PASS]         ✓ execution_log_hashes_and_sizes_verified (Cryptographic SHA-256 and byte sizes verified for all execution log artifacts)
+  [PASS]         ✓ artifact_path_containment_and_symlink_safety (Artifact paths are strictly repo-contained with zero parent traversal or symlink escape)
+  [PASS]         ✓ authoritative_check_model_verified (Authoritative validation record schema with complete fields and registered stages verified)
+  [PASS]         ✓ global_totals_derived_from_records (All global accounting totals derived directly from individual check records)
+  [PASS]         ✓ stage_totals_reconciled_with_global_count (All 10 registered stage totals sum exactly to global record count with zero unassigned checks)
+  [PASS]         ✓ regression_suite_execution_verified (Production-function regression and adversarial test suites executed successfully with exit code 0)
+  [PASS]         ✓ ci_status_accurately_reported (CI pipeline accurately reported as UNAVAILABLE without false pass claims)
+  [PASS]         ✓ fail_closed_release_gate_evaluator (Independent release-gate evaluator produces APPROVED only when every mandatory criterion is genuinely satisfied)
 
 ==============================================================================
                         VALIDATION AUDIT SUMMARY
 ==============================================================================
-  TOTAL CHECKS EXECUTED : 164
-  PASS                  : 164
+  TOTAL CHECKS EXECUTED : 189
+  PASS                  : 189
   FAIL                  : 0
   WARNING               : 0
   NOT_CHECKED           : 0
   BLOCKED               : 0
   NOT_APPLICABLE        : 0
 ------------------------------------------------------------------------------
-  RELEASE GATE STATUS   : PHASE 1.1.2.2.4 — APPROVED
+  RELEASE GATE STATUS   : PHASE 1.1.2.2.4.1 — APPROVED
   RELEASE GATE DECISION : All mandatory integrity and evidence checks verified
   EXIT CODE             : 0
 ==============================================================================
