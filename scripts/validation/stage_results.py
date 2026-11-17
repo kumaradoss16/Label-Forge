@@ -102,6 +102,8 @@ class AssertionRecord:
     evidence_refs: List[str] = field(default_factory=list)
     expected: Any = None
     actual: Any = None
+    executed_at_utc: str = ""
+    description: str = ""
 
     def __post_init__(self):
         if self.status not in ALLOWED_RESULT_STATUSES:
@@ -110,6 +112,11 @@ class AssertionRecord:
             self.evidence_refs = [self.evidence_ref]
         elif self.evidence_refs and not self.evidence_ref:
             self.evidence_ref = self.evidence_refs[0]
+        if not self.executed_at_utc:
+            from datetime import datetime, timezone
+            self.executed_at_utc = datetime.now(timezone.utc).isoformat()
+        if not self.description:
+            self.description = self.detail or self.assertion_id
 
     @property
     def name(self) -> str:
@@ -192,7 +199,7 @@ def evaluate_release_gate(
     stage_results: Dict[str, str],
     counts: Dict[str, int],
     mandatory_stages: Optional[List[str]] = None,
-    milestone: str = "Phase 1.1.2.2.4"
+    milestone: str = "Phase 1.1.2.2.4.1"
 ) -> Tuple[int, str, str]:
     """
     Evaluates the final release gate across stage results and check counts.

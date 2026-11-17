@@ -52,31 +52,31 @@ class IndependentAuditor:
             self.log(f"  [FAIL] {invariant_name}: {detail}")
 
     def audit_git_objects_and_provenance(self) -> Dict[str, Any]:
-        self.log("\n[INDEPENDENT AUDIT 1] Git Objects & PR #5 Revision Provenance")
-        pr5_commit = "94d0643d0d45fba564916ab152b1581ffe87e9ef"
-        pr5_expected_tree = "0891300af884bd8820b2ceadbbca6b4d8a4865fd"
-        sealing_commit = "6a93ed886f9c3e2f23c5918c9ca21e11c89bfaec"
+        self.log("\n[INDEPENDENT AUDIT 1] Git Objects & PR #6 Revision Provenance")
+        pr6_commit = "56f70518b14a2fe3cd96a56c683ab1b717639f04"
+        pr6_expected_tree = "2ee03c9b9cf3097dcb0859b1c2649993083fa419"
+        sealing_commit = "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3"
 
-        # 1. PR #5 merge commit object
-        ok_pr5, info_pr5, msg_pr5 = resolve_git_commit_and_tree(pr5_commit, self.repo_root)
-        self.assert_invariant("INV-GIT-01: PR #5 merge commit object exists", ok_pr5, msg_pr5)
+        # 1. PR #6 merge commit object
+        ok_pr6, info_pr6, msg_pr6 = resolve_git_commit_and_tree(pr6_commit, self.repo_root)
+        self.assert_invariant("INV-GIT-01: PR #6 baseline merge commit object exists", ok_pr6, msg_pr6)
         
-        pr5_tree = info_pr5['tree_sha'] if (ok_pr5 and info_pr5) else None
+        pr6_tree = info_pr6['tree_sha'] if (ok_pr6 and info_pr6) else None
         self.assert_invariant(
-            "INV-GIT-02: PR #5 merge tree SHA matches expected",
-            pr5_tree == pr5_expected_tree,
-            f"actual={pr5_tree}, expected={pr5_expected_tree}"
+            "INV-GIT-02: PR #6 merge tree SHA matches expected",
+            pr6_tree == pr6_expected_tree,
+            f"actual={pr6_tree}, expected={pr6_expected_tree}"
         )
 
         # 2. Sealing commit object
         ok_seal, info_seal, msg_seal = resolve_git_commit_and_tree(sealing_commit, self.repo_root)
-        self.assert_invariant("INV-GIT-03: Phase 1.1.2.2.3 sealing commit object exists", ok_seal, msg_seal)
+        self.assert_invariant("INV-GIT-03: Phase 1.1.2.2.4 sealing commit object exists", ok_seal, msg_seal)
 
         seal_tree = info_seal['tree_sha'] if (ok_seal and info_seal) else None
         self.assert_invariant(
-            "INV-GIT-04: PR #5 merge commit is TREE_EQUIVALENT to sealing commit",
-            (pr5_tree is not None and pr5_tree == seal_tree),
-            f"pr5_tree={pr5_tree}, seal_tree={seal_tree}"
+            "INV-GIT-04: PR #6 merge commit is TREE_EQUIVALENT to sealing commit",
+            (pr6_tree is not None and pr6_tree == seal_tree),
+            f"pr6_tree={pr6_tree}, seal_tree={seal_tree}"
         )
 
         # 3. Current HEAD commit and tree
@@ -90,21 +90,19 @@ class IndependentAuditor:
             ok_head = False
         self.assert_invariant("INV-GIT-05: Current HEAD commit resolved", ok_head, f"commit={head_commit}")
 
-        # 4. Working tree cleanliness (non-evidence files must be clean)
+        # 4. Working tree cleanliness (zero exclusions)
         try:
             porcelain = subprocess.check_output(['git', 'status', '--porcelain'], cwd=self.repo_root).decode('utf-8').strip()
-            dirty_lines = [
-                l for l in porcelain.splitlines()
-                if l.strip() and not ('evidence/phase1/reconciliation/' in l or 'evidence\\phase1\\reconciliation\\' in l)
-            ]
+            dirty_lines = [l.strip() for l in porcelain.splitlines() if l.strip()]
             is_clean = len(dirty_lines) == 0
         except Exception:
             is_clean = False
-        self.assert_invariant("INV-GIT-06: Working tree cleanliness verified", is_clean, f"dirty_lines={len(dirty_lines) if 'dirty_lines' in locals() else 'unknown'}")
+            dirty_lines = ["git status failed"]
+        self.assert_invariant("INV-GIT-06: Working tree cleanliness verified with zero exclusions", is_clean, f"dirty_lines={len(dirty_lines)}")
 
         return {
-            'pr5_merge_commit': pr5_commit,
-            'pr5_merge_tree': pr5_tree,
+            'pr6_merge_commit': pr6_commit,
+            'pr6_merge_tree': pr6_tree,
             'sealing_commit': sealing_commit,
             'sealing_tree': seal_tree,
             'head_commit': head_commit,
@@ -161,6 +159,20 @@ class IndependentAuditor:
 
         self.assert_invariant("INV-REC-06: Zero checks with empty evidence_refs", len(missing_refs) == 0, f"missing_count={len(missing_refs)}")
         self.assert_invariant("INV-REC-07: Every evidence_ref resolves to existing file on disk", len(unresolvable_refs) == 0, f"unresolvable_count={len(unresolvable_refs)}")
+
+        # Canonical required fields check (13 canonical fields)
+        required_canonical = ['check_id', 'stage_id', 'check_name', 'validation_revision', 'evidence_refs', 'actual_result', 'expected_result']
+        missing_fields_records = []
+        for c in checks:
+            cid = c.get('check_id')
+            for rf in required_canonical:
+                if rf not in c:
+                    missing_fields_records.append((cid, rf))
+            if 'executed_at_utc' not in c and 'execution_timestamp' not in c:
+                missing_fields_records.append((cid, 'execution_timestamp'))
+            if 'status' not in c and 'check_status' not in c:
+                missing_fields_records.append((cid, 'check_status'))
+        self.assert_invariant("INV-REC-08: Every check record contains canonical schema fields", len(missing_fields_records) == 0, f"missing={missing_fields_records[:5]}")
 
         return checks, doc
 
@@ -287,6 +299,9 @@ class IndependentAuditor:
         all_ac_pass = all(crit.get('status') == 'PASS' for crit in criteria)
         self.assert_invariant("INV-AC-04: All 22 criteria evaluated as PASS", all_ac_pass, f"evaluation_status={matrix_doc.get('evaluation_status')}")
 
+        empty_justifications = [crit.get('criterion_id') for crit in criteria if not crit.get('semantic_justification')]
+        self.assert_invariant("INV-AC-05: Every criterion has non-empty semantic justification", len(empty_justifications) == 0, f"empty={empty_justifications}")
+
         return {
             'total_criteria': len(criteria),
             'all_pass': all_ac_pass,
@@ -314,10 +329,27 @@ class IndependentAuditor:
         ok_err, msg_err = validate_execution_artifact(stderr_entry, self.repo_root, expected_run_id=run_id)
         self.assert_invariant("INV-ART-04: stderr log artifact hash, size, and containment verified", ok_err, msg_err)
 
+        # Check regression stdout
+        reg_stdout_entry = man.get('artifacts', {}).get('regression_stdout') or man.get('regression_stdout', {})
+        ok_reg_out, msg_reg_out = validate_execution_artifact(reg_stdout_entry, self.repo_root, expected_run_id=run_id)
+        self.assert_invariant("INV-ART-05: regression stdout log artifact hash, size, and containment verified", ok_reg_out, msg_reg_out)
+
+        # Check regression stderr
+        reg_stderr_entry = man.get('artifacts', {}).get('regression_stderr') or man.get('regression_stderr', {})
+        ok_reg_err, msg_reg_err = validate_execution_artifact(reg_stderr_entry, self.repo_root, expected_run_id=run_id)
+        self.assert_invariant("INV-ART-06: regression stderr log artifact hash, size, and containment verified", ok_reg_err, msg_reg_err)
+
+        # Lifecycle timing verification
+        duration = man.get('duration_seconds', 0)
+        self.assert_invariant("INV-ART-07: Execution duration is plausible (> 0.01s)", duration > 0.01, f"duration={duration}")
+
         return {
             'run_id': run_id,
             'stdout_valid': ok_out,
-            'stderr_valid': ok_err
+            'stderr_valid': ok_err,
+            'regression_stdout_valid': ok_reg_out,
+            'regression_stderr_valid': ok_reg_err,
+            'duration_seconds': duration
         }
 
     def audit_regression_tests(self) -> Dict[str, Any]:
@@ -365,16 +397,16 @@ class IndependentAuditor:
         final_status = "ACCEPTED" if not has_blockers else "REJECTED"
 
         release_gate_doc = {
-            'schema_version': '1.1.2.2.4',
-            'milestone': 'Phase 1.1.2.2.4',
+            'schema_version': '1.1.2.2.4.1',
+            'milestone': 'Phase 1.1.2.2.4.1',
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
             'final_status': final_status,
             'decision_message': (
-                "PHASE 1.1.2.2.4 — ACCEPTED: All independent evidence invariants, PR #5 attestation, "
+                "PHASE 1.1.2.2.4.1 — ACCEPTED: All independent evidence invariants, PR #6 baseline attestation, "
                 "validation check records, stage accounting, acceptance matrix, artifact integrity, "
                 "and regression tests verified."
                 if not has_blockers else
-                f"PHASE 1.1.2.2.4 — REJECTED: {self.invariants_failed} independent invariants failed."
+                f"PHASE 1.1.2.2.4.1 — REJECTED: {self.invariants_failed} independent invariants failed."
             ),
             'invariants_evaluated': self.invariants_passed + self.invariants_failed,
             'invariants_passed': self.invariants_passed,
@@ -406,7 +438,7 @@ class IndependentAuditor:
 
     def run_audit(self) -> int:
         self.log("=" * 78)
-        self.log("    LABEL-FORGE INDEPENDENT EVIDENCE INTEGRITY AUDITOR (PHASE 1.1.2.2.4)")
+        self.log("    LABEL-FORGE INDEPENDENT EVIDENCE INTEGRITY AUDITOR (PHASE 1.1.2.2.4.1)")
         self.log("=" * 78)
 
         git_summary = self.audit_git_objects_and_provenance()
@@ -427,8 +459,8 @@ class IndependentAuditor:
 
         # Save independent audit report
         indep_doc = {
-            'schema_version': '1.1.2.2.4',
-            'milestone': 'Phase 1.1.2.2.4',
+            'schema_version': '1.1.2.2.4.1',
+            'milestone': 'Phase 1.1.2.2.4.1',
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
             'audit_result': 'PASS' if self.invariants_failed == 0 else 'FAIL',
             'invariants_evaluated': self.invariants_passed + self.invariants_failed,
