@@ -1,12 +1,12 @@
 {
-  "schema_version": "1.1.2.2.4",
-  "generation_timestamp_utc": "2026-11-16T16:22:21.659193+00:00",
-  "execution_run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
-  "validated_commit_sha": "225ab2a31e44b265503d0d3f8a8ae937beca83f0",
-  "validated_tree_sha": "fe719b246a49696358a42ac3bd7a7006c7c3ae15",
+  "schema_version": "1.1.2.2.4.1",
+  "generation_timestamp_utc": "2026-11-17T16:31:31.502570+00:00",
+  "execution_run_id": "RUN-PHASE1-1-2-2-4-1-20261117163112",
+  "validated_commit_sha": "89a62b053dae854bfc33544d12a82c64c775401c",
+  "validated_tree_sha": "cf9d72bfa93ce3fd4c0b6f74d2efe663d5cd6326",
   "overall_totals": {
-    "total_checks": 164,
-    "pass": 164,
+    "total_checks": 189,
+    "pass": 189,
     "fail": 0,
     "warning": 0,
     "not_checked": 0,
@@ -15,8 +15,8 @@
   },
   "stage_totals": {
     "target_prerequisites": {
-      "total": 7,
-      "pass": 7,
+      "total": 10,
+      "pass": 10,
       "fail": 0,
       "warning": 0,
       "not_checked": 0,
@@ -65,8 +65,8 @@
       "status": "PASS"
     },
     "status_accounting": {
-      "total": 9,
-      "pass": 9,
+      "total": 10,
+      "pass": 10,
       "fail": 0,
       "warning": 0,
       "not_checked": 0,
@@ -85,8 +85,8 @@
       "status": "PASS"
     },
     "claim_specific_assertions": {
-      "total": 25,
-      "pass": 25,
+      "total": 28,
+      "pass": 28,
       "fail": 0,
       "warning": 0,
       "not_checked": 0,
@@ -105,8 +105,8 @@
       "status": "PASS"
     },
     "report_consistency": {
-      "total": 52,
-      "pass": 52,
+      "total": 70,
+      "pass": 70,
       "fail": 0,
       "warning": 0,
       "not_checked": 0,

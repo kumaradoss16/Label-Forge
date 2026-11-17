@@ -1,30 +1,33 @@
 {
-  "schema_version": "1.1.2.2.4",
-  "milestone": "Phase 1.1.2.2.4",
-  "timestamp_utc": "2026-11-16T16:24:21.400024+00:00",
+  "schema_version": "1.1.2.2.4.1",
+  "milestone": "Phase 1.1.2.2.4.1",
+  "timestamp_utc": "2026-11-17T16:34:54.641131+00:00",
   "final_status": "ACCEPTED",
-  "decision_message": "PHASE 1.1.2.2.4 \u2014 ACCEPTED: All independent evidence invariants, PR #5 attestation, validation check records, stage accounting, acceptance matrix, artifact integrity, and regression tests verified.",
-  "invariants_evaluated": 29,
-  "invariants_passed": 29,
+  "decision_message": "PHASE 1.1.2.2.4.1 \u2014 ACCEPTED: All independent evidence invariants, PR #6 baseline attestation, validation check records, stage accounting, acceptance matrix, artifact integrity, and regression tests verified.",
+  "invariants_evaluated": 34,
+  "invariants_passed": 34,
   "invariants_failed": 0,
   "blocking_findings": [],
   "git_attestation": {
-    "pr5_merge_commit": "94d0643d0d45fba564916ab152b1581ffe87e9ef",
-    "pr5_merge_tree": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
-    "sealing_commit": "6a93ed886f9c3e2f23c5918c9ca21e11c89bfaec",
-    "sealing_tree": "0891300af884bd8820b2ceadbbca6b4d8a4865fd",
-    "head_commit": "83f03a0bd8de685bcf633583e79d1740dd7c4da6",
-    "head_tree": "7be31c0926205deef0dc39f60f78306291195888",
+    "pr6_merge_commit": "56f70518b14a2fe3cd96a56c683ab1b717639f04",
+    "pr6_merge_tree": "2ee03c9b9cf3097dcb0859b1c2649993083fa419",
+    "sealing_commit": "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3",
+    "sealing_tree": "2ee03c9b9cf3097dcb0859b1c2649993083fa419",
+    "head_commit": "46f7a0f2b1e2168af0da4e3995a99c4b548e12af",
+    "head_tree": "4e2efb275384bd16615e320a32d40e98f43be5eb",
     "is_clean": true
   },
   "execution_evidence": {
-    "run_id": "RUN-PHASE1-1-2-2-4-20261116162221",
+    "run_id": "RUN-PHASE1-1-2-2-4-1-20261117163112",
     "stdout_valid": true,
-    "stderr_valid": true
+    "stderr_valid": true,
+    "regression_stdout_valid": true,
+    "regression_stderr_valid": true,
+    "duration_seconds": 19.206936
   },
   "accounting_reconciliation": {
-    "total_checks": 164,
-    "pass_count": 164,
+    "total_checks": 189,
+    "pass_count": 189,
     "is_perfect_match": true
   },
   "acceptance_matrix": {
@@ -34,10 +37,10 @@
   "regression_suite": {
     "command": "D:\\python3.14\\python.exe -m unittest discover -s tests -v",
     "exit_code": 0,
-    "tests_run": 56,
-    "duration_seconds": 5.439452,
+    "tests_run": 81,
+    "duration_seconds": 18.420284,
     "stderr_summary": [
-      "Ran 56 tests in 5.089s",
+      "Ran 81 tests in 18.139s",
       "",
       "OK"
     ]
