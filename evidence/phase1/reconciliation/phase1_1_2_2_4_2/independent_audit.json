@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.1.2.2.4.2",
+  "milestone": "Phase 1.1.2.2.4.2",
+  "timestamp_utc": "2026-11-18T16:54:55.342945+00:00",
+  "audit_result": "PASS",
+  "invariants_evaluated": 34,
+  "invariants_passed": 34,
+  "invariants_failed": 0,
+  "findings": [],
+  "summary": {
+    "git": {
+      "target_merge_commit": "55ea077a47099a97f839e0d878934088a3a4e0e0",
+      "target_merge_tree": "023ddda8ac3f61e49de429ed6e236f9be159105d",
+      "sealing_commit": "07bc314c56fedbe8b2b0e2ba428195422b416acd",
+      "sealing_tree": "023ddda8ac3f61e49de429ed6e236f9be159105d",
+      "head_commit": "a48f39deec03e0bf63e4efd652e78b9417a7e780",
+      "head_tree": "8885df5014e4ed2f93f0e172986f57f3b42ad2c8",
+      "is_clean": true
+    },
+    "records": {
+      "total": 189
+    },
+    "accounting": {
+      "raw_total": 189,
+      "raw_counts": {
+        "PASS": 189,
+        "FAIL": 0,
+        "WARNING": 0,
+        "BLOCKED": 0,
+        "NOT_CHECKED": 0,
+        "NOT_APPLICABLE": 0
+      },
+      "stage_calc": {
+        "target_prerequisites": {
+          "PASS": 10,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 10
+        },
+        "target_binary_integrity": {
+          "PASS": 12,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 12
+        },
+        "manifest_integrity": {
+          "PASS": 16,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 16
+        },
+        "component_inventory": {
+          "PASS": 3,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 3
+        },
+        "direct_import_partition": {
+          "PASS": 14,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 14
+        },
+        "status_accounting": {
+          "PASS": 10,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 10
+        },
+        "evidence_references": {
+          "PASS": 24,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 24
+        },
+        "claim_specific_assertions": {
+          "PASS": 28,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 28
+        },
+        "recursive_image_audit": {
+          "PASS": 2,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 2
+        },
+        "report_consistency": {
+          "PASS": 70,
+          "FAIL": 0,
+          "WARNING": 0,
+          "BLOCKED": 0,
+          "NOT_CHECKED": 0,
+          "NOT_APPLICABLE": 0,
+          "total": 70
+        }
+      },
+      "is_perfect_match": true
+    },
+    "matrix": {
+      "total_criteria": 22,
+      "all_pass": true,
+      "findings": []
+    },
+    "artifacts": {
+      "run_id": "RUN-PHASE1-1-2-2-4-2-20261118165138-fa46c39a",
+      "stdout_valid": true,
+      "stderr_valid": true,
+      "regression_stdout_valid": true,
+      "regression_stderr_valid": true,
+      "duration_seconds": 25.427091
+    },
+    "regression": {
+      "command": "D:\\python3.14\\python.exe -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tests_run": 88,
+      "duration_seconds": 18.406291,
+      "stderr_summary": [
+        "Ran 88 tests in 18.081s",
+        "",
+        "OK"
+      ]
+    }
+  },
+  "release_gate": {
+    "schema_version": "1.1.2.2.4.2",
+    "milestone": "Phase 1.1.2.2.4.2",
+    "timestamp_utc": "2026-11-18T16:54:55.343000+00:00",
+    "final_status": "ACCEPTED",
+    "decision_message": "PHASE 1.1.2.2.4.2 \u2014 ACCEPTED: All independent evidence invariants, PR #7 baseline attestation, validation check records, stage accounting, acceptance matrix, artifact integrity, and regression tests verified.",
+    "invariants_evaluated": 34,
+    "invariants_passed": 34,
+    "invariants_failed": 0,
+    "blocking_findings": [],
+    "gates": {
+      "G-01": {
+        "name": "Git Object & Revision Provenance",
+        "status": "PASS",
+        "detail": "Merge tree matches sealing tree (023ddda8ac3f61e49de429ed6e236f9be159105d)"
+      },
+      "G-02": {
+        "name": "Working-Tree Cleanliness (Zero Exclusions)",
+        "status": "PASS",
+        "detail": "Zero uncommitted or untracked changes across repository"
+      },
+      "G-03": {
+        "name": "Execution Timing Lifecycle & Plausibility",
+        "status": "PASS",
+        "detail": "Monotonic duration = 25.427091s"
+      },
+      "G-04": {
+        "name": "Execution Log Artifact Completeness & Hashes",
+        "status": "PASS",
+        "detail": "stdout, stderr, reg_stdout, reg_stderr verified against disk"
+      },
+      "G-05": {
+        "name": "Path Containment & Symlink Safety",
+        "status": "PASS",
+        "detail": "commonpath contained in REPO_ROOT; islink is False"
+      },
+      "G-06": {
+        "name": "Canonical 13-Field Check Schema Adherence",
+        "status": "PASS",
+        "detail": "Total records: 189"
+      },
+      "G-07": {
+        "name": "Stage Accounting Mathematical Reconciliation",
+        "status": "PASS",
+        "detail": "Sum of stages = 189 = total checks"
+      },
+      "G-08": {
+        "name": "Semantic Acceptance Criteria Derivation",
+        "status": "PASS",
+        "detail": "22/22 criteria pass; derived from executed check records"
+      },
+      "G-09": {
+        "name": "Unit & Adversarial Test Regression Execution",
+        "status": "PASS",
+        "detail": "88 tests executed, exit code 0"
+      },
+      "G-10": {
+        "name": "Independent Auditor Verification & Decoupling",
+        "status": "PASS",
+        "detail": "34 invariants passed, 0 failed"
+      }
+    },
+    "git_attestation": {
+      "target_merge_commit": "55ea077a47099a97f839e0d878934088a3a4e0e0",
+      "target_merge_tree": "023ddda8ac3f61e49de429ed6e236f9be159105d",
+      "sealing_commit": "07bc314c56fedbe8b2b0e2ba428195422b416acd",
+      "sealing_tree": "023ddda8ac3f61e49de429ed6e236f9be159105d",
+      "head_commit": "a48f39deec03e0bf63e4efd652e78b9417a7e780",
+      "head_tree": "8885df5014e4ed2f93f0e172986f57f3b42ad2c8",
+      "is_clean": true
+    },
+    "execution_evidence": {
+      "run_id": "RUN-PHASE1-1-2-2-4-2-20261118165138-fa46c39a",
+      "stdout_valid": true,
+      "stderr_valid": true,
+      "regression_stdout_valid": true,
+      "regression_stderr_valid": true,
+      "duration_seconds": 25.427091
+    },
+    "accounting_reconciliation": {
+      "total_checks": 189,
+      "pass_count": 189,
+      "is_perfect_match": true
+    },
+    "acceptance_matrix": {
+      "total_criteria": 22,
+      "all_pass": true
+    },
+    "regression_suite": {
+      "command": "D:\\python3.14\\python.exe -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tests_run": 88,
+      "duration_seconds": 18.406291,
+      "stderr_summary": [
+        "Ran 88 tests in 18.081s",
+        "",
+        "OK"
+      ]
+    }
+  }
+}

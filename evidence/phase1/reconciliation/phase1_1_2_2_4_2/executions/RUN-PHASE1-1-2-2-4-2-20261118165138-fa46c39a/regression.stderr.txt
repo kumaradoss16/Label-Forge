@@ -1,0 +1,181 @@
+test_T01_wrong_implementation_commit (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T01_wrong_implementation_commit)
+T01: Nonexistent implementation commit fails provenance lifecycle verification. ... ok
+test_T02_wrong_validation_tree_sha (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T02_wrong_validation_tree_sha)
+T02: Mismatched validated tree SHA fails provenance record verification. ... ok
+test_T03_wrong_sealing_commit (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T03_wrong_sealing_commit)
+T03: Nonexistent sealing commit fails lifecycle verification. ... ok
+test_T04_wrong_final_merge_commit (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T04_wrong_final_merge_commit)
+T04: Mismatched final merge tree fails equivalence verification. ... ok
+test_T05_dirty_tracked_source_file (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T05_dirty_tracked_source_file)
+T05: Modified tracked file fails working-tree cleanliness check. ... ok
+test_T06_untracked_evidence_file (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T06_untracked_evidence_file)
+T06: Untracked file in evidence directory fails unfiltered cleanliness check. ... ok
+test_T07_modified_evidence_json (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T07_modified_evidence_json)
+T07: Tampered evidence file fails manifest checksum verification. ... ok
+test_T08_timestamp_before_process_start (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T08_timestamp_before_process_start)
+T08: Record timestamp preceding process start raises lifecycle assertion failure. ... ok
+test_T09_timestamp_after_process_completion (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T09_timestamp_after_process_completion)
+T09: Record timestamp after process completion raises lifecycle assertion failure. ... ok
+test_T10_duplicate_check_id (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T10_duplicate_check_id)
+T10: Duplicate check ID in validation records is detected as failure. ... ok
+test_T11_missing_stage_id (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T11_missing_stage_id)
+T11: Record with empty or unregistered stage_id fails validation. ... ok
+test_T12_incorrect_total_record_count (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T12_incorrect_total_record_count)
+T12: Total records not matching status sum fails arithmetic invariant. ... ok
+test_T13_stage_totals_do_not_reconcile (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T13_stage_totals_do_not_reconcile)
+T13: Sum of stage totals differing from global total fails reconciliation. ... ok
+test_T14_missing_evidence_file (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T14_missing_evidence_file)
+T14: Missing referenced evidence file fails structured reference validation. ... ok
+test_T15_modified_artifact_hash (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T15_modified_artifact_hash)
+T15: Mismatched artifact SHA-256 fails artifact validation. ... ok
+test_T16_modified_artifact_size (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T16_modified_artifact_size)
+T16: Mismatched artifact byte size fails artifact validation. ... ok
+test_T17_path_traversal_attempt (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T17_path_traversal_attempt)
+T17: Parent directory traversal is rejected. ... ok
+test_T18_symlink_escape (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T18_symlink_escape)
+T18: Symlink target pointing outside repo root is rejected. ... ok
+test_T19_unrelated_acceptance_check_mapping (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T19_unrelated_acceptance_check_mapping)
+T19: Acceptance criterion mapped to nonexistent check ID fails evaluation. ... ok
+test_T20_pass_criterion_with_missing_evidence (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T20_pass_criterion_with_missing_evidence)
+T20: PASS claim with empty evidence_refs array is rejected. ... ok
+test_T21_regression_output_omitted_from_manifest (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T21_regression_output_omitted_from_manifest)
+T21: Execution manifest missing regression logs fails artifact audit. ... ok
+test_T22_wrong_milestone_identifier (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T22_wrong_milestone_identifier)
+T22: Outdated milestone identifier in release gate evaluator fails. ... ok
+test_T23_mismatched_run_ids (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T23_mismatched_run_ids)
+T23: Mismatched run IDs between manifest and artifact fails consistency check. ... ok
+test_T24_mismatched_python_environment_metadata (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T24_mismatched_python_environment_metadata)
+T24: Missing execution environment metadata in provenance fails validation. ... ok
+test_T25_independent_auditor_disagrees_with_primary_validator (test_adversarial_regressions.TestPhase112241AdversarialScenarios.test_T25_independent_auditor_disagrees_with_primary_validator)
+T25: When independent auditor finds failing invariant, release gate evaluates to REJECTED. ... ok
+test_duplicate_claim_ids_fails (test_adversarial_regressions.TestWorkstreamAAccounting.test_duplicate_claim_ids_fails)
+Duplicate claim IDs fail accounting. ... ok
+test_missing_declared_status_fails (test_adversarial_regressions.TestWorkstreamAAccounting.test_missing_declared_status_fails)
+Declared status dictionary missing a required status category fails accounting. ... ok
+test_unexpected_status_category_fails (test_adversarial_regressions.TestWorkstreamAAccounting.test_unexpected_status_category_fails)
+Unrecognized status category in claims or declared dictionary fails accounting. ... ok
+test_PATH_01_valid_file_inside_repo (test_adversarial_regressions.TestWorkstreamBPathContainment.test_PATH_01_valid_file_inside_repo)
+PATH-01: Valid file inside repository succeeds. ... ok
+test_PATH_02_file_in_subdirectory (test_adversarial_regressions.TestWorkstreamBPathContainment.test_PATH_02_file_in_subdirectory)
+PATH-02: File in deep repository subdirectory succeeds. ... ok
+test_PATH_03_parent_traversal_outside_repo (test_adversarial_regressions.TestWorkstreamBPathContainment.test_PATH_03_parent_traversal_outside_repo)
+PATH-03: Parent directory traversal (..) is strictly rejected. ... ok
+test_PATH_04_sibling_directory_prefix_escape (test_adversarial_regressions.TestWorkstreamBPathContainment.test_PATH_04_sibling_directory_prefix_escape)
+PATH-04: Sibling directory with repository name prefix fails containment. ... ok
+test_PATH_05_absolute_external_path (test_adversarial_regressions.TestWorkstreamBPathContainment.test_PATH_05_absolute_external_path)
+PATH-05: Absolute path is rejected. ... ok
+test_PATH_06_backslash_path (test_adversarial_regressions.TestWorkstreamBPathContainment.test_PATH_06_backslash_path)
+PATH-06: Backslash separator path is rejected (must be repo-relative forward slash). ... ok
+test_PATH_07_missing_evidence_file (test_adversarial_regressions.TestWorkstreamBPathContainment.test_PATH_07_missing_evidence_file)
+PATH-07: Missing evidence file fails validation. ... ok
+test_PATH_08_symlink_escape_in_prohibited_images (test_adversarial_regressions.TestWorkstreamBPathContainment.test_PATH_08_symlink_escape_in_prohibited_images)
+PATH-08: Symlinked directory in screenshots escaping root is detected. ... ok
+test_invalid_escapes (test_adversarial_regressions.TestWorkstreamCJsonPointer.test_invalid_escapes)
+Invalid RFC 6901 escape sequences raise ValueError. ... ok
+test_out_of_bounds_and_missing_keys (test_adversarial_regressions.TestWorkstreamCJsonPointer.test_out_of_bounds_and_missing_keys)
+Out of bounds index and missing keys raise proper errors. ... ok
+test_reject_leading_zeros_and_signs (test_adversarial_regressions.TestWorkstreamCJsonPointer.test_reject_leading_zeros_and_signs)
+Leading zero index and signs are rejected per RFC 6901. ... ok
+test_reject_unicode_numeral_characters (test_adversarial_regressions.TestWorkstreamCJsonPointer.test_reject_unicode_numeral_characters)
+Unicode digit characters (Arabic-Indic, superscript, full-width) must be rejected. ... ok
+test_valid_array_indices (test_adversarial_regressions.TestWorkstreamCJsonPointer.test_valid_array_indices)
+Valid ASCII array indices (0, 1, 10). ... ok
+test_valid_escapes (test_adversarial_regressions.TestWorkstreamCJsonPointer.test_valid_escapes)
+Valid RFC 6901 escape decoding (~0 for ~, ~1 for /). ... ok
+test_valid_root_and_object_pointers (test_adversarial_regressions.TestWorkstreamCJsonPointer.test_valid_root_and_object_pointers)
+Valid object and nested object resolution. ... ok
+test_final_merge_equivalence_verification (test_adversarial_regressions.TestWorkstreamERawLogsAndProvenance.test_final_merge_equivalence_verification)
+Verify final merge tree equivalence helper. ... ok
+test_invalid_commit_sha_fails (test_adversarial_regressions.TestWorkstreamERawLogsAndProvenance.test_invalid_commit_sha_fails)
+Nonexistent or malformed commit SHA fails git object verification. ... ok
+test_mismatched_tree_sha_fails (test_adversarial_regressions.TestWorkstreamERawLogsAndProvenance.test_mismatched_tree_sha_fails)
+Recorded tree SHA differing from actual commit tree fails validation. ... ok
+test_missing_stderr_log_fails (test_adversarial_regressions.TestWorkstreamERawLogsAndProvenance.test_missing_stderr_log_fails)
+Missing raw stderr log fails provenance validation. ... ok
+test_tampered_stdout_log_fails (test_adversarial_regressions.TestWorkstreamERawLogsAndProvenance.test_tampered_stdout_log_fails)
+Tampered raw stdout log SHA-256 fails provenance validation. ... ok
+test_valid_provenance_record (test_adversarial_regressions.TestWorkstreamERawLogsAndProvenance.test_valid_provenance_record)
+Valid provenance with verified raw log hashes passes. ... ok
+test_auditor_imports_zero_production_validation_modules (test_independent_audit_decoupled.TestDecoupledIndependentAuditor.test_auditor_imports_zero_production_validation_modules)
+AST audit: independent_audit.py must import ONLY Python standard library. ... ok
+test_independent_artifact_validation_hash_mismatch (test_independent_audit_decoupled.TestDecoupledIndependentAuditor.test_independent_artifact_validation_hash_mismatch)
+Auditor artifact validation detects altered file content. ... ok
+test_independent_artifact_validation_rejects_absolute_path (test_independent_audit_decoupled.TestDecoupledIndependentAuditor.test_independent_artifact_validation_rejects_absolute_path)
+Auditor artifact validation rejects absolute paths. ... ok
+test_independent_artifact_validation_rejects_traversal (test_independent_audit_decoupled.TestDecoupledIndependentAuditor.test_independent_artifact_validation_rejects_traversal)
+Auditor artifact validation rejects parent directory traversal. ... ok
+test_independent_auditor_allowed_statuses (test_independent_audit_decoupled.TestDecoupledIndependentAuditor.test_independent_auditor_allowed_statuses)
+Auditor allows strictly the 6 standard status tokens. ... ok
+test_independent_auditor_stage_registry_completeness (test_independent_audit_decoupled.TestDecoupledIndependentAuditor.test_independent_auditor_stage_registry_completeness)
+Auditor stage registry contains all 10 canonical stages. ... ok
+test_independent_git_resolve_invalid_commit (test_independent_audit_decoupled.TestDecoupledIndependentAuditor.test_independent_git_resolve_invalid_commit)
+Auditor git resolver safely fails on nonexistent commit. ... ok
+test_claim_status_accounting_positive (test_validation_invariants.TestValidationInvariantsPositive.test_claim_status_accounting_positive)
+Verify claim status accounting exact dictionary equality on actual repository data. ... ok
+test_direct_import_partition_positive (test_validation_invariants.TestValidationInvariantsPositive.test_direct_import_partition_positive)
+Verify that the actual repository dependency reconciliation is an exact partition. ... ok
+test_evidence_manifest_validation_positive (test_validation_invariants.TestValidationInvariantsPositive.test_evidence_manifest_validation_positive)
+Verify that validate_evidence_manifest passes against the actual repository manifest. ... ok
+test_json_pointer_resolution (test_validation_invariants.TestValidationInvariantsPositive.test_json_pointer_resolution)
+Test RFC 6901 JSON pointer resolver with nested dicts, lists, and escapes. ... ok
+test_release_gate_evaluation_approved (test_validation_invariants.TestValidationInvariantsPositive.test_release_gate_evaluation_approved)
+Verify evaluate_release_gate produces exit code 0 and APPROVED when all mandatory stages pass. ... ok
+test_rfc6901_array_index_syntax (test_validation_invariants.TestValidationInvariantsPositive.test_rfc6901_array_index_syntax)
+Test that array index pointers enforce RFC 6901 rules (reject leading zeros, negatives, non-digits). ... ok
+test_rfc6901_strict_token_decoding (test_validation_invariants.TestValidationInvariantsPositive.test_rfc6901_strict_token_decoding)
+Test strict RFC 6901 token decoding rules. ... ok
+test_symlink_path_boundary_protection (test_validation_invariants.TestValidationInvariantsPositive.test_symlink_path_boundary_protection)
+AC-05: Verify symlink and path traversal boundaries are strictly enforced. ... ok
+test_T01_missing_required_evidence_file (test_validation_invariants.TestValidationMandatoryFixtures.test_T01_missing_required_evidence_file)
+T01: Missing required evidence file rejects manifest in validate_evidence_manifest. ... ok
+test_T02_evidence_file_size_mismatch (test_validation_invariants.TestValidationMandatoryFixtures.test_T02_evidence_file_size_mismatch)
+T02: Evidence file size mismatch fails validation in validate_evidence_manifest. ... ok
+test_T03_evidence_sha256_mismatch (test_validation_invariants.TestValidationMandatoryFixtures.test_T03_evidence_sha256_mismatch)
+T03: Evidence SHA-256 mismatch fails validation in validate_evidence_manifest. ... ok
+test_T04_invalid_manifest_reference (test_validation_invariants.TestValidationMandatoryFixtures.test_T04_invalid_manifest_reference)
+T04: Invalid manifest reference (path traversal / outside root) fails reference audit. ... ok
+test_T05_actual_binary_integrity_mismatch (test_validation_invariants.TestValidationMandatoryFixtures.test_T05_actual_binary_integrity_mismatch)
+T05: Target binary integrity mismatch fails validate_target_binary. ... ok
+test_T06_invalid_pe_metadata (test_validation_invariants.TestValidationMandatoryFixtures.test_T06_invalid_pe_metadata)
+T06: Invalid PE metadata / signature fails validate_target_binary. ... ok
+test_T07_missing_dependency_category (test_validation_invariants.TestValidationMandatoryFixtures.test_T07_missing_dependency_category)
+T07: Missing direct-import module from category partition fails validate_direct_import_partition. ... ok
+test_T08_duplicate_dependency_classification (test_validation_invariants.TestValidationMandatoryFixtures.test_T08_duplicate_dependency_classification)
+T08: Module assigned to multiple categories fails validate_direct_import_partition. ... ok
+test_T09_unexpected_direct_import (test_validation_invariants.TestValidationMandatoryFixtures.test_T09_unexpected_direct_import)
+T09: Undeclared direct import module fails validate_direct_import_partition. ... ok
+test_T10_unknown_claim_id (test_validation_invariants.TestValidationMandatoryFixtures.test_T10_unknown_claim_id)
+T10: Unknown claim ID returns None from make_claim_assertion_registry. ... ok
+test_T11_missing_claim_evidence_reference (test_validation_invariants.TestValidationMandatoryFixtures.test_T11_missing_claim_evidence_reference)
+T11: Missing or empty claim evidence_refs fails validation. ... ok
+test_T12_invalid_json_pointer (test_validation_invariants.TestValidationMandatoryFixtures.test_T12_invalid_json_pointer)
+T12: Invalid JSON Pointer syntax or escape rejects via resolve_json_pointer. ... ok
+test_T13_missing_referenced_json_object (test_validation_invariants.TestValidationMandatoryFixtures.test_T13_missing_referenced_json_object)
+T13: Missing referenced JSON key or out-of-range index raises KeyError / IndexError. ... ok
+test_T14_invalid_claim_status (test_validation_invariants.TestValidationMandatoryFixtures.test_T14_invalid_claim_status)
+T14: Invalid or unrecognized claim status token fails validate_status_accounting. ... ok
+test_T15_incorrect_claim_status_totals (test_validation_invariants.TestValidationMandatoryFixtures.test_T15_incorrect_claim_status_totals)
+T15: Incorrect claim status count fails validate_status_accounting. ... ok
+test_T16_missing_declared_status_category (test_validation_invariants.TestValidationMandatoryFixtures.test_T16_missing_declared_status_category)
+T16: Missing declared status category fails validate_status_accounting. ... ok
+test_T17_prohibited_image_in_nested_directory (test_validation_invariants.TestValidationMandatoryFixtures.test_T17_prohibited_image_in_nested_directory)
+T17: Prohibited image file in nested directory fails scan_prohibited_images. ... ok
+test_T18_missing_screenshot_directory (test_validation_invariants.TestValidationMandatoryFixtures.test_T18_missing_screenshot_directory)
+T18: Missing screenshot directory fails scan_prohibited_images. ... ok
+test_T19_screenshot_traversal_error (test_validation_invariants.TestValidationMandatoryFixtures.test_T19_screenshot_traversal_error)
+T19: Filesystem traversal errors are captured by scan_prohibited_images. ... ok
+test_T20_source_revision_provenance_mismatch (test_validation_invariants.TestValidationMandatoryFixtures.test_T20_source_revision_provenance_mismatch)
+T20: Provenance document with mismatched or invalid commit SHA fails validate_provenance_record. ... ok
+test_T21_validator_or_manifest_hash_mismatch (test_validation_invariants.TestValidationMandatoryFixtures.test_T21_validator_or_manifest_hash_mismatch)
+T21: Validator script or manifest SHA-256 mismatch fails validate_provenance_record. ... ok
+test_T22_incomplete_validation_stage (test_validation_invariants.TestValidationMandatoryFixtures.test_T22_incomplete_validation_stage)
+T22: Incomplete or missing mandatory validation stage blocks release gate in evaluate_release_gate. ... ok
+test_T23_failed_mandatory_check_incorrectly_treated_as_pass (test_validation_invariants.TestValidationMandatoryFixtures.test_T23_failed_mandatory_check_incorrectly_treated_as_pass)
+T23: Failed mandatory check prevents PASS and fails release gate in evaluate_release_gate. ... ok
+test_T24_warning_or_not_checked_result_incorrectly_treated_as_approval (test_validation_invariants.TestValidationMandatoryFixtures.test_T24_warning_or_not_checked_result_incorrectly_treated_as_approval)
+T24: Unresolved warning or NOT_CHECKED blocks release gate with exit code 1 or 2. ... ok
+
+----------------------------------------------------------------------
+Ran 88 tests in 23.616s
+
+OK
