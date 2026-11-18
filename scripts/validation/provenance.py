@@ -42,7 +42,9 @@ def generate_provenance_record(
     final_merge_commit_sha: Optional[str] = None,
     implementation_commit_sha: Optional[str] = None,
     evidence_sealing_commit_sha: Optional[str] = None,
-    baseline_merge_commit_sha: Optional[str] = None
+    baseline_merge_commit_sha: Optional[str] = None,
+    previous_implementation_commit_sha: Optional[str] = None,
+    previous_sealing_commit_sha: Optional[str] = None
 ) -> Dict[str, Any]:
     """Generates the authoritative validation provenance dictionary."""
 
@@ -69,18 +71,27 @@ def generate_provenance_record(
         is_clean = False
         status_porcelain = "GIT_STATUS_FAILED"
 
+    # Check for PR #7 in repo
+    ok_pr7, _, _ = resolve_git_commit_and_tree("55ea077a47099a97f839e0d878934088a3a4e0e0", repo_root)
+    default_baseline = "55ea077a47099a97f839e0d878934088a3a4e0e0" if ok_pr7 else "56f70518b14a2fe3cd96a56c683ab1b717639f04"
+    default_prev_impl = "89a62b053dae854bfc33544d12a82c64c775401c" if ok_pr7 else "225ab2a31e44b265503d0d3f8a8ae937beca83f0"
+    default_prev_seal = "07bc314c56fedbe8b2b0e2ba428195422b416acd" if ok_pr7 else "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3"
+
     # Resolve baseline & final merge commit & tree
-    baseline_merge = baseline_merge_commit_sha or "56f70518b14a2fe3cd96a56c683ab1b717639f04"
+    baseline_merge = baseline_merge_commit_sha or default_baseline
     ok_b, info_b, _ = resolve_git_commit_and_tree(baseline_merge, repo_root)
     baseline_tree = info_b['tree_sha'] if (ok_b and info_b) else "UNKNOWN"
 
-    final_merge_commit = final_merge_commit_sha or "56f70518b14a2fe3cd96a56c683ab1b717639f04"
+    final_merge_commit = final_merge_commit_sha or default_baseline
     ok_merge, merge_info, _ = resolve_git_commit_and_tree(final_merge_commit, repo_root)
     final_merge_tree = merge_info['tree_sha'] if (ok_merge and merge_info) else "UNKNOWN"
 
-    impl_commit = implementation_commit_sha or "225ab2a31e44b265503d0d3f8a8ae937beca83f0"
+    impl_commit = implementation_commit_sha or default_prev_impl
     ok_impl, impl_info, _ = resolve_git_commit_and_tree(impl_commit, repo_root)
     impl_tree = impl_info['tree_sha'] if (ok_impl and impl_info) else "UNKNOWN"
+
+    prev_impl = previous_implementation_commit_sha or default_prev_impl
+    prev_seal = previous_sealing_commit_sha or default_prev_seal
 
     is_tree_equiv = (tree_sha == final_merge_tree)
     equiv_status = "TREE_EQUIVALENT" if is_tree_equiv else "TREE_DIFFERENT"
@@ -150,8 +161,8 @@ def generate_provenance_record(
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
             'baseline_merge_commit_sha': baseline_merge,
             'baseline_merge_tree_sha': baseline_tree,
-            'previous_implementation_commit_sha': "225ab2a31e44b265503d0d3f8a8ae937beca83f0",
-            'previous_sealing_commit_sha': "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3",
+            'previous_implementation_commit_sha': prev_impl,
+            'previous_sealing_commit_sha': prev_seal,
             'implementation_commit_sha': impl_commit,
             'implementation_tree_sha': impl_tree,
             'validated_commit_sha': commit_sha,

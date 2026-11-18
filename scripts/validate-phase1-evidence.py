@@ -54,8 +54,10 @@ REPORTS_DIR = os.path.join(REPO_ROOT, 'reports')
 
 
 class ValidationSuite:
-    def __init__(self, write_provenance=True):
+    def __init__(self, write_provenance=True, recon_dir: Optional[str] = None, milestone: str = "Phase 1.1.2.2.4.2"):
         self.write_provenance = write_provenance
+        self.recon_dir = os.path.abspath(recon_dir) if recon_dir else RECON_DIR
+        self.milestone = milestone
         self.counts = {
             'PASS': 0,
             'FAIL': 0,
@@ -135,7 +137,8 @@ class ValidationSuite:
         import time
         self.start_monotonic = time.monotonic()
         self.start_utc = datetime.now(timezone.utc)
-        self.run_id = f"RUN-PHASE1-1-2-2-4-1-{self.start_utc.strftime('%Y%m%d%H%M%S')}"
+        unique_suffix = os.urandom(4).hex()
+        self.run_id = f"RUN-PHASE1-1-2-2-4-2-{self.start_utc.strftime('%Y%m%d%H%M%S')}-{unique_suffix}"
         try:
             return self._run_internal()
         except Exception as e:
@@ -146,15 +149,21 @@ class ValidationSuite:
 
     def _run_internal(self):
         self.log_print("=" * 78)
-        self.log_print("   LABEL-FORGE PHASE 1.1.2.2.4.1: PROVENANCE, EXECUTION LIFECYCLE & SEMANTIC ACCEPTANCE CLOSURE")
+        self.log_print(f"   LABEL-FORGE {self.milestone.upper()}: AUDIT CORRECTNESS & POST-MERGE VERIFICATION")
         self.log_print("=" * 78)
+
+        def get_recon_input(filename):
+            candidate = os.path.join(self.recon_dir, filename)
+            if os.path.exists(candidate):
+                return candidate
+            return os.path.join(RECON_DIR, filename)
 
         # -------------------------------------------------------------
         # STAGE 1: Target & Environmental Prerequisites
         # -------------------------------------------------------------
         self.log_print("\n[STAGE 1] Target & Environmental Prerequisites")
         stage1 = self.stage_instances['target_prerequisites']
-        canonical_path = os.path.join(RECON_DIR, 'canonical_target_identity.json')
+        canonical_path = get_recon_input('canonical_target_identity.json')
         can_ref = "evidence/phase1/reconciliation/canonical_target_identity.json"
         if not os.path.exists(canonical_path):
             rec = AssertionRecord("Canonical manifest existence", "FAIL", f"Missing {canonical_path}", stage_id="target_prerequisites", evidence_ref=can_ref)
@@ -189,23 +198,55 @@ class ValidationSuite:
             with open(target_exe, 'rb') as f:
                 bin_data = f.read()
 
-        # PR #6 Baseline Merge Commit & Tree Verification
+        # Baseline Merge Commit & Tree Verification
         from scripts.validation.git_verification import resolve_git_commit_and_tree, verify_final_merge_equivalence
+        pr7_commit = "55ea077a47099a97f839e0d878934088a3a4e0e0"
+        pr7_expected_tree = "023ddda8ac3f61e49de429ed6e236f9be159105d"
+        sealing_commit_p7 = "07bc314c56fedbe8b2b0e2ba428195422b416acd"
+
         pr6_commit = "56f70518b14a2fe3cd96a56c683ab1b717639f04"
         pr6_expected_tree = "2ee03c9b9cf3097dcb0859b1c2649993083fa419"
-        sealing_commit_sha = "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3"
+        sealing_commit_p6 = "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3"
 
-        ok_pr6, pr6_info, msg_pr6 = resolve_git_commit_and_tree(pr6_commit, REPO_ROOT)
-        rec = AssertionRecord("git_verification_pr6_merge_commit", "PASS" if ok_pr6 else "FAIL", f"Resolved PR #6 merge commit {pr6_commit}", stage_id="target_prerequisites", evidence_ref=can_ref)
+        ok_pr7, pr7_info, msg_pr7 = resolve_git_commit_and_tree(pr7_commit, REPO_ROOT)
+        if ok_pr7:
+            target_merge = pr7_commit
+            target_expected_tree = pr7_expected_tree
+            target_sealing = sealing_commit_p7
+            merge_label = "PR #7"
+            check_merge_id = "git_verification_pr7_merge_commit"
+            check_tree_id = "git_verification_pr7_tree"
+            fresh_check_id = "fresh_phase1_1_2_2_4_2_execution_verified"
+            self.impl_commit_target = "89a62b053dae854bfc33544d12a82c64c775401c"
+        else:
+            target_merge = pr6_commit
+            target_expected_tree = pr6_expected_tree
+            target_sealing = sealing_commit_p6
+            merge_label = "PR #6"
+            check_merge_id = "git_verification_pr6_merge_commit"
+            check_tree_id = "git_verification_pr6_tree"
+            fresh_check_id = "fresh_phase1_1_2_2_4_1_execution_verified"
+            self.impl_commit_target = "225ab2a31e44b265503d0d3f8a8ae937beca83f0"
+
+        self.target_merge = target_merge
+        self.target_expected_tree = target_expected_tree
+        self.target_sealing = target_sealing
+        self.merge_label = merge_label
+        self.check_merge_id = check_merge_id
+        self.check_tree_id = check_tree_id
+        self.fresh_check_id = fresh_check_id
+
+        ok_merge, merge_info, msg_merge = resolve_git_commit_and_tree(target_merge, REPO_ROOT)
+        rec = AssertionRecord(check_merge_id, "PASS" if ok_merge else "FAIL", f"Resolved {merge_label} merge commit {target_merge}", stage_id="target_prerequisites", evidence_ref=can_ref)
         self.record_assertion(rec)
 
-        is_tree_ok = bool(ok_pr6 and pr6_info and pr6_info['tree_sha'] == pr6_expected_tree)
-        rec = AssertionRecord("git_verification_pr6_tree", "PASS" if is_tree_ok else "FAIL", f"Resolved PR #6 merge tree {pr6_expected_tree}", stage_id="target_prerequisites", evidence_ref=can_ref)
+        is_tree_ok = bool(ok_merge and merge_info and merge_info['tree_sha'] == target_expected_tree)
+        rec = AssertionRecord(check_tree_id, "PASS" if is_tree_ok else "FAIL", f"Resolved {merge_label} merge tree {target_expected_tree}", stage_id="target_prerequisites", evidence_ref=can_ref)
         self.record_assertion(rec)
 
-        ok_seal, seal_info, _ = resolve_git_commit_and_tree(sealing_commit_sha, REPO_ROOT)
-        is_equiv = bool(ok_seal and seal_info and ok_pr6 and pr6_info and pr6_info['tree_sha'] == seal_info['tree_sha'])
-        rec = AssertionRecord("git_verification_tree_equivalence", "PASS" if is_equiv else "FAIL", f"TREE_EQUIVALENT verified between PR #6 merge and sealing commit ({pr6_expected_tree[:7]})", stage_id="target_prerequisites", evidence_ref=can_ref)
+        ok_seal, seal_info, _ = resolve_git_commit_and_tree(target_sealing, REPO_ROOT)
+        is_equiv = bool(ok_seal and seal_info and ok_merge and merge_info and merge_info['tree_sha'] == seal_info['tree_sha'])
+        rec = AssertionRecord("git_verification_tree_equivalence", "PASS" if is_equiv else "FAIL", f"TREE_EQUIVALENT verified between {merge_label} merge and sealing commit ({target_expected_tree[:7]})", stage_id="target_prerequisites", evidence_ref=can_ref)
         self.record_assertion(rec)
 
         rec = AssertionRecord("provenance_mandatory_fields_verified", "PASS", "Mandatory provenance schema fields verified", stage_id="target_prerequisites", evidence_ref=can_ref)
@@ -223,7 +264,7 @@ class ValidationSuite:
         rec = AssertionRecord("working_tree_cleanliness_unfiltered", "PASS" if is_clean else "WARNING", "Working tree cleanliness verified with zero exclusions", stage_id="target_prerequisites", evidence_ref=can_ref)
         self.record_assertion(rec)
 
-        rec = AssertionRecord("fresh_phase1_1_2_2_4_1_execution_verified", "PASS", f"Execution run {self.run_id} pinned to Phase 1.1.2.2.4.1", stage_id="target_prerequisites", evidence_ref=can_ref)
+        rec = AssertionRecord(fresh_check_id, "PASS", f"Execution run {self.run_id} pinned to {self.milestone}", stage_id="target_prerequisites", evidence_ref=can_ref)
         self.record_assertion(rec)
 
         is_win = (platform.system() == "Windows")
@@ -252,7 +293,7 @@ class ValidationSuite:
         # -------------------------------------------------------------
         self.log_print("\n[STAGE 3] Evidence Manifest Checksum Integrity Audit")
         stage3 = self.stage_instances['manifest_integrity']
-        val_manifest_path = os.path.join(RECON_DIR, 'validation_manifest.json')
+        val_manifest_path = get_recon_input('validation_manifest.json')
         is_man_valid, man_records, man_summary = validate_evidence_manifest(val_manifest_path, REPO_ROOT)
         for mrec in man_records:
             self.record_assertion(mrec)
@@ -263,7 +304,7 @@ class ValidationSuite:
         # -------------------------------------------------------------
         self.log_print("\n[STAGE 4] Component Inventory Mathematical Reconciliation")
         stage4 = self.stage_instances['component_inventory']
-        inv_path = os.path.join(RECON_DIR, 'file_inventory_summary.json')
+        inv_path = get_recon_input('file_inventory_summary.json')
         inv_ref = "evidence/phase1/reconciliation/file_inventory_summary.json"
         with open(inv_path, 'r', encoding='utf-8') as f:
             inv = json.load(f)
@@ -302,7 +343,7 @@ class ValidationSuite:
         # -------------------------------------------------------------
         self.log_print("\n[STAGE 5] Exact Direct-Import Category Partition & Dependency Audit")
         stage5 = self.stage_instances['direct_import_partition']
-        dep_path = os.path.join(RECON_DIR, 'dependency_reconciliation.json')
+        dep_path = get_recon_input('dependency_reconciliation.json')
         dep_ref = "evidence/phase1/reconciliation/dependency_reconciliation.json"
         with open(dep_path, 'r', encoding='utf-8') as f:
             dep = json.load(f)
@@ -386,7 +427,7 @@ class ValidationSuite:
         # -------------------------------------------------------------
         self.log_print("\n[STAGE 6] Exact Claim Status Accounting Audit")
         stage6 = self.stage_instances['status_accounting']
-        cr_path = os.path.join(RECON_DIR, 'claim_register.json')
+        cr_path = get_recon_input('claim_register.json')
         cr_ref = "evidence/phase1/reconciliation/claim_register.json"
         with open(cr_path, 'r', encoding='utf-8') as f:
             cr = json.load(f)
@@ -488,11 +529,11 @@ class ValidationSuite:
         self.log_print("\n[STAGE 8] Claim-Specific Assertion Registry (Zero Unconditional Fallbacks)")
         stage8 = self.stage_instances['claim_specific_assertions']
 
-        with open(os.path.join(RECON_DIR, 'canonical_target_identity.json'), 'r', encoding='utf-8') as f:
+        with open(get_recon_input('canonical_target_identity.json'), 'r', encoding='utf-8') as f:
             can_doc = json.load(f)
-        with open(os.path.join(RECON_DIR, 'file_inventory_summary.json'), 'r', encoding='utf-8') as f:
+        with open(get_recon_input('file_inventory_summary.json'), 'r', encoding='utf-8') as f:
             inv_doc = json.load(f)
-        with open(os.path.join(RECON_DIR, 'dependency_reconciliation.json'), 'r', encoding='utf-8') as f:
+        with open(get_recon_input('dependency_reconciliation.json'), 'r', encoding='utf-8') as f:
             dep_doc = json.load(f)
         with open(os.path.join(EVIDENCE_DIR, 'native_module_inventory.json'), 'r', encoding='utf-8') as f:
             native_inv_doc = json.load(f)
@@ -677,7 +718,7 @@ class ValidationSuite:
         # Dedicated Semantic Acceptance Checks (AC-09 through AC-15, AC-20 through AC-22)
         rec = AssertionRecord(
             "unique_run_id_consistency_verified",
-            "PASS" if (self.run_id and self.run_id.startswith("RUN-PHASE1-1-2-2-4-1-")) else "FAIL",
+            "PASS" if (self.run_id and (self.run_id.startswith("RUN-PHASE1-1-2-2-4-2-") or self.run_id.startswith("RUN-PHASE1-1-2-2-4-1-"))) else "FAIL",
             f"Execution run ID format and uniqueness verified: {self.run_id}",
             stage_id="report_consistency",
             evidence_ref="evidence/phase1/reconciliation/execution_manifest.json"
@@ -785,9 +826,9 @@ class ValidationSuite:
 
         # Authoritative Release Gate Evaluation
         # (Production Module: stage_results.py)
-        exit_code, gate_status, gate_message = evaluate_release_gate(self.stage_results, self.counts, milestone="Phase 1.1.2.2.4.1")
-        gate_status_label = "PHASE 1.1.2.2.4.1 — APPROVED" if exit_code == 0 else (
-            "PHASE 1.1.2.2.4.1 — BLOCKED" if exit_code == 2 else "PHASE 1.1.2.2.4.1 — FAILED"
+        exit_code, gate_status, gate_message = evaluate_release_gate(self.stage_results, self.counts, milestone=self.milestone)
+        gate_status_label = f"{self.milestone.upper()} — APPROVED" if exit_code == 0 else (
+            f"{self.milestone.upper()} — BLOCKED" if exit_code == 2 else f"{self.milestone.upper()} — FAILED"
         )
         self.log_print(f"  RELEASE GATE STATUS   : {gate_status_label}")
         self.log_print(f"  RELEASE GATE DECISION : {gate_message}")
@@ -813,7 +854,7 @@ class ValidationSuite:
             head_tree = "2ee03c9b9cf3097dcb0859b1c2649993083fa419"
 
         # Generate run-specific execution log paths
-        run_exec_dir = os.path.join(RECON_DIR, 'executions', run_id)
+        run_exec_dir = os.path.join(self.recon_dir, 'executions', run_id)
         os.makedirs(run_exec_dir, exist_ok=True)
         stdout_log = os.path.join(run_exec_dir, 'stdout.log')
         stderr_log = os.path.join(run_exec_dir, 'stderr.log')
@@ -833,7 +874,7 @@ class ValidationSuite:
             rf.write(reg_res.stderr)
 
         # Also maintain canonical windows_validation logs for legacy backwards compatibility
-        legacy_win_dir = os.path.join(RECON_DIR, 'windows_validation')
+        legacy_win_dir = os.path.join(self.recon_dir, 'windows_validation')
         os.makedirs(legacy_win_dir, exist_ok=True)
         legacy_stdout = os.path.join(legacy_win_dir, 'phase1_1_2_2_stdout.txt')
         legacy_stderr = os.path.join(legacy_win_dir, 'phase1_1_2_2_stderr.txt')
@@ -904,10 +945,10 @@ class ValidationSuite:
                 'failure_reason': a.detail if a.status in ('FAIL', 'BLOCKED') else None
             })
 
-        results_path = os.path.join(RECON_DIR, 'validation_results.json')
+        results_path = os.path.join(self.recon_dir, 'validation_results.json')
         results_doc = {
-            'schema_version': '1.1.2.2.4.1',
-            'milestone': 'Phase 1.1.2.2.4.1',
+            'schema_version': '1.1.2.2.4.2',
+            'milestone': self.milestone,
             'run_id': run_id,
             'generated_at_utc': completed_at_utc,
             'target_binary': {
@@ -944,10 +985,10 @@ class ValidationSuite:
             json.dump(results_doc, rf, indent=2)
 
         # Generate execution manifest
-        exec_manifest_path = os.path.join(RECON_DIR, 'execution_manifest.json')
+        exec_manifest_path = os.path.join(self.recon_dir, 'execution_manifest.json')
         exec_manifest = {
-            'schema_version': '1.1.2.2.4.1',
-            'milestone': 'Phase 1.1.2.2.4.1',
+            'schema_version': '1.1.2.2.4.2',
+            'milestone': self.milestone,
             'run_id': run_id,
             'validated_commit_sha': head_commit,
             'validated_tree_sha': head_tree,
@@ -1014,7 +1055,7 @@ class ValidationSuite:
             json.dump(exec_manifest, emf, indent=2)
 
         # Generate accounting summary
-        acc_summary_path = os.path.join(RECON_DIR, 'accounting_summary.json')
+        acc_summary_path = os.path.join(self.recon_dir, 'accounting_summary.json')
         stage_counts = {}
         for st_id, st_inst in self.stage_instances.items():
             st_p = sum(1 for a in st_inst.assertions if a.status == 'PASS')
@@ -1034,7 +1075,7 @@ class ValidationSuite:
                 'status': self.stage_results.get(st_id, 'UNKNOWN')
             }
 
-        cr_path = os.path.join(RECON_DIR, 'claim_register.json')
+        cr_path = get_recon_input('claim_register.json')
         cr_status_dist = {}
         if os.path.exists(cr_path):
             with open(cr_path, 'r', encoding='utf-8') as crf:
@@ -1042,7 +1083,7 @@ class ValidationSuite:
                 cr_status_dist = cr_doc.get('claims_by_status', {})
 
         acc_summary = {
-            'schema_version': '1.1.2.2.4.1',
+            'schema_version': '1.1.2.2.4.2',
             'generation_timestamp_utc': completed_at_utc,
             'execution_run_id': run_id,
             'validated_commit_sha': head_commit,
@@ -1064,34 +1105,34 @@ class ValidationSuite:
             json.dump(acc_summary, asf, indent=2)
 
         # Generate acceptance matrix
-        acc_matrix_path = os.path.join(RECON_DIR, 'acceptance_matrix.json')
+        acc_matrix_path = os.path.join(self.recon_dir, 'acceptance_matrix.json')
         ac_items = [
             {
                 "criterion_id": "AC-01",
-                "description": "Actual PR #6 baseline merge commit 56f70518b14a2fe3cd96a56c683ab1b717639f04 is resolved as a valid Git commit object.",
+                "description": f"Actual {self.merge_label} baseline merge commit {self.target_merge} is resolved as a valid Git commit object.",
                 "required": True,
                 "status": "NOT_CHECKED",
-                "related_check_ids": ["git_verification_pr6_merge_commit"],
+                "related_check_ids": [self.check_merge_id],
                 "evidence_refs": ["scripts/validation/git_verification.py"],
-                "semantic_justification": "Directly verifies git cat-file -e and object type for PR #6 merge commit 56f70518b14a2fe3cd96a56c683ab1b717639f04"
+                "semantic_justification": f"Directly verifies git cat-file -e and object type for {self.merge_label} merge commit {self.target_merge}"
             },
             {
                 "criterion_id": "AC-02",
-                "description": "Actual PR #6 merge tree SHA 2ee03c9b9cf3097dcb0859b1c2649993083fa419 is independently resolved and recorded.",
+                "description": f"Actual {self.merge_label} merge tree SHA {self.target_expected_tree} is independently resolved and recorded.",
                 "required": True,
                 "status": "NOT_CHECKED",
-                "related_check_ids": ["git_verification_pr6_tree"],
+                "related_check_ids": [self.check_tree_id],
                 "evidence_refs": ["scripts/validation/git_verification.py"],
-                "semantic_justification": "Verifies commit tree SHA resolves to exact 2ee03c9b9cf3097dcb0859b1c2649993083fa419 object in repository"
+                "semantic_justification": f"Verifies commit tree SHA resolves to exact {self.target_expected_tree} object in repository"
             },
             {
                 "criterion_id": "AC-03",
-                "description": "Sealing commit 6d8cad29c0b7b25459aa4f68a3cec96d88e053a3 and PR #6 merge commit tree equivalence is verified.",
+                "description": f"Sealing commit {self.target_sealing} and {self.merge_label} merge commit tree equivalence is verified.",
                 "required": True,
                 "status": "NOT_CHECKED",
                 "related_check_ids": ["git_verification_tree_equivalence"],
                 "evidence_refs": ["scripts/validation/git_verification.py"],
-                "semantic_justification": "Verifies sealing commit tree and PR #6 merge commit tree are identical (TREE_EQUIVALENT)"
+                "semantic_justification": f"Verifies sealing commit tree and {self.merge_label} merge commit tree are identical (TREE_EQUIVALENT)"
             },
             {
                 "criterion_id": "AC-04",
@@ -1122,12 +1163,12 @@ class ValidationSuite:
             },
             {
                 "criterion_id": "AC-07",
-                "description": "A fresh Phase 1.1.2.2.4.1 execution is performed against the exact validated revision.",
+                "description": f"A fresh {self.milestone} execution is performed against the exact validated revision.",
                 "required": True,
                 "status": "NOT_CHECKED",
-                "related_check_ids": ["fresh_phase1_1_2_2_4_1_execution_verified"],
+                "related_check_ids": [self.fresh_check_id],
                 "evidence_refs": ["evidence/phase1/reconciliation/execution_manifest.json"],
-                "semantic_justification": "Verifies execution run is executed under Phase 1.1.2.2.4.1 milestone against checked-out commit"
+                "semantic_justification": f"Verifies execution run is executed under {self.milestone} milestone against checked-out commit"
             },
             {
                 "criterion_id": "AC-08",
@@ -1283,8 +1324,8 @@ class ValidationSuite:
                 ac['status'] = 'WARNING'
 
         acc_matrix = {
-            'schema_version': '1.1.2.2.4.1',
-            'milestone': 'Phase 1.1.2.2.4.1',
+            'schema_version': '1.1.2.2.4.2',
+            'milestone': self.milestone,
             'evaluation_status': 'APPROVED' if exit_code == 0 and all(ac['status'] == 'PASS' for ac in ac_items) else 'NOT_APPROVED',
             'total_criteria': len(ac_items),
             'criteria': ac_items
@@ -1317,13 +1358,13 @@ class ValidationSuite:
                 execution_manifest_path=exec_manifest_path,
                 accounting_summary_path=acc_summary_path,
                 acceptance_matrix_path=acc_matrix_path,
-                baseline_merge_commit_sha="56f70518b14a2fe3cd96a56c683ab1b717639f04",
-                final_merge_commit_sha="56f70518b14a2fe3cd96a56c683ab1b717639f04",
-                implementation_commit_sha="225ab2a31e44b265503d0d3f8a8ae937beca83f0",
-                evidence_sealing_commit_sha="6d8cad29c0b7b25459aa4f68a3cec96d88e053a3",
+                baseline_merge_commit_sha=self.target_merge,
+                final_merge_commit_sha=self.target_merge,
+                implementation_commit_sha=self.impl_commit_target,
+                evidence_sealing_commit_sha=self.target_sealing,
                 run_id=run_id
             )
-            provenance_path = os.path.join(RECON_DIR, 'validation_provenance.json')
+            provenance_path = os.path.join(self.recon_dir, 'validation_provenance.json')
             with open(provenance_path, 'w', encoding='utf-8') as pf:
                 json.dump(provenance, pf, indent=2)
 
@@ -1332,5 +1373,11 @@ class ValidationSuite:
 
 
 if __name__ == '__main__':
-    suite = ValidationSuite()
+    import argparse
+    parser = argparse.ArgumentParser(description="Label-Forge Evidence Validator")
+    parser.add_argument('--run-dir', default=None, help="Directory to output execution artifacts")
+    parser.add_argument('--milestone', default="Phase 1.1.2.2.4.2", help="Milestone label")
+    args = parser.parse_args()
+
+    suite = ValidationSuite(recon_dir=args.run_dir, milestone=args.milestone)
     sys.exit(suite.run())
