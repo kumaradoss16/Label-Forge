@@ -1,0 +1,294 @@
+{
+  "schema_version": "1.1.2.2.4.2",
+  "milestone": "Phase 1.1.2.2.4.2",
+  "evaluation_status": "APPROVED",
+  "total_criteria": 22,
+  "criteria": [
+    {
+      "criterion_id": "AC-01",
+      "description": "Actual PR #7 baseline merge commit 55ea077a47099a97f839e0d878934088a3a4e0e0 is resolved as a valid Git commit object.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "git_verification_pr7_merge_commit"
+      ],
+      "evidence_refs": [
+        "scripts/validation/git_verification.py"
+      ],
+      "semantic_justification": "Directly verifies git cat-file -e and object type for PR #7 merge commit 55ea077a47099a97f839e0d878934088a3a4e0e0"
+    },
+    {
+      "criterion_id": "AC-02",
+      "description": "Actual PR #7 merge tree SHA 023ddda8ac3f61e49de429ed6e236f9be159105d is independently resolved and recorded.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "git_verification_pr7_tree"
+      ],
+      "evidence_refs": [
+        "scripts/validation/git_verification.py"
+      ],
+      "semantic_justification": "Verifies commit tree SHA resolves to exact 023ddda8ac3f61e49de429ed6e236f9be159105d object in repository"
+    },
+    {
+      "criterion_id": "AC-03",
+      "description": "Sealing commit 07bc314c56fedbe8b2b0e2ba428195422b416acd and PR #7 merge commit tree equivalence is verified.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "git_verification_tree_equivalence"
+      ],
+      "evidence_refs": [
+        "scripts/validation/git_verification.py"
+      ],
+      "semantic_justification": "Verifies sealing commit tree and PR #7 merge commit tree are identical (TREE_EQUIVALENT)"
+    },
+    {
+      "criterion_id": "AC-04",
+      "description": "Provenance schema requires mandatory commit, tree, and revision lifecycle fields.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "provenance_mandatory_fields_verified"
+      ],
+      "evidence_refs": [
+        "scripts/validation/provenance.py"
+      ],
+      "semantic_justification": "Enforces mandatory provenance schema fields including baseline merge, implementation, sealing, and validated revisions"
+    },
+    {
+      "criterion_id": "AC-05",
+      "description": "Provenance revision matches the exact revision actually validated.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "provenance_revision_matches_validation"
+      ],
+      "evidence_refs": [
+        "scripts/validation/provenance.py"
+      ],
+      "semantic_justification": "Verifies validated_commit_sha recorded in provenance matches the checked-out Git HEAD revision"
+    },
+    {
+      "criterion_id": "AC-06",
+      "description": "Working-tree cleanliness verified across entire repository with zero exclusions.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "working_tree_cleanliness_unfiltered"
+      ],
+      "evidence_refs": [
+        "scripts/validation/git_verification.py"
+      ],
+      "semantic_justification": "Verifies git status --porcelain contains zero untracked or modified files without excluding evidence directories"
+    },
+    {
+      "criterion_id": "AC-07",
+      "description": "A fresh Phase 1.1.2.2.4.2 execution is performed against the exact validated revision.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "fresh_phase1_1_2_2_4_2_execution_verified"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/execution_manifest.json"
+      ],
+      "semantic_justification": "Verifies execution run is executed under Phase 1.1.2.2.4.2 milestone against checked-out commit"
+    },
+    {
+      "criterion_id": "AC-08",
+      "description": "Actual Windows execution runtime platform is verified.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "windows_runtime_platform_verified"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/execution_manifest.json"
+      ],
+      "semantic_justification": "Verifies platform.system() == 'Windows' and runtime environment matches Windows 10 x64 host"
+    },
+    {
+      "criterion_id": "AC-09",
+      "description": "A unique execution-run ID is shared across all execution evidence.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "unique_run_id_consistency_verified"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/execution_manifest.json"
+      ],
+      "semantic_justification": "Verifies consistent run_id across execution_manifest.json, validation_results.json, and provenance"
+    },
+    {
+      "criterion_id": "AC-10",
+      "description": "Complete stdout, stderr, and regression log artifacts exist for the run.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "execution_log_artifacts_exist"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/execution_manifest.json"
+      ],
+      "semantic_justification": "Verifies presence of stdout.log, stderr.log, regression.stdout.txt, and regression.stderr.txt in executions directory"
+    },
+    {
+      "criterion_id": "AC-11",
+      "description": "All execution artifacts have independently verified byte sizes and SHA-256 hashes.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "execution_log_hashes_and_sizes_verified"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/execution_manifest.json"
+      ],
+      "semantic_justification": "Recalculates SHA-256 hashes and byte lengths of all four execution logs and compares against manifest"
+    },
+    {
+      "criterion_id": "AC-12",
+      "description": "Execution artifact paths are repository-contained and resistant to traversal and symlink escape.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "artifact_path_containment_and_symlink_safety"
+      ],
+      "evidence_refs": [
+        "scripts/validation/evidence_integrity.py"
+      ],
+      "semantic_justification": "Audits artifact paths for containment within REPO_ROOT and absence of '..' traversal or symlink escapes"
+    },
+    {
+      "criterion_id": "AC-13",
+      "description": "One authoritative per-check validation model exists with complete schema fields.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "authoritative_check_model_verified"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/validation_results.json"
+      ],
+      "semantic_justification": "Verifies validation_results.json is sole canonical source with complete 13-field records"
+    },
+    {
+      "criterion_id": "AC-14",
+      "description": "All global totals are derived directly from individual check records.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "global_totals_derived_from_records"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/accounting_summary.json"
+      ],
+      "semantic_justification": "Calculates global totals by aggregating individual check records without manual override"
+    },
+    {
+      "criterion_id": "AC-15",
+      "description": "All registered stage totals reconcile exactly with global totals.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "stage_totals_reconciled_with_global_count"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/accounting_summary.json"
+      ],
+      "semantic_justification": "Verifies sum of stage totals equals total checks count with zero unassigned checks"
+    },
+    {
+      "criterion_id": "AC-16",
+      "description": "Claim classifications reconcile across claim register, results, provenance, and reports.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "claim_classifications_reconciled_across_artifacts"
+      ],
+      "evidence_refs": [
+        "evidence/phase1/reconciliation/claim_register.json"
+      ],
+      "semantic_justification": "Reconciles 25 claim classifications across claim register, accounting summary, and reports"
+    },
+    {
+      "criterion_id": "AC-17",
+      "description": "P1-015 physical missing-module and obsolete-placeholder classifications remain distinct.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "claim_p1_015_distinct_classification"
+      ],
+      "evidence_refs": [
+        "scripts/validation/claim_assertions.py"
+      ],
+      "semantic_justification": "Audits P1-015 to prevent collapsing physical absence with obsolete placeholder semantics"
+    },
+    {
+      "criterion_id": "AC-18",
+      "description": "P1-020 does not claim .NET runtime behavior without actual runtime execution.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "claim_p1_020_runtime_scoping_verified"
+      ],
+      "evidence_refs": [
+        "scripts/validation/claim_assertions.py"
+      ],
+      "semantic_justification": "Audits P1-020 to ensure static assembly disassembly is not misrepresented as dynamic runtime proof"
+    },
+    {
+      "criterion_id": "AC-19",
+      "description": "P1-022 does not overstate licensing assembly identity evidence as WCF runtime proof.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "claim_p1_022_wcf_scoping_verified"
+      ],
+      "evidence_refs": [
+        "scripts/validation/claim_assertions.py"
+      ],
+      "semantic_justification": "Audits P1-022 to keep assembly identity evidence scoped separate from WCF runtime execution proof"
+    },
+    {
+      "criterion_id": "AC-20",
+      "description": "Production-function regression and adversarial tests execute successfully.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "regression_suite_execution_verified"
+      ],
+      "evidence_refs": [
+        "tests/test_adversarial_regressions.py"
+      ],
+      "semantic_justification": "Executes test_validation_invariants.py and test_adversarial_regressions.py with 100% pass"
+    },
+    {
+      "criterion_id": "AC-21",
+      "description": "CI state is accurately reported as UNAVAILABLE without false pass claims.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "ci_status_accurately_reported"
+      ],
+      "evidence_refs": [
+        "reports/57_PHASE1_1_2_2_4_1_FINAL_RELEASE_GATE_DECISION.md"
+      ],
+      "semantic_justification": "Explicitly verifies CI status is classified as UNAVAILABLE and not claimed as passing"
+    },
+    {
+      "criterion_id": "AC-22",
+      "description": "The independent release-gate evaluator produces APPROVED only when every mandatory criterion is genuinely satisfied.",
+      "required": true,
+      "status": "PASS",
+      "related_check_ids": [
+        "fail_closed_release_gate_evaluator"
+      ],
+      "evidence_refs": [
+        "scripts/validation/stage_results.py"
+      ],
+      "semantic_justification": "Verifies evaluate_release_gate enforces fail-closed logic and approves only when 0 fails/blockers exist"
+    }
+  ]
+}
