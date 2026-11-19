@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.1.2.2.4.2",
+  "milestone": "Phase 1.1.2.2.4.3",
+  "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef",
+  "validated_commit_sha": "7f4305428a4c7b665b3415a8b6c34c6e2db707cd",
+  "validated_tree_sha": "a31d5698af0fc3ab61f3c1cd0f712aff8bfdd261",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python_version": "3.13.15",
+  "started_at_utc": "2026-11-19T16:28:18.368143+00:00",
+  "completed_at_utc": "2026-11-19T16:28:41.337568+00:00",
+  "duration_seconds": 22.969398,
+  "command": "python scripts/validate-phase1-evidence.py --repo-root .",
+  "exit_code": 0,
+  "artifacts": {
+    "stdout": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_3/executions/RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef/stdout.log",
+      "byte_size": 23127,
+      "sha256": "9ddb3f9ecc9599c733d0b0808294ec5aa3983dda488fd14d2d90708faa09eca8",
+      "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef"
+    },
+    "stderr": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_3/executions/RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef/stderr.log",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef"
+    },
+    "regression_stdout": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_3/executions/RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef/regression.stdout.txt",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef"
+    },
+    "regression_stderr": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_3/executions/RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef/regression.stderr.txt",
+      "byte_size": 22712,
+      "sha256": "1561f0a1a8ffb0adefafc29c6ac012f0c2f673b930542e6c0683ddb29adad3f3",
+      "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef"
+    }
+  },
+  "stdout": {
+    "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_3/executions/RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef/stdout.log",
+    "byte_size": 23127,
+    "sha256": "9ddb3f9ecc9599c733d0b0808294ec5aa3983dda488fd14d2d90708faa09eca8",
+    "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef"
+  },
+  "stderr": {
+    "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_3/executions/RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef/stderr.log",
+    "byte_size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef"
+  },
+  "regression_stdout": {
+    "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_3/executions/RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef/regression.stdout.txt",
+    "byte_size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef"
+  },
+  "regression_stderr": {
+    "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_3/executions/RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef/regression.stderr.txt",
+    "byte_size": 22712,
+    "sha256": "1561f0a1a8ffb0adefafc29c6ac012f0c2f673b930542e6c0683ddb29adad3f3",
+    "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef"
+  },
+  "execution_status": "COMPLETED"
+}
