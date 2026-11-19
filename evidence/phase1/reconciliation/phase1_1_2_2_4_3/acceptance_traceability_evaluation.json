@@ -1,0 +1,277 @@
+{
+  "schema_version": "1.1.2.2.4.3",
+  "criteria_evaluations": [
+    {
+      "criterion_id": "AC-01",
+      "title": "PR #8 Baseline Merge Commit Object Resolution",
+      "positive_check_ids": [
+        "git_verification_pr8_merge_commit"
+      ],
+      "negative_test_ids": [
+        "test_T01_wrong_implementation_commit",
+        "test_invalid_commit_sha_fails"
+      ],
+      "primary_evidence": "scripts/validation/git_verification.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-02",
+      "title": "PR #8 Merge Tree SHA Resolution",
+      "positive_check_ids": [
+        "git_verification_pr8_tree"
+      ],
+      "negative_test_ids": [
+        "test_T02_wrong_validation_tree_sha",
+        "test_mismatched_tree_sha_fails"
+      ],
+      "primary_evidence": "scripts/validation/git_verification.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-03",
+      "title": "Final Merge & Sealing Commit Tree Equivalence",
+      "positive_check_ids": [
+        "git_verification_tree_equivalence"
+      ],
+      "negative_test_ids": [
+        "test_T04_wrong_final_merge_commit"
+      ],
+      "primary_evidence": "scripts/validation/git_verification.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-04",
+      "title": "Mandatory Lifecycle Fields in Provenance",
+      "positive_check_ids": [
+        "provenance_mandatory_fields_verified"
+      ],
+      "negative_test_ids": [
+        "test_T20_source_revision_provenance_mismatch"
+      ],
+      "primary_evidence": "scripts/validation/provenance.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-05",
+      "title": "Provenance Validated Revision Match",
+      "positive_check_ids": [
+        "provenance_revision_matches_validation"
+      ],
+      "negative_test_ids": [
+        "test_T21_validator_or_manifest_hash_mismatch"
+      ],
+      "primary_evidence": "scripts/validation/provenance.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-06",
+      "title": "Full Working-Tree Cleanliness (Zero Exclusions)",
+      "positive_check_ids": [
+        "working_tree_cleanliness_unfiltered"
+      ],
+      "negative_test_ids": [
+        "test_T05_dirty_tracked_source_file",
+        "test_T06_untracked_evidence_file"
+      ],
+      "primary_evidence": "scripts/validation/git_verification.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-07",
+      "title": "Fresh Execution Against Validated Revision",
+      "positive_check_ids": [
+        "fresh_phase1_1_2_2_4_3_execution_verified"
+      ],
+      "negative_test_ids": [
+        "test_T22_wrong_milestone_identifier"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-08",
+      "title": "Windows Runtime Platform Verification",
+      "positive_check_ids": [
+        "windows_runtime_platform_verified"
+      ],
+      "negative_test_ids": [
+        "test_platform_not_windows_fails"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-09",
+      "title": "Consistent Run ID Propagation",
+      "positive_check_ids": [
+        "unique_run_id_consistency_verified"
+      ],
+      "negative_test_ids": [
+        "test_T23_mismatched_run_ids"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-10",
+      "title": "Complete Execution Log Artifact Availability",
+      "positive_check_ids": [
+        "execution_log_artifacts_exist"
+      ],
+      "negative_test_ids": [
+        "test_T21_regression_output_omitted_from_manifest",
+        "test_missing_stderr_log_fails"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/executions/",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-11",
+      "title": "Execution Artifact SHA-256 and Byte Size Verification",
+      "positive_check_ids": [
+        "execution_log_hashes_and_sizes_verified"
+      ],
+      "negative_test_ids": [
+        "test_T15_modified_artifact_hash",
+        "test_T16_modified_artifact_size"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-12",
+      "title": "Artifact Path Containment & Symlink Safety",
+      "positive_check_ids": [
+        "artifact_path_containment_and_symlink_safety"
+      ],
+      "negative_test_ids": [
+        "test_T17_path_traversal_attempt",
+        "test_T18_symlink_escape"
+      ],
+      "primary_evidence": "scripts/validation/evidence_integrity.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-13",
+      "title": "Authoritative 13-Field Check Schema Compliance",
+      "positive_check_ids": [
+        "authoritative_check_model_verified"
+      ],
+      "negative_test_ids": [
+        "test_T10_duplicate_check_id",
+        "test_T11_missing_stage_id"
+      ],
+      "primary_evidence": "docs/validation/VALIDATION_RECORD_SCHEMA.md",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-14",
+      "title": "Global Totals Derived from Validation Records",
+      "positive_check_ids": [
+        "global_totals_derived_from_records"
+      ],
+      "negative_test_ids": [
+        "test_T12_incorrect_total_record_count"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/accounting_summary.json",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-15",
+      "title": "Stage Accounting Reconciliation",
+      "positive_check_ids": [
+        "stage_totals_reconciled_with_global_count"
+      ],
+      "negative_test_ids": [
+        "test_T13_stage_totals_do_not_reconcile"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/accounting_summary.json",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-16",
+      "title": "Claim Classification Reconciliation",
+      "positive_check_ids": [
+        "claim_classifications_reconciled_across_artifacts"
+      ],
+      "negative_test_ids": [
+        "test_T14_invalid_claim_status",
+        "test_T15_incorrect_claim_status_totals"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/claim_register.json",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-17",
+      "title": "P1-015 Physical Missing vs Obsolete Classification",
+      "positive_check_ids": [
+        "claim_p1_015_distinct_classification"
+      ],
+      "negative_test_ids": [
+        "test_T07_missing_dependency_category"
+      ],
+      "primary_evidence": "scripts/validation/claim_assertions.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-18",
+      "title": "P1-020 .NET Runtime Behavior Scoping",
+      "positive_check_ids": [
+        "claim_p1_020_runtime_scoping_verified"
+      ],
+      "negative_test_ids": [
+        "test_claim_p1_020_unsupported_runtime_claim"
+      ],
+      "primary_evidence": "scripts/validation/claim_assertions.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-19",
+      "title": "P1-022 WCF Licensing Scoping Verification",
+      "positive_check_ids": [
+        "claim_p1_022_wcf_scoping_verified"
+      ],
+      "negative_test_ids": [
+        "test_claim_p1_022_overstated_wcf_evidence"
+      ],
+      "primary_evidence": "scripts/validation/claim_assertions.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-20",
+      "title": "Regression & Adversarial Suite Real Execution",
+      "positive_check_ids": [
+        "regression_suite_execution_verified"
+      ],
+      "negative_test_ids": [
+        "test_T24_warning_or_not_checked_result_incorrectly_treated_as_approval"
+      ],
+      "primary_evidence": "tests/test_adversarial_regressions.py",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-21",
+      "title": "Truthful CI Status Reporting (UNAVAILABLE)",
+      "positive_check_ids": [
+        "ci_status_accurately_reported"
+      ],
+      "negative_test_ids": [
+        "test_ci_pass_without_evidence_rejected"
+      ],
+      "primary_evidence": "reports/57_PHASE1_1_2_2_4_1_FINAL_RELEASE_GATE_DECISION.md",
+      "audit_status": "PASS"
+    },
+    {
+      "criterion_id": "AC-22",
+      "title": "Independent Release Gate Fail-Closed Evaluation",
+      "positive_check_ids": [
+        "fail_closed_release_gate_evaluator"
+      ],
+      "negative_test_ids": [
+        "test_T25_independent_auditor_disagrees_with_primary_validator"
+      ],
+      "primary_evidence": "scripts/validation/stage_results.py",
+      "audit_status": "PASS"
+    }
+  ]
+}

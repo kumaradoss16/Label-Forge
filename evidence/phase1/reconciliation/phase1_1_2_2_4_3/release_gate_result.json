@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.1.2.2.4.3",
+  "milestone": "Phase 1.1.2.2.4.3",
+  "timestamp_utc": "2026-11-19T16:29:46.517755+00:00",
+  "final_status": "ACCEPTED",
+  "decision_message": "PHASE 1.1.2.2.4.3 \u2014 ACCEPTED: All independent evidence invariants, PR #8 baseline attestation, canonical 13-field records, path containment, acceptance traceability, artifact integrity, and regression tests verified.",
+  "invariants_evaluated": 36,
+  "invariants_passed": 36,
+  "invariants_failed": 0,
+  "blocking_findings": [],
+  "gates": {
+    "G-01": {
+      "name": "Git Object & Revision Provenance",
+      "status": "PASS",
+      "detail": "PR #8 merge tree matches sealing tree (6f1ffad3c20695efa1be187e3528d847574f4c75)"
+    },
+    "G-02": {
+      "name": "Working-Tree Cleanliness (Zero Exclusions)",
+      "status": "PASS",
+      "detail": "Zero uncommitted or untracked changes across repository"
+    },
+    "G-03": {
+      "name": "Execution Timing Lifecycle & Plausibility",
+      "status": "PASS",
+      "detail": "Monotonic duration = 22.969398s"
+    },
+    "G-04": {
+      "name": "Execution Log Artifact Completeness & Hashes",
+      "status": "PASS",
+      "detail": "stdout, stderr, reg_stdout, reg_stderr verified against disk"
+    },
+    "G-05": {
+      "name": "Path Containment & Symlink Safety",
+      "status": "PASS",
+      "detail": "commonpath contained in REPO_ROOT; islink is False across all paths"
+    },
+    "G-06": {
+      "name": "Canonical 13-Field Check Schema Adherence",
+      "status": "PASS",
+      "detail": "Total records: 189 conforming to canonical schema"
+    },
+    "G-07": {
+      "name": "Stage Accounting Mathematical Reconciliation",
+      "status": "PASS",
+      "detail": "Sum of stages = 189 = total checks"
+    },
+    "G-08": {
+      "name": "Semantic Acceptance Criteria Derivation",
+      "status": "PASS",
+      "detail": "22/22 criteria pass; derived from executed check records"
+    },
+    "G-09": {
+      "name": "Unit & Adversarial Test Regression Execution",
+      "status": "PASS",
+      "detail": "111 tests executed, exit code 0"
+    },
+    "G-10": {
+      "name": "Independent Auditor Verification & Decoupling",
+      "status": "PASS",
+      "detail": "36 invariants passed, 0 failed"
+    }
+  },
+  "git_attestation": {
+    "final_merge_revision": "4595937e990badf9a8e136346f408a4182aac3f4",
+    "final_merge_tree": "6f1ffad3c20695efa1be187e3528d847574f4c75",
+    "baseline_sealing_commit": "36c317b29ea913cc9d114c126fd4628dab8bd12f",
+    "baseline_sealing_tree": "6f1ffad3c20695efa1be187e3528d847574f4c75",
+    "validated_revision": "1e9a03572984dca8f8f136e68e88154aed61ca48",
+    "audit_revision": "1e9a03572984dca8f8f136e68e88154aed61ca48",
+    "head_commit": "1e9a03572984dca8f8f136e68e88154aed61ca48",
+    "head_tree": "9817d2246bf0e86dc7dafc65444c343798bebcaa",
+    "is_clean": true
+  },
+  "execution_evidence": {
+    "run_id": "RUN-PHASE1-1-2-2-4-3-20261119162818-185917ef",
+    "stdout_valid": true,
+    "stderr_valid": true,
+    "regression_stdout_valid": true,
+    "regression_stderr_valid": true,
+    "duration_seconds": 22.969398
+  },
+  "accounting_reconciliation": {
+    "total_checks": 189,
+    "pass_count": 189,
+    "is_perfect_match": true
+  },
+  "acceptance_matrix": {
+    "total_criteria": 22,
+    "all_pass": true
+  },
+  "regression_suite": {
+    "command": "D:\\python3.14\\python.exe -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "tests_run": 111,
+    "duration_seconds": 23.896263,
+    "stderr_summary": [
+      "Ran 111 tests in 23.569s",
+      "",
+      "OK"
+    ]
+  }
+}

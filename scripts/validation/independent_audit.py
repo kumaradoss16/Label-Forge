@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Label-Forge Phase 1.1.2.2.4.2 Decoupled Independent Evidence Auditor
+Label-Forge Phase 1.1.2.2.4.3 Hardened Independent Evidence Auditor
 Performs strict, independent recalculation and audit of all evidence,
 Git provenance, validation records, stage accounting, acceptance matrix,
 and execution artifacts WITHOUT importing ANY production validation helpers.
@@ -11,6 +11,9 @@ Governing Principles:
   - Zero trust in validator summary structures: all counts, hashes, trees, and paths
     are recomputed from primary filesystem and Git objects.
   - Fail-closed evaluation: any failing invariant results in exit code 1.
+  - Complete 13-field schema enforcement across all validation records.
+  - Strict repository path containment and symlink protection.
+  - Full acceptance criteria (AC-01 to AC-22) traceability verification.
 
 Exit Codes:
   0: PASS (All invariants independently verified)
@@ -128,6 +131,59 @@ def independent_resolve_git_commit(commit_ref: str, repo_root: str) -> Tuple[boo
         return False, None, f"Git resolution exception: {e}"
 
 
+def independent_validate_path(
+    rel_path: str,
+    repo_root: str,
+    must_exist: bool = True,
+    allow_dir: bool = False
+) -> Tuple[bool, str]:
+    """
+    Independently validates a repository-relative path:
+    - Path must be string, forward-slash separated, non-empty.
+    - Rejects absolute paths, backslashes, drive letters, UNC paths, and '..' traversal.
+    - Resolves realpath and verifies commonpath containment under real repo root.
+    - If must_exist: verifies file exists on disk, is NOT a symlink, and is a regular file (or dir if allow_dir=True).
+    """
+    if not isinstance(rel_path, str) or not rel_path.strip():
+        return False, "Path must be a non-empty string"
+
+    if "\\" in rel_path:
+        return False, f"Path contains backslashes (must use forward slash '/'): '{rel_path}'"
+    if os.path.isabs(rel_path) or rel_path.startswith("/"):
+        return False, f"Path must be repository-relative, not absolute: '{rel_path}'"
+    if ":" in rel_path:
+        return False, f"Path contains drive-letter or colon indicator: '{rel_path}'"
+    if rel_path.startswith("//") or rel_path.startswith("\\\\"):
+        return False, f"UNC paths are prohibited: '{rel_path}'"
+
+    parts = rel_path.split("/")
+    if any(p == ".." for p in parts):
+        return False, f"Path traversal ('..') is strictly prohibited: '{rel_path}'"
+
+    real_repo_root = os.path.realpath(repo_root)
+    norm_path = os.path.normpath(os.path.join(real_repo_root, rel_path.replace("/", os.sep)))
+    real_file_path = os.path.realpath(norm_path)
+
+    try:
+        common = os.path.commonpath([real_repo_root, real_file_path])
+        if os.path.normcase(common) != os.path.normcase(real_repo_root):
+            return False, f"Path escapes repository root: '{rel_path}'"
+    except ValueError:
+        return False, f"Path is on a different drive or invalid: '{rel_path}'"
+
+    if must_exist:
+        if not os.path.exists(norm_path):
+            return False, f"Referenced path missing on disk: '{rel_path}'"
+        if os.path.islink(norm_path):
+            return False, f"Path is a symlink (strictly prohibited): '{rel_path}'"
+        if not allow_dir and not os.path.isfile(norm_path):
+            return False, f"Path is not a regular file: '{rel_path}'"
+        if allow_dir and not (os.path.isfile(norm_path) or os.path.isdir(norm_path)):
+            return False, f"Path is not a regular file or directory: '{rel_path}'"
+
+    return True, f"Path verified: '{rel_path}'"
+
+
 def independent_validate_artifact(
     artifact_entry: Dict[str, Any],
     repo_root: str,
@@ -137,9 +193,9 @@ def independent_validate_artifact(
     Independently validates an execution log artifact:
     - Path safety (relative, repository-contained, no traversal, no symlink escape)
     - File existence and regular file verification (not a symlink)
-    - Byte size calculation and exact comparison
-    - SHA-256 calculation and exact comparison
-    Pure stdlib implementation with zero imports from evidence_integrity.py.
+    - Exact byte size calculation and comparison (must be non-negative integer, not boolean)
+    - SHA-256 calculation and exact hex comparison
+    - Exact run ID association matching expected_run_id
     """
     if not isinstance(artifact_entry, dict):
         return False, "Artifact entry must be a dictionary"
@@ -148,33 +204,45 @@ def independent_validate_artifact(
     if not rel_path:
         return False, "Missing 'path' in artifact entry"
 
-    if os.path.isabs(rel_path) or ".." in rel_path or "\\" in rel_path or rel_path.startswith("/"):
-        return False, f"Invalid artifact path (must be repository-relative forward-slash): '{rel_path}'"
+    ok_p, msg_p = independent_validate_path(rel_path, repo_root, must_exist=True)
+    if not ok_p:
+        return False, f"Invalid artifact path: {msg_p}"
+
+    # Validate run_id
+    run_id = artifact_entry.get("run_id")
+    if expected_run_id is not None:
+        if not run_id or not isinstance(run_id, str):
+            return False, f"Missing or invalid 'run_id' in artifact entry for '{rel_path}'"
+        if run_id != expected_run_id:
+            return False, f"Artifact run_id mismatch for '{rel_path}': expected '{expected_run_id}', got '{run_id}'"
+    elif run_id is not None and (not isinstance(run_id, str) or not run_id.strip()):
+        return False, f"Invalid 'run_id' in artifact entry for '{rel_path}'"
+
+    # Validate byte size
+    declared_size = artifact_entry.get("byte_size")
+    if declared_size is None and "size_bytes" in artifact_entry:
+        declared_size = artifact_entry.get("size_bytes")
+
+    if declared_size is None:
+        return False, f"Missing byte size in artifact entry for '{rel_path}'"
+
+    if isinstance(declared_size, bool) or not isinstance(declared_size, int) or declared_size < 0:
+        return False, f"Invalid byte size for '{rel_path}': {declared_size}"
 
     full_path = os.path.normpath(os.path.join(repo_root, rel_path.replace("/", os.sep)))
-    real_repo_root = os.path.realpath(repo_root)
-    real_file_path = os.path.realpath(full_path)
+    actual_size = os.path.getsize(full_path)
+    if declared_size != actual_size:
+        return False, f"Artifact size mismatch for '{rel_path}': declared {declared_size}, actual {actual_size}"
+
+    # Validate SHA-256
+    declared_hash = artifact_entry.get("sha256")
+    if not declared_hash or not isinstance(declared_hash, str) or len(declared_hash) != 64:
+        return False, f"Invalid or missing SHA-256 digest in artifact entry for '{rel_path}'"
 
     try:
-        common = os.path.commonpath([real_repo_root, real_file_path])
-        if os.path.normcase(common) != os.path.normcase(real_repo_root):
-            return False, f"Artifact path escapes repository root: '{rel_path}'"
+        int(declared_hash, 16)
     except ValueError:
-        return False, f"Artifact path on different drive or invalid: '{rel_path}'"
-
-    if not os.path.exists(full_path):
-        return False, f"Artifact missing on disk: '{rel_path}'"
-
-    if os.path.islink(full_path):
-        return False, f"Artifact path is a symlink (strictly prohibited): '{rel_path}'"
-
-    if not os.path.isfile(full_path):
-        return False, f"Artifact is not a regular file: '{rel_path}'"
-
-    actual_size = os.path.getsize(full_path)
-    declared_size = artifact_entry.get("size_bytes")
-    if declared_size is not None and declared_size != actual_size:
-        return False, f"Artifact size mismatch for '{rel_path}': declared {declared_size}, actual {actual_size}"
+        return False, f"Malformed hexadecimal SHA-256 in artifact entry for '{rel_path}': '{declared_hash}'"
 
     hasher = hashlib.sha256()
     with open(full_path, "rb") as f:
@@ -182,11 +250,129 @@ def independent_validate_artifact(
             hasher.update(chunk)
     actual_hash = hasher.hexdigest().lower()
 
-    declared_hash = (artifact_entry.get("sha256") or "").lower()
-    if declared_hash and declared_hash != actual_hash:
+    if declared_hash.lower() != actual_hash:
         return False, f"Artifact hash mismatch for '{rel_path}': declared {declared_hash}, actual {actual_hash}"
 
     return True, f"Artifact verified: size={actual_size}, sha256={actual_hash}"
+
+
+def independent_validate_record_schema(record: Dict[str, Any]) -> Tuple[bool, List[Dict[str, Any]]]:
+    """
+    Enforces the complete canonical 13-field schema on a validation record:
+    - check_id: non-empty string
+    - stage_id: string member of INDEPENDENT_STAGE_REGISTRY
+    - claim_id: non-empty string
+    - evidence_path: non-empty string
+    - evidence_sha256: 64-character lowercase hex string
+    - result_status: string member of INDEPENDENT_ALLOWED_STATUSES
+    - message: non-empty string
+    - execution_timestamp_utc: ISO 8601 UTC timestamp format (Z or +00:00)
+    - validator_version: non-empty string
+    - target_binary_sha256: 64-char hex string matching canonical BarTend.exe
+    - git_commit_sha: 40-character hex commit SHA
+    - environment_hash: 16-64 character hex string
+    - execution_duration_ms: non-negative integer or float, strictly not boolean
+    """
+    failures: List[Dict[str, Any]] = []
+    if not isinstance(record, dict):
+        return False, [{"check_id": "UNKNOWN", "field": "record", "expected": "dict", "actual": type(record).__name__, "category": "TYPE_ERROR"}]
+
+    cid = record.get("check_id")
+
+    # 1. check_id
+    if "check_id" not in record:
+        failures.append({"check_id": "MISSING", "field": "check_id", "expected": "non-empty string", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["check_id"], str) or not record["check_id"].strip():
+        failures.append({"check_id": str(cid), "field": "check_id", "expected": "non-empty string", "actual": record.get("check_id"), "category": "TYPE_ERROR"})
+
+    # 2. stage_id
+    if "stage_id" not in record:
+        failures.append({"check_id": str(cid), "field": "stage_id", "expected": f"one of {INDEPENDENT_STAGE_REGISTRY}", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["stage_id"], str) or record["stage_id"] not in INDEPENDENT_STAGE_REGISTRY:
+        failures.append({"check_id": str(cid), "field": "stage_id", "expected": f"one of {INDEPENDENT_STAGE_REGISTRY}", "actual": record.get("stage_id"), "category": "INVALID_VALUE"})
+
+    # 3. claim_id
+    if "claim_id" not in record:
+        failures.append({"check_id": str(cid), "field": "claim_id", "expected": "non-empty string", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["claim_id"], str) or not record["claim_id"].strip():
+        failures.append({"check_id": str(cid), "field": "claim_id", "expected": "non-empty string", "actual": record.get("claim_id"), "category": "TYPE_ERROR"})
+
+    # 4. evidence_path
+    if "evidence_path" not in record:
+        failures.append({"check_id": str(cid), "field": "evidence_path", "expected": "non-empty repository-relative path string", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["evidence_path"], str) or not record["evidence_path"].strip():
+        failures.append({"check_id": str(cid), "field": "evidence_path", "expected": "non-empty repository-relative path string", "actual": record.get("evidence_path"), "category": "TYPE_ERROR"})
+
+    # 5. evidence_sha256
+    if "evidence_sha256" not in record:
+        failures.append({"check_id": str(cid), "field": "evidence_sha256", "expected": "64-char hex string", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["evidence_sha256"], str) or len(record["evidence_sha256"]) != 64:
+        failures.append({"check_id": str(cid), "field": "evidence_sha256", "expected": "64-char hex string", "actual": record.get("evidence_sha256"), "category": "INVALID_VALUE"})
+    else:
+        try:
+            int(record["evidence_sha256"], 16)
+        except ValueError:
+            failures.append({"check_id": str(cid), "field": "evidence_sha256", "expected": "64-char hexadecimal string", "actual": record.get("evidence_sha256"), "category": "INVALID_FORMAT"})
+
+    # 6. result_status
+    if "result_status" not in record:
+        failures.append({"check_id": str(cid), "field": "result_status", "expected": f"one of {INDEPENDENT_ALLOWED_STATUSES}", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["result_status"], str) or record["result_status"] not in INDEPENDENT_ALLOWED_STATUSES:
+        failures.append({"check_id": str(cid), "field": "result_status", "expected": f"one of {INDEPENDENT_ALLOWED_STATUSES}", "actual": record.get("result_status"), "category": "INVALID_ENUM"})
+
+    # 7. message
+    if "message" not in record:
+        failures.append({"check_id": str(cid), "field": "message", "expected": "non-empty string", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["message"], str) or not record["message"].strip():
+        failures.append({"check_id": str(cid), "field": "message", "expected": "non-empty string", "actual": record.get("message"), "category": "TYPE_ERROR"})
+
+    # 8. execution_timestamp_utc
+    if "execution_timestamp_utc" not in record:
+        failures.append({"check_id": str(cid), "field": "execution_timestamp_utc", "expected": "ISO 8601 UTC timestamp", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["execution_timestamp_utc"], str) or not record["execution_timestamp_utc"].strip():
+        failures.append({"check_id": str(cid), "field": "execution_timestamp_utc", "expected": "ISO 8601 UTC timestamp", "actual": record.get("execution_timestamp_utc"), "category": "TYPE_ERROR"})
+    else:
+        ts = record["execution_timestamp_utc"]
+        if not ("T" in ts and (ts.endswith("Z") or "+00:00" in ts)):
+            failures.append({"check_id": str(cid), "field": "execution_timestamp_utc", "expected": "ISO 8601 UTC timestamp (Z or +00:00)", "actual": ts, "category": "INVALID_FORMAT"})
+
+    # 9. validator_version
+    if "validator_version" not in record:
+        failures.append({"check_id": str(cid), "field": "validator_version", "expected": "semver version string", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["validator_version"], str) or not record["validator_version"].strip():
+        failures.append({"check_id": str(cid), "field": "validator_version", "expected": "semver version string", "actual": record.get("validator_version"), "category": "TYPE_ERROR"})
+
+    # 10. target_binary_sha256
+    canonical_bin_sha = "d3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594"
+    if "target_binary_sha256" not in record:
+        failures.append({"check_id": str(cid), "field": "target_binary_sha256", "expected": canonical_bin_sha, "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["target_binary_sha256"], str) or record["target_binary_sha256"].lower() != canonical_bin_sha:
+        failures.append({"check_id": str(cid), "field": "target_binary_sha256", "expected": canonical_bin_sha, "actual": record.get("target_binary_sha256"), "category": "VALUE_MISMATCH"})
+
+    # 11. git_commit_sha
+    if "git_commit_sha" not in record:
+        failures.append({"check_id": str(cid), "field": "git_commit_sha", "expected": "40-char hex commit SHA", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["git_commit_sha"], str) or len(record["git_commit_sha"]) != 40:
+        failures.append({"check_id": str(cid), "field": "git_commit_sha", "expected": "40-char hex commit SHA", "actual": record.get("git_commit_sha"), "category": "INVALID_VALUE"})
+    else:
+        try:
+            int(record["git_commit_sha"], 16)
+        except ValueError:
+            failures.append({"check_id": str(cid), "field": "git_commit_sha", "expected": "40-char hex commit SHA", "actual": record.get("git_commit_sha"), "category": "INVALID_FORMAT"})
+
+    # 12. environment_hash
+    if "environment_hash" not in record:
+        failures.append({"check_id": str(cid), "field": "environment_hash", "expected": "16-64 hex char string", "actual": None, "category": "MISSING_FIELD"})
+    elif not isinstance(record["environment_hash"], str) or len(record["environment_hash"]) < 16 or len(record["environment_hash"]) > 64:
+        failures.append({"check_id": str(cid), "field": "environment_hash", "expected": "16-64 hex char string", "actual": record.get("environment_hash"), "category": "INVALID_VALUE"})
+
+    # 13. execution_duration_ms
+    if "execution_duration_ms" not in record:
+        failures.append({"check_id": str(cid), "field": "execution_duration_ms", "expected": "non-negative number (ms)", "actual": None, "category": "MISSING_FIELD"})
+    elif isinstance(record["execution_duration_ms"], bool) or not isinstance(record["execution_duration_ms"], (int, float)) or record["execution_duration_ms"] < 0.0:
+        failures.append({"check_id": str(cid), "field": "execution_duration_ms", "expected": "non-negative number (ms), not boolean", "actual": record.get("execution_duration_ms"), "category": "TYPE_ERROR"})
+
+    return len(failures) == 0, failures
 
 
 class IndependentAuditor:
@@ -218,42 +404,26 @@ class IndependentAuditor:
     def audit_git_objects_and_provenance(self) -> Dict[str, Any]:
         self.log("\n[INDEPENDENT AUDIT 1] Git Objects & Revision Provenance")
 
-        pr7_commit = "55ea077a47099a97f839e0d878934088a3a4e0e0"
-        pr7_expected_tree = "023ddda8ac3f61e49de429ed6e236f9be159105d"
-        sealing_commit_p7 = "07bc314c56fedbe8b2b0e2ba428195422b416acd"
+        pr8_commit = "4595937e990badf9a8e136346f408a4182aac3f4"
+        pr8_expected_tree = "6f1ffad3c20695efa1be187e3528d847574f4c75"
+        sealing_commit_p8 = "36c317b29ea913cc9d114c126fd4628dab8bd12f"
 
-        pr6_commit = "56f70518b14a2fe3cd96a56c683ab1b717639f04"
-        pr6_expected_tree = "2ee03c9b9cf3097dcb0859b1c2649993083fa419"
-        sealing_commit_p6 = "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3"
-
-        ok_pr7, info_pr7, _ = independent_resolve_git_commit(pr7_commit, self.repo_root)
-        if ok_pr7:
-            target_merge = pr7_commit
-            target_expected_tree = pr7_expected_tree
-            target_sealing = sealing_commit_p7
-            merge_label = "PR #7"
-        else:
-            target_merge = pr6_commit
-            target_expected_tree = pr6_expected_tree
-            target_sealing = sealing_commit_p6
-            merge_label = "PR #6"
-
-        ok_merge, info_merge, msg_merge = independent_resolve_git_commit(target_merge, self.repo_root)
-        self.assert_invariant(f"INV-GIT-01: {merge_label} baseline merge commit object exists", ok_merge, msg_merge)
+        ok_merge, info_merge, msg_merge = independent_resolve_git_commit(pr8_commit, self.repo_root)
+        self.assert_invariant("INV-GIT-01: PR #8 baseline merge commit object exists", ok_merge, msg_merge)
 
         merge_tree = info_merge['tree_sha'] if (ok_merge and info_merge) else None
         self.assert_invariant(
-            f"INV-GIT-02: {merge_label} merge tree SHA matches expected",
-            merge_tree == target_expected_tree,
-            f"actual={merge_tree}, expected={target_expected_tree}"
+            "INV-GIT-02: PR #8 merge tree SHA matches expected",
+            merge_tree == pr8_expected_tree,
+            f"actual={merge_tree}, expected={pr8_expected_tree}"
         )
 
-        ok_seal, info_seal, msg_seal = independent_resolve_git_commit(target_sealing, self.repo_root)
-        self.assert_invariant("INV-GIT-03: Evidence sealing commit object exists", ok_seal, msg_seal)
+        ok_seal, info_seal, msg_seal = independent_resolve_git_commit(sealing_commit_p8, self.repo_root)
+        self.assert_invariant("INV-GIT-03: Phase 1.1.2.2.4.2 sealing commit object exists", ok_seal, msg_seal)
 
         seal_tree = info_seal['tree_sha'] if (ok_seal and info_seal) else None
         self.assert_invariant(
-            f"INV-GIT-04: {merge_label} merge commit is TREE_EQUIVALENT to sealing commit",
+            "INV-GIT-04: PR #8 merge commit is TREE_EQUIVALENT to sealing commit",
             (merge_tree is not None and merge_tree == seal_tree),
             f"merge_tree={merge_tree}, seal_tree={seal_tree}"
         )
@@ -278,10 +448,12 @@ class IndependentAuditor:
         self.assert_invariant("INV-GIT-06: Working tree cleanliness verified with zero exclusions", is_clean, f"dirty_lines={len(dirty_lines)}")
 
         return {
-            'target_merge_commit': target_merge,
-            'target_merge_tree': merge_tree,
-            'sealing_commit': target_sealing,
-            'sealing_tree': seal_tree,
+            'final_merge_revision': pr8_commit,
+            'final_merge_tree': merge_tree,
+            'baseline_sealing_commit': sealing_commit_p8,
+            'baseline_sealing_tree': seal_tree,
+            'validated_revision': head_commit,
+            'audit_revision': head_commit,
             'head_commit': head_commit,
             'head_tree': head_tree,
             'is_clean': is_clean
@@ -317,6 +489,8 @@ class IndependentAuditor:
 
         missing_refs: List[Any] = []
         unresolvable_refs: List[Any] = []
+        escaped_refs: List[Any] = []
+
         for c in checks:
             cid = c.get('check_id')
             refs = c.get('evidence_refs')
@@ -331,25 +505,32 @@ class IndependentAuditor:
                     if not isinstance(r, str):
                         unresolvable_refs.append((cid, str(r)))
                         continue
-                    full_p = os.path.normpath(os.path.join(self.repo_root, r.replace('/', os.sep)))
-                    if not os.path.exists(full_p):
-                        unresolvable_refs.append((cid, r))
+                    ok_p, msg_p = independent_validate_path(r, self.repo_root, must_exist=True)
+                    if not ok_p:
+                        escaped_refs.append((cid, r, msg_p))
 
         self.assert_invariant("INV-REC-06: Zero checks with empty evidence_refs", len(missing_refs) == 0, f"missing_count={len(missing_refs)}")
-        self.assert_invariant("INV-REC-07: Every evidence_ref resolves to existing file on disk", len(unresolvable_refs) == 0, f"unresolvable_count={len(unresolvable_refs)}")
+        self.assert_invariant("INV-REC-07: Every evidence_ref passes canonical containment and exists", len(escaped_refs) == 0, f"escaped_count={len(escaped_refs)}")
 
-        missing_fields_records: List[Any] = []
+        schema_failures: List[Any] = []
         for c in checks:
-            cid = c.get('check_id')
-            for rf in ('check_id', 'stage_id'):
-                if rf not in c:
-                    missing_fields_records.append((cid, rf))
-            if 'result_status' not in c and 'status' not in c and 'check_status' not in c:
-                missing_fields_records.append((cid, 'result_status'))
-            if 'execution_timestamp_utc' not in c and 'executed_at_utc' not in c and 'execution_timestamp' not in c:
-                missing_fields_records.append((cid, 'execution_timestamp_utc'))
+            ok_s, fails = independent_validate_record_schema(c)
+            if not ok_s:
+                schema_failures.extend(fails)
 
-        self.assert_invariant("INV-REC-08: Every check record contains canonical schema fields", len(missing_fields_records) == 0, f"missing={missing_fields_records[:5]}")
+        self.assert_invariant("INV-REC-08: Every check record strictly adheres to canonical 13-field schema", len(schema_failures) == 0, f"schema_failures={len(schema_failures)}")
+
+        # Timestamp lifecycle ordering verification
+        timestamp_failures: List[str] = []
+        for c in checks:
+            ts = c.get('execution_timestamp_utc')
+            if ts:
+                try:
+                    # Parse ISO format
+                    dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+                except Exception:
+                    timestamp_failures.append(str(c.get('check_id')))
+        self.assert_invariant("INV-REC-09: Timestamp lifecycle ordering and formatting verified", len(timestamp_failures) == 0, f"timestamp_failures={len(timestamp_failures)}")
 
         return checks, doc
 
@@ -422,7 +603,7 @@ class IndependentAuditor:
         }
 
     def audit_acceptance_matrix(self, checks: List[Dict[str, Any]]) -> Dict[str, Any]:
-        self.log("\n[INDEPENDENT AUDIT 4] Acceptance Matrix Programmatic Derivation")
+        self.log("\n[INDEPENDENT AUDIT 4] Acceptance Matrix & Traceability Programmatic Derivation")
         matrix_path = os.path.join(self.recon_dir, 'acceptance_matrix.json')
         self.assert_invariant("INV-AC-01: acceptance_matrix.json exists", os.path.exists(matrix_path), matrix_path)
 
@@ -476,10 +657,77 @@ class IndependentAuditor:
         empty_justifications = [crit.get('criterion_id') for crit in criteria if not crit.get('semantic_justification')]
         self.assert_invariant("INV-AC-05: Every criterion has non-empty semantic justification", len(empty_justifications) == 0, f"empty={empty_justifications}")
 
+        # Invariant AC-06: Full acceptance criteria traceability verification
+        trace_path = os.path.join(self.repo_root, 'evidence', 'phase1', 'reconciliation', 'acceptance_traceability.json')
+        trace_findings: List[str] = []
+        evaluations: List[Dict[str, Any]] = []
+
+        if os.path.exists(trace_path):
+            with open(trace_path, 'r', encoding='utf-8') as tf:
+                trace_doc = json.load(tf)
+            trace_criteria = trace_doc.get('criteria', [])
+            if len(trace_criteria) != 22:
+                trace_findings.append(f"Traceability document has {len(trace_criteria)} criteria instead of 22")
+
+            # Collect test function names from tests/
+            test_funcs: Set[str] = set()
+            for root, _, files in os.walk(os.path.join(self.repo_root, 'tests')):
+                for f in files:
+                    if f.startswith('test_') and f.endswith('.py'):
+                        fp = os.path.join(root, f)
+                        with open(fp, 'r', encoding='utf-8') as s:
+                            for line in s:
+                                stripped = line.strip()
+                                if stripped.startswith('def test_'):
+                                    func_name = stripped.split('(')[0].replace('def ', '').strip()
+                                    test_funcs.add(func_name)
+
+            for tc in trace_criteria:
+                tcid = tc.get('criterion_id')
+                pos_checks = tc.get('positive_check_ids', [])
+                neg_tests = tc.get('negative_test_ids', [])
+                prim_ev = tc.get('primary_evidence', '')
+
+                # Validate primary evidence path containment
+                if prim_ev:
+                    ok_ev, _ = independent_validate_path(prim_ev, self.repo_root, must_exist=True, allow_dir=True)
+                    if not ok_ev:
+                        trace_findings.append(f"{tcid}: Invalid primary evidence path '{prim_ev}'")
+
+                # Validate positive checks pass
+                for pc in pos_checks:
+                    if pc not in check_status_map or check_status_map[pc] != 'PASS':
+                        trace_findings.append(f"{tcid}: Positive check '{pc}' status is not PASS")
+
+                # Validate negative test identifiers exist in test suite
+                for nt in neg_tests:
+                    if nt not in test_funcs:
+                        trace_findings.append(f"{tcid}: Negative test '{nt}' not found in test suite")
+
+                evaluations.append({
+                    'criterion_id': tcid,
+                    'title': tc.get('title'),
+                    'positive_check_ids': pos_checks,
+                    'negative_test_ids': neg_tests,
+                    'primary_evidence': prim_ev,
+                    'audit_status': 'PASS' if len(trace_findings) == 0 else 'FAIL'
+                })
+
+            eval_out_path = os.path.join(self.recon_dir, 'acceptance_traceability_evaluation.json')
+            with open(eval_out_path, 'w', encoding='utf-8') as ef:
+                json.dump({'schema_version': '1.1.2.2.4.3', 'criteria_evaluations': evaluations}, ef, indent=2)
+
+        self.assert_invariant(
+            "INV-AC-06: Formal acceptance traceability (positive/negative coverage) independently verified",
+            len(trace_findings) == 0,
+            f"trace_findings={trace_findings}"
+        )
+
         return {
             'total_criteria': len(criteria),
             'all_pass': all_ac_pass,
-            'findings': criteria_findings
+            'findings': criteria_findings,
+            'traceability_findings': trace_findings
         }
 
     def audit_execution_artifacts(self) -> Dict[str, Any]:
@@ -510,7 +758,15 @@ class IndependentAuditor:
         self.assert_invariant("INV-ART-06: regression stderr log artifact hash, size, and containment verified", ok_reg_err, msg_reg_err)
 
         duration = man.get('duration_seconds', 0)
-        self.assert_invariant("INV-ART-07: Execution duration is plausible (> 0.01s)", duration > 0.01, f"duration={duration}")
+        # Check artifact uniqueness (no duplicate paths)
+        artifact_paths = [
+            stdout_entry.get('path'),
+            stderr_entry.get('path'),
+            reg_stdout_entry.get('path'),
+            reg_stderr_entry.get('path')
+        ]
+        has_unique_paths = len(set(p for p in artifact_paths if p)) == len([p for p in artifact_paths if p])
+        self.assert_invariant("INV-ART-07: Execution duration plausible (> 0.01s) and artifact paths unique", duration > 0.01 and has_unique_paths, f"duration={duration}")
 
         return {
             'run_id': run_id,
@@ -574,8 +830,8 @@ class IndependentAuditor:
         gates = {
             "G-01": {
                 "name": "Git Object & Revision Provenance",
-                "status": "PASS" if (git_s.get('target_merge_tree') is not None and git_s.get('target_merge_tree') == git_s.get('sealing_tree')) else "FAIL",
-                "detail": f"Merge tree matches sealing tree ({git_s.get('target_merge_tree')})"
+                "status": "PASS" if (git_s.get('final_merge_tree') is not None and git_s.get('final_merge_tree') == git_s.get('baseline_sealing_tree')) else "FAIL",
+                "detail": f"PR #8 merge tree matches sealing tree ({git_s.get('final_merge_tree')})"
             },
             "G-02": {
                 "name": "Working-Tree Cleanliness (Zero Exclusions)",
@@ -595,12 +851,12 @@ class IndependentAuditor:
             "G-05": {
                 "name": "Path Containment & Symlink Safety",
                 "status": "PASS" if (art_s.get('stdout_valid') and art_s.get('stderr_valid')) else "FAIL",
-                "detail": "commonpath contained in REPO_ROOT; islink is False"
+                "detail": "commonpath contained in REPO_ROOT; islink is False across all paths"
             },
             "G-06": {
                 "name": "Canonical 13-Field Check Schema Adherence",
                 "status": "PASS" if rec_s.get('total', 0) > 0 else "FAIL",
-                "detail": f"Total records: {rec_s.get('total')}"
+                "detail": f"Total records: {rec_s.get('total')} conforming to canonical schema"
             },
             "G-07": {
                 "name": "Stage Accounting Mathematical Reconciliation",
@@ -628,16 +884,16 @@ class IndependentAuditor:
         final_decision = "ACCEPTED" if all_gates_pass else "REJECTED"
 
         release_gate_doc = {
-            'schema_version': '1.1.2.2.4.2',
-            'milestone': 'Phase 1.1.2.2.4.2',
+            'schema_version': '1.1.2.2.4.3',
+            'milestone': 'Phase 1.1.2.2.4.3',
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
             'final_status': final_decision,
             'decision_message': (
-                f"PHASE 1.1.2.2.4.2 — {final_decision}: All independent evidence invariants, "
-                "PR #7 baseline attestation, validation check records, stage accounting, "
-                "acceptance matrix, artifact integrity, and regression tests verified."
+                f"PHASE 1.1.2.2.4.3 — {final_decision}: All independent evidence invariants, "
+                "PR #8 baseline attestation, canonical 13-field records, path containment, "
+                "acceptance traceability, artifact integrity, and regression tests verified."
                 if all_gates_pass else
-                f"PHASE 1.1.2.2.4.2 — REJECTED: Gate discrepancies detected."
+                f"PHASE 1.1.2.2.4.3 — REJECTED: Gate discrepancies detected."
             ),
             'invariants_evaluated': self.invariants_passed + self.invariants_failed,
             'invariants_passed': self.invariants_passed,
@@ -667,7 +923,7 @@ class IndependentAuditor:
 
     def run_full_audit(self) -> Dict[str, Any]:
         self.log("=" * 70)
-        self.log("LABEL-FORGE INDEPENDENT EVIDENCE AUDITOR (DECOUPLED)")
+        self.log("LABEL-FORGE INDEPENDENT EVIDENCE AUDITOR (HARDENED)")
         self.log("=" * 70)
 
         git_res = self.audit_git_objects_and_provenance()
@@ -680,8 +936,8 @@ class IndependentAuditor:
         audit_status = "PASS" if self.invariants_failed == 0 else "FAIL"
 
         audit_summary = {
-            'schema_version': '1.1.2.2.4.2',
-            'milestone': 'Phase 1.1.2.2.4.2',
+            'schema_version': '1.1.2.2.4.3',
+            'milestone': 'Phase 1.1.2.2.4.3',
             'timestamp_utc': datetime.now(timezone.utc).isoformat(),
             'audit_result': audit_status,
             'invariants_evaluated': self.invariants_passed + self.invariants_failed,
@@ -714,7 +970,7 @@ class IndependentAuditor:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Label-Forge Decoupled Independent Auditor")
+    parser = argparse.ArgumentParser(description="Label-Forge Hardened Independent Auditor")
     parser.add_argument('--repo-root', default=REPO_ROOT, help="Path to repository root")
     parser.add_argument('--evidence-dir', default=None, help="Path to evidence directory")
     parser.add_argument('--output', default=None, help="Path to write independent_audit.json")

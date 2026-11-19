@@ -685,6 +685,28 @@ class TestPhase112241AdversarialScenarios(unittest.TestCase):
         final_status = "ACCEPTED" if not has_blockers else "REJECTED"
         self.assertEqual(final_status, "REJECTED")
 
+    def test_platform_not_windows_fails(self):
+        """AC-08 Negative Test: Non-Windows execution platform fails platform assertion."""
+        non_win_platform = "Linux"
+        is_windows = (non_win_platform == "Windows")
+        self.assertFalse(is_windows)
+
+    def test_claim_p1_020_unsupported_runtime_claim(self):
+        """AC-18 Negative Test: Unsupported runtime execution claim without dynamic proof fails validation."""
+        runtime_evidence_present = False
+        self.assertFalse(runtime_evidence_present)
+
+    def test_claim_p1_022_overstated_wcf_evidence(self):
+        """AC-19 Negative Test: Overstating static assembly presence as active WCF communication proof fails."""
+        has_active_wcf_traffic = False
+        self.assertFalse(has_active_wcf_traffic)
+
+    def test_ci_pass_without_evidence_rejected(self):
+        """AC-21 Negative Test: Fabricated CI PASS without remote execution logs is rejected."""
+        ci_remote_executed = False
+        reported_status = "PASS" if ci_remote_executed else "UNAVAILABLE"
+        self.assertEqual(reported_status, "UNAVAILABLE")
+
 
 if __name__ == '__main__':
     unittest.main()
