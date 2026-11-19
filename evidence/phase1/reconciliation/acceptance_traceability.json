@@ -1,30 +1,30 @@
 {
-  "schema_version": "1.1.2.2.4.2",
-  "milestone": "Phase 1.1.2.2.4.2 — Independent Audit Correctness & Post-Merge Verification",
-  "timestamp_utc": "2026-11-18T16:15:00Z",
+  "schema_version": "1.1.2.2.4.3",
+  "milestone": "Phase 1.1.2.2.4.3 — Independent Auditor Hardening & Evidence Integrity Revalidation",
+  "timestamp_utc": "2026-11-19T16:00:00Z",
   "reverse_engineering_required": false,
   "reverse_engineering_scoping_rationale": "Phase 1 acceptance criteria establish PE metadata, dependency reconciliation, and verification integrity; no native binary decompilation or Ghidra execution is required.",
   "total_criteria": 22,
   "criteria": [
     {
       "criterion_id": "AC-01",
-      "title": "PR #7 Baseline Merge Commit Object Resolution",
+      "title": "PR #8 Baseline Merge Commit Object Resolution",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["git_verification_pr7_merge_commit"],
+      "positive_check_ids": ["git_verification_pr8_merge_commit"],
       "negative_test_ids": ["test_T01_wrong_implementation_commit", "test_invalid_commit_sha_fails"],
       "primary_evidence": "scripts/validation/git_verification.py",
-      "semantic_justification": "Resolves PR #7 merge commit 55ea077a47099a97f839e0d878934088a3a4e0e0 in Git object database via git cat-file."
+      "semantic_justification": "Resolves PR #8 merge commit 4595937e990badf9a8e136346f408a4182aac3f4 in Git object database via git cat-file."
     },
     {
       "criterion_id": "AC-02",
-      "title": "PR #7 Merge Tree SHA Resolution",
+      "title": "PR #8 Merge Tree SHA Resolution",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["git_verification_pr7_tree"],
+      "positive_check_ids": ["git_verification_pr8_tree"],
       "negative_test_ids": ["test_T02_wrong_validation_tree_sha", "test_mismatched_tree_sha_fails"],
       "primary_evidence": "scripts/validation/git_verification.py",
-      "semantic_justification": "Independently computes and verifies PR #7 merge tree SHA 023ddda8ac3f61e49de429ed6e236f9be159105d."
+      "semantic_justification": "Independently computes and verifies PR #8 merge tree SHA 6f1ffad3c20695efa1be187e3528d847574f4c75."
     },
     {
       "criterion_id": "AC-03",
@@ -34,7 +34,7 @@
       "positive_check_ids": ["git_verification_tree_equivalence"],
       "negative_test_ids": ["test_T04_wrong_final_merge_commit"],
       "primary_evidence": "scripts/validation/git_verification.py",
-      "semantic_justification": "Verifies TREE_EQUIVALENT between PR #7 merge commit 55ea077 and sealing commit 07bc314 (both tree 023ddda...)."
+      "semantic_justification": "Verifies TREE_EQUIVALENT between PR #8 merge commit 4595937 and sealing commit 36c317b (both tree 6f1ffad...)."
     },
     {
       "criterion_id": "AC-04",
@@ -71,7 +71,7 @@
       "title": "Fresh Execution Against Validated Revision",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["fresh_execution_verified"],
+      "positive_check_ids": ["fresh_phase1_1_2_2_4_3_execution_verified"],
       "negative_test_ids": ["test_T22_wrong_milestone_identifier"],
       "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
       "semantic_justification": "Verifies fresh execution run against current validated revision with complete lifecycle start and end timestamps."

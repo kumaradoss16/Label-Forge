@@ -71,11 +71,17 @@ def generate_provenance_record(
         is_clean = False
         status_porcelain = "GIT_STATUS_FAILED"
 
-    # Check for PR #7 in repo
-    ok_pr7, _, _ = resolve_git_commit_and_tree("55ea077a47099a97f839e0d878934088a3a4e0e0", repo_root)
-    default_baseline = "55ea077a47099a97f839e0d878934088a3a4e0e0" if ok_pr7 else "56f70518b14a2fe3cd96a56c683ab1b717639f04"
-    default_prev_impl = "89a62b053dae854bfc33544d12a82c64c775401c" if ok_pr7 else "225ab2a31e44b265503d0d3f8a8ae937beca83f0"
-    default_prev_seal = "07bc314c56fedbe8b2b0e2ba428195422b416acd" if ok_pr7 else "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3"
+    # Check for PR #8 in repo
+    ok_pr8, _, _ = resolve_git_commit_and_tree("4595937e990badf9a8e136346f408a4182aac3f4", repo_root)
+    if ok_pr8:
+        default_baseline = "4595937e990badf9a8e136346f408a4182aac3f4"
+        default_prev_impl = "f72ec1f7d156beb02f52b3a403c609a109c7c30b"
+        default_prev_seal = "36c317b29ea913cc9d114c126fd4628dab8bd12f"
+    else:
+        ok_pr7, _, _ = resolve_git_commit_and_tree("55ea077a47099a97f839e0d878934088a3a4e0e0", repo_root)
+        default_baseline = "55ea077a47099a97f839e0d878934088a3a4e0e0" if ok_pr7 else "56f70518b14a2fe3cd96a56c683ab1b717639f04"
+        default_prev_impl = "89a62b053dae854bfc33544d12a82c64c775401c" if ok_pr7 else "225ab2a31e44b265503d0d3f8a8ae937beca83f0"
+        default_prev_seal = "07bc314c56fedbe8b2b0e2ba428195422b416acd" if ok_pr7 else "6d8cad29c0b7b25459aa4f68a3cec96d88e053a3"
 
     # Resolve baseline & final merge commit & tree
     baseline_merge = baseline_merge_commit_sha or default_baseline
