@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.1.2.2.4.4",
+  "milestone": "Phase 1.1.2.2.4.4",
+  "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+  "generated_at_utc": "2026-11-20T16:35:51.252753+00:00",
+  "artifacts_count": 12,
+  "artifacts": {
+    "stdout": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/stdout.log",
+      "byte_size": 23145,
+      "sha256": "f6db3a9ac58fbb2bb51e7a94b49fda75c4258c21d154e81485dfae5492cec79a",
+      "artifact_type": "execution_log",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "stderr": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/stderr.log",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifact_type": "execution_log",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "regression_stdout": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stdout.txt",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifact_type": "execution_log",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "regression_stderr": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+      "byte_size": 43486,
+      "sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15",
+      "artifact_type": "execution_log",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "validation_results": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_results.json",
+      "byte_size": 372398,
+      "sha256": "0ab98eacd7d8b78ea197af054815f647d1c90844ee488ac2a786985b26bf464d",
+      "artifact_type": "validation_evidence",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "execution_manifest": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/execution_manifest.json",
+      "byte_size": 3351,
+      "sha256": "b877b80a1e8ee074883f6ad8d71c7f52404a10f3d0a1d1f45196665ca53a808c",
+      "artifact_type": "execution_manifest",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "accounting_summary": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/accounting_summary.json",
+      "byte_size": 2913,
+      "sha256": "fd5fdef5865e5a031674c416e87e82ecadbfdb09b1c7c181ed65b0501d6c6e83",
+      "artifact_type": "accounting_summary",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "acceptance_matrix": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_matrix.json",
+      "byte_size": 11593,
+      "sha256": "6898fdaee9587db044c22f7fdbecf196677debcf8eb7f4a9aa52032b1a20d176",
+      "artifact_type": "acceptance_matrix",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "validation_provenance": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_provenance.json",
+      "byte_size": 30904,
+      "sha256": "563ec88e9f731b617f4258d4a9ecf3532f1ce41fd366750704c15775f532691d",
+      "artifact_type": "provenance_record",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "acceptance_execution_records": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_execution_records.json",
+      "byte_size": 47056,
+      "sha256": "4c1417396191f2c1f887bf2627e294e5a58b54cf066cf1af6ae79b246c3e093c",
+      "artifact_type": "acceptance_records",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "acceptance_traceability_evaluation": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_traceability_evaluation.json",
+      "byte_size": 12023,
+      "sha256": "76d4dd2dc5b1eac26feece9071d44d72d6812296a8ad9384c067eb08657ae0dd",
+      "artifact_type": "acceptance_evaluation",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    },
+    "git_provenance_manifest": {
+      "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/git_provenance_manifest.json",
+      "byte_size": 6908,
+      "sha256": "33cb186046803f39fd977e6bea74a700fd2b4dfc5291aeb16a5bc2c5cca42ed3",
+      "artifact_type": "git_provenance_manifest",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "producing_revision": "66fe846839a45219c35149401c07e40520782a29"
+    }
+  }
+}

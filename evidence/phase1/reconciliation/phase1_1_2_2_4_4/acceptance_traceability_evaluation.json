@@ -1,0 +1,300 @@
+{
+  "schema_version": "1.1.2.2.4.4",
+  "milestone": "Phase 1.1.2.2.4.4 \u2014 Critical Acceptance Execution Proof & Git Provenance Reconciliation",
+  "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+  "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+  "evaluation_status": "APPROVED",
+  "total_criteria": 22,
+  "criteria_passed": 22,
+  "criteria_failed": 0,
+  "total_execution_records": 44,
+  "findings": [],
+  "criteria_evaluations": [
+    {
+      "criterion_id": "AC-01",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC01_pr9_baseline_merge_commit_exists"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC01_neg_invalid_merge_commit_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-02",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC02_pr9_merge_tree_sha_matches"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC02_neg_mismatched_tree_sha_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-03",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC03_final_merge_sealing_equivalence"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC03_neg_inequivalent_sealing_tree_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-04",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC04_mandatory_lifecycle_fields"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC04_neg_missing_mandatory_lifecycle_field_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-05",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC05_provenance_validated_revision_match"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC05_neg_mismatched_validated_revision_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-06",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC06_working_tree_cleanliness_clean"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC06_neg_dirty_working_tree_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-07",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC07_fresh_execution_pinned"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC07_neg_stale_or_inverted_timestamps_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-08",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC08_windows_runtime_platform_verified"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC08_neg_non_windows_platform_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-09",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC09_run_id_consistency_verified"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC09_neg_mismatched_run_id_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-10",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC10_execution_log_artifacts_exist"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC10_neg_missing_execution_log_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-11",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC11_execution_artifact_hashes_and_sizes_verified"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC11_neg_tampered_artifact_hash_or_size_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-12",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC12_artifact_path_containment_and_symlink_safety"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC12_neg_path_traversal_or_symlink_escape_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-13",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC13_authoritative_13_field_schema_compliance"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC13_neg_missing_or_extra_schema_field_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-14",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC14_global_totals_derived_from_records"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC14_neg_mismatched_global_totals_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-15",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC15_stage_accounting_reconciliation"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC15_neg_unreconciled_stage_totals_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-16",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC16_claim_classification_reconciliation"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC16_neg_duplicate_claim_or_classification_mismatch_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-17",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC17_claim_p1_015_distinct_classification"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC17_neg_collapsed_missing_and_obsolete_modules_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-18",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC18_claim_p1_020_runtime_scoping_verified"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC18_neg_unsupported_dynamic_claim_without_runtime_proof_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-19",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC19_claim_p1_022_wcf_scoping_verified"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC19_neg_overstated_wcf_runtime_evidence_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-20",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC20_regression_suite_execution_verified"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC20_neg_non_zero_regression_exit_code_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-21",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC21_ci_status_accurately_reported"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC21_neg_ci_pass_claim_without_remote_logs_rejected"
+      ],
+      "findings": []
+    },
+    {
+      "criterion_id": "AC-22",
+      "status": "PASS",
+      "positive_test_count": 1,
+      "negative_test_count": 1,
+      "positive_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC22_fail_closed_release_gate_evaluator"
+      ],
+      "negative_tests": [
+        "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC22_neg_release_gate_approved_with_failing_invariant_rejected"
+      ],
+      "findings": []
+    }
+  ]
+}

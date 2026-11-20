@@ -1,230 +1,392 @@
 {
-  "schema_version": "1.1.2.2.4.3",
-  "milestone": "Phase 1.1.2.2.4.3 — Independent Auditor Hardening & Evidence Integrity Revalidation",
-  "timestamp_utc": "2026-11-19T16:00:00Z",
+  "schema_version": "1.1.2.2.4.4",
+  "milestone": "Phase 1.1.2.2.4.4 \u2014 Critical Acceptance Execution Proof & Git Provenance Reconciliation",
+  "timestamp_utc": "2026-11-20T16:00:00Z",
   "reverse_engineering_required": false,
   "reverse_engineering_scoping_rationale": "Phase 1 acceptance criteria establish PE metadata, dependency reconciliation, and verification integrity; no native binary decompilation or Ghidra execution is required.",
   "total_criteria": 22,
   "criteria": [
     {
       "criterion_id": "AC-01",
-      "title": "PR #8 Baseline Merge Commit Object Resolution",
+      "title": "PR #9 Baseline Merge Commit Object Resolution",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["git_verification_pr8_merge_commit"],
-      "negative_test_ids": ["test_T01_wrong_implementation_commit", "test_invalid_commit_sha_fails"],
+      "positive_check_ids": [
+        "git_verification_pr9_merge_commit"
+      ],
+      "negative_test_ids": [
+        "test_T01_wrong_implementation_commit",
+        "test_invalid_commit_sha_fails"
+      ],
       "primary_evidence": "scripts/validation/git_verification.py",
-      "semantic_justification": "Resolves PR #8 merge commit 4595937e990badf9a8e136346f408a4182aac3f4 in Git object database via git cat-file."
+      "semantic_justification": "Resolves PR #9 merge commit 4e63e50d2a46340d1a2ce89646c6ea135b5422fe in Git object database via git cat-file.",
+      "positive_test_ids": [
+        "test_AC01_pr9_baseline_merge_commit_exists"
+      ]
     },
     {
       "criterion_id": "AC-02",
-      "title": "PR #8 Merge Tree SHA Resolution",
+      "title": "PR #9 Merge Tree SHA Resolution",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["git_verification_pr8_tree"],
-      "negative_test_ids": ["test_T02_wrong_validation_tree_sha", "test_mismatched_tree_sha_fails"],
+      "positive_check_ids": [
+        "git_verification_pr9_tree"
+      ],
+      "negative_test_ids": [
+        "test_T02_wrong_validation_tree_sha",
+        "test_mismatched_tree_sha_fails"
+      ],
       "primary_evidence": "scripts/validation/git_verification.py",
-      "semantic_justification": "Independently computes and verifies PR #8 merge tree SHA 6f1ffad3c20695efa1be187e3528d847574f4c75."
+      "semantic_justification": "Independently computes and verifies PR #9 merge tree SHA 9f5567d497edfb6e9e6e62dcc6343c187b1ed5d4.",
+      "positive_test_ids": [
+        "test_AC02_pr9_merge_tree_sha_matches"
+      ]
     },
     {
       "criterion_id": "AC-03",
       "title": "Final Merge & Sealing Commit Tree Equivalence",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["git_verification_tree_equivalence"],
-      "negative_test_ids": ["test_T04_wrong_final_merge_commit"],
+      "positive_check_ids": [
+        "git_verification_tree_equivalence"
+      ],
+      "negative_test_ids": [
+        "test_T04_wrong_final_merge_commit"
+      ],
       "primary_evidence": "scripts/validation/git_verification.py",
-      "semantic_justification": "Verifies TREE_EQUIVALENT between PR #8 merge commit 4595937 and sealing commit 36c317b (both tree 6f1ffad...)."
+      "semantic_justification": "Verifies TREE_EQUIVALENT between PR #9 merge commit 4e63e50 and sealing commit f9702d5 (both tree 9f5567d497edfb6e9e6e62dcc6343c187b1ed5d4).",
+      "positive_test_ids": [
+        "test_AC03_final_merge_sealing_equivalence"
+      ]
     },
     {
       "criterion_id": "AC-04",
       "title": "Mandatory Lifecycle Fields in Provenance",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["provenance_mandatory_fields_verified"],
-      "negative_test_ids": ["test_T20_source_revision_provenance_mismatch"],
+      "positive_check_ids": [
+        "provenance_mandatory_fields_verified"
+      ],
+      "negative_test_ids": [
+        "test_T20_source_revision_provenance_mismatch"
+      ],
       "primary_evidence": "scripts/validation/provenance.py",
-      "semantic_justification": "Ensures commit, tree, author, committer, and parent relationship fields are mandatory in provenance documents."
+      "semantic_justification": "Ensures commit, tree, author, committer, and parent relationship fields are mandatory in provenance documents.",
+      "positive_test_ids": [
+        "test_AC04_mandatory_lifecycle_fields"
+      ]
     },
     {
       "criterion_id": "AC-05",
       "title": "Provenance Validated Revision Match",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["provenance_revision_matches_validation"],
-      "negative_test_ids": ["test_T21_validator_or_manifest_hash_mismatch"],
+      "positive_check_ids": [
+        "provenance_revision_matches_validation"
+      ],
+      "negative_test_ids": [
+        "test_T21_validator_or_manifest_hash_mismatch"
+      ],
       "primary_evidence": "scripts/validation/provenance.py",
-      "semantic_justification": "Verifies that the provenance revision matches the exact commit and tree validated during execution."
+      "semantic_justification": "Verifies that the provenance revision matches the exact commit and tree validated during execution.",
+      "positive_test_ids": [
+        "test_AC05_provenance_validated_revision_match"
+      ]
     },
     {
       "criterion_id": "AC-06",
       "title": "Full Working-Tree Cleanliness (Zero Exclusions)",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["working_tree_cleanliness_unfiltered"],
-      "negative_test_ids": ["test_T05_dirty_tracked_source_file", "test_T06_untracked_evidence_file"],
+      "positive_check_ids": [
+        "working_tree_cleanliness_unfiltered"
+      ],
+      "negative_test_ids": [
+        "test_T05_dirty_tracked_source_file",
+        "test_T06_untracked_evidence_file"
+      ],
       "primary_evidence": "scripts/validation/git_verification.py",
-      "semantic_justification": "Executes git status --porcelain with zero directory or file exclusions; requires exactly 0 dirty lines."
+      "semantic_justification": "Executes git status --porcelain with zero directory or file exclusions; requires exactly 0 dirty lines.",
+      "positive_test_ids": [
+        "test_AC06_working_tree_cleanliness_clean"
+      ]
     },
     {
       "criterion_id": "AC-07",
       "title": "Fresh Execution Against Validated Revision",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["fresh_phase1_1_2_2_4_3_execution_verified"],
-      "negative_test_ids": ["test_T22_wrong_milestone_identifier"],
+      "positive_check_ids": [
+        "fresh_phase1_1_2_2_4_4_execution_verified"
+      ],
+      "negative_test_ids": [
+        "test_T22_wrong_milestone_identifier"
+      ],
       "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
-      "semantic_justification": "Verifies fresh execution run against current validated revision with complete lifecycle start and end timestamps."
+      "semantic_justification": "Verifies fresh execution run against current validated revision with complete lifecycle start and end timestamps.",
+      "positive_test_ids": [
+        "test_AC07_fresh_execution_pinned"
+      ]
     },
     {
       "criterion_id": "AC-08",
       "title": "Windows Runtime Platform Verification",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["windows_runtime_platform_verified"],
-      "negative_test_ids": ["test_platform_not_windows_fails"],
+      "positive_check_ids": [
+        "windows_runtime_platform_verified"
+      ],
+      "negative_test_ids": [
+        "test_platform_not_windows_fails"
+      ],
       "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
-      "semantic_justification": "Verifies that execution environment is win32 on Windows 10 x64, matching production target requirements."
+      "semantic_justification": "Verifies that execution environment is win32 on Windows 10 x64, matching production target requirements.",
+      "positive_test_ids": [
+        "test_AC08_windows_runtime_platform_verified"
+      ]
     },
     {
       "criterion_id": "AC-09",
       "title": "Consistent Run ID Propagation",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["unique_run_id_consistency_verified"],
-      "negative_test_ids": ["test_T23_mismatched_run_ids"],
+      "positive_check_ids": [
+        "unique_run_id_consistency_verified"
+      ],
+      "negative_test_ids": [
+        "test_T23_mismatched_run_ids"
+      ],
       "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
-      "semantic_justification": "Ensures single unique run ID is shared across manifest, stdout/stderr artifacts, audit, and gate results."
+      "semantic_justification": "Ensures single unique run ID is shared across manifest, stdout/stderr artifacts, audit, and gate results.",
+      "positive_test_ids": [
+        "test_AC09_run_id_consistency_verified"
+      ]
     },
     {
       "criterion_id": "AC-10",
       "title": "Complete Execution Log Artifact Availability",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["execution_log_artifacts_exist"],
-      "negative_test_ids": ["test_T21_regression_output_omitted_from_manifest", "test_missing_stderr_log_fails"],
-      "primary_evidence": "evidence/phase1/reconciliation/executions/",
-      "semantic_justification": "Verifies that stdout.log, stderr.log, regression.stdout.txt, and regression.stderr.txt exist on disk."
+      "positive_check_ids": [
+        "execution_log_artifacts_exist"
+      ],
+      "negative_test_ids": [
+        "test_T21_regression_output_omitted_from_manifest",
+        "test_missing_stderr_log_fails"
+      ],
+      "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
+      "semantic_justification": "Verifies that stdout.log, stderr.log, regression.stdout.txt, and regression.stderr.txt exist on disk.",
+      "positive_test_ids": [
+        "test_AC10_execution_log_artifacts_exist"
+      ]
     },
     {
       "criterion_id": "AC-11",
       "title": "Execution Artifact SHA-256 and Byte Size Verification",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["execution_log_hashes_and_sizes_verified"],
-      "negative_test_ids": ["test_T15_modified_artifact_hash", "test_T16_modified_artifact_size"],
+      "positive_check_ids": [
+        "execution_log_hashes_and_sizes_verified"
+      ],
+      "negative_test_ids": [
+        "test_T15_modified_artifact_hash",
+        "test_T16_modified_artifact_size"
+      ],
       "primary_evidence": "evidence/phase1/reconciliation/execution_manifest.json",
-      "semantic_justification": "Recomputes SHA-256 hashes and byte lengths directly from disk and compares against declared manifest values."
+      "semantic_justification": "Recomputes SHA-256 hashes and byte lengths directly from disk and compares against declared manifest values.",
+      "positive_test_ids": [
+        "test_AC11_execution_artifact_hashes_and_sizes_verified"
+      ]
     },
     {
       "criterion_id": "AC-12",
       "title": "Artifact Path Containment & Symlink Safety",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["artifact_path_containment_and_symlink_safety"],
-      "negative_test_ids": ["test_T17_path_traversal_attempt", "test_T18_symlink_escape"],
+      "positive_check_ids": [
+        "artifact_path_containment_and_symlink_safety"
+      ],
+      "negative_test_ids": [
+        "test_T17_path_traversal_attempt",
+        "test_T18_symlink_escape"
+      ],
       "primary_evidence": "scripts/validation/evidence_integrity.py",
-      "semantic_justification": "Enforces os.path.commonpath containment within REPO_ROOT and requires os.path.islink is False for all paths."
+      "semantic_justification": "Enforces os.path.commonpath containment within REPO_ROOT and requires os.path.islink is False for all paths.",
+      "positive_test_ids": [
+        "test_AC12_artifact_path_containment_and_symlink_safety"
+      ]
     },
     {
       "criterion_id": "AC-13",
       "title": "Authoritative 13-Field Check Schema Compliance",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["authoritative_check_model_verified"],
-      "negative_test_ids": ["test_T10_duplicate_check_id", "test_T11_missing_stage_id"],
+      "positive_check_ids": [
+        "authoritative_check_model_verified"
+      ],
+      "negative_test_ids": [
+        "test_T10_duplicate_check_id",
+        "test_T11_missing_stage_id"
+      ],
       "primary_evidence": "docs/validation/VALIDATION_RECORD_SCHEMA.md",
-      "semantic_justification": "Ensures every check record possesses all 13 canonical schema fields, unique check_id, and valid status token."
+      "semantic_justification": "Ensures every check record possesses all 13 canonical schema fields, unique check_id, and valid status token.",
+      "positive_test_ids": [
+        "test_AC13_authoritative_13_field_schema_compliance"
+      ]
     },
     {
       "criterion_id": "AC-14",
       "title": "Global Totals Derived from Validation Records",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["global_totals_derived_from_records"],
-      "negative_test_ids": ["test_T12_incorrect_total_record_count"],
+      "positive_check_ids": [
+        "global_totals_derived_from_records"
+      ],
+      "negative_test_ids": [
+        "test_T12_incorrect_total_record_count"
+      ],
       "primary_evidence": "evidence/phase1/reconciliation/accounting_summary.json",
-      "semantic_justification": "Asserts mathematical equality between raw record counts and overall accounting summary totals."
+      "semantic_justification": "Asserts mathematical equality between raw record counts and overall accounting summary totals.",
+      "positive_test_ids": [
+        "test_AC14_global_totals_derived_from_records"
+      ]
     },
     {
       "criterion_id": "AC-15",
       "title": "Stage Accounting Reconciliation",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["stage_totals_reconciled_with_global_count"],
-      "negative_test_ids": ["test_T13_stage_totals_do_not_reconcile"],
+      "positive_check_ids": [
+        "stage_totals_reconciled_with_global_count"
+      ],
+      "negative_test_ids": [
+        "test_T13_stage_totals_do_not_reconcile"
+      ],
       "primary_evidence": "evidence/phase1/reconciliation/accounting_summary.json",
-      "semantic_justification": "Verifies that the sum of checks across all 10 registered stages exactly equals total checks."
+      "semantic_justification": "Verifies that the sum of checks across all 10 registered stages exactly equals total checks.",
+      "positive_test_ids": [
+        "test_AC15_stage_accounting_reconciliation"
+      ]
     },
     {
       "criterion_id": "AC-16",
       "title": "Claim Classification Reconciliation",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["claim_classifications_reconciled_across_artifacts"],
-      "negative_test_ids": ["test_T14_invalid_claim_status", "test_T15_incorrect_claim_status_totals"],
+      "positive_check_ids": [
+        "claim_classifications_reconciled_across_artifacts"
+      ],
+      "negative_test_ids": [
+        "test_T14_invalid_claim_status",
+        "test_T15_incorrect_claim_status_totals"
+      ],
       "primary_evidence": "evidence/phase1/reconciliation/claim_register.json",
-      "semantic_justification": "Reconciles claim status classifications (VERIFIED, INFERRED, UNAVAILABLE, UNVERIFIED) across all artifacts."
+      "semantic_justification": "Reconciles claim status classifications (VERIFIED, INFERRED, UNAVAILABLE, UNVERIFIED) across all artifacts.",
+      "positive_test_ids": [
+        "test_AC16_claim_classification_reconciliation"
+      ]
     },
     {
       "criterion_id": "AC-17",
       "title": "P1-015 Physical Missing vs Obsolete Classification",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["claim_p1_015_distinct_classification"],
-      "negative_test_ids": ["test_T07_missing_dependency_category"],
+      "positive_check_ids": [
+        "claim_p1_015_distinct_classification"
+      ],
+      "negative_test_ids": [
+        "test_T07_missing_dependency_category"
+      ],
       "primary_evidence": "scripts/validation/claim_assertions.py",
-      "semantic_justification": "Ensures physically missing modules and obsolete placeholder DLLs remain distinctly categorized."
+      "semantic_justification": "Ensures physically missing modules and obsolete placeholder DLLs remain distinctly categorized.",
+      "positive_test_ids": [
+        "test_AC17_claim_p1_015_distinct_classification"
+      ]
     },
     {
       "criterion_id": "AC-18",
       "title": "P1-020 .NET Runtime Behavior Scoping",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["claim_p1_020_runtime_scoping_verified"],
-      "negative_test_ids": ["test_claim_p1_020_unsupported_runtime_claim"],
+      "positive_check_ids": [
+        "claim_p1_020_runtime_scoping_verified"
+      ],
+      "negative_test_ids": [
+        "test_claim_p1_020_unsupported_runtime_claim"
+      ],
       "primary_evidence": "scripts/validation/claim_assertions.py",
-      "semantic_justification": "Verifies that static IL analysis of .NET assemblies is not overstated as live runtime behavior."
+      "semantic_justification": "Verifies that static IL analysis of .NET assemblies is not overstated as live runtime behavior.",
+      "positive_test_ids": [
+        "test_AC18_claim_p1_020_runtime_scoping_verified"
+      ]
     },
     {
       "criterion_id": "AC-19",
       "title": "P1-022 WCF Licensing Scoping Verification",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["claim_p1_022_wcf_scoping_verified"],
-      "negative_test_ids": ["test_claim_p1_022_overstated_wcf_evidence"],
+      "positive_check_ids": [
+        "claim_p1_022_wcf_scoping_verified"
+      ],
+      "negative_test_ids": [
+        "test_claim_p1_022_overstated_wcf_evidence"
+      ],
       "primary_evidence": "scripts/validation/claim_assertions.py",
-      "semantic_justification": "Verifies that licensing assembly presence is not overstated as active WCF runtime execution proof."
+      "semantic_justification": "Verifies that licensing assembly presence is not overstated as active WCF runtime execution proof.",
+      "positive_test_ids": [
+        "test_AC19_claim_p1_022_wcf_scoping_verified"
+      ]
     },
     {
       "criterion_id": "AC-20",
       "title": "Regression & Adversarial Suite Real Execution",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["regression_suite_execution_verified"],
-      "negative_test_ids": ["test_T24_warning_or_not_checked_result_incorrectly_treated_as_approval"],
+      "positive_check_ids": [
+        "regression_suite_execution_verified"
+      ],
+      "negative_test_ids": [
+        "test_T24_warning_or_not_checked_result_incorrectly_treated_as_approval"
+      ],
       "primary_evidence": "tests/test_adversarial_regressions.py",
-      "semantic_justification": "Executes all unit and adversarial regression tests in clean subprocess, verifying exit code 0."
+      "semantic_justification": "Executes all unit and adversarial regression tests in clean subprocess, verifying exit code 0.",
+      "positive_test_ids": [
+        "test_AC20_regression_suite_execution_verified"
+      ]
     },
     {
       "criterion_id": "AC-21",
       "title": "Truthful CI Status Reporting (UNAVAILABLE)",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["ci_status_accurately_reported"],
-      "negative_test_ids": ["test_ci_pass_without_evidence_rejected"],
+      "positive_check_ids": [
+        "ci_status_accurately_reported"
+      ],
+      "negative_test_ids": [
+        "test_ci_pass_without_evidence_rejected"
+      ],
       "primary_evidence": "reports/57_PHASE1_1_2_2_4_1_FINAL_RELEASE_GATE_DECISION.md",
-      "semantic_justification": "Formally records CI status as UNAVAILABLE; prohibits false PASS claims when remote CI was not run."
+      "semantic_justification": "Formally records CI status as UNAVAILABLE; prohibits false PASS claims when remote CI was not run.",
+      "positive_test_ids": [
+        "test_AC21_ci_status_accurately_reported"
+      ]
     },
     {
       "criterion_id": "AC-22",
       "title": "Independent Release Gate Fail-Closed Evaluation",
       "required": true,
       "status": "PASS",
-      "positive_check_ids": ["fail_closed_release_gate_evaluator"],
-      "negative_test_ids": ["test_T25_independent_auditor_disagrees_with_primary_validator"],
+      "positive_check_ids": [
+        "fail_closed_release_gate_evaluator"
+      ],
+      "negative_test_ids": [
+        "test_T25_independent_auditor_disagrees_with_primary_validator"
+      ],
       "primary_evidence": "scripts/validation/stage_results.py",
-      "semantic_justification": "Enforces fail-closed evaluation: release gate yields ACCEPTED only when all 10 release gates pass."
+      "semantic_justification": "Enforces fail-closed evaluation: release gate yields ACCEPTED only when all 10 release gates pass.",
+      "positive_test_ids": [
+        "test_AC22_fail_closed_release_gate_evaluator"
+      ]
     }
   ]
 }
