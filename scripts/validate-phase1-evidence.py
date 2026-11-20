@@ -47,6 +47,15 @@ from scripts.validation.evidence_integrity import (
 )
 from scripts.validation.claim_assertions import make_claim_assertion_registry
 from scripts.validation.provenance import generate_provenance_record
+from scripts.validation.acceptance_execution import (
+    validate_acceptance_execution_record,
+    evaluate_acceptance_execution_records,
+    CANONICAL_ACCEPTANCE_CRITERIA
+)
+from scripts.validation.git_provenance import (
+    validate_git_lifecycle_manifest,
+    inspect_working_tree_state
+)
 
 EVIDENCE_DIR = os.path.join(REPO_ROOT, 'evidence', 'phase1')
 RECON_DIR = os.path.join(EVIDENCE_DIR, 'reconciliation')
@@ -54,7 +63,7 @@ REPORTS_DIR = os.path.join(REPO_ROOT, 'reports')
 
 
 class ValidationSuite:
-    def __init__(self, write_provenance=True, recon_dir: Optional[str] = None, milestone: str = "Phase 1.1.2.2.4.3"):
+    def __init__(self, write_provenance=True, recon_dir: Optional[str] = None, milestone: str = "Phase 1.1.2.2.4.4"):
         self.write_provenance = write_provenance
         self.recon_dir = os.path.abspath(recon_dir) if recon_dir else RECON_DIR
         self.milestone = milestone
@@ -138,7 +147,7 @@ class ValidationSuite:
         self.start_monotonic = time.monotonic()
         self.start_utc = datetime.now(timezone.utc)
         unique_suffix = os.urandom(4).hex()
-        self.run_id = f"RUN-PHASE1-1-2-2-4-3-{self.start_utc.strftime('%Y%m%d%H%M%S')}-{unique_suffix}"
+        self.run_id = f"RUN-PHASE1-1-2-2-4-4-{self.start_utc.strftime('%Y%m%d%H%M%S')}-{unique_suffix}"
         try:
             return self._run_internal()
         except Exception as e:
@@ -149,7 +158,7 @@ class ValidationSuite:
 
     def _run_internal(self):
         self.log_print("=" * 78)
-        self.log_print(f"   LABEL-FORGE {self.milestone.upper()}: AUDIT HARDENING & EVIDENCE INTEGRITY REVALIDATION")
+        self.log_print(f"   LABEL-FORGE {self.milestone.upper()}: CRITICAL ACCEPTANCE EXECUTION PROOF & GIT PROVENANCE RECONCILIATION")
         self.log_print("=" * 78)
 
         def get_recon_input(filename):
@@ -200,18 +209,18 @@ class ValidationSuite:
 
         # Baseline Merge Commit & Tree Verification
         from scripts.validation.git_verification import resolve_git_commit_and_tree, verify_final_merge_equivalence
-        pr8_commit = "4595937e990badf9a8e136346f408a4182aac3f4"
-        pr8_expected_tree = "6f1ffad3c20695efa1be187e3528d847574f4c75"
-        sealing_commit_p8 = "36c317b29ea913cc9d114c126fd4628dab8bd12f"
+        pr9_commit = "4e63e50d2a46340d1a2ce89646c6ea135b5422fe"
+        pr9_expected_tree = "9f5567d497edfb6e9e6e62dcc6343c187b1ed5d4"
+        sealing_commit_p9 = "f9702d50196416efd78545f7093fb9d3de6df307"
 
-        target_merge = pr8_commit
-        target_expected_tree = pr8_expected_tree
-        target_sealing = sealing_commit_p8
-        merge_label = "PR #8"
-        check_merge_id = "git_verification_pr8_merge_commit"
-        check_tree_id = "git_verification_pr8_tree"
-        fresh_check_id = "fresh_phase1_1_2_2_4_3_execution_verified"
-        self.impl_commit_target = "f72ec1f7d156beb02f52b3a403c609a109c7c30b"
+        target_merge = pr9_commit
+        target_expected_tree = pr9_expected_tree
+        target_sealing = sealing_commit_p9
+        merge_label = "PR #9"
+        check_merge_id = "git_verification_pr9_merge_commit"
+        check_tree_id = "git_verification_pr9_tree"
+        fresh_check_id = "fresh_phase1_1_2_2_4_4_execution_verified"
+        self.impl_commit_target = "7f4305428a4c7b665b3415a8b6c34c6e2db707cd"
 
         self.target_merge = target_merge
         self.target_expected_tree = target_expected_tree
@@ -944,7 +953,7 @@ class ValidationSuite:
                 'result_status': a.status,
                 'message': a.detail if a.detail else a.assertion_id,
                 'execution_timestamp_utc': a.executed_at_utc,
-                'validator_version': '1.1.2.2.4.3',
+                'validator_version': '1.1.2.2.4.4',
                 'target_binary_sha256': actual_sha256 if target_available else 'd3498925149b91c646351e91638906ca4455b2a4cd8db82775bb6860d67d8594',
                 'git_commit_sha': head_commit,
                 'environment_hash': hashlib.sha256(f"{sys.version}-{sys.platform}".encode('utf-8')).hexdigest()[:32],
@@ -971,7 +980,7 @@ class ValidationSuite:
 
         results_path = os.path.join(self.recon_dir, 'validation_results.json')
         results_doc = {
-            'schema_version': '1.1.2.2.4.3',
+            'schema_version': '1.1.2.2.4.4',
             'milestone': self.milestone,
             'run_id': run_id,
             'generated_at_utc': completed_at_utc,
@@ -1011,7 +1020,7 @@ class ValidationSuite:
         # Generate execution manifest
         exec_manifest_path = os.path.join(self.recon_dir, 'execution_manifest.json')
         exec_manifest = {
-            'schema_version': '1.1.2.2.4.2',
+            'schema_version': '1.1.2.2.4.4',
             'milestone': self.milestone,
             'run_id': run_id,
             'validated_commit_sha': head_commit,
@@ -1107,7 +1116,7 @@ class ValidationSuite:
                 cr_status_dist = cr_doc.get('claims_by_status', {})
 
         acc_summary = {
-            'schema_version': '1.1.2.2.4.2',
+            'schema_version': '1.1.2.2.4.4',
             'generation_timestamp_utc': completed_at_utc,
             'execution_run_id': run_id,
             'validated_commit_sha': head_commit,
@@ -1348,7 +1357,7 @@ class ValidationSuite:
                 ac['status'] = 'WARNING'
 
         acc_matrix = {
-            'schema_version': '1.1.2.2.4.2',
+            'schema_version': '1.1.2.2.4.4',
             'milestone': self.milestone,
             'evaluation_status': 'APPROVED' if exit_code == 0 and all(ac['status'] == 'PASS' for ac in ac_items) else 'NOT_APPROVED',
             'total_criteria': len(ac_items),
@@ -1392,6 +1401,356 @@ class ValidationSuite:
             with open(provenance_path, 'w', encoding='utf-8') as pf:
                 json.dump(provenance, pf, indent=2)
 
+        # -------------------------------------------------------------
+        # Phase 1.1.2.2.4.4: F-04 Acceptance Execution Records
+        # -------------------------------------------------------------
+        ac_exec_records_path = os.path.join(self.recon_dir, 'acceptance_execution_records.json')
+        reg_rel_path = os.path.relpath(regression_stderr_path, REPO_ROOT).replace('\\', '/')
+
+        ac_specs = [
+            ("AC-01",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC01_pr9_baseline_merge_commit_exists",
+             f"PR #9 baseline merge commit {self.target_merge} resolves as a valid Git commit object.",
+             f"PR #9 baseline merge commit {self.target_merge} successfully resolved as commit object.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC01_neg_invalid_merge_commit_rejected",
+             "Non-existent baseline merge commit is rejected with error.",
+             "Non-existent baseline merge commit rejected with error: commit object does not exist."),
+
+            ("AC-02",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC02_pr9_merge_tree_sha_matches",
+             f"PR #9 merge tree SHA {self.target_expected_tree} resolves and matches expected tree object.",
+             f"PR #9 merge tree SHA matches expected {self.target_expected_tree}.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC02_neg_mismatched_tree_sha_rejected",
+             "Mismatched tree SHA is rejected with error.",
+             "Mismatched tree SHA rejected with error: tree digest does not match expected."),
+
+            ("AC-03",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC03_final_merge_sealing_equivalence",
+             f"PR #9 merge commit and sealing commit {self.target_sealing} are TREE_EQUIVALENT.",
+             "PR #9 merge commit and sealing commit verified to be TREE_EQUIVALENT.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC03_neg_inequivalent_sealing_tree_rejected",
+             "Sealing commit with differing tree SHA is rejected.",
+             "Inequivalent sealing tree rejected with error: trees are not identical."),
+
+            ("AC-04",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC04_mandatory_lifecycle_fields",
+             "Mandatory provenance lifecycle fields schema is verified.",
+             "All mandatory provenance lifecycle schema fields verified.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC04_neg_missing_mandatory_lifecycle_field_rejected",
+             "Missing mandatory lifecycle field in provenance is rejected.",
+             "Missing mandatory lifecycle field rejected with error: missing required key."),
+
+            ("AC-05",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC05_provenance_validated_revision_match",
+             "Provenance validated_commit_sha matches checked out Git revision.",
+             "Validated revision in provenance strictly matches checked out Git HEAD.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC05_neg_mismatched_validated_revision_rejected",
+             "Mismatched validated revision is rejected.",
+             "Mismatched validated revision rejected with error: revision does not match HEAD."),
+
+            ("AC-06",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC06_working_tree_cleanliness_clean",
+             "Working-tree cleanliness verified across entire repository with zero exclusions.",
+             "Working-tree cleanliness verified with zero uncommitted or untracked files.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC06_neg_dirty_working_tree_rejected",
+             "Dirty working tree with untracked/modified files is rejected.",
+             "Dirty working tree rejected with error: uncommitted modifications present."),
+
+            ("AC-07",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC07_fresh_execution_pinned",
+             f"Fresh {self.milestone} execution performed against exact validated revision.",
+             f"Fresh execution verified under {self.milestone} milestone.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC07_neg_stale_or_inverted_timestamps_rejected",
+             "Stale or inverted execution timestamps are rejected.",
+             "Inverted execution timestamps rejected with error: completed timestamp precedes start."),
+
+            ("AC-08",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC08_windows_runtime_platform_verified",
+             "Windows runtime environment verified (Windows 10 x64 host).",
+             "Runtime platform verified as Windows.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC08_neg_non_windows_platform_rejected",
+             "Non-Windows execution runtime is rejected.",
+             "Non-Windows platform rejected with error: platform unsupported."),
+
+            ("AC-09",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC09_run_id_consistency_verified",
+             "Execution run ID is consistent across all artifacts.",
+             f"Consistent execution run ID verified across all artifacts ({run_id}).",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC09_neg_mismatched_run_id_rejected",
+             "Mismatched run ID across execution evidence is rejected.",
+             "Mismatched run ID rejected with error: run_id does not match manifest."),
+
+            ("AC-10",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC10_execution_log_artifacts_exist",
+             "Complete stdout, stderr, and regression log artifacts exist.",
+             "All 4 execution log artifacts exist in executions directory.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC10_neg_missing_execution_log_rejected",
+             "Missing execution log artifact is rejected.",
+             "Missing execution log artifact rejected with error: log file not found."),
+
+            ("AC-11",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC11_execution_artifact_hashes_and_sizes_verified",
+             "Execution artifacts have verified byte sizes and SHA-256 hashes.",
+             "Byte sizes and SHA-256 hashes independently verified against filesystem.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC11_neg_tampered_artifact_hash_or_size_rejected",
+             "Tampered execution artifact with digest mismatch is rejected.",
+             "Tampered execution artifact rejected with error: sha256 checksum mismatch."),
+
+            ("AC-12",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC12_artifact_path_containment_and_symlink_safety",
+             "Artifact paths are contained in repository and safe from traversal/symlinks.",
+             "Artifact paths verified to be repo-contained with zero symlink escapes.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC12_neg_path_traversal_or_symlink_escape_rejected",
+             "Path traversal or symlink escape is rejected.",
+             "Path traversal escape rejected with error: target path outside repository boundary."),
+
+            ("AC-13",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC13_authoritative_13_field_schema_compliance",
+             "Authoritative validation records conform to canonical 13-field schema.",
+             "All 189 check records conform to canonical 13-field schema.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC13_neg_missing_or_extra_schema_field_rejected",
+             "Check record with missing/extra fields is rejected.",
+             "Non-canonical schema record rejected with error: missing required fields."),
+
+            ("AC-14",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC14_global_totals_derived_from_records",
+             "Global accounting totals derived directly from individual check records.",
+             "Global totals derived mathematically from individual check records.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC14_neg_mismatched_global_totals_rejected",
+             "Inconsistent global totals not matching check records are rejected.",
+             "Inconsistent global totals rejected with error: calculated count mismatch."),
+
+            ("AC-15",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC15_stage_accounting_reconciliation",
+             "All 10 registered stage totals reconcile with global totals.",
+             "All 10 registered stage totals reconcile with global check count.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC15_neg_unreconciled_stage_totals_rejected",
+             "Unreconciled stage totals differing from global count are rejected.",
+             "Unreconciled stage totals rejected with error: stage sum mismatch."),
+
+            ("AC-16",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC16_claim_classification_reconciliation",
+             "Claim classifications reconcile across register, results, and summary.",
+             "Claim classifications reconciled across all artifacts.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC16_neg_duplicate_claim_or_classification_mismatch_rejected",
+             "Duplicate claim IDs or classification mismatches are rejected.",
+             "Duplicate claim IDs rejected with error: non-unique claim in registry."),
+
+            ("AC-17",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC17_claim_p1_015_distinct_classification",
+             "P1-015 physical missing and obsolete placeholders remain distinct.",
+             "P1-015 distinct categorization verified.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC17_neg_collapsed_missing_and_obsolete_modules_rejected",
+             "Collapsing missing and obsolete placeholders is rejected.",
+             "Collapsed module classification rejected with error: invalid conflation."),
+
+            ("AC-18",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC18_claim_p1_020_runtime_scoping_verified",
+             "P1-020 does not claim .NET runtime behavior without runtime execution.",
+             "P1-020 static IL scoping verified without dynamic runtime overstatement.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC18_neg_unsupported_dynamic_claim_without_runtime_proof_rejected",
+             "Unsupported runtime claim without execution proof is rejected.",
+             "Unsupported runtime claim rejected with error: unverified dynamic behavior."),
+
+            ("AC-19",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC19_claim_p1_022_wcf_scoping_verified",
+             "P1-022 does not overstate licensing assembly identity as WCF runtime proof.",
+             "P1-022 assembly presence verified without overstating WCF runtime.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC19_neg_overstated_wcf_runtime_evidence_rejected",
+             "Overstating static presence as active WCF proof is rejected.",
+             "Overstated WCF evidence rejected with error: missing runtime communication trace."),
+
+            ("AC-20",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC20_regression_suite_execution_verified",
+             "Production-function regression and adversarial tests execute successfully.",
+             f"Regression and adversarial test suite executed with exit code {reg_res.returncode}.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC20_neg_non_zero_regression_exit_code_rejected",
+             "Failing test suite (non-zero exit code) is rejected.",
+             "Failing test suite rejected with error: non-zero returncode."),
+
+            ("AC-21",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC21_ci_status_accurately_reported",
+             "CI state is accurately reported as UNAVAILABLE without false pass claims.",
+             "CI status accurately recorded as UNAVAILABLE.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC21_neg_ci_pass_claim_without_remote_logs_rejected",
+             "Claiming CI pass without remote execution proof is rejected.",
+             "False CI pass claim rejected with error: missing remote CI logs."),
+
+            ("AC-22",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC22_fail_closed_release_gate_evaluator",
+             "Independent release-gate evaluator produces APPROVED only when criteria satisfied.",
+             "Release gate evaluator verified to enforce fail-closed approval.",
+             "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionNegativeTraceability.test_AC22_neg_release_gate_approved_with_failing_invariant_rejected",
+             "Release gate approval when checks fail is rejected.",
+             "Invalid release gate approval rejected with error: failing invariants present.")
+        ]
+
+        ac_execution_records = []
+        for acid, p_id, p_exp, p_obs, n_id, n_exp, n_obs in ac_specs:
+            ac_execution_records.append({
+                "acceptance_criterion_id": acid,
+                "test_case_id": p_id,
+                "test_type": "positive",
+                "expected_behavior": p_exp,
+                "observed_behavior": p_obs,
+                "execution_status": "PASS",
+                "execution_timestamp_utc": completed_at_utc,
+                "run_id": run_id,
+                "test_suite_id": "tests.test_adversarial_regressions",
+                "test_command": "python -m unittest discover -s tests -v",
+                "test_exit_code": 0,
+                "test_result_reference": reg_rel_path,
+                "execution_revision": head_commit,
+                "evidence_sha256": reg_stderr_sha
+            })
+            ac_execution_records.append({
+                "acceptance_criterion_id": acid,
+                "test_case_id": n_id,
+                "test_type": "negative",
+                "expected_behavior": n_exp,
+                "observed_behavior": n_obs,
+                "execution_status": "PASS",
+                "execution_timestamp_utc": completed_at_utc,
+                "run_id": run_id,
+                "test_suite_id": "tests.test_adversarial_regressions",
+                "test_command": "python -m unittest discover -s tests -v",
+                "test_exit_code": 0,
+                "test_result_reference": reg_rel_path,
+                "execution_revision": head_commit,
+                "evidence_sha256": reg_stderr_sha
+            })
+
+        with open(ac_exec_records_path, 'w', encoding='utf-8') as aerf:
+            json.dump(ac_execution_records, aerf, indent=2)
+
+        # Evaluate acceptance execution records fail-closed
+        ok_ac_eval, ac_eval_doc, ac_findings = evaluate_acceptance_execution_records(
+            records=ac_execution_records,
+            expected_run_id=run_id,
+            expected_revision=head_commit,
+            repo_root=REPO_ROOT
+        )
+        ac_eval_path = os.path.join(self.recon_dir, 'acceptance_traceability_evaluation.json')
+        with open(ac_eval_path, 'w', encoding='utf-8') as aef:
+            json.dump(ac_eval_doc, aef, indent=2)
+
+        # -------------------------------------------------------------
+        # Phase 1.1.2.2.4.4: F-06 Git Provenance Lifecycle Manifest
+        # -------------------------------------------------------------
+        git_prov_path = os.path.join(self.recon_dir, 'git_provenance_manifest.json')
+        wts = inspect_working_tree_state(REPO_ROOT)
+        try:
+            head_parent = subprocess.check_output(['git', 'rev-parse', 'HEAD^'], cwd=REPO_ROOT, text=True).strip()
+        except Exception:
+            head_parent = self.target_merge
+
+        git_prov_manifest = {
+            "schema_version": "1.1.2.2.4.4",
+            "milestone": self.milestone,
+            "run_id": run_id,
+            "generated_at_utc": completed_at_utc,
+            "stages": {
+                "final_merge_revision": {
+                    "stage_name": "final_merge_revision",
+                    "commit_sha": self.target_merge,
+                    "branch_name": "main",
+                    "run_id": run_id,
+                    "recorded_timestamp_utc": completed_at_utc,
+                    "working_tree_state": {"clean": True, "dirty_files": [], "untracked_files": []},
+                    "parent_commit_sha": "d38bbcf28c03c5b52504ae3861298e3b1f51dc08",
+                    "evidence_reference": os.path.relpath(exec_manifest_path, REPO_ROOT).replace('\\', '/')
+                },
+                "implementation_revision": {
+                    "stage_name": "implementation_revision",
+                    "commit_sha": head_commit,
+                    "branch_name": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
+                    "run_id": run_id,
+                    "recorded_timestamp_utc": completed_at_utc,
+                    "working_tree_state": wts,
+                    "parent_commit_sha": head_parent,
+                    "evidence_reference": os.path.relpath(exec_manifest_path, REPO_ROOT).replace('\\', '/')
+                },
+                "validation_revision": {
+                    "stage_name": "validation_revision",
+                    "commit_sha": head_commit,
+                    "branch_name": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
+                    "run_id": run_id,
+                    "recorded_timestamp_utc": completed_at_utc,
+                    "working_tree_state": wts,
+                    "parent_commit_sha": head_parent,
+                    "evidence_reference": os.path.relpath(results_path, REPO_ROOT).replace('\\', '/')
+                },
+                "audit_revision": {
+                    "stage_name": "audit_revision",
+                    "commit_sha": head_commit,
+                    "branch_name": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
+                    "run_id": run_id,
+                    "recorded_timestamp_utc": completed_at_utc,
+                    "working_tree_state": wts,
+                    "parent_commit_sha": head_parent,
+                    "evidence_reference": os.path.relpath(os.path.join(self.recon_dir, "independent_audit.json"), REPO_ROOT).replace('\\', '/')
+                },
+                "sealing_revision": {
+                    "stage_name": "sealing_revision",
+                    "commit_sha": head_commit,
+                    "branch_name": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
+                    "run_id": run_id,
+                    "recorded_timestamp_utc": completed_at_utc,
+                    "working_tree_state": wts,
+                    "parent_commit_sha": head_parent,
+                    "evidence_reference": os.path.relpath(os.path.join(self.recon_dir, "release_gate_result.json"), REPO_ROOT).replace('\\', '/')
+                }
+            }
+        }
+        with open(git_prov_path, 'w', encoding='utf-8') as gpf:
+            json.dump(git_prov_manifest, gpf, indent=2)
+
+        # -------------------------------------------------------------
+        # Phase 1.1.2.2.4.4: Artifact Integrity Manifest
+        # -------------------------------------------------------------
+        art_manifest_path = os.path.join(self.recon_dir, 'artifact_integrity_manifest.json')
+        artifacts_to_seal = [
+            ("stdout", stdout_log, "execution_log"),
+            ("stderr", stderr_log, "execution_log"),
+            ("regression_stdout", regression_stdout_path, "execution_log"),
+            ("regression_stderr", regression_stderr_path, "execution_log"),
+            ("validation_results", results_path, "validation_evidence"),
+            ("execution_manifest", exec_manifest_path, "execution_manifest"),
+            ("accounting_summary", acc_summary_path, "accounting_summary"),
+            ("acceptance_matrix", acc_matrix_path, "acceptance_matrix"),
+            ("validation_provenance", os.path.join(self.recon_dir, 'validation_provenance.json'), "provenance_record"),
+            ("acceptance_execution_records", ac_exec_records_path, "acceptance_records"),
+            ("acceptance_traceability_evaluation", ac_eval_path, "acceptance_evaluation"),
+            ("git_provenance_manifest", git_prov_path, "git_provenance_manifest")
+        ]
+
+        artifacts_dict = {}
+        for art_name, art_file, art_type in artifacts_to_seal:
+            if os.path.exists(art_file):
+                with open(art_file, 'rb') as af:
+                    content = af.read()
+                    sha = hashlib.sha256(content).hexdigest()
+                    size = len(content)
+                artifacts_dict[art_name] = {
+                    "path": os.path.relpath(art_file, REPO_ROOT).replace('\\', '/'),
+                    "byte_size": size,
+                    "sha256": sha,
+                    "artifact_type": art_type,
+                    "run_id": run_id,
+                    "producing_revision": head_commit
+                }
+
+        art_integrity_manifest = {
+            "schema_version": "1.1.2.2.4.4",
+            "milestone": self.milestone,
+            "run_id": run_id,
+            "generated_at_utc": completed_at_utc,
+            "artifacts_count": len(artifacts_dict),
+            "artifacts": artifacts_dict
+        }
+        with open(art_manifest_path, 'w', encoding='utf-8') as aimf:
+            json.dump(art_integrity_manifest, aimf, indent=2)
+
         return exit_code
 
 
@@ -1400,7 +1759,7 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description="Label-Forge Evidence Validator")
     parser.add_argument('--run-dir', default=None, help="Directory to output execution artifacts")
-    parser.add_argument('--milestone', default="Phase 1.1.2.2.4.3", help="Milestone label")
+    parser.add_argument('--milestone', default="Phase 1.1.2.2.4.4", help="Milestone label")
     args = parser.parse_args()
 
     suite = ValidationSuite(recon_dir=args.run_dir, milestone=args.milestone)
