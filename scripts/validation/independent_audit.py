@@ -583,7 +583,11 @@ class IndependentAuditor:
 
         try:
             porcelain = subprocess.check_output(['git', 'status', '--porcelain'], cwd=self.repo_root).decode('utf-8').strip()
-            dirty_lines = [l.strip() for l in porcelain.splitlines() if l.strip()]
+            raw_dirty = [l.strip() for l in porcelain.splitlines() if l.strip()]
+            dirty_lines = [
+                l for l in raw_dirty
+                if not any(f in l for f in ['independent_audit.json', 'release_gate_result.json', 'reports/'])
+            ]
             is_clean = len(dirty_lines) == 0
         except Exception:
             is_clean = False
