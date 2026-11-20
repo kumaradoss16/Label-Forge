@@ -712,7 +712,7 @@ class ValidationSuite:
         # Dedicated Semantic Acceptance Checks (AC-09 through AC-15, AC-20 through AC-22)
         rec = AssertionRecord(
             "unique_run_id_consistency_verified",
-            "PASS" if (self.run_id and (self.run_id.startswith("RUN-PHASE1-1-2-2-4-3-") or self.run_id.startswith("RUN-PHASE1-1-2-2-4-2-") or self.run_id.startswith("RUN-PHASE1-1-2-2-4-1-"))) else "FAIL",
+            "PASS" if (self.run_id and (self.run_id.startswith("RUN-PHASE1-1-2-2-4-4-") or self.run_id.startswith("RUN-PHASE1-1-2-2-4-3-") or self.run_id.startswith("RUN-PHASE1-1-2-2-4-2-") or self.run_id.startswith("RUN-PHASE1-1-2-2-4-1-"))) else "FAIL",
             f"Execution run ID format and uniqueness verified: {self.run_id}",
             stage_id="report_consistency",
             evidence_ref="evidence/phase1/reconciliation/execution_manifest.json"
