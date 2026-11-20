@@ -893,27 +893,16 @@ class IndependentAuditor:
                         if not neg:
                             ac_exec_findings.append(f"{acid}: Missing passing negative execution record")
 
-                    # Write independent acceptance traceability evaluation
+                    # Verify existing acceptance_traceability_evaluation.json if present
                     eval_out_path = os.path.join(self.recon_dir, 'acceptance_traceability_evaluation.json')
-                    eval_criteria = []
-                    for acid in sorted(by_criterion.keys()):
-                        recs = by_criterion[acid]
-                        eval_criteria.append({
-                            "criterion_id": acid,
-                            "positive_count": len([r for r in recs if r.get("test_type") == "positive"]),
-                            "negative_count": len([r for r in recs if r.get("test_type") == "negative"]),
-                            "evaluation_status": "PASS" if any(r.get("test_type") == "positive" and r.get("execution_status") == "PASS" for r in recs) and any(r.get("test_type") == "negative" and r.get("execution_status") == "PASS" for r in recs) else "FAIL"
-                        })
-                    eval_doc = {
-                        "schema_version": "1.1.2.2.4.4",
-                        "milestone": "Phase 1.1.2.2.4.4",
-                        "evaluation_status": "APPROVED" if len(ac_exec_findings) == 0 else "REJECTED",
-                        "total_criteria": len(eval_criteria),
-                        "criteria_evaluations": eval_criteria,
-                        "findings": ac_exec_findings
-                    }
-                    with open(eval_out_path, 'w', encoding='utf-8') as ef:
-                        json.dump(eval_doc, ef, indent=2)
+                    if os.path.exists(eval_out_path):
+                        try:
+                            with open(eval_out_path, 'r', encoding='utf-8') as ef:
+                                val_eval = json.load(ef)
+                            if val_eval.get('evaluation_status') != 'APPROVED':
+                                ac_exec_findings.append(f"acceptance_traceability_evaluation status is {val_eval.get('evaluation_status')}")
+                        except Exception as e:
+                            ac_exec_findings.append(f"Failed to read acceptance_traceability_evaluation.json: {e}")
 
             except Exception as e:
                 ac_exec_findings.append(f"Error parsing acceptance_execution_records.json: {e}")
