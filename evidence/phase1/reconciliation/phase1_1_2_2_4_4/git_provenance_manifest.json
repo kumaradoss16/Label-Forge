@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1.2.2.4.4",
   "milestone": "Phase 1.1.2.2.4.4",
-  "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
-  "generated_at_utc": "2026-11-20T16:32:48.172008+00:00",
+  "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+  "generated_at_utc": "2026-11-20T16:35:51.252753+00:00",
   "stages": {
     "final_merge_revision": {
       "stage_name": "final_merge_revision",
       "commit_sha": "4e63e50d2a46340d1a2ce89646c6ea135b5422fe",
       "branch_name": "main",
-      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
-      "recorded_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "recorded_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
       "working_tree_state": {
         "clean": true,
         "dirty_files": [],
@@ -20,74 +20,102 @@
     },
     "implementation_revision": {
       "stage_name": "implementation_revision",
-      "commit_sha": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
+      "commit_sha": "66fe846839a45219c35149401c07e40520782a29",
       "branch_name": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
-      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
-      "recorded_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "recorded_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
       "working_tree_state": {
         "clean": false,
-        "dirty_lines": 1,
-        "tracked_modified": 0,
+        "dirty_lines": 8,
+        "tracked_modified": 7,
         "untracked": 1,
         "raw_lines": [
-          "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/"
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_execution_records.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_traceability_evaluation.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/accounting_summary.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/execution_manifest.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_provenance.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_results.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/windows_validation/phase1_1_2_2_stdout.txt",
+          "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/"
         ]
       },
-      "parent_commit_sha": "7457ab1921df264eb568ae7604da0f0fcecb46b8",
+      "parent_commit_sha": "e7b1c96e453bd33a59e7eacde0f3894f1ee21993",
       "evidence_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/execution_manifest.json"
     },
     "validation_revision": {
       "stage_name": "validation_revision",
-      "commit_sha": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
+      "commit_sha": "66fe846839a45219c35149401c07e40520782a29",
       "branch_name": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
-      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
-      "recorded_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "recorded_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
       "working_tree_state": {
         "clean": false,
-        "dirty_lines": 1,
-        "tracked_modified": 0,
+        "dirty_lines": 8,
+        "tracked_modified": 7,
         "untracked": 1,
         "raw_lines": [
-          "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/"
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_execution_records.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_traceability_evaluation.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/accounting_summary.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/execution_manifest.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_provenance.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_results.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/windows_validation/phase1_1_2_2_stdout.txt",
+          "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/"
         ]
       },
-      "parent_commit_sha": "7457ab1921df264eb568ae7604da0f0fcecb46b8",
+      "parent_commit_sha": "e7b1c96e453bd33a59e7eacde0f3894f1ee21993",
       "evidence_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_results.json"
     },
     "audit_revision": {
       "stage_name": "audit_revision",
-      "commit_sha": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
+      "commit_sha": "66fe846839a45219c35149401c07e40520782a29",
       "branch_name": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
-      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
-      "recorded_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "recorded_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
       "working_tree_state": {
         "clean": false,
-        "dirty_lines": 1,
-        "tracked_modified": 0,
+        "dirty_lines": 8,
+        "tracked_modified": 7,
         "untracked": 1,
         "raw_lines": [
-          "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/"
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_execution_records.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_traceability_evaluation.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/accounting_summary.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/execution_manifest.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_provenance.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_results.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/windows_validation/phase1_1_2_2_stdout.txt",
+          "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/"
         ]
       },
-      "parent_commit_sha": "7457ab1921df264eb568ae7604da0f0fcecb46b8",
+      "parent_commit_sha": "e7b1c96e453bd33a59e7eacde0f3894f1ee21993",
       "evidence_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/independent_audit.json"
     },
     "sealing_revision": {
       "stage_name": "sealing_revision",
-      "commit_sha": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
+      "commit_sha": "66fe846839a45219c35149401c07e40520782a29",
       "branch_name": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
-      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
-      "recorded_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
+      "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
+      "recorded_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
       "working_tree_state": {
         "clean": false,
-        "dirty_lines": 1,
-        "tracked_modified": 0,
+        "dirty_lines": 8,
+        "tracked_modified": 7,
         "untracked": 1,
         "raw_lines": [
-          "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/"
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_execution_records.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_traceability_evaluation.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/accounting_summary.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/execution_manifest.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_provenance.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_results.json",
+          " M evidence/phase1/reconciliation/phase1_1_2_2_4_4/windows_validation/phase1_1_2_2_stdout.txt",
+          "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/"
         ]
       },
-      "parent_commit_sha": "7457ab1921df264eb568ae7604da0f0fcecb46b8",
+      "parent_commit_sha": "e7b1c96e453bd33a59e7eacde0f3894f1ee21993",
       "evidence_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/release_gate_result.json"
     }
   }

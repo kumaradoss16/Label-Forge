@@ -6,14 +6,14 @@
     "expected_behavior": "PR #9 baseline merge commit 4e63e50d2a46340d1a2ce89646c6ea135b5422fe resolves as a valid Git commit object.",
     "observed_behavior": "PR #9 baseline merge commit 4e63e50d2a46340d1a2ce89646c6ea135b5422fe successfully resolved as commit object.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-01",
@@ -22,14 +22,14 @@
     "expected_behavior": "Non-existent baseline merge commit is rejected with error.",
     "observed_behavior": "Non-existent baseline merge commit rejected with error: commit object does not exist.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-02",
@@ -38,14 +38,14 @@
     "expected_behavior": "PR #9 merge tree SHA 9f5567d497edfb6e9e6e62dcc6343c187b1ed5d4 resolves and matches expected tree object.",
     "observed_behavior": "PR #9 merge tree SHA matches expected 9f5567d497edfb6e9e6e62dcc6343c187b1ed5d4.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-02",
@@ -54,14 +54,14 @@
     "expected_behavior": "Mismatched tree SHA is rejected with error.",
     "observed_behavior": "Mismatched tree SHA rejected with error: tree digest does not match expected.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-03",
@@ -70,14 +70,14 @@
     "expected_behavior": "PR #9 merge commit and sealing commit f9702d50196416efd78545f7093fb9d3de6df307 are TREE_EQUIVALENT.",
     "observed_behavior": "PR #9 merge commit and sealing commit verified to be TREE_EQUIVALENT.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-03",
@@ -86,14 +86,14 @@
     "expected_behavior": "Sealing commit with differing tree SHA is rejected.",
     "observed_behavior": "Inequivalent sealing tree rejected with error: trees are not identical.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-04",
@@ -102,14 +102,14 @@
     "expected_behavior": "Mandatory provenance lifecycle fields schema is verified.",
     "observed_behavior": "All mandatory provenance lifecycle schema fields verified.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-04",
@@ -118,14 +118,14 @@
     "expected_behavior": "Missing mandatory lifecycle field in provenance is rejected.",
     "observed_behavior": "Missing mandatory lifecycle field rejected with error: missing required key.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-05",
@@ -134,14 +134,14 @@
     "expected_behavior": "Provenance validated_commit_sha matches checked out Git revision.",
     "observed_behavior": "Validated revision in provenance strictly matches checked out Git HEAD.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-05",
@@ -150,14 +150,14 @@
     "expected_behavior": "Mismatched validated revision is rejected.",
     "observed_behavior": "Mismatched validated revision rejected with error: revision does not match HEAD.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-06",
@@ -166,14 +166,14 @@
     "expected_behavior": "Working-tree cleanliness verified across entire repository with zero exclusions.",
     "observed_behavior": "Working-tree cleanliness verified with zero uncommitted or untracked files.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-06",
@@ -182,14 +182,14 @@
     "expected_behavior": "Dirty working tree with untracked/modified files is rejected.",
     "observed_behavior": "Dirty working tree rejected with error: uncommitted modifications present.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-07",
@@ -198,14 +198,14 @@
     "expected_behavior": "Fresh Phase 1.1.2.2.4.4 execution performed against exact validated revision.",
     "observed_behavior": "Fresh execution verified under Phase 1.1.2.2.4.4 milestone.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-07",
@@ -214,14 +214,14 @@
     "expected_behavior": "Stale or inverted execution timestamps are rejected.",
     "observed_behavior": "Inverted execution timestamps rejected with error: completed timestamp precedes start.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-08",
@@ -230,14 +230,14 @@
     "expected_behavior": "Windows runtime environment verified (Windows 10 x64 host).",
     "observed_behavior": "Runtime platform verified as Windows.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-08",
@@ -246,30 +246,30 @@
     "expected_behavior": "Non-Windows execution runtime is rejected.",
     "observed_behavior": "Non-Windows platform rejected with error: platform unsupported.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-09",
     "test_case_id": "tests.test_adversarial_regressions.TestPhase112244AcceptanceExecutionTraceability.test_AC09_run_id_consistency_verified",
     "test_type": "positive",
     "expected_behavior": "Execution run ID is consistent across all artifacts.",
-    "observed_behavior": "Consistent execution run ID verified across all artifacts (RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4).",
+    "observed_behavior": "Consistent execution run ID verified across all artifacts (RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4).",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-09",
@@ -278,14 +278,14 @@
     "expected_behavior": "Mismatched run ID across execution evidence is rejected.",
     "observed_behavior": "Mismatched run ID rejected with error: run_id does not match manifest.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-10",
@@ -294,14 +294,14 @@
     "expected_behavior": "Complete stdout, stderr, and regression log artifacts exist.",
     "observed_behavior": "All 4 execution log artifacts exist in executions directory.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-10",
@@ -310,14 +310,14 @@
     "expected_behavior": "Missing execution log artifact is rejected.",
     "observed_behavior": "Missing execution log artifact rejected with error: log file not found.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-11",
@@ -326,14 +326,14 @@
     "expected_behavior": "Execution artifacts have verified byte sizes and SHA-256 hashes.",
     "observed_behavior": "Byte sizes and SHA-256 hashes independently verified against filesystem.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-11",
@@ -342,14 +342,14 @@
     "expected_behavior": "Tampered execution artifact with digest mismatch is rejected.",
     "observed_behavior": "Tampered execution artifact rejected with error: sha256 checksum mismatch.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-12",
@@ -358,14 +358,14 @@
     "expected_behavior": "Artifact paths are contained in repository and safe from traversal/symlinks.",
     "observed_behavior": "Artifact paths verified to be repo-contained with zero symlink escapes.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-12",
@@ -374,14 +374,14 @@
     "expected_behavior": "Path traversal or symlink escape is rejected.",
     "observed_behavior": "Path traversal escape rejected with error: target path outside repository boundary.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-13",
@@ -390,14 +390,14 @@
     "expected_behavior": "Authoritative validation records conform to canonical 13-field schema.",
     "observed_behavior": "All 189 check records conform to canonical 13-field schema.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-13",
@@ -406,14 +406,14 @@
     "expected_behavior": "Check record with missing/extra fields is rejected.",
     "observed_behavior": "Non-canonical schema record rejected with error: missing required fields.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-14",
@@ -422,14 +422,14 @@
     "expected_behavior": "Global accounting totals derived directly from individual check records.",
     "observed_behavior": "Global totals derived mathematically from individual check records.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-14",
@@ -438,14 +438,14 @@
     "expected_behavior": "Inconsistent global totals not matching check records are rejected.",
     "observed_behavior": "Inconsistent global totals rejected with error: calculated count mismatch.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-15",
@@ -454,14 +454,14 @@
     "expected_behavior": "All 10 registered stage totals reconcile with global totals.",
     "observed_behavior": "All 10 registered stage totals reconcile with global check count.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-15",
@@ -470,14 +470,14 @@
     "expected_behavior": "Unreconciled stage totals differing from global count are rejected.",
     "observed_behavior": "Unreconciled stage totals rejected with error: stage sum mismatch.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-16",
@@ -486,14 +486,14 @@
     "expected_behavior": "Claim classifications reconcile across register, results, and summary.",
     "observed_behavior": "Claim classifications reconciled across all artifacts.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-16",
@@ -502,14 +502,14 @@
     "expected_behavior": "Duplicate claim IDs or classification mismatches are rejected.",
     "observed_behavior": "Duplicate claim IDs rejected with error: non-unique claim in registry.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-17",
@@ -518,14 +518,14 @@
     "expected_behavior": "P1-015 physical missing and obsolete placeholders remain distinct.",
     "observed_behavior": "P1-015 distinct categorization verified.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-17",
@@ -534,14 +534,14 @@
     "expected_behavior": "Collapsing missing and obsolete placeholders is rejected.",
     "observed_behavior": "Collapsed module classification rejected with error: invalid conflation.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-18",
@@ -550,14 +550,14 @@
     "expected_behavior": "P1-020 does not claim .NET runtime behavior without runtime execution.",
     "observed_behavior": "P1-020 static IL scoping verified without dynamic runtime overstatement.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-18",
@@ -566,14 +566,14 @@
     "expected_behavior": "Unsupported runtime claim without execution proof is rejected.",
     "observed_behavior": "Unsupported runtime claim rejected with error: unverified dynamic behavior.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-19",
@@ -582,14 +582,14 @@
     "expected_behavior": "P1-022 does not overstate licensing assembly identity as WCF runtime proof.",
     "observed_behavior": "P1-022 assembly presence verified without overstating WCF runtime.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-19",
@@ -598,14 +598,14 @@
     "expected_behavior": "Overstating static presence as active WCF proof is rejected.",
     "observed_behavior": "Overstated WCF evidence rejected with error: missing runtime communication trace.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-20",
@@ -614,14 +614,14 @@
     "expected_behavior": "Production-function regression and adversarial tests execute successfully.",
     "observed_behavior": "Regression and adversarial test suite executed with exit code 0.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-20",
@@ -630,14 +630,14 @@
     "expected_behavior": "Failing test suite (non-zero exit code) is rejected.",
     "observed_behavior": "Failing test suite rejected with error: non-zero returncode.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-21",
@@ -646,14 +646,14 @@
     "expected_behavior": "CI state is accurately reported as UNAVAILABLE without false pass claims.",
     "observed_behavior": "CI status accurately recorded as UNAVAILABLE.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-21",
@@ -662,14 +662,14 @@
     "expected_behavior": "Claiming CI pass without remote execution proof is rejected.",
     "observed_behavior": "False CI pass claim rejected with error: missing remote CI logs.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-22",
@@ -678,14 +678,14 @@
     "expected_behavior": "Independent release-gate evaluator produces APPROVED only when criteria satisfied.",
     "observed_behavior": "Release gate evaluator verified to enforce fail-closed approval.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   },
   {
     "acceptance_criterion_id": "AC-22",
@@ -694,13 +694,13 @@
     "expected_behavior": "Release gate approval when checks fail is rejected.",
     "observed_behavior": "Invalid release gate approval rejected with error: failing invariants present.",
     "execution_status": "PASS",
-    "execution_timestamp_utc": "2026-11-20T16:32:48.172008+00:00",
-    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+    "execution_timestamp_utc": "2026-11-20T16:35:51.252753+00:00",
+    "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
     "test_suite_id": "tests.test_adversarial_regressions",
     "test_command": "python -m unittest discover -s tests -v",
     "test_exit_code": 0,
-    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-    "execution_revision": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "evidence_sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+    "test_result_reference": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+    "execution_revision": "66fe846839a45219c35149401c07e40520782a29",
+    "evidence_sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
   }
 ]

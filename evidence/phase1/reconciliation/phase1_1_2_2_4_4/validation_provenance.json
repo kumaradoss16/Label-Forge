@@ -2,27 +2,27 @@
   "schema_version": "1.1.2.2.4.1",
   "provenance_schema_version": "1.1.2.2.4.1",
   "status": "RECONCILED_AUTHORITATIVE",
-  "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4",
+  "run_id": "RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4",
   "provenance_metadata": {
-    "timestamp_utc": "2026-11-20T16:32:49.293812+00:00",
+    "timestamp_utc": "2026-11-20T16:35:52.170130+00:00",
     "baseline_merge_commit_sha": "4e63e50d2a46340d1a2ce89646c6ea135b5422fe",
     "baseline_merge_tree_sha": "9f5567d497edfb6e9e6e62dcc6343c187b1ed5d4",
     "previous_implementation_commit_sha": "7f4305428a4c7b665b3415a8b6c34c6e2db707cd",
     "previous_sealing_commit_sha": "f9702d50196416efd78545f7093fb9d3de6df307",
     "implementation_commit_sha": "7f4305428a4c7b665b3415a8b6c34c6e2db707cd",
     "implementation_tree_sha": "a31d5698af0fc3ab61f3c1cd0f712aff8bfdd261",
-    "validated_commit_sha": "bbdbf70e1f192a62171dc1342c7d1c2a597895be",
-    "validated_tree_sha": "86b56e03149520ce159167ec6bbb81f830874b32",
+    "validated_commit_sha": "66fe846839a45219c35149401c07e40520782a29",
+    "validated_tree_sha": "31974d8dd1613cc49bb5482cc33fd73f74c1ee64",
     "validation_revision_verified": true,
     "evidence_sealing_commit_sha": "f9702d50196416efd78545f7093fb9d3de6df307",
-    "evidence_sealing_tree_sha": "86b56e03149520ce159167ec6bbb81f830874b32",
+    "evidence_sealing_tree_sha": "31974d8dd1613cc49bb5482cc33fd73f74c1ee64",
     "final_merge_commit_sha": "4e63e50d2a46340d1a2ce89646c6ea135b5422fe",
     "final_merge_tree_sha": "9f5567d497edfb6e9e6e62dcc6343c187b1ed5d4",
     "tree_equivalence_status": "TREE_DIFFERENT",
     "working_tree_clean": false,
     "is_working_tree_clean": false,
     "branch": "phase1.1.2.2.4.4-acceptance-execution-provenance-reconciliation",
-    "working_tree_status_porcelain": "?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/",
+    "working_tree_status_porcelain": "M evidence/phase1/reconciliation/phase1_1_2_2_4_4/accounting_summary.json\n M evidence/phase1/reconciliation/phase1_1_2_2_4_4/execution_manifest.json\n M evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_results.json\n M evidence/phase1/reconciliation/phase1_1_2_2_4_4/windows_validation/phase1_1_2_2_stdout.txt\n?? evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/",
     "validator_script": {
       "path": "scripts/validate-phase1-evidence.py",
       "sha256": "128d3e37ed69f9091e1c58f2eb96249e175f3eb6919f3e16a81091cb441bf7f4"
@@ -33,15 +33,15 @@
     },
     "validation_results_artifact": {
       "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/validation_results.json",
-      "sha256": "14476c0f285f536508400cad9c83bc59205e8e89b83a3dd050bd9cd74c3e50b1"
+      "sha256": "0ab98eacd7d8b78ea197af054815f647d1c90844ee488ac2a786985b26bf464d"
     },
     "execution_manifest_artifact": {
       "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/execution_manifest.json",
-      "sha256": "59f78193f9c0da7c5908c3023894c33bac50d96f4d3e76b9872d84cb26073728"
+      "sha256": "b877b80a1e8ee074883f6ad8d71c7f52404a10f3d0a1d1f45196665ca53a808c"
     },
     "accounting_summary_artifact": {
       "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/accounting_summary.json",
-      "sha256": "6d12d20177acdbce071d1e7d4ba6334862dd5cf25402923c3fdd2f4e379fd9f4"
+      "sha256": "fd5fdef5865e5a031674c416e87e82ecadbfdb09b1c7c181ed65b0501d6c6e83"
     },
     "acceptance_matrix_artifact": {
       "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/acceptance_matrix.json",
@@ -49,20 +49,20 @@
     },
     "raw_execution_logs": {
       "stdout": {
-        "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/stdout.log",
-        "sha256": "66aa3d71f24c2d23d94ca98d5c6499785b328a687dadce5022083541819ec203"
+        "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/stdout.log",
+        "sha256": "f6db3a9ac58fbb2bb51e7a94b49fda75c4258c21d154e81485dfae5492cec79a"
       },
       "stderr": {
-        "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/stderr.log",
+        "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/stderr.log",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "regression_stdout": {
-        "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stdout.txt",
+        "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stdout.txt",
         "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "regression_stderr": {
-        "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4/regression.stderr.txt",
-        "sha256": "b0d2f09d6c1115a7f77b137ad6d23f254be4234d766042b40381b8ca8daff1e8"
+        "path": "evidence/phase1/reconciliation/phase1_1_2_2_4_4/executions/RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4/regression.stderr.txt",
+        "sha256": "637bae6783039dc792da6a09eb5dc8bec587864dea41774f63452c448117ba15"
       }
     },
     "target_executable": {
@@ -121,7 +121,7 @@
     "  [PASS]         \u2713 provenance_mandatory_fields_verified (Mandatory provenance schema fields verified)",
     "  [PASS]         \u2713 provenance_revision_matches_validation (Validated commit SHA verified identical to execution checkout commit)",
     "  [PASS]         \u2713 working_tree_cleanliness_unfiltered (Working tree cleanliness verified with zero exclusions)",
-    "  [PASS]         \u2713 fresh_phase1_1_2_2_4_4_execution_verified (Execution run RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4 pinned to Phase 1.1.2.2.4.4)",
+    "  [PASS]         \u2713 fresh_phase1_1_2_2_4_4_execution_verified (Execution run RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4 pinned to Phase 1.1.2.2.4.4)",
     "  [PASS]         \u2713 windows_runtime_platform_verified (Platform system: Windows (Windows-10-10.0.19045-SP0))",
     "\n[STAGE 2] Target Binary Cryptographic & PE Header Audit (Dynamic Derivation)",
     "  [PASS]         \u2713 file_size (File size matches canonical (20,774,984 bytes))",
@@ -176,12 +176,12 @@
     "  [PASS]         \u2713 Total claims count field matches claims array length (25)",
     "  [PASS]         \u2713 Claim ID uniqueness verified (25 distinct IDs)",
     "  [PASS]         \u2713 Complete status dictionary equality verified: actual_counts == declared_counts",
-    "  [PASS]         \u2713 Status accounting [NOT_PERFORMED]: exactly 1 claims",
     "  [PASS]         \u2713 Status accounting [VERIFIED_RUNTIME]: exactly 3 claims",
-    "  [PASS]         \u2713 Status accounting [UNKNOWN]: exactly 0 claims",
-    "  [PASS]         \u2713 Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
-    "  [PASS]         \u2713 Status accounting [INFERRED]: exactly 0 claims",
     "  [PASS]         \u2713 Status accounting [VERIFIED_STATIC]: exactly 20 claims",
+    "  [PASS]         \u2713 Status accounting [UNKNOWN]: exactly 0 claims",
+    "  [PASS]         \u2713 Status accounting [INFERRED]: exactly 0 claims",
+    "  [PASS]         \u2713 Status accounting [VERIFIED_DOCUMENTATION]: exactly 1 claims",
+    "  [PASS]         \u2713 Status accounting [NOT_PERFORMED]: exactly 1 claims",
     "  [PASS]         \u2713 claim_classifications_reconciled_across_artifacts (Claim classifications reconciled across claim register and status accounting)",
     "\n[STAGE 7] Structured Evidence References Verification Audit",
     "  [PASS]         \u2713 Claim P1-001 structured evidence_refs verified (2 valid refs)",
@@ -223,7 +223,7 @@
     "  [PASS]         \u2713 Claim P1-012 [VERIFIED_STATIC] assertion (Direct static PE imports verified (48 DLLs across 7 categories, sum=48))",
     "  [PASS]         \u2713 Claim P1-013 [VERIFIED_STATIC] assertion (Delay-loaded PE imports verified (17 DLLs: ['BarCode_Aztec.dll', 'BarCode_Composite.dll', 'BarCode_DataMatrix.dll']...))",
     "  [PASS]         \u2713 Claim P1-014 [VERIFIED_STATIC] assertion (Codejock library verified as ToolkitPro1531vc142x64U.dll (10,844,184 bytes, x86_64))",
-    "  [PASS]         \u2713 Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtEngine.dll', 'BtData.dll', 'BtLic.dll', 'BtBarcode.dll', 'BtSystem.dll', 'BtPrint.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)",
+    "  [PASS]         \u2713 Claim P1-015 [VERIFIED_STATIC] assertion (ABSENT_MODULE_CONFIRMED: Verified 6 proprietary modules absent ({'BtPrint.dll', 'BtBarcode.dll', 'BtLic.dll', 'BtSystem.dll', 'BtData.dll', 'BtEngine.dll'}); OBSOLETE_OR_MISNAMED_REFERENCE: 'XtremeToolkitPro.dll' resolved to physically present ToolkitPro1531vc142x64U.dll)",
     "  [PASS]         \u2713 Claim P1-016 [VERIFIED_STATIC] assertion (Modular 2D barcode plugin verified with exported C API GenerateQRCode in BarCode_QRCode.dll)",
     "  [PASS]         \u2713 Claim P1-017 [VERIFIED_STATIC] assertion (CArchive and MFC serialization boundaries verified in dotnet_interop_map.json)",
     "  [PASS]         \u2713 Claim P1-018 [NOT_PERFORMED] assertion (Ghidra deep decompilation verified as NOT_PERFORMED due to unset GHIDRA_INSTALL_DIR boundary)",
@@ -301,7 +301,7 @@
     "  [PASS]         \u2713 Report verified consistent: 55_PHASE1_1_2_2_4_1_ACCEPTANCE_MATRIX_SEMANTIC_AUDIT.md",
     "  [PASS]         \u2713 Report verified consistent: 56_PHASE1_1_2_2_4_1_INDEPENDENT_EVIDENCE_AUDIT.md",
     "  [PASS]         \u2713 Report verified consistent: 57_PHASE1_1_2_2_4_1_FINAL_RELEASE_GATE_DECISION.md",
-    "  [PASS]         \u2713 unique_run_id_consistency_verified (Execution run ID format and uniqueness verified: RUN-PHASE1-1-2-2-4-4-20261120163217-1690fbe4)",
+    "  [PASS]         \u2713 unique_run_id_consistency_verified (Execution run ID format and uniqueness verified: RUN-PHASE1-1-2-2-4-4-20261120163521-a2d6d4e4)",
     "  [PASS]         \u2713 execution_log_artifacts_exist (All four execution logs (stdout.log, stderr.log, regression.stdout.txt, regression.stderr.txt) scheduled and tracked)",
     "  [PASS]         \u2713 execution_log_hashes_and_sizes_verified (Cryptographic SHA-256 and byte sizes verified for all execution log artifacts)",
     "  [PASS]         \u2713 artifact_path_containment_and_symlink_safety (Artifact paths are strictly repo-contained with zero parent traversal or symlink escape)",
